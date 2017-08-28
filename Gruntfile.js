@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
     source: 'source/',
     dest: 'dest/',
     temp: 'temp/',
-    prod: 'Z:/seller/markup/',
+    prod: 'markup/',
     
     jade: {
       dev: {
@@ -63,7 +63,8 @@ module.exports = function( grunt ) {
             [
               '<%= source%>styl/template_styles.styl',
               '<%= source%>modules/**/*.styl'
-            ]
+            ],
+          '<%= dest%>template/colors.css': '<%= source%>styl/colors.styl'
         }
       },
       components: {
@@ -96,7 +97,8 @@ module.exports = function( grunt ) {
               [
                 '<%= source%>styl/template_styles.styl',
                 '<%= source%>modules/**/*.styl'
-              ]
+              ],
+            '<%= temp%>template/colors.css': '<%= source%>styl/colors.styl'
           }
         ]
       }
@@ -232,7 +234,7 @@ module.exports = function( grunt ) {
       prodTemplate: {
         options: {
           mangle: true,
-          compress: true,
+          compress: {},
           preserveComments: 'some'
         },
         files: [
@@ -244,7 +246,7 @@ module.exports = function( grunt ) {
       prodComponents: {
         options: {
           mangle: true,
-          compress: true
+          compress: {}
         },
         files: [
           {

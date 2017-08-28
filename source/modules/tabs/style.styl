@@ -1,0 +1,118 @@
+@import '../../styl/component-include.styl'
+
+.b-tabs
+  font-size 11pt
+  
+  &__nav
+    margin 0
+    border-bottom 3px solid transparent
+    position relative
+    height auto
+    line-height normal
+    background-color transparent
+    box-shadow none
+    
+    &__menu
+      display flex
+      justify-content space-between
+      
+      a
+        color initial
+      
+      @media( max-width: 767px)
+        border-bottom none
+        display block
+    
+  &__decor
+    position absolute
+    bottom -3px
+    left 0
+    height 3px
+    width 180px
+    background-color #2f3154
+    transition( all 0.3s ease )
+    
+    @media( max-width: 767px)
+      display none
+    
+  &__tab
+    display inline-block
+    vertical-align middle
+    padding 11px 16px
+    margin-right -4px
+    text-align center
+    
+    @media( max-width: 767px)
+      display block
+      width auto !important
+      text-align center
+      padding 5px 15px
+    
+    &.i-active
+      font-weight 700
+    
+    a&:hover
+      text-decoration none
+      
+  &__i
+    opacity(0)
+    transition( opacity 1s ease )
+    display none
+    
+    &.i-active
+      opacity(1)
+      display block
+
+@media (max-width: 767px)
+
+  .b-tabs__nav
+    margin 0 -15px 20px
+    width auto
+    min-height 50px
+    
+    a
+      
+      &,
+      &:hover,
+      &:focus,
+      &:active
+        color #fff
+        
+    span
+      color #fff
+
+  .b-tabs__nav__top
+    cursor pointer
+    display block
+    font-weight bold
+
+  .b-tabs__nav__menu
+    display none
+
+  .b-tabs__nav__top,
+  .b-tabs__nav__menu
+    background-color #2f3055
+    padding 14px 20px
+    position relative
+    color #fff
+
+  .b-tabs__nav__top svg,
+  .b-tabs__nav__menu svg
+    display block
+    width 19px
+    position absolute
+    top 16px
+    right 20px
+    cursor pointer
+
+  .b-tabs__nav__menu svg
+    transform rotate(180deg)
+    -webkit-transform rotate(180deg)
+	
+@media (min-width: 768px)
+	.b-tabs__nav__top,
+	.b-tabs__nav__menu svg
+		display none !important
+	
+	.b-tabs__nav__menu
+		display flex !important

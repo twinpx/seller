@@ -1,0 +1,41 @@
+
+<!-- start /components/bx.search/-->
+<link rel="stylesheet" href="/components/bx.search.title/bx.css"/>
+<link rel="stylesheet" href="/components/bx.search.title/style.css"/>
+<script src="/components/bx.search.title/script.js"></script>
+<div id="search" class="bx_search_container">
+  <form action="/catalog/">
+    <div class="bx_field">
+      <input id="title-search-input" type="text" name="q" value="" size="23" maxlength="50" autocomplete="off" placeholder="Поиск" class="bx_input_text form-control"/>
+      <input name="s" type="submit" value="Найти" class="bx_input_submit b-button"/>
+    </div>
+  </form>
+</div>
+<div style="display: block; position: absolute; top: 53px; left: 413px; width: 30px;" class="title-search-result">
+  <div class="bx_searche">
+    <div class="bx_item_block">
+      <div class="bx_img_element">
+        <div style="background-image: url('/upload/search.jpg')" class="bx_image"></div>
+      </div>
+      <div class="bx_item_element"><a href="/catalog/platya/detskoe_plate/">Детское <b>пла</b>тье</a></div>
+      <div style="clear:both;"></div>
+    </div>
+    <div class="bx_item_block others_result">
+      <div class="bx_img_element"></div>
+      <div class="bx_item_element"><a href="/catalog/platya/"><b>Пла</b>тья</a></div>
+      <div style="clear:both;"></div>
+    </div>
+    <div style="min-height:0" class="bx_item_block">
+      <div class="bx_img_element"></div>
+      <div class="bx_item_element">
+        <hr/>
+      </div>
+    </div>
+    <div class="bx_item_block all_result">
+      <div class="bx_img_element"></div>
+      <div class="bx_item_element"><span class="all_result_title"><a href="/catalog/?q=%D0%BF%D0%BB%D0%B0">Все результаты</a></span></div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+</div>
+<!-- end /components/bx.search/-->

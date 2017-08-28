@@ -1,2 +1,69 @@
 body
   background #fff
+  font-family "Open Sans", Arial
+  font-weight 300
+  color #a0a0a0
+  line-height 1.7
+  
+  @media( max-width 767px )
+    font-weight 400
+  
+hr
+    
+  &.i-size-S
+    margin-bottom 6px
+    margin-top 6px
+    
+  &.i-line
+    border-top 1px solid #f2f2f2
+    
+.btn
+  height auto
+  text-transform none
+  padding-top 0
+  padding-bottom 0
+  
+  &:hover
+    box-shadow none
+    
+  &-size-S
+    font-size 9.5pt
+    line-height 28px
+    padding-right 12px
+    padding-left 12px
+    
+.b-hr-heading
+  border-top 1px solid #f2f2f2
+  font-family "Open Sans","Times New Roman",serif
+  font-size 10.5pt
+  font-weight 400
+  position relative
+  margin 15px 0
+
+.b-hr-heading__content
+  position absolute
+  width 100%
+  text-align center
+  top -12px
+  left 0
+  display block
+
+.b-hr-heading__content span
+  display inline-block
+  background #fff
+  padding 0 8px
+  
+  .i-grey &
+    background transparent
+  
+.b-section
+  padding 50px 0
+  
+  &.i-grey
+    background-color #f9f9f9
+    
+.table>thead>tr>th,
+.table>tbody>tr>td
+  border-bottom 1px solid #f2f2f2
+  padding 20px 8px
+  

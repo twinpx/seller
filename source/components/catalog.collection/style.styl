@@ -1,0 +1,162 @@
+@import '../../styl/component-include.styl'
+
+.b-catalog-collection
+  text-align left
+
+.b-catalog-element
+  padding-bottom 20px
+  background-color #fff
+  position relative
+  
+  &:hover
+    box-shadow 0 0 20px rgba( 0,0,0,.05 )
+    
+    .b-catalog-element__img-hover
+      opacity 1
+      
+    .b-catalog-element__button
+      width 50%
+      overflow visible
+      
+      .btn
+        opacity 1
+            
+      span
+        margin 0
+      
+    .b-catalog-element__bottom
+      opacity 1
+      top 100%
+
+  &__img
+    padding-top 130%
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    position relative
+    margin-bottom 10px
+    
+    &-hover
+      position absolute
+      top 0
+      left 0
+      width 100%
+      padding-top 130%
+      background-repeat no-repeat
+      background-position center
+      background-size cover
+      opacity 0
+      transition( opacity 0.5s ease )
+      
+  &__title
+    min-height 60px
+    display flex
+    align-items center
+    justify-content center
+    text-align center
+    padding 0 20px
+    
+  &__bottom
+    position absolute
+    top 80%
+    left 0
+    width 100%
+    z-index 10
+    background-color #fff
+    box-shadow 0 13px 20px rgba( 0,0,0,.05 )
+    padding-bottom 20px
+    opacity 0
+    transition( all 0.5s ease )
+    
+  &__price
+    font-size 13.5pt
+    font-weight 400
+    transition( all 0.5s ease )
+    width 50%
+    padding-left 35px
+        
+    &.i-discount
+      color #ff3333
+        
+      span
+        display inline-block
+        vertical-align middle
+        margin 0 auto
+      
+      s
+        color #000
+        text-decoration line-through
+        font-size 9pt
+        display block
+    
+  &__button
+    text-align right
+    padding-right 35px
+    overflow hidden
+    position absolute
+    top 0
+    right 0
+    
+    .btn
+      opacity 0
+      transition( all 0.5s ease )
+        
+  &__colors-block
+    text-align left
+    padding 9px 20px 0
+    
+  &__colors-item
+    display inline-block
+    vertical-align top
+    width 17px
+    height 17px
+    border-radius 51%
+    margin 0 14px 7px 0
+    cursor pointer
+    transition( transform 0.3s ease )
+    text-align center
+    
+    &:hover
+      transform scale( 1.3 )
+      
+    span
+      display none
+      width 10px
+      height 5px
+      margin-top 4px
+      border-left 1px solid #fff
+      border-bottom 1px solid #fff
+      transform( rotate(-45deg) )
+      
+    &.i-active
+      transform scale( 1.3 )
+      
+      span
+        display inline-block
+        vertical-align top
+    
+  &__sizes-block
+    display flex
+    justify-content left
+    flex-wrap wrap
+    padding 0 20px
+    
+  &__sizes-item
+    font-size 9pt
+    min-width 14px
+    display inline-block
+    vertical-align top
+    cursor pointer
+    text-align center
+    border-bottom 2px solid transparent
+    padding-bottom 3px
+    margin 0 10px 9px 0
+    
+    &.i-active
+      color #2f3154
+      border-bottom 2px solid #2f3154
+      
+  &__props
+    font-size 7pt
+    line-height 18px
+    padding 0 20px

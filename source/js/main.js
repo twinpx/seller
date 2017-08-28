@@ -1,1 +1,1 @@
-    console.log( 'main script' );
+$( '[data-toggle="tooltip"]' ).tooltip();

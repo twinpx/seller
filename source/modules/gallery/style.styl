@@ -1,0 +1,82 @@
+@import '../../styl/component-include.styl'
+
+.fotorama
+
+  .fotorama__arr
+    width 53px
+    height 53px
+    background-size cover
+    
+  .fotorama__arr--next
+    background embedurl( 'img/right-arrow.svg' ) no-repeat center
+    
+  .fotorama__arr--prev
+    background embedurl( 'img/left-arrow.svg' ) no-repeat center
+    
+  &--fullscreen .fotorama__fullscreen-icon
+    width 32px
+    height 32px
+    background embedurl( 'img/close.svg' ) no-repeat center !important
+    background-size cover
+    top 20px
+    right 20px
+    
+  .fotorama__thumb-border
+    border-color #2f3154
+    border-style none none solid
+    top 74px
+    background none
+    height 0 !important
+    width 65px !important
+    
+  .fotorama__nav--thumbs
+    padding-bottom 9px
+    
+  .fotorama__nav__frame--thumb
+    opacity .5
+    transition( opacity 0.3s linear )
+    
+    &.fotorama__active
+      opacity 1
+    
+  &__nav__frame.fotorama__active .fotorama__dot
+    background-color #ffce00 !important
+    
+  &__nav-wrap
+    position relative
+    
+  &.i-mob
+    .b-gallery-picture
+      padding-top 90%
+    
+.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows
+  .fotorama__fullscreen-icon:not(:focus),
+  .fotorama__arr--prev:not(:focus),
+  .fotorama__arr--next:not(:focus)
+    transform( none !important )
+
+.fotorama__wrap--css3.fotorama__wrap--video
+  .fotorama__fullscreen-icon,
+  .fotorama__arr--prev,
+  .fotorama__arr--next
+    transform( none !important )
+    
+.fotorama__nav:before,
+.fotorama__stage:before
+  display none !important
+  
+.fotorama--fullscreen .fotorama__nav, .fotorama--fullscreen .fotorama__stage
+  background-color #fff !important
+  
+.fotorama--fullscreen .fotorama__nav-wrap,
+.fotorama__fullscreen-icon
+  display none
+  
+.fotorama--fullscreen .fotorama__fullscreen-icon
+  display block
+  
+.fotorama--fullscreen .fotorama__arr--prev
+  left 20px
+  
+.fotorama--fullscreen .fotorama__arr--next
+  right 20px
