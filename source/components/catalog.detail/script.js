@@ -4,6 +4,10 @@
   
   $( function() {
   
+    setTimeout( function() {
+      $( 'body' ).addClass( 'i-load' );
+    }, 100);
+  
     $( '.b-catalog-detail__icons .b-icon-zoom' ).click( function() {
       $( '.b-catalog-detail__gallery .fotorama' ).data( 'fotorama' ).requestFullScreen();
     });

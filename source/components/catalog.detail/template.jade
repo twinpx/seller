@@ -27,7 +27,7 @@ script( src="/components/catalog.detail/script.js" )
   
   .row
     
-    .col-md-7.col-sm-11
+    .col-md-7.col-sm-11.b-catalog-detail__animation-left
     
       include ../../modules/gallery/fotorama
       include ../../modules/gallery/catalog.detail.jade
@@ -50,8 +50,10 @@ script( src="/components/catalog.detail/script.js" )
       #sizeIcon.b-icon-size( data-toggle="tooltip" data-placement="top" title="Размеры"  data-activates="slide-size-table" )
     
     hr.visible-sm.visible-xs.clearfix.i-size-M
+        
+    #slide-size-table.side-nav Таблица размеров
     
-    .col-md-4.col-sm-12
+    .col-md-4.col-sm-12.b-catalog-detail__animation-right
     
       hr.i-line
       
@@ -124,8 +126,6 @@ script( src="/components/catalog.detail/script.js" )
         
       .b-catalog-detail__size-table-link
         a( href="" data-activates="slide-size-table" ) Таблица размеров
-        
-      #slide-size-table.side-nav Таблица размеров
     
       hr.i-size-M.i-line
       
