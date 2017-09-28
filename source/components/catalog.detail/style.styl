@@ -17,12 +17,18 @@
     
     span
       display inline-block
+      
+    &-icons
+      text-align right
 
   &__rating
     display inline-block
     width 79px
     height 12px
     background embedurl( 'img/rating.png' ) no-repeat center
+    
+  &__gallery
+    position relative
     
   &__gallery-icons
     position absolute
@@ -32,6 +38,12 @@
     
   .col-sm-4 hr.i-line:first-child
     margin-top 0
+    
+  &__ill
+    border 1px solid #f2f2f2
+    
+    & > .row
+      margin-bottom 0
     
   &__price-block
     padding 0 0 2px
@@ -188,6 +200,10 @@
     text-align center
     
   &__animation-left
+    padding-left 35px
+    margin-top 20px
+    margin-bottom 20px
+    border-right 1px solid #f2f2f2
     transform( translateX( -50px ))
     transition( all 0.5s ease )
     opacity 0
@@ -195,8 +211,15 @@
     .i-load &
       transform( translateX(0))
       opacity 1
+      
+  &__icons
+    margin-top 20px
+    margin-bottom 20px
     
   &__animation-right
+    padding-right 35px
+    margin-top 20px
+    margin-bottom 20px
     transform( translateX( 50px ))
     transition( all 0.5s ease )
     opacity 0
@@ -258,12 +281,14 @@
   color #fff
   line-height 32px
   text-align center
-  margin-bottom 9px
+  margin-top -7px
   background-color #696a83
   background-size 50%
   background-repeat no-repeat
   background-position center
   font-size 9.5pt
+  display inline-block
+  vertical-align top
   
 .b-icon-recommend
   background-image embedurl( 'img/recomendation.svg' )
@@ -279,3 +304,150 @@
   
 .b-icon-discount
   background-color #ff3333
+  
+.side-nav
+  background-color #fff
+  
+  &__close
+    position absolute
+    top 65px
+    right 65px
+    width 32px
+    height 32px
+    background embedurl( 'img/close.svg' ) no-repeat center
+    background-size cover
+    cursor pointer
+    transition( opacity 0.3s ease )
+  
+    @media( min-width 768px ) and ( max-width 991px )
+      top 25px
+      right 25px
+    
+    @media( max-width 767px )
+      top 20px
+      right 20px
+    
+    &:hover
+      opacity 0.5
+  
+.b-sizes-menu
+  padding 65px 65px 65px 120px
+  
+  @media( min-width 768px ) and ( max-width 991px )
+    padding 30px
+  
+  @media( max-width 767px )
+    padding 20px
+  
+  h2
+    margin 0 0 52px
+  
+  p
+    color #333
+    font-size 9.5pt
+    margin-bottom 8px
+    line-height 1.5
+    
+  &__table
+    margin-left -15px
+    
+    table
+      font-size 8pt
+      color #333
+      
+    tr.i-hover
+      
+      td,
+      th
+        background-color #f7f7f7
+      
+      td.i-active
+        background-color #f3f3f3
+      
+    &.i-clicked
+      
+      tr.i-hover
+        
+        td,
+        th
+          background-color transparent
+        
+        td.i-clicked
+          background-color #f7f7f7
+        
+      td.i-hover
+        background-color transparent
+        
+      td.i-clicked.i-hover
+        background-color #f7f7f7
+      
+      tr
+        
+        &.i-clicked,
+        &.i-clicked.i-hover
+        
+          td,
+          th
+            background-color #f7f7f7
+      
+          td
+          
+            &.i-clicked-active,
+            &.i-clicked-active.i-hover
+              background-color #f3f3f3
+        
+    td
+      padding 7px 5px 7px 12px
+      white-space nowrap
+      transition( background-color 0.2s ease )
+    
+      &.i-hover,
+      &.i-clicked
+        background-color #f7f7f7
+      
+    th
+      font-weight normal
+      padding 7px 7px 7px 15px
+      white-space nowrap
+      transition( background-color 0.2s ease )
+    
+  &__th
+    width 200px
+    float left
+    
+  &__td
+    margin-left 200px
+    position relative
+    
+    .i-scrolled &
+      border-right 1px solid #7d7d7d
+      border-left 1px solid #7d7d7d
+
+      &:before
+        content ''
+        position absolute
+        top 0
+        left 0
+        height 100%
+        width 35px
+        background embedurl( 'img/sizes-bg-left.png' ) repeat-y left 0
+        z-index 2
+      
+      &:after
+        content ''
+        position absolute
+        top 0
+        right 0
+        height 100%
+        width 35px
+        background embedurl( 'img/sizes-bg-right.png' ) repeat-y left 0
+        z-index 2
+      
+  &__scroll
+    overflow auto
+    
+    tr td:first-child
+      padding-left 35px
+    
+    tr td:last-child
+      padding-right 35px

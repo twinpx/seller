@@ -22,154 +22,163 @@ script( src="/components/catalog.detail/script.js" )
       span.text-muted Штрихкод: 89919381298
       span.text-muted Бренд Lanvin
       span.b-catalog-detail__rating
+
+    .col-sm-5.b-catalog-detail__props-icons
+      .b-icon-discount( data-toggle="tooltip" data-placement="right" title="Скидка" ) 35%
+      .b-icon-recommend( data-toggle="tooltip" data-placement="right" title="Рекомендовано" )
+      .b-icon-hit( data-toggle="tooltip" data-placement="right" title="Хит" )
+      .b-icon-action( data-toggle="tooltip" data-placement="right" title="Акция" )
+      .b-icon-new( data-toggle="tooltip" data-placement="right" title="Новинка" )
       
   hr.i-size-M
   
-  .row
-    
-    .col-md-7.col-sm-11.b-catalog-detail__animation-left
-    
-      include ../../modules/gallery/fotorama
-      include ../../modules/gallery/catalog.detail.jade
+  .b-catalog-detail__ill
+    .row
       
-      hr.i-size-L
+      .col-md-7.col-sm-11.b-catalog-detail__animation-left
       
-      .b-catalog-detail__share
-        h5 Поделиться
-        script( src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" )
-        script( src="//yastatic.net/share2/share.js" )
-        .ya-share2( data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,viber,whatsapp,skype,telegram" )
+        include ../../modules/gallery/fotorama
+        include ../../modules/gallery/catalog.detail.jade
+        
+        hr.i-size-L
+        
+        .b-catalog-detail__share
+          h5 Поделиться
+          script( src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" )
+          script( src="//yastatic.net/share2/share.js" )
+          .ya-share2( data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,viber,whatsapp,skype,telegram" )
+        
+      hr.i-size-M.visible-xs
+        
+      .col-sm-1.b-catalog-detail__icons
+        .b-icon-zoom( data-toggle="tooltip" data-placement="top" title="Увеличить" )
+        .b-icon-fav( data-toggle="tooltip" data-placement="top" title="В избранное" )
+        #commentsIcon.b-icon-comments( data-toggle="tooltip" data-placement="top" title="Комментарии" )
+        #shareIcon.b-icon-share( data-toggle="tooltip" data-placement="top" title="Поделиться" )
+        #sizeIcon.b-icon-size( data-toggle="tooltip" data-placement="top" title="Размеры"  data-activates="slide-size-table" )
       
-    hr.i-size-M.visible-xs
-      
-    .col-sm-1.b-catalog-detail__icons
-      .b-icon-zoom( data-toggle="tooltip" data-placement="top" title="Увеличить" )
-      .b-icon-fav( data-toggle="tooltip" data-placement="top" title="В избранное" )
-      #commentsIcon.b-icon-comments( data-toggle="tooltip" data-placement="top" title="Комментарии" )
-      #shareIcon.b-icon-share( data-toggle="tooltip" data-placement="top" title="Поделиться" )
-      #sizeIcon.b-icon-size( data-toggle="tooltip" data-placement="top" title="Размеры"  data-activates="slide-size-table" )
-    
-    hr.visible-sm.visible-xs.clearfix.i-size-M
-        
-    #slide-size-table.side-nav Таблица размеров
-    
-    .col-md-4.col-sm-12.b-catalog-detail__animation-right
-    
-      hr.i-line
-      
-      .b-catalog-detail__price-block
-        
-        .b-catalog-detail__price.i-sale.text-center 5 000 руб.
-        
-        .row
-        
-          .col-xs-6
-        
-            .b-catalog-detail__old-price.text-left
-              s 12 000 руб.
-              span Старая цена
-        
-          .col-xs-6
+      hr.visible-sm.visible-xs.clearfix.i-size-M
           
-            .b-catalog-detail__benefit.text-right 7 000 руб.
-              span Ваша выгода
-    
-      hr.i-size-M.i-line
+      #slide-size-table.side-nav
+        .side-nav__close
+        
+        include sizes
       
-      .b-catalog-detail__colors-block
+      .col-md-4.col-sm-12.b-catalog-detail__animation-right
         
-        span.b-catalog-detail__colors-item.i-active( style="background-image: url( '/upload/catalog.detail/colors/1.gif' )" )
-          span
-        
-        span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/2.gif' )" )
-          span
-        
-        span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/3.gif' )" )
-          span
-        
-        span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/4.gif' )" )
-          span
-        
-        span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/5.gif' )" )
-          span
-        
-        span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/6.gif' )" ) 
-          span
+        .b-catalog-detail__price-block
           
-      hr
-      
-      .b-catalog-detail__sizes-block
-        
-        span.b-catalog-detail__sizes-item XS
-        | 
-        span.b-catalog-detail__sizes-item S
-        | 
-        span.b-catalog-detail__sizes-item M
-        | 
-        span.b-catalog-detail__sizes-item L
-        | 
-        span.b-catalog-detail__sizes-item XL
-        | 
-        span.b-catalog-detail__sizes-item XXL
-        | 
-        span.b-catalog-detail__sizes-item XXXL
-        | 
-        span.b-catalog-detail__sizes-item 46/170
-        | 
-        span.b-catalog-detail__sizes-item 46/176
-        | 
-        span.b-catalog-detail__sizes-item 146/456/182
-        | 
-        span.b-catalog-detail__sizes-item 48/170
-        | 
-        span.b-catalog-detail__sizes-item 48/176
-        
-      .b-catalog-detail__size-table-link
-        a( href="" data-activates="slide-size-table" ) Таблица размеров
-    
-      hr.i-size-M.i-line
-      
-      .row.b-catalog-detail__button-block
-      
-        .col-sm-6
-          a.btn.btn-default.btn-size-L.btn-100( href="#" ) Купить
+          .b-catalog-detail__price.i-sale.text-center 5 000 руб.
           
-        hr.visible-xs
-        
-        .col-sm-6.text-center
-          a( href="" ) Отложить
-          br
-          a( href="" ) Купить в 1 клик
+          .row
           
-      hr.i-size-S
-        
-      .b-catalog-detail__num В наличии: 6 шт.
+            .col-xs-6
+          
+              .b-catalog-detail__old-price.text-left
+                s 12 000 руб.
+                span Старая цена
+          
+            .col-xs-6
+            
+              .b-catalog-detail__benefit.text-right 7 000 руб.
+                span Ваша выгода
       
-      hr.i-size-M.i-line
+        hr.i-size-M.i-line
+        
+        .b-catalog-detail__colors-block
+          
+          span.b-catalog-detail__colors-item.i-active( style="background-image: url( '/upload/catalog.detail/colors/1.gif' )" )
+            span
+          
+          span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/2.gif' )" )
+            span
+          
+          span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/3.gif' )" )
+            span
+          
+          span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/4.gif' )" )
+            span
+          
+          span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/5.gif' )" )
+            span
+          
+          span.b-catalog-detail__colors-item( style="background-image: url( '/upload/catalog.detail/colors/6.gif' )" ) 
+            span
+            
+        hr
+        
+        .b-catalog-detail__sizes-block
+          
+          span.b-catalog-detail__sizes-item XS
+          | 
+          span.b-catalog-detail__sizes-item S
+          | 
+          span.b-catalog-detail__sizes-item M
+          | 
+          span.b-catalog-detail__sizes-item L
+          | 
+          span.b-catalog-detail__sizes-item XL
+          | 
+          span.b-catalog-detail__sizes-item XXL
+          | 
+          span.b-catalog-detail__sizes-item XXXL
+          | 
+          span.b-catalog-detail__sizes-item 46/170
+          | 
+          span.b-catalog-detail__sizes-item 46/176
+          | 
+          span.b-catalog-detail__sizes-item 146/456/182
+          | 
+          span.b-catalog-detail__sizes-item 48/170
+          | 
+          span.b-catalog-detail__sizes-item 48/176
+          
+        .b-catalog-detail__size-table-link
+          a( href="" data-activates="slide-size-table" ) Таблица размеров
       
-      .b-catalog-detail__properties
-      
-        a.b-catalog-detail__prop-title( data-toggle="collapse" href="#commentsBlock" aria-expanded="false" aria-controls="commentsBlock" ) Описание
+        hr.i-size-M.i-line
         
-        #commentsBlock.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+        .row.b-catalog-detail__button-block
         
-        hr.i-size-S.i-line
+          .col-sm-6
+            a.btn.btn-default.btn-size-L.btn-100( href="#" ) Купить
+            
+          hr.visible-xs
+          
+          .col-sm-6.text-center
+            a( href="" ) Отложить
+            br
+            a( href="" ) Купить в 1 клик
+            
+        hr.i-size-S
+          
+        .b-catalog-detail__num В наличии: 6 шт.
         
-        a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop2" aria-expanded="false" aria-controls="prop2" ) Состав
+        hr.i-size-M.i-line
         
-        #prop2.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+        .b-catalog-detail__properties
         
-        hr.i-size-S.i-line
-        
-        a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop3" aria-expanded="false" aria-controls="prop3" ) Доставка и возврат
-        
-        #prop3.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
-        
-        hr.i-size-S.i-line
-        
-        a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop4" aria-expanded="false" aria-controls="prop4" ) Собственные свойства
-        
-        #prop4.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+          a.b-catalog-detail__prop-title( data-toggle="collapse" href="#commentsBlock" aria-expanded="false" aria-controls="commentsBlock" ) Описание
+          
+          #commentsBlock.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+          
+          hr.i-size-S.i-line
+          
+          a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop2" aria-expanded="false" aria-controls="prop2" ) Состав
+          
+          #prop2.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+          
+          hr.i-size-S.i-line
+          
+          a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop3" aria-expanded="false" aria-controls="prop3" ) Доставка и возврат
+          
+          #prop3.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+          
+          hr.i-size-S.i-line
+          
+          a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop4" aria-expanded="false" aria-controls="prop4" ) Собственные свойства
+          
+          #prop4.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
         
   div( itemscope='', itemtype='http://schema.org/Product', style='display: none' )
     div( itemprop='name' ) Верблюжье пальто

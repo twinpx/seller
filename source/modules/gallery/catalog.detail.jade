@@ -1,13 +1,12 @@
-﻿.b-catalog-detail__gallery
+﻿script( src="/template/jquery.zoomple.js" )
+link( rel="stylesheet" href="/template/jquery.zoomple.css" )
 
-  .b-catalog-detail__gallery-icons
-    .b-icon-discount( data-toggle="tooltip" data-placement="right" title="Скидка" ) 35%
-    .b-icon-recommend( data-toggle="tooltip" data-placement="right" title="Рекомендовано" )
-    .b-icon-hit( data-toggle="tooltip" data-placement="right" title="Хит" )
-    .b-icon-action( data-toggle="tooltip" data-placement="right" title="Акция" )
-    .b-icon-new( data-toggle="tooltip" data-placement="right" title="Новинка" )
+.b-catalog-detail__gallery
 
   .fotorama( data-width="100%" data-ratio="1/1" data-nav="thumbs" data-thumbwidth="65" data-thumbheight="65" data-allowfullscreen="true" )
     img( src="/upload/catalog.detail/1.jpg" alt="" )
     img( src="/upload/catalog.detail/2.jpg" alt="" )
     img( src="/upload/catalog.detail/3.jpg" alt="" )
+    
+  a.zoomple( href="" )
+    img( src="/upload/catalog.detail/4.jpg" width="200" alt="" )

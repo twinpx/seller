@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="bx-no-touch">
   <head>
     <title>Catalog detail page | Seller</title>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/template/colors.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700&amp;subset=latin,cyrillic" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400&amp;subset=latin,cyrillic" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
     <script src="/template/jscript.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -34,77 +34,254 @@
         </div>
         <div class="row">
           <div class="col-sm-7 b-catalog-detail__props"><span class="text-muted">Артикул AD006EWLXF08</span><span class="text-muted">Штрихкод: 89919381298</span><span class="text-muted">Бренд Lanvin</span><span class="b-catalog-detail__rating"></span></div>
+          <div class="col-sm-5 b-catalog-detail__props-icons">
+            <div data-toggle="tooltip" data-placement="right" title="Скидка" class="b-icon-discount">35%</div>
+            <div data-toggle="tooltip" data-placement="right" title="Рекомендовано" class="b-icon-recommend"></div>
+            <div data-toggle="tooltip" data-placement="right" title="Хит" class="b-icon-hit"></div>
+            <div data-toggle="tooltip" data-placement="right" title="Акция" class="b-icon-action"></div>
+            <div data-toggle="tooltip" data-placement="right" title="Новинка" class="b-icon-new"></div>
+          </div>
         </div>
         <hr class="i-size-M">
-        <div class="row">
-          <div class="col-md-7 col-sm-11 b-catalog-detail__animation-left">
-            <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-            <div class="b-catalog-detail__gallery">
-              <div class="b-catalog-detail__gallery-icons">
-                <div data-toggle="tooltip" data-placement="right" title="Скидка" class="b-icon-discount">35%</div>
-                <div data-toggle="tooltip" data-placement="right" title="Рекомендовано" class="b-icon-recommend"></div>
-                <div data-toggle="tooltip" data-placement="right" title="Хит" class="b-icon-hit"></div>
-                <div data-toggle="tooltip" data-placement="right" title="Акция" class="b-icon-action"></div>
-                <div data-toggle="tooltip" data-placement="right" title="Новинка" class="b-icon-new"></div>
+        <div class="b-catalog-detail__ill">
+          <div class="row">
+            <div class="col-md-7 col-sm-11 b-catalog-detail__animation-left">
+              <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+              <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+              <script src="/template/jquery.zoomple.js"></script>
+              <link rel="stylesheet" href="/template/jquery.zoomple.css">
+              <div class="b-catalog-detail__gallery">
+                <div data-width="100%" data-ratio="1/1" data-nav="thumbs" data-thumbwidth="65" data-thumbheight="65" data-allowfullscreen="true" class="fotorama"><img src="/upload/catalog.detail/1.jpg" alt=""><img src="/upload/catalog.detail/2.jpg" alt=""><img src="/upload/catalog.detail/3.jpg" alt=""></div><a href="" class="zoomple"><img src="/upload/catalog.detail/4.jpg" width="200" alt=""></a>
               </div>
-              <div data-width="100%" data-ratio="1/1" data-nav="thumbs" data-thumbwidth="65" data-thumbheight="65" data-allowfullscreen="true" class="fotorama"><img src="/upload/catalog.detail/1.jpg" alt=""><img src="/upload/catalog.detail/2.jpg" alt=""><img src="/upload/catalog.detail/3.jpg" alt=""></div>
+              <hr class="i-size-L">
+              <div class="b-catalog-detail__share">
+                <h5>Поделиться</h5>
+                <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                <script src="//yastatic.net/share2/share.js"></script>
+                <div data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,viber,whatsapp,skype,telegram" class="ya-share2"></div>
+              </div>
             </div>
-            <hr class="i-size-L">
-            <div class="b-catalog-detail__share">
-              <h5>Поделиться</h5>
-              <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-              <script src="//yastatic.net/share2/share.js"></script>
-              <div data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus,viber,whatsapp,skype,telegram" class="ya-share2"></div>
+            <hr class="i-size-M visible-xs">
+            <div class="col-sm-1 b-catalog-detail__icons">
+              <div data-toggle="tooltip" data-placement="top" title="Увеличить" class="b-icon-zoom"></div>
+              <div data-toggle="tooltip" data-placement="top" title="В избранное" class="b-icon-fav"></div>
+              <div id="commentsIcon" data-toggle="tooltip" data-placement="top" title="Комментарии" class="b-icon-comments"></div>
+              <div id="shareIcon" data-toggle="tooltip" data-placement="top" title="Поделиться" class="b-icon-share"></div>
+              <div id="sizeIcon" data-toggle="tooltip" data-placement="top" title="Размеры" data-activates="slide-size-table" class="b-icon-size"></div>
             </div>
-          </div>
-          <hr class="i-size-M visible-xs">
-          <div class="col-sm-1 b-catalog-detail__icons">
-            <div data-toggle="tooltip" data-placement="top" title="Увеличить" class="b-icon-zoom"></div>
-            <div data-toggle="tooltip" data-placement="top" title="В избранное" class="b-icon-fav"></div>
-            <div id="commentsIcon" data-toggle="tooltip" data-placement="top" title="Комментарии" class="b-icon-comments"></div>
-            <div id="shareIcon" data-toggle="tooltip" data-placement="top" title="Поделиться" class="b-icon-share"></div>
-            <div id="sizeIcon" data-toggle="tooltip" data-placement="top" title="Размеры" data-activates="slide-size-table" class="b-icon-size"></div>
-          </div>
-          <hr class="visible-sm visible-xs clearfix i-size-M">
-          <div id="slide-size-table" class="side-nav">Таблица размеров</div>
-          <div class="col-md-4 col-sm-12 b-catalog-detail__animation-right">
-            <hr class="i-line">
-            <div class="b-catalog-detail__price-block">
-              <div class="b-catalog-detail__price i-sale text-center">5 000 руб.</div>
-              <div class="row">
-                <div class="col-xs-6">
-                  <div class="b-catalog-detail__old-price text-left">
-                    <s>12 000 руб.</s><span>Старая цена</span>
+            <hr class="visible-sm visible-xs clearfix i-size-M">
+            <div id="slide-size-table" class="side-nav">
+              <div class="side-nav__close"></div>
+              <div class="b-sizes-menu">
+                <h2>Таблица размеров</h2>
+                <p>Как выбрать одежду своего размера?</p>
+                <p>Вам понадобится провести измерения с помощью сантиметровой ленты. Для определения подходящего размера необходимо соотнести полученные измерения с размерами в таблице.</p>
+                <hr class="i-size-L">
+                <div class="b-sizes-menu__table">
+                  <div class="b-sizes-menu__th">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>Обхват груди (см)</th>
+                        </tr>
+                        <tr>
+                          <th>Обхват талии (см)</th>
+                        </tr>
+                        <tr>
+                          <th>Обхват бедер (см)</th>
+                        </tr>
+                        <tr>
+                          <th>Российский размер (RUS)</th>
+                        </tr>
+                        <tr>
+                          <th>Европа / Германия (EUR / GER)</th>
+                        </tr>
+                        <tr>
+                          <th>Франция (FR)</th>
+                        </tr>
+                        <tr>
+                          <th>Италия (IT)</th>
+                        </tr>
+                        <tr>
+                          <th>США (USA)</th>
+                        </tr>
+                        <tr>
+                          <th>Великобритания (UK)</th>
+                        </tr>
+                        <tr>
+                          <th>Международный (INT)</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="b-sizes-menu__td">
+                    <div class="b-sizes-menu__scroll">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                            <td>78-82</td>
+                          </tr>
+                          <tr>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                            <td>58-62</td>
+                          </tr>
+                          <tr>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                            <td>84-108</td>
+                          </tr>
+                          <tr>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                            <td>40</td>
+                          </tr>
+                          <tr>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                            <td>32</td>
+                          </tr>
+                          <tr>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                            <td>34</td>
+                          </tr>
+                          <tr>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                            <td>36</td>
+                          </tr>
+                          <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>4</td>
+                          </tr>
+                          <tr>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                            <td>XXS/XS</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
-                <div class="col-xs-6">
-                  <div class="b-catalog-detail__benefit text-right">7 000 руб.<span>Ваша выгода</span></div>
-                </div>
               </div>
             </div>
-            <hr class="i-size-M i-line">
-            <div class="b-catalog-detail__colors-block"><span style="background-image: url( '/upload/catalog.detail/colors/1.gif' )" class="b-catalog-detail__colors-item i-active"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/2.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/3.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/4.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/5.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/6.gif' )" class="b-catalog-detail__colors-item"> <span></span></span></div>
-            <hr>
-            <div class="b-catalog-detail__sizes-block"><span class="b-catalog-detail__sizes-item">XS</span> <span class="b-catalog-detail__sizes-item">S</span> <span class="b-catalog-detail__sizes-item">M</span> <span class="b-catalog-detail__sizes-item">L</span> <span class="b-catalog-detail__sizes-item">XL</span> <span class="b-catalog-detail__sizes-item">XXL</span> <span class="b-catalog-detail__sizes-item">XXXL</span> <span class="b-catalog-detail__sizes-item">46/170</span> <span class="b-catalog-detail__sizes-item">46/176</span> <span class="b-catalog-detail__sizes-item">146/456/182</span> <span class="b-catalog-detail__sizes-item">48/170</span> <span class="b-catalog-detail__sizes-item">48/176</span></div>
-            <div class="b-catalog-detail__size-table-link"><a href="" data-activates="slide-size-table">Таблица размеров</a></div>
-            <hr class="i-size-M i-line">
-            <div class="row b-catalog-detail__button-block">
-              <div class="col-sm-6"><a href="#" class="btn btn-default btn-size-L btn-100">Купить</a></div>
-              <hr class="visible-xs">
-              <div class="col-sm-6 text-center"><a href="">Отложить</a><br><a href="">Купить в 1 клик</a></div>
-            </div>
-            <hr class="i-size-S">
-            <div class="b-catalog-detail__num">В наличии: 6 шт.</div>
-            <hr class="i-size-M i-line">
-            <div class="b-catalog-detail__properties"><a data-toggle="collapse" href="#commentsBlock" aria-expanded="false" aria-controls="commentsBlock" class="b-catalog-detail__prop-title">Описание</a>
-              <div id="commentsBlock" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
-              <hr class="i-size-S i-line"><a data-toggle="collapse" href="#prop2" aria-expanded="false" aria-controls="prop2" class="b-catalog-detail__prop-title">Состав</a>
-              <div id="prop2" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
-              <hr class="i-size-S i-line"><a data-toggle="collapse" href="#prop3" aria-expanded="false" aria-controls="prop3" class="b-catalog-detail__prop-title">Доставка и возврат</a>
-              <div id="prop3" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
-              <hr class="i-size-S i-line"><a data-toggle="collapse" href="#prop4" aria-expanded="false" aria-controls="prop4" class="b-catalog-detail__prop-title">Собственные свойства</a>
-              <div id="prop4" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
+            <div class="col-md-4 col-sm-12 b-catalog-detail__animation-right">
+              <div class="b-catalog-detail__price-block">
+                <div class="b-catalog-detail__price i-sale text-center">5 000 руб.</div>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="b-catalog-detail__old-price text-left">
+                      <s>12 000 руб.</s><span>Старая цена</span>
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="b-catalog-detail__benefit text-right">7 000 руб.<span>Ваша выгода</span></div>
+                  </div>
+                </div>
+              </div>
+              <hr class="i-size-M i-line">
+              <div class="b-catalog-detail__colors-block"><span style="background-image: url( '/upload/catalog.detail/colors/1.gif' )" class="b-catalog-detail__colors-item i-active"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/2.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/3.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/4.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/5.gif' )" class="b-catalog-detail__colors-item"><span></span></span><span style="background-image: url( '/upload/catalog.detail/colors/6.gif' )" class="b-catalog-detail__colors-item"> <span></span></span></div>
+              <hr>
+              <div class="b-catalog-detail__sizes-block"><span class="b-catalog-detail__sizes-item">XS</span> <span class="b-catalog-detail__sizes-item">S</span> <span class="b-catalog-detail__sizes-item">M</span> <span class="b-catalog-detail__sizes-item">L</span> <span class="b-catalog-detail__sizes-item">XL</span> <span class="b-catalog-detail__sizes-item">XXL</span> <span class="b-catalog-detail__sizes-item">XXXL</span> <span class="b-catalog-detail__sizes-item">46/170</span> <span class="b-catalog-detail__sizes-item">46/176</span> <span class="b-catalog-detail__sizes-item">146/456/182</span> <span class="b-catalog-detail__sizes-item">48/170</span> <span class="b-catalog-detail__sizes-item">48/176</span></div>
+              <div class="b-catalog-detail__size-table-link"><a href="" data-activates="slide-size-table">Таблица размеров</a></div>
+              <hr class="i-size-M i-line">
+              <div class="row b-catalog-detail__button-block">
+                <div class="col-sm-6"><a href="#" class="btn btn-default btn-size-L btn-100">Купить</a></div>
+                <hr class="visible-xs">
+                <div class="col-sm-6 text-center"><a href="">Отложить</a><br><a href="">Купить в 1 клик</a></div>
+              </div>
+              <hr class="i-size-S">
+              <div class="b-catalog-detail__num">В наличии: 6 шт.</div>
+              <hr class="i-size-M i-line">
+              <div class="b-catalog-detail__properties"><a data-toggle="collapse" href="#commentsBlock" aria-expanded="false" aria-controls="commentsBlock" class="b-catalog-detail__prop-title">Описание</a>
+                <div id="commentsBlock" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
+                <hr class="i-size-S i-line"><a data-toggle="collapse" href="#prop2" aria-expanded="false" aria-controls="prop2" class="b-catalog-detail__prop-title">Состав</a>
+                <div id="prop2" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
+                <hr class="i-size-S i-line"><a data-toggle="collapse" href="#prop3" aria-expanded="false" aria-controls="prop3" class="b-catalog-detail__prop-title">Доставка и возврат</a>
+                <div id="prop3" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
+                <hr class="i-size-S i-line"><a data-toggle="collapse" href="#prop4" aria-expanded="false" aria-controls="prop4" class="b-catalog-detail__prop-title">Собственные свойства</a>
+                <div id="prop4" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -342,6 +519,7 @@
         </div>
       </div>
       <!-- end /components/catalog.detail/-->
+      <div id="viewCounter" data-url="/template/counter.json?IBLOCK_ID=3&amp;ELEMENT_ID=40647&amp;SITE_ID=s1"></div>
     </div>
     <hr class="i-size-L">
     <div class="b-section i-grey">
@@ -454,9 +632,30 @@
               </div>
             </div>
           </div>
-          <hr style="padding-bottom: 500px;" class="i-size-L">
+          <hr class="i-size-L">
         </div>
         <!-- end /components/catalog.collection/-->
+        <!-- start /components/lookbook/-->
+        <link rel="stylesheet" href="/components/lookbook/style.css">
+        <script src="/components/lookbook/script.js"></script>
+        <div class="bj-lookbook">
+          <div class="b-hr-heading">
+            <div class="b-hr-heading__content"><span>Looks</span></div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div class="row b-lookbook-row">
+                <div class="b-lookbook-col">
+                  <div itemscope itemtype="http://schema.org/Offer" class="bj-lookbook__i"><a href="/lookbook/gorodskoy-stil/dzhinsy-s-tuflyami/" class="bj-lookbook__img"><img data-original="/upload/lookbook/1.jpg" itemprop="image" alt="" src="/" class="i-show"><span class="bj-lookbook__cover"><span itemprop="name" class="b-h2">Джинсы с туфлями</span><span class="bj-lookbook__info"><span>4 вещи</span><span itemprop="price" class="text-large">17 140 руб.</span><span class="btn btn-default">Посмотреть</span></span></span></a></div>
+                </div>
+                <div class="b-lookbook-col">
+                  <div itemscope itemtype="http://schema.org/Offer" class="bj-lookbook__i"><a href="/lookbook/gorodskoy-stil/dzhinsy-s-tuflyami/" class="bj-lookbook__img"><img data-original="/upload/lookbook/1.jpg" itemprop="image" alt="" src="/" class="i-show"><span class="bj-lookbook__cover"><span itemprop="name" class="b-h2">Джинсы с туфлями</span><span class="bj-lookbook__info"><span>4 вещи</span><span itemprop="price" class="text-large">17 140 руб.</span><span class="btn btn-default">Посмотреть</span></span></span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end /components/lookbook/-->
       </div>
     </div>
     <footer class="b-footer">
