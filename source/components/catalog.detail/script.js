@@ -3,24 +3,76 @@
   'use strict';
   
   $( function() {
+    
+    $( '#oneClick form' ).submit( function(e) {
+    
+      e.preventDefault();
+      var $form = $( this );
+      var $body = $( '#oneClick .modal-body' );
+      
+      $.ajax({
+        url: $form.attr( 'action' ),
+        type: $form.attr( 'method' ),
+        dataType: "json",
+        data: $form.serialize(),
+        success: function(data) {
+          if ( data && data.MESSAGE ) {
+            $body.height( $body.height());
+            $body.empty().append( '<p>' + data.MESSAGE + '</p>' );
+            $body.height( $body.find( 'p' ).height());
+            
+            $( '.btn' ).hide();
+            $( '.i-gray' ).show();
+          }
+        },
+        error: function() {}
+      });
+    });
   
     setTimeout( function() {
       $( 'body' ).addClass( 'i-load' );
     }, 100);
   
+    //click zoom
     $( '.b-catalog-detail__icons .b-icon-zoom' ).click( function() {
       $( '.b-catalog-detail__gallery .fotorama' ).data( 'fotorama' ).requestFullScreen();
     });
     
-    $( '.b-catalog-detail__colors-item' ).click( function() {
+    //click colors
+    $( '.b-catalog-detail__colors-block' ).delegate( '.b-catalog-detail__colors-item', 'click', function() {
+      
+      //highlite
       $( '.b-catalog-detail__colors-item' ).removeClass( 'i-active' );
       $( this ).addClass( 'i-active' );
+      
+      //set disabled sizes
+      setDisabledSizes( this );
+      
+      //set disabled colors
+      setDisabledColors( $( '.b-catalog-detail__sizes-item.i-active' ));
     });
     
-    $( '.b-catalog-detail__sizes-item' ).click( function() {
+    //click sizes
+    $( '.b-catalog-detail__sizes-block' ).delegate( '.b-catalog-detail__sizes-item', 'click', function() {
+    
+      //highlite
       $( '.b-catalog-detail__sizes-item' ).removeClass( 'i-active' );
       $( this ).addClass( 'i-active' );
+      
+      //set cookie
+      Cookies.set( 'size', $( this ).text(), { expires: 365, path: window.location.href });
+      
+      //set disabled colors
+      setDisabledColors( this );
+      
+      //set disabled sizes
+      setDisabledSizes( $( '.b-catalog-detail__colors-item.i-active' ));
+      
     });
+    
+    showAllProperties();
+    
+    showFirstOffer();
     
     $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav({
       menuWidth: '60%'
@@ -85,6 +137,25 @@
       
     });
     
+    //sizes table-xs
+    $( '.b-sizes-menu__table-xs ' ).delegate( 'select', 'change', selectSize );
+    $( '.b-sizes-menu__table-xs select:eq(0)' ).change();
+    
+    function selectSize(e) {
+      var $select = $( e.target );
+      var $selected = $select.find( 'option:selected' );
+      var n = $select.find( 'option' ).index( $selected );
+      //selects
+      $( '.b-sizes-menu__table-xs select ').each( function() {
+         $( this ).find( 'option:eq(' + n + ')' ).attr({ selected: 'selected' });
+      });
+      //spans
+      $( '.b-sizes-menu__table-xs td span' ).hide();
+      $( '.b-sizes-menu__table-xs td' ).each( function() {
+        $( this ).find ( 'span:eq(' + n + ')' ).show();
+      });
+    }
+    
     $( '.side-nav__close' ).click( function() {
       $( '#slide-size-table' ).sideNav( 'hide' );
     });
@@ -129,6 +200,197 @@
       } else {
         $( '.b-sizes-menu__table' ).removeClass( 'i-scrolled' );
       }
+    }
+    
+    function showAllProperties() {
+      //onLoad
+      //create colors
+      $( '.b-catalog-detail__colors-block' ).empty();
+      var colorsArray = [];
+      
+      $( '#catalogDetailData div' ).each( function() {
+        var flag = true;
+        var $this = $( this );
+        
+        colorsArray.forEach( function( cur, i, arr ) {
+          if ( cur === $this.data( 'color-color_ref' )) {
+            flag = false;
+            return;
+          }
+        });
+        
+        if ( flag ) {
+          colorsArray.push( $( this ).data( 'color-color_ref' ));
+        }
+      });
+        
+      colorsArray.forEach( function( cur, i, arr ) {
+        $( '.b-catalog-detail__colors-block' ).append( '<span class="b-catalog-detail__colors-item" style="background-image: url( \'' + cur + '\' )"><span></span></span>' );
+      });
+      
+      //create sizes
+      $( '.b-catalog-detail__sizes-block' ).empty();
+      var sizesArray = [];
+      
+      $( '#catalogDetailData div' ).each( function() {
+        var flag = true;
+        var $this = $( this );
+        
+        sizesArray.forEach( function( cur, i, arr ) {
+          if ( cur === $this.data( 'list-sizes_shoes' )) {
+            flag = false;
+            return;
+          }
+        });
+        
+        if ( flag ) {
+          sizesArray.push( $( this ).data( 'list-sizes_shoes' ));
+        }
+      });
+        
+      sizesArray.forEach( function( cur, i, arr ) {
+        $( '.b-catalog-detail__sizes-block' ).append( '<span class="b-catalog-detail__sizes-item"><span>' + cur + '</span></span>' );
+      });
+    }
+    
+    function showFirstOffer() {  
+      //get size cookie
+      var sizeCookie = Cookies.get( 'size' ) || $( '.b-catalog-detail__sizes-item:eq(0)').text();
+      
+      //show offer
+      var flag = false;
+      $( '.b-catalog-detail__colors-item' ).each( function() {
+        var $color = $( this );
+        $( '#catalogDetailData div' ).each( function() {
+          var $div = $( this );
+          if ( $color.css( 'backgroundImage' ).search( $div.data( 'color-color_ref' )) !== -1 && $div.data( 'list-sizes_shoes' )+''  === (sizeCookie+'') ) {
+            if ( !flag ) {
+              showOffer( $div );
+              flag = true;
+            }
+          }
+        });
+      });
+    }
+    
+    function showOffer( $div ) {
+      //color
+      $( '.b-catalog-detail__colors-item' ).each( function() {
+        if ( $( this ).css( 'backgroundImage' ).search( $div.data( 'color-color_ref' )) !== -1) {
+          $( this ).addClass( 'i-active' );
+        }
+      });
+      //size
+      $( '.b-catalog-detail__sizes-item' ).each( function() {
+        if ( $( this ).text() === ($div.data( 'list-sizes_shoes' )+'')) {
+          $( this ).addClass( 'i-active' );
+        }
+      });
+      //gallery
+      var images = '';
+      var srcArray = $div.data( 'photo' ).split( ';' );
+      srcArray.forEach( function( cur, i, arr ) {
+        images += '<img src="' + cur + '" alt="" >';
+      });
+      $( '.b-catalog-detail__gallery .fotorama' ).data( 'fotorama' ).destroy();
+      $( '.b-catalog-detail__gallery .fotorama' ).empty().html( images );
+      $( '.b-catalog-detail__gallery .fotorama' ).fotorama();
+      //art
+      $( '#catalogDetailArt' ).text( $div.data( 'art' ));
+      //code
+      $( '#catalogDetailCode' ).text( $div.data( 'code' ));
+      //num
+      $( '#catalogDetailNum' ).text( $div.data( 'num' ));
+      //discount icon
+      $( '.b-icon-discount' ).text( $div.data( 'discount-percent' ));
+    }
+    
+    function setDisabledColors( item ) {
+      var $item = $( item );
+      var size = $item.text();
+      var colorsArray = [];
+      
+      $( '#catalogDetailData div' ).each( function() {
+        var $this = $( this );
+        
+        if ( ($this.data( 'list-sizes_shoes' ) + '') === size ) {
+          colorsArray.push( $this.data( 'color-color_ref' ));
+        }
+      });
+      
+      $( '.b-catalog-detail__colors-item' ).each( function() {
+        var flag = false;
+        var $item = $( this );
+        colorsArray.forEach( function( cur, i, arr ) {
+          if ( $item.css( 'backgroundImage' ).search( cur ) !== -1 ) {
+            flag = true;
+          }
+        });
+        
+        if ( flag ) {
+          $item.removeClass( 'i-disabled' );
+        } else {
+          $item.addClass( 'i-disabled' );
+        }
+        
+      });
+      
+      //set active from enabled
+      if ( $( '.b-catalog-detail__colors-item.i-active' ).hasClass( 'i-disabled' )) {
+        $( '.b-catalog-detail__colors-item.i-active' ).removeClass( 'i-active' );
+        $( '.b-catalog-detail__colors-item:not( .i-disabled ):eq(0)' ).addClass( 'i-active' );
+      }
+      
+      //show offer
+      $( '#catalogDetailData div' ).each( function() {
+        if ( $( '.b-catalog-detail__colors-item.i-active').css( 'backgroundImage' ).search( $( this).data( 'color-color_ref' )) !== -1 && ( $( this).data( 'list-sizes_shoes' )+'' ) === $( '.b-catalog-detail__sizes-item.i-active').text()) {
+          showOffer( $( this ));
+        }
+      });
+    }
+    
+    function setDisabledSizes( item ) {
+      var $item = $( item );
+      var color = $item.css( 'backgroundImage' );
+      var sizesArray = [];
+      
+      $( '#catalogDetailData div' ).each( function() {
+        var $this = $( this );
+        
+        if ( color.search( $this.data( 'color-color_ref' )) !== -1 ) {
+          sizesArray.push( $this.data( 'list-sizes_shoes' ));
+        }
+      });
+      
+      $( '.b-catalog-detail__sizes-item' ).each( function() {
+        var flag = false;
+        var $item = $( this );
+        sizesArray.forEach( function( cur, i, arr ) {
+          if ( $item.text() === ( cur + '' )) {
+            flag = true;
+          }
+        });
+        
+        if ( flag ) {
+          $item.removeClass( 'i-disabled' );
+        } else {
+          $item.addClass( 'i-disabled' );
+        }
+        
+      });
+      
+      //set active from enabled
+      if ( $( '.b-catalog-detail__sizes-item.i-active' ).hasClass( 'i-disabled' )) {
+        $( '.b-catalog-detail__sizes-item.i-active' ).removeClass( 'i-active' );
+        $( '.b-catalog-detail__sizes-item:not( .i-disabled ):eq(0)' ).addClass( 'i-active' );
+      }
+      
+      //show offer
+      $( '#catalogDetailData div' ).each( function() {
+        if ( $( '.b-catalog-detail__colors-item.i-active').css( 'backgroundImage' ).search( $( this).data( 'color-color_ref' )) !== -1 && ( $( this).data( 'list-sizes_shoes' )+'' ) === $( '.b-catalog-detail__sizes-item.i-active').text()) {
+          showOffer( $( this ));
+        }
+      });
     }
   
     /*if ( window.BX ) {

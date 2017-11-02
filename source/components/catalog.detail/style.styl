@@ -10,7 +10,7 @@
     a
       margin-left 22px
 
-  &__props
+  .col-sm-7&__props
     display flex
     justify-content space-between
     font-size 9pt
@@ -18,14 +18,17 @@
     span
       display inline-block
       
-    &-icons
-      text-align right
+  &__props-icons
+    text-align right
+    
+    @media( max-width 767px )
+      text-align center
+      margin-top 10px
 
   &__rating
     display inline-block
     width 79px
     height 12px
-    background embedurl( 'img/rating.png' ) no-repeat center
     
   &__gallery
     position relative
@@ -80,6 +83,7 @@
     cursor pointer
     transition( transform 0.3s ease )
     text-align center
+    border 1px solid #eee
     
     &:hover
       transform scale( 1.3 )
@@ -100,6 +104,9 @@
         display inline-block
         vertical-align top
       
+    &.i-disabled
+      opacity 0.5
+      
   &__sizes-block
     display flex
     justify-content center
@@ -119,6 +126,9 @@
     &.i-active
       color #2f3154
       border-bottom 2px solid #2f3154
+      
+    &.i-disabled
+      opacity 0.5
       
   &__size-table-link
     text-align center
@@ -172,7 +182,7 @@
       a
         margin 0 22px 0 0
   
-    &__props
+    .col-sm-7&__props
       display block
       text-align center
       
@@ -180,8 +190,12 @@
         display block
         margin-bottom 5px
         
+        span
+          display inline-block
+          margin-bottom 0
+        
         &.b-catalog-detail__rating
-          margin 7px auto 0
+          margin 15px auto 20px
   
     &__icons
       display flex
@@ -212,6 +226,11 @@
       transform( translateX(0))
       opacity 1
       
+    @media( max-width 767px )
+      padding-left 25px
+      padding-right 25px
+      border none
+      
   &__icons
     margin-top 20px
     margin-bottom 20px
@@ -226,7 +245,12 @@
     
     .i-load &
       transform( translateX(0))
-      opacity 1    
+      opacity 1 
+      
+    @media( max-width 767px )
+      padding-right 25px
+      padding-left 25px
+      border none   
     
 .b-icon-zoom,
 .b-icon-fav,
@@ -290,6 +314,9 @@
   display inline-block
   vertical-align top
   
+  @media( max-width 767px )
+    margin-top 0
+  
 .b-icon-recommend
   background-image embedurl( 'img/recomendation.svg' )
   
@@ -340,13 +367,38 @@
     padding 20px
   
   h2
-    margin 0 0 52px
+    padding-bottom 30px
+    border-bottom 1px solid #f7f7f7
+    margin 0 0 18px
   
   p
     color #333
     font-size 9.5pt
     margin-bottom 8px
     line-height 1.5
+    
+  &__table-xs
+    margin-left -15px
+    
+    table
+      font-size 9.5pt
+      color #333
+        
+    td
+      padding 7px 5px 7px 14px
+      white-space nowrap
+      
+      span
+        display none
+      
+    th
+      font-weight normal
+      padding 7px 7px 7px 15px
+      white-space nowrap
+      
+    .form-control
+      font-size 9.5pt
+      margin-left -14px
     
   &__table
     margin-left -15px
@@ -451,3 +503,249 @@
     
     tr td:last-child
       padding-right 35px
+      
+.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon
+  opaicty 1 !important
+
+.bx_item_detail_rating
+  margin-bottom 10px
+
+.bx_item_detail_rating td
+  text-align right
+  vertical-align middle
+
+.bx_item_detail_rating .bx_item_rating
+  text-align right
+
+.bx_item_detail_rating .bx_stars_container
+  background #dadada
+  height 30px
+  position relative
+  width 68px
+
+.bx_item_detail_rating .bx_stars_bg 
+  background url("/bitrix/components/bitrix/iblock.vote/templates/stars/images/stars.png") no-repeat scroll center center rgba(0,0,0,0)
+  bottom 0
+  left 0
+  position absolute
+  right 0
+  top 0
+  z-index: 101
+
+.bx_item_detail_rating .bx_stars_progres
+  background #e76110
+  bottom 0
+  left 0
+  position absolute
+  top 0
+
+.bx_item_detail_rating .bx_stars_rating_votes
+  color #8d8d8d
+  font-size 11px
+  line-height 11px
+  vertical-align middle
+
+@media (max-width: 530px)
+  .bx-touch .bx_item_detail_rating .bx_stars_container
+    height 15px
+    margin 4px 0
+    width 34px
+
+  .bx_item_detail_rating .bx_stars_rating_votes
+    font-size 7px
+    line-height 7px
+
+.bx_stars_rating_votes
+  display none
+  
+.bx_item_detail_rating
+  margin 0
+  
+.bx_item_detail_rating td:nth-child(2)
+  display none
+
+.bx_item_detail_rating .bx_stars_bg
+  background-image url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJsAAAAaCAYAAACgjS7xAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAk1JREFUeNrsmzFLw0AYhtPSWouLot0EEXWy7qXqIurm7ODYxdnJP+Dm4C6Ci4P/QAR1ESkiBXVTFIuLi1ZBpLWF+samUOESL5d89y3fwbMkuT7vwXeXXNom2miOfquCXZACm6Dfsdc43eKPI0dbv7XAslubHutte43TLf6YcoQptv0eSZcTS4PkdIs/phy6xVYDUwrRgoUBcrrFH2OOpObddgfcK46felA2Trf448yhUZB3YFBR0TZmGKdb/DHn0FnZtsB7wHm3qs+IZhOnW/xx5/ApwldwCQ5AJqCiu8x5D4pV8BlxFnG6xU+YIwEaqLkjUAG34Bk8gDeDGTAAhsEkGAMToABmfd7HfDO6xW87B4ptTaNqo7LiM3s43eK3nMNd2dKouibxPT8D6orjfYxu8VvO4W4QihYeMMd9jnO6xW87B1a2ChghXD7dzy77LN+cbvFbztHdjZaJZDqD5XSL32IOh1AWZrCcbvFbyuEQyXIGg+V0i99CDtVL3XOQjSBJg2PDgXK6xU+cQ/V11QzIRtx55Az7cbrFT5xDVWzXoBZB0jR888ztFj9xDlWxfblfmUYMe2PYj9MtfuIcqmK7iiHsh2E/Trf4iXOoiq2l8UGpf84/GQbkdIufOEcy5DK86HR+t3QBlgKueyS4BVC7xU+dQ7HtLSq2snmwp7jW3d4WFNfPG265Od3iJ86hKrZST4dRT1APCNbwrsn39CsZDpLTLX7iHInfivvb3D+hboMhsAqmNZfeF3DoLZ8bTueHc2Ebp1v8xDl+BBgAhNKm4u0IDvMAAAAASUVORK5CYII=")
+  background-size cover
+
+.bx_item_detail_rating .bx_stars_container
+  width 79px
+  height 12px
+  margin-top 4px
+
+@media ( max-width 530px )
+  .bx-touch .bx_item_detail_rating .bx_stars_container
+    width 79px
+    height 12px
+    margin 0
+    
+#oneClick
+
+  p
+    font-size 9pt
+    margin-bottom 20px
+    
+    &:last-child
+      margin-bottom 0
+    
+  .modal-body
+    padding 30px 60px
+    line-height 14px
+    transition( height 0.5s ease )
+    
+  label
+    margin-bottom 6px
+    color #333
+    line-height normal
+    vertical-align top
+    font-size 8pt
+    
+  .form-control
+    height 29pt
+    padding 6px 10px
+    font-size 10.5pt
+    line-height 1.72857143
+    
+  textarea.form-control
+    height 83px
+    
+  .form-group
+    margin-bottom 21px
+    opacity 0
+    
+    &:last-child
+      margin-bottom 11px
+    
+  &.in .form-group
+    animation form-opacity .3s
+    animation-fill-mode forwards
+  
+    &:nth-of-type(2)
+      animation-delay .15s
+  
+    &:nth-of-type(3)
+      animation-delay .3s
+  
+    &:nth-of-type(4)
+      animation-delay .453s
+  
+    &:nth-of-type(5)
+      animation-delay .6s
+    
+    
+  .checkbox label
+    padding-left 37px
+    position relative
+    font-weight normal
+    font-size 9pt
+    line-height 1.4
+  
+  [type="checkbox"]+label
+    position relative
+    padding-left 35px
+    cursor pointer
+    display inline-block
+    -webkit-user-select none
+    -moz-user-select none
+    -ms-user-select none
+    user-select none
+  
+  [type="checkbox"].filled-in:not(:checked)+label:before
+    width 0
+    height 0
+    border 3px solid transparent
+    left 6px
+    top 10px
+    -webkit-transform rotateZ(37deg)
+    transform rotateZ(37deg)
+    -webkit-transform-origin 100% 100%;
+    transform-origin 100% 100%
+  
+  [type="checkbox"].filled-in:checked+label:before
+    top 5px
+    left 1px
+    width 8px
+    height 13px
+    border-top 2px solid transparent
+    border-left 2px solid transparent
+    border-right 2px solid #fff
+    border-bottom 2px solid #fff
+    -webkit-transform rotateZ(37deg)
+    transform rotateZ(37deg)
+    -webkit-transform-origin 100% 100%
+    transform-origin 100% 100%
+  
+  [type="checkbox"]:checked+label:before
+    top -4px
+    left -5px
+    width 12px
+    height 22px
+    border-top 2px solid transparent
+    border-left 2px solid transparent
+    border-right 2px solid #26a69a
+    border-bottom 2px solid #26a69a
+    -webkit-transform rotate(40deg)
+    transform rotate(40deg)
+    -webkit-backface-visibility hidden
+    backface-visibility hidden
+    -webkit-transform-origin 100% 100%
+    transform-origin 100% 100%
+  
+  [type="checkbox"].filled-in:checked+label:after
+    top 3px
+    width 20px
+    height 20px
+    border 2px solid #26a69a
+    background-color #26a69a
+    z-index 0
+  
+  [type="checkbox"].filled-in:not(:checked)+label:after
+    height 20px
+    width 20px
+    background-color transparent
+    border 2px solid #5a5a5a
+    top 3px
+    z-index 0
+  
+  [type="checkbox"].filled-in+label:before,
+  [type="checkbox"].filled-in+label:after
+    content ''
+    left 0
+    position absolute
+    -webkit-transition border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s
+    transition border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s
+    z-index 1
+  
+  [type="checkbox"].filled-in+label:after
+    border-radius 2px
+  
+  .checkbox input[type="checkbox"]
+    width 16px
+    height 16px
+    position absolute
+    top 7px
+    left 0
+    margin 0
+  
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked
+    position absolute
+    opacity 0
+    pointer-events none
+    
+    
+  .btn
+    line-height 1.72857143
+    padding 6px 14px
+    min-width 141px
+    
+    &.i-gray
+      background-color #ececec
+      border-color #ececec
+      display none
+    
+@keyframes form-opacity
+  from
+    opacity 0
+  to
+    opacity 1
