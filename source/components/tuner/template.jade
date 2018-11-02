@@ -1,0 +1,47 @@
+﻿// start /components/tuner/
+
+link( rel="stylesheet", href="/components/tuner/style.css" )
+script( src="/components/tuner/script.js" )
+
+link( rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.css" )
+script( src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js" )
+
+#seller-tuner.b-seller-tuner.side-nav
+  .b-seller-tuner-close
+  .b-h2
+    span Настройки вашего Seller
+    a( href="?reset=y" ) Сбросить по умолчанию
+  
+  hr.i-size-L
+    
+  form( action="" method="GET" )
+  
+    .row
+      
+      .col-sm-3.b-seller-tuner__menu
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        
+      .col-sm-9.b-seller-tuner__content
+        
+        div.i-active( data-tab="global" )
+          
+          include tabs/global
+        
+        div( data-tab="header" )
+          
+          include tabs/header
+        
+        div( data-tab="catalog" )
+          
+          include tabs/catalog
+          
+    .b-seller-tuner__bottom
+    
+      .row
+        .col-sm-9.col-sm-offset-3
+          button.btn.btn-default( type="submit" ) Сохранить настройки
+          a( href="?reset=y" ) Сбросить по умолчанию
+
+// end /components/tuner/

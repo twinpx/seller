@@ -2,13 +2,13 @@
 
 .b-catalog-detail
 
-  &__tags
-    font-size 9pt
-    margin-top 12px
-    text-align right
-    
-    a
-      margin-left 22px
+  h1
+    @media( max-width 767px )
+      margin-bottom 0
+      
+  .b-catalog-tags
+    @media( max-width 767px )
+      margin-top 5px
 
   .col-sm-7&__props
     display flex
@@ -17,6 +17,19 @@
     
     span
       display inline-block
+      
+  &__props-slide
+    display none
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    height 10px
+    width 20px
+    margin 0 auto
+    cursor pointer
+    
+    @media( max-width 767px )
+      display block
       
   &__props-icons
     text-align right
@@ -32,6 +45,38 @@
     
   &__gallery
     position relative
+    
+    .fotorama__html a
+      display block !important
+      
+      &:hover
+        opacity 1
+      
+      img
+        margin 0 auto
+        max-width 100%
+      
+    .fotorama__wrap--css3 .fotorama__html,
+    .fotorama__wrap--css3 .fotorama__stage .fotorama__img
+      text-align center
+      
+    .fotorama__wrap--css3 .fotorama__html
+      display flex
+      justify-content center
+      align-items center
+      
+      div[ data-thumb ]
+        width 100%
+      
+    .magnify
+      width 100%
+      
+      a
+        pointer-events none
+      
+      img
+        margin 0 auto
+        max-width 100%
     
   &__gallery-icons
     position absolute
@@ -83,7 +128,9 @@
     cursor pointer
     transition( transform 0.3s ease )
     text-align center
-    border 1px solid #eee
+    
+    &.i-white
+      border 1px solid #eee
     
     &:hover
       transform scale( 1.3 )
@@ -97,6 +144,11 @@
       border-bottom 1px solid #fff
       transform( rotate(-45deg) )
       
+    &.i-white
+      
+      span
+        border-color #ddd
+      
     &.i-active
       transform scale( 1.3 )
       
@@ -106,6 +158,9 @@
       
     &.i-disabled
       opacity 0.5
+      
+    .modal &
+      cursor default
       
   &__sizes-block
     display flex
@@ -127,7 +182,8 @@
       color #2f3154
       border-bottom 2px solid #2f3154
       
-    &.i-disabled
+    &.i-disabled,
+    &.i-subscribe
       opacity 0.5
       
   &__size-table-link
@@ -138,6 +194,11 @@
   &__button-block.row
     padding 9px 0
     margin-bottom 0
+    display flex
+    align-items center
+    
+    @media( max-width 767px )
+      display block
     
     .text-center
       line-height 28px
@@ -149,7 +210,6 @@
     display block
     position relative
     padding 10px 0
-    color #2f3154
     
     &:after
       content ''
@@ -171,9 +231,6 @@
   &__prop-collapse
     margin-bottom 15px
     
-  .fotorama__stage
-    background-color #f2f2f2
-    
   @media( max-width 767px )
   
     &__tags
@@ -183,7 +240,7 @@
         margin 0 22px 0 0
   
     .col-sm-7&__props
-      display block
+      display none
       text-align center
       
       span
@@ -197,7 +254,7 @@
         &.b-catalog-detail__rating
           margin 15px auto 20px
   
-    &__icons
+    .col-sm-1&__icons
       display flex
       justify-content space-between
       
@@ -214,7 +271,7 @@
     text-align center
     
   &__animation-left
-    padding-left 35px
+    padding-left 30px
     margin-top 20px
     margin-bottom 20px
     border-right 1px solid #f2f2f2
@@ -226,17 +283,17 @@
       transform( translateX(0))
       opacity 1
       
-    @media( max-width 767px )
+    @media( max-width 991px )
       padding-left 25px
       padding-right 25px
       border none
       
   &__icons
-    margin-top 20px
+    margin-top 38px
     margin-bottom 20px
     
   &__animation-right
-    padding-right 35px
+    padding-right 60px !important
     margin-top 20px
     margin-bottom 20px
     transform( translateX( 50px ))
@@ -247,15 +304,51 @@
       transform( translateX(0))
       opacity 1 
       
-    @media( max-width 767px )
-      padding-right 25px
+    @media( max-width 991px )
+      padding-right 25px !important
       padding-left 25px
-      border none   
+      border none
+      
+.b-catalog-detail__subscribe-block
+  padding 1px 15px 0
+
+  .form-group
+    float left
+    width 55%
+    
+    .form-control
+      width 100%
+      
+    input[type=email]
+      background-image none
+    
+  .form-button
+    float left
+    width 45%
+    padding-left 13px
+    margin-top 23px
+
+  .btn
+    width 100%
+    min-width auto
+    line-height 35px
+    
+  .b-message
+    background-color #f2f2f2
+    display flex
+    font-size 10.5pt
+    justify-content center
+    align-items center
+    padding 10px
+    min-height 77px
+    
+    &.i-warning
+      background-color #d65561
+      color #fff
     
 .b-icon-zoom,
 .b-icon-fav,
 .b-icon-comments,
-.b-icon-share,
 .b-icon-size
   width 16px
   height 16px
@@ -275,30 +368,45 @@
     opacity 1
   
 .b-icon-zoom
-  background embedurl( 'img/zoom.svg' ) no-repeat center
+  background url( '/images/zoom.svg' ) no-repeat center
   transition( opacity 0.5s ease 0.3s )
   
 .b-icon-fav
-  background embedurl( 'img/fav.svg' ) no-repeat center
+  background url( '/images/fav.svg' ) no-repeat center
   transition( opacity 0.5s ease 0.5s )
   
+.b-icon-fav.i-stored
+  background url( '/images/fav-stored.svg' ) no-repeat center
+  
 .b-icon-comments
-  background embedurl( 'img/comments.svg' ) no-repeat center
+  background url( '/images/comments.svg' ) no-repeat center
   transition( opacity 0.5s ease 0.7s )
   
 .b-icon-share
-  background embedurl( 'img/share.svg' ) no-repeat center
+  background url( '/images/share.svg' ) no-repeat center
   transition( opacity 0.5s ease 0.9s )
   
+  @media( max-width 767px )
+    display none
+  
 .b-icon-size
-  background embedurl( 'img/sizes.svg' ) no-repeat center
+  background url( '/images/sizes.svg' ) no-repeat center
   transition( opacity 0.5s ease 1.1s )
   
-.b-icon-discount,
-.b-icon-recommend,
-.b-icon-hit,
-.b-icon-action,
-.b-icon-new
+.b-prop
+  border 1px solid transparent
+  line-height 23px
+  height 23px
+  padding 0 9px
+  font-size 7pt
+  text-transform uppercase
+  margin -7px 0 3px 8px
+  display inline-block
+  
+  @media( max-width 767px )
+    margin 0 4px 3px
+  
+.b-icon-discount
   width 32px
   height 32px
   border-radius 51%
@@ -306,7 +414,7 @@
   line-height 32px
   text-align center
   margin-top -7px
-  background-color #696a83
+  background-color #ff3333
   background-size 50%
   background-repeat no-repeat
   background-position center
@@ -316,23 +424,23 @@
   
   @media( max-width 767px )
     margin-top 0
-  
-.b-icon-recommend
-  background-image embedurl( 'img/recomendation.svg' )
-  
-.b-icon-hit
-  background-image embedurl( 'img/hit.svg' )
-  
-.b-icon-action
-  background-image embedurl( 'img/campaign.svg' )
-  
+    
+.b-icon-recommend,
+.b-icon-hit,
+.b-icon-action,
 .b-icon-new
-  background-image embedurl( 'img/new.svg' )
+  width 32px
+  height 32px
+  background-size cover
+  background-repeat no-repeat
+  background-position center
+  font-size 9.5pt
+  display inline-block
+  vertical-align top
+  text-align center
+  margin-top -7px
   
-.b-icon-discount
-  background-color #ff3333
-  
-.side-nav
+#slide-size-table.side-nav
   background-color #fff
   
   &__close
@@ -370,6 +478,10 @@
     padding-bottom 30px
     border-bottom 1px solid #f7f7f7
     margin 0 0 18px
+    
+    @media( max-width 767px )
+      font-size 12pt
+      padding-bottom 20px
   
   p
     color #333
@@ -471,7 +583,7 @@
     margin-left 200px
     position relative
     
-    .i-scrolled &
+    /*.i-scrolled &
       border-right 1px solid #7d7d7d
       border-left 1px solid #7d7d7d
 
@@ -493,7 +605,7 @@
         height 100%
         width 35px
         background embedurl( 'img/sizes-bg-right.png' ) repeat-y left 0
-        z-index 2
+        z-index 2*/
       
   &__scroll
     overflow auto
@@ -593,10 +705,12 @@
     line-height 14px
     transition( height 0.5s ease )
     
+    @media( max-width 767px )
+      padding 20px 40px
+    
   label
     margin-bottom 6px
     color #333
-    line-height normal
     vertical-align top
     font-size 8pt
     
@@ -631,109 +745,7 @@
   
     &:nth-of-type(5)
       animation-delay .6s
-    
-    
-  .checkbox label
-    padding-left 37px
-    position relative
-    font-weight normal
-    font-size 9pt
-    line-height 1.4
-  
-  [type="checkbox"]+label
-    position relative
-    padding-left 35px
-    cursor pointer
-    display inline-block
-    -webkit-user-select none
-    -moz-user-select none
-    -ms-user-select none
-    user-select none
-  
-  [type="checkbox"].filled-in:not(:checked)+label:before
-    width 0
-    height 0
-    border 3px solid transparent
-    left 6px
-    top 10px
-    -webkit-transform rotateZ(37deg)
-    transform rotateZ(37deg)
-    -webkit-transform-origin 100% 100%;
-    transform-origin 100% 100%
-  
-  [type="checkbox"].filled-in:checked+label:before
-    top 5px
-    left 1px
-    width 8px
-    height 13px
-    border-top 2px solid transparent
-    border-left 2px solid transparent
-    border-right 2px solid #fff
-    border-bottom 2px solid #fff
-    -webkit-transform rotateZ(37deg)
-    transform rotateZ(37deg)
-    -webkit-transform-origin 100% 100%
-    transform-origin 100% 100%
-  
-  [type="checkbox"]:checked+label:before
-    top -4px
-    left -5px
-    width 12px
-    height 22px
-    border-top 2px solid transparent
-    border-left 2px solid transparent
-    border-right 2px solid #26a69a
-    border-bottom 2px solid #26a69a
-    -webkit-transform rotate(40deg)
-    transform rotate(40deg)
-    -webkit-backface-visibility hidden
-    backface-visibility hidden
-    -webkit-transform-origin 100% 100%
-    transform-origin 100% 100%
-  
-  [type="checkbox"].filled-in:checked+label:after
-    top 3px
-    width 20px
-    height 20px
-    border 2px solid #26a69a
-    background-color #26a69a
-    z-index 0
-  
-  [type="checkbox"].filled-in:not(:checked)+label:after
-    height 20px
-    width 20px
-    background-color transparent
-    border 2px solid #5a5a5a
-    top 3px
-    z-index 0
-  
-  [type="checkbox"].filled-in+label:before,
-  [type="checkbox"].filled-in+label:after
-    content ''
-    left 0
-    position absolute
-    -webkit-transition border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s
-    transition border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s
-    z-index 1
-  
-  [type="checkbox"].filled-in+label:after
-    border-radius 2px
-  
-  .checkbox input[type="checkbox"]
-    width 16px
-    height 16px
-    position absolute
-    top 7px
-    left 0
-    margin 0
-  
-  [type="checkbox"]:not(:checked),
-  [type="checkbox"]:checked
-    position absolute
-    opacity 0
-    pointer-events none
-    
-    
+      
   .btn
     line-height 1.72857143
     padding 6px 14px
@@ -743,9 +755,60 @@
       background-color #ececec
       border-color #ececec
       display none
+      
+      &:hover
+        color inherit
+      
+.fotorama--fullscreen
+
+  .fotorama__html a
+    display block !important
+    pointer-events none
+
+  .magnify
+    width 100%
+    
+    a
+      pointer-events none
+    
+    img
+      margin 0 auto
+      max-width 100%
+
+  .magnify > .magnify-lens
+    display none !important
+    
+.b-buy-modal-img
+  
+  img
+    max-width 100%
+    margin 0 auto
+    
+.b-buy-modal-text
+  padding-top 50px
+  
+  h2
+    font-size 21pt
+    margin 0 0 45px
+    
+#consentModal .modal-body
+  max-height 250px
+  overflow auto
+  padding-right 50px
+  padding-left 50px
     
 @keyframes form-opacity
   from
     opacity 0
   to
     opacity 1
+    
+textarea.form-control
+  resize none !important
+  
+.b-catalog-detail__sizes-block .b-catalog-detail__sizes-item:not(.i-disabled):hover {
+  opacity: 0.7;
+}
+
+#catalogDetailVideo
+  display none

@@ -1,0 +1,169 @@
+.b-alert-warning
+  background-color #d65561
+  color #fff
+  font-size 9pt
+  padding 15px
+  display flex
+  margin-bottom 25px
+  align-items center
+  justify-content center
+  flex-wrap wrap
+  text-align center
+  
+  &.i-slide
+    display none
+  
+  span
+    transition( opacity .3s linear )
+  
+    &.i-hide
+      opacity 0
+    
+form.i-invisible
+
+  .form-group
+    margin-bottom 21px
+    opacity 0
+    
+    &:last-child
+      margin-bottom 11px
+    
+  &.i-animate .form-group
+    animation form-opacity .3s
+    animation-fill-mode forwards
+
+    &:nth-of-type(2)
+      animation-delay .15s
+
+    &:nth-of-type(3)
+      animation-delay .3s
+
+    &:nth-of-type(4)
+      animation-delay .453s
+
+    &:nth-of-type(5)
+      animation-delay .6s
+
+.form-group
+
+  label
+    margin-bottom 6px
+    color #333
+    line-height normal
+    vertical-align top
+    font-size 8pt
+    
+  .form-control
+    height 29pt
+    padding 6px 10px
+    font-size 10.5pt
+    line-height 1.72857143
+    
+  textarea.form-control
+    height 83px    
+    
+  .checkbox label
+    padding-left 37px
+    position relative
+    font-weight normal
+    font-size 9pt
+    line-height 1.4
+  
+  [type="checkbox"]+label
+    position relative
+    padding-left 35px
+    cursor pointer
+    display inline-block
+    -webkit-user-select none
+    -moz-user-select none
+    -ms-user-select none
+    user-select none
+    line-height 20px
+  
+  [type="checkbox"].filled-in:not(:checked)+label:before
+    width 0
+    height 0
+    border 3px solid transparent
+    left 6px
+    top 10px
+    -webkit-transform rotateZ(37deg)
+    transform rotateZ(37deg)
+    -webkit-transform-origin 100% 100%;
+    transform-origin 100% 100%
+  
+  [type="checkbox"].filled-in:checked+label:before
+    top 2px
+    left 1px
+    width 8px
+    height 13px
+    border-top 2px solid transparent
+    border-left 2px solid transparent
+    border-right 2px solid #fff
+    border-bottom 2px solid #fff
+    -webkit-transform rotateZ(37deg)
+    transform rotateZ(37deg)
+    -webkit-transform-origin 100% 100%
+    transform-origin 100% 100%
+  
+  [type="checkbox"]:checked+label:before
+    top -4px
+    left -5px
+    width 12px
+    height 22px
+    border-top 2px solid transparent
+    border-left 2px solid transparent
+    border-right 2px solid #26a69a
+    border-bottom 2px solid #26a69a
+    -webkit-transform rotate(40deg)
+    transform rotate(40deg)
+    -webkit-backface-visibility hidden
+    backface-visibility hidden
+    -webkit-transform-origin 100% 100%
+    transform-origin 100% 100%
+  
+  [type="checkbox"].filled-in:checked+label:after
+    top 0
+    width 20px
+    height 20px
+    border 2px solid #26a69a
+    background-color #26a69a
+    z-index 0
+  
+  [type="checkbox"].filled-in:not(:checked)+label:after
+    height 20px
+    width 20px
+    background-color transparent
+    border 2px solid #5a5a5a
+    top 0
+    z-index 0
+  
+  [type="checkbox"].filled-in+label:before,
+  [type="checkbox"].filled-in+label:after
+    content ''
+    left 0
+    position absolute
+    -webkit-transition border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s
+    transition border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s
+    z-index 1
+  
+  [type="checkbox"].filled-in+label:after
+    border-radius 2px
+  
+  .checkbox input[type="checkbox"]
+    width 16px
+    height 16px
+    position absolute
+    top 7px
+    left 0
+    margin 0
+  
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked
+    position absolute
+    opacity 0
+    pointer-events none
+    
+fieldset
+  border 0
+  margin 0
+  padding 0

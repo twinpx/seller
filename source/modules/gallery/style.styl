@@ -7,11 +7,17 @@
     height 53px
     background-size cover
     
+    @media (max-width: 767px)
+      width 30px
+      height 30px
+    
   .fotorama__arr--next
-    background embedurl( 'img/right-arrow.svg' ) no-repeat center
+    background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWFJREFUeNrcmTsOhCAURRlC43q0dW2Oa7N1PVoyWJjgRGYCct+Hl1BYSHLyuAdB4703OaPvex/GtG2byX0XPazJr/cxxnGchmEwkiobZlmW+QQKQxSQLXxPJFA2TNd1YoGKOrOu6y3Qvu+sMK/DAqUVdWOKoOYIVkVmLh2SIgX7dILUkuMAcjUm+ZLCuRfFzzo686tDoTukUngkgD9yIJeCRU3MIQULnp8UyKEm5pACtDPUUoAJgEMK1hAWWgqkMGgpOEoKtBTIO4OUAqkA0FKwhrlqSoEdpqYUHDdFTSmI6EzigKdzmSXuEvTBREq+WE2zAKroual9xknJyLHfRGbTAXMHErqh79usZtilCAB2QGvqpOm0hp0cBhl20sygw84hANIr2qbump3WsENhqMMOywxH2CEwkn7SNvW32WkNe7VlluoIJ0gRTCrsXEurhgDEgRQJgGNnRwpARNjv6iPAAHlbk7V21ZlYAAAAAElFTkSuQmCC") no-repeat center center
+    background-size cover
     
   .fotorama__arr--prev
-    background embedurl( 'img/left-arrow.svg' ) no-repeat center
+    background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWlJREFUeNrcmsEKgzAQRK148Xv06rfZfJtXv0ePaVJSEFGKcXdmYyCIB5XH7IxrTOW9ryzNZVmqruvGMP3Va5vK0Oj7Ph7GMN9pXhq1VZBpmlyRMAeKuJz71FZB2rYtC2Zd10OQeZ6z7tdYUyQXhKbMmdnvgFBgNBRhKiNidipMNHtQRUURaADsSysAOI3n1CyzFwcj9Wa3ooya2WEwCLNDAgBldnVlkGZXhUGbXVsZqNlVYFhmFw8AptlFlWGbXQzGgtkllaGbXRKGbnYNmHFTdvSRm2ZuA/U9jxHNLrUsZVJZub1C7PGKC85Pec/cgvl1AMMwmOgAbsNsVKIDSX7P0ENBrGu2EApiZWYhFMRhmKGgAsMKBe0VTWgoqK6boUNBtczQoQCBQYUCDAYRCox/mmqhAP9zdhYKEh948DL7tyhyp+RoMBqhQN3UkHwiVnL07SZnHkq7N8qCkewUqJ4R7xSetBPwI8AAaqA5gj7kt+AAAAAASUVORK5CYII=") no-repeat center center
+    background-size cover
     
   &--fullscreen .fotorama__fullscreen-icon
     width 32px
@@ -20,6 +26,10 @@
     background-size cover
     top 20px
     right 20px
+    
+    @media (max-width: 767px)
+      width 20px
+      height 20px
     
   .fotorama__thumb-border
     border-color #2f3154
@@ -77,6 +87,26 @@
   
 .fotorama--fullscreen .fotorama__arr--prev
   left 20px
+    
+  @media (max-width: 767px)
+    left 13px
   
 .fotorama--fullscreen .fotorama__arr--next
   right 20px
+    
+  @media (max-width: 767px)
+    right 13px
+    
+.fotorama--fullscreen .fotorama__html
+  display flex
+  align-items center
+  justify-content center
+  
+  img
+    max-height 100vh
+    max-width 100vw
+    
+.magnify-lens
+
+  @media (max-width: 767px)
+    display none !important

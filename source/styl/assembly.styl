@@ -62,9 +62,7 @@
       float none
 
 .pagination a,.pagination span,.nav a
-  -webkit-transition all .2s ease
-  -o-transition all .2s ease
-  transition all .2s ease
+  transition( all .2s ease )
 
 .label-default
   background-color transparent
@@ -80,9 +78,18 @@
   font-size 9pt
   margin-bottom 5px
   color #333
+  padding 8px 0
+  background-color transparent
+  border-radius 0
+  
+  &:last-child
+    color: #333 !important
   
   &:before
     display none
+    
+  @media (max-width:767px)
+    font-size 8pt
 
 .panel
   border-radius 0
@@ -146,11 +153,10 @@
   padding-right 14px
   padding-left 14px
   border-radius 0
-  background #fff
+  background transparent
   color #5c6eb8
-  -webkit-transition all .2s ease
-  -o-transition all .2s ease
-  transition all .2s ease
+  transition( all .2s ease )
+  line-height 39px
 
 .btn-default:hover,.btn-default:active,.btn-default:focus
   outline 0
@@ -214,6 +220,11 @@
 
 .small
   font-size 9pt
+  
+@media (min-width: 768px)
+
+  .modal-dialog 
+    width 750px
 
 .modal-backdrop
   background #fff
@@ -227,6 +238,8 @@
 .modal-header
   color #000
   padding 26px
+  position relative
+  //border-bottom none
 
 .modal-body
   color #000
@@ -240,26 +253,49 @@
   text-align center
   padding-top 40px
   padding-bottom 40px
+  
+  .btn,
+  .btn+.btn
+    margin 0 12px
+    
+    @media( max-width 767px )
+      display block
+      margin 0 auto
+      width 170px
+      
+      &:first-child
+        margin-bottom 10px
+    
+h2.modal-title
+  
+  @media( max-width 767px )
+    font-size 12pt
 
 .bj-text-x-large
   font-size 26pt
 
 .modal
   .close
-    width 24px
-    height 24px
-    background-color #f2f2f2
-    border-radius 50%
-    opacity 1
+    width 32px
+    height 32px
+    background transparent
     font-weight 300
     text-shadow none
-    margin-top 3px
-    color #999
+    background embedurl( 'img/close.svg' )
+    position absolute
+    top 23px
+    right 33px
+    margin-top 0
+    opacity 1
     
     &:hover
-      background-color #a3add7
-      opacity 1
-      color #fff
+      opacity .7
+      
+    @media( max-width 767px )
+      width 20px
+      height 20px
+      top 27px
+      right 27px
 
 .text-overflow
   overflow hidden
@@ -352,6 +388,19 @@ a
   font-size 13.5pt
   line-height 56px
 
+.btn-reset
+  background-color #ececec !important
+  border-color #ececec !important
+
+  &:hover,
+  &:active,
+  &:focus
+    background-color #ececec !important
+    border-color #ececec !important
+    box-shadow none
+    color #333 !important
+    opacity .7
+
 @media (max-width:360px)
   .hidden-xxs
     display none
@@ -386,6 +435,10 @@ hr
     margin-bottom 25px
     margin-top 25px
     
+  /*&.i-size-XL
+    margin-bottom 20px
+    margin-top 20px*/
+    
   &.i-line
     border-top 1px solid #eee
     height 0
@@ -395,11 +448,13 @@ hr
     margin-bottom 5px
     margin-top 5px
 
-@media (max-width:767px)
-  hr
     &.i-size-L
       margin-bottom 10px
       margin-top 10px
+    
+    &.i-size-XL
+      margin-bottom 20px
+      margin-top 20px
 
 menu
   list-style-type none
@@ -410,7 +465,7 @@ menu
   width 100%
 
 .text-large
-  font-size 13pt
+  font-size 13.5pt
 
 .i-relative
   position relative
@@ -472,7 +527,16 @@ a.bj-icon-link,a.bj-icon-link:hover,a.bj-icon-link:active,a.bj-icon-link:focus
 
 .bj-price
   height 36px
+  
+  s
+    color #000
 
+.text-small
+  font-size 9pt
+  
+.bj-price .text-small
+  margin-top 6px
+    
 .bj-price .text-large,.bj-price .text-small
   line-height 18px
 
@@ -648,9 +712,7 @@ a.bj-icon-link,a.bj-icon-link:hover,a.bj-icon-link:active,a.bj-icon-link:focus
 
 .bj-text-more-wrapper
   overflow hidden
-  -webkit-transition height .5s ease
-  -o-transition height .5s ease
-  transition height .5s ease
+  transition( height .5s ease )
 
 .bj-panel
   border 1px solid #f2f2f2
@@ -699,7 +761,7 @@ a.bj-icon-link,a.bj-icon-link:hover,a.bj-icon-link:active,a.bj-icon-link:focus
   menu
     margin 0 0 0 7px
 
-@media (max-width:767px)
+@media (max-width:1023px)
   .bj-side-block
     display none
 
@@ -740,11 +802,16 @@ div
       padding 0
       margin 0
 
-input[type=email]
+input[type=email],
+.form-group input.form-control[type=email]
   background-image url(images/envelope.png)
   background-repeat no-repeat
   background-position 10px center
   padding-left 42px
+  
+input[type=email]:-webkit-autofill,
+.form-group input.form-control[type=email]:-webkit-autofill
+  padding-left 10px
 
 .bj-range__input-min,.bj-range__input-max
   display none!important
@@ -781,9 +848,7 @@ input[type=email]
 
 .bj-checkbox
   position relative
-  -webkit-transition color .3s linear
-  -o-transition color .3s linear
-  transition color .3s linear
+  transition( color .3s linear )
   
   &.i-checked
     color #333
@@ -808,9 +873,7 @@ form
   background #000
   display block
   visibility hidden
-  -webkit-transition all .3s cubic-bezier(0.68,-.55,.265,1.55)
-  -o-transition all .3s cubic-bezier(0.68,-.55,.265,1.55)
-  transition all .3s cubic-bezier(0.68,-.55,.265,1.55)
+  transition( all .3s cubic-bezier(0.68,-.55,.265,1.55))
 
 .bj-cf__colors__i
   float left
@@ -846,307 +909,6 @@ form
     .glyphicon-align-justify
       float right
       margin 0 43px 0 0
-
-.bj-page-header__top a,.bj-page-header__top a:hover,.bj-page-header__top a:active,.bj-page-header__top a:focus
-  color #fff
-  text-decoration none
-
-.bj-page-header__submenu
-  background-color #fff
-  padding 10px 0 0
-  height 60px
-  overflow hidden
-  
-  .row
-    margin-left 0
-    margin-right 0
-    
-  a
-    line-height 40px
-    display inline-block
-
-.bj-page-header__submenu .col-md-2,.bj-page-header__submenu .col-md-6
-  padding-left 0
-  padding-right 0
-
-.bj-page-header__menu-link,.bj-page-header__looks-link,.bj-page-header__sales-link
-  line-height 60px!important
-  height 60px!important
-  margin -10px 0 -9px
-  text-align center
-  display block!important
-  background-color #fff
-  -webkit-transition background-color .2s ease
-  -o-transition background-color .2s ease
-  transition background-color .2s ease
-
-.bj-page-header__menu-link:hover,.bj-page-header__looks-link:hover,.bj-page-header__sales-link:hover,.bj-page-header__menu-link:active,.bj-page-header__looks-link:active,.bj-page-header__sales-link:active,.bj-page-header__menu-link:focus,.bj-page-header__looks-link:focus,.bj-page-header__sales-link:focus
-  background-color #f2f2f2
-
-.bj-page-header__menu-link:hover .bj-icon.i-menu,.bj-page-header__looks-link:hover .bj-icon.i-menu,.bj-page-header__sales-link:hover .bj-icon.i-menu,.bj-page-header__menu-link:active .bj-icon.i-menu,.bj-page-header__looks-link:active .bj-icon.i-menu,.bj-page-header__sales-link:active .bj-icon.i-menu,.bj-page-header__menu-link:focus .bj-icon.i-menu,.bj-page-header__looks-link:focus .bj-icon.i-menu,.bj-page-header__sales-link:focus .bj-icon.i-menu
-  background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUJJREFUeNpi/P//PwM6SE9P9wNSAUDMCBWaBcTH0ZSpAXEFkprDQLwIiP+AODNnzgQLsmAxPAhIFQGxNZLwBSwWqANxIhLfDGr4SiD+CRNkBPkAaCgTkB0KxOVAbMiACW4CMcjia1C+HNQgCyxq7wNxN8g3QF98ZUwDAiCnEIg1GPADkOtOQWlTIOYkoP4ZEE8FBVELEIsyEAYgtVYMxAMpkMNBQZPJQDuQzgQMp7VAxhIaGL4EaPY6JiinAIifU9Hw59CUyMAETbNvgVQKEH8D4otAfIxEA78C8SYgfgRNollAM1/DLYBasg1IyQBpAyA9h0QLfgBxCBArALE0EG+ASTAhqwIa/h7K5CLRAlBu5gViULHwFlmCiYHGYNSCEWwBIxnJlCQLfpJowS8g/ourCMYGLgPxAhIseA3NzRgAIMAA6PRP0Flb5NcAAAAASUVORK5CYII=')
-
-.bj-page-header__menu-link:hover .bj-icon.i-looks,.bj-page-header__looks-link:hover .bj-icon.i-looks,.bj-page-header__sales-link:hover .bj-icon.i-looks,.bj-page-header__menu-link:active .bj-icon.i-looks,.bj-page-header__looks-link:active .bj-icon.i-looks,.bj-page-header__sales-link:active .bj-icon.i-looks,.bj-page-header__menu-link:focus .bj-icon.i-looks,.bj-page-header__looks-link:focus .bj-icon.i-looks,.bj-page-header__sales-link:focus .bj-icon.i-looks
-  background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARVJREFUeNpi/P//PwMtAQuMkZ6eLg2k6oGYFU3NGiDeSoxhM2fOxG0BEKgAcSoWfQLEWoDVB0CX8wNpPiCWxKGGE4hliTEMaBa60HeQD84CsRIefe5A/JBMDzwFWSACxIwEFDKSaQEPyIK/RCo+BsS7gfgfEDsBsT0Rev6xEKHoORCHA/FhJLEmIDYF4rWE4oeJgOG/gNgXzXAYOA3EnkD8kRIL5kATAS5wFYgXU2LBISKCcBelQUQIUBRExGQwQ0osABUdbHjkmaEpjGwLdIB4Ah75XiC2JKo0xQMyoQXhLGhmA5XvZkCcDE3CDJRaAAKuUPwTagEHKfUBLwllCzuJZREfyIJuIJaiUYX2lpHWVSZAgAEApvMw2ZSl1+MAAAAASUVORK5CYII=')
-
-.bj-page-header__menu-link .bj-icon,.bj-page-header__looks-link .bj-icon,.bj-page-header__sales-link .bj-icon
-  margin 0 10% 0 0
-
-@media (max-width:360px)
-  .bj-page-header__menu-link .bj-icon,.bj-page-header__looks-link .bj-icon,.bj-page-header__sales-link .bj-icon
-    margin-right 10px
-
-.bj-page-header__search
-  position relative
-  display inline-block
-  line-height 40px
-  margin-right 33px
-  
-  .glyphicon
-    cursor pointer
-    position absolute
-    top 1px
-    left -5px
-    z-index 10
-    
-    &:before
-      display inline-block
-      vertical-align top
-      width 40px
-      height 40px
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYVJREFUeNrsmMFHBFEYwGcqSyxLRKcSXSOGpdMQpdOyRF2i0xJ1jP0Pouy1c5fOiU4lNh26RLSXJXZJe0pZ6hLl9Xv6VpRl3kzzdg7v8Tvs+r43v3lv3/fNrK+U8rI8hryMDyfoBJ2gE3SC8UcIR9AE3Y66UIcqFAYpOAancAE5OIQl2IYGVKAF5X8x1L3YgHFoCsU+MaNQU9+jYjj/H0wTTuAe8hFiN+Ed5mwJLsMHzBvknEE9iaBv8LilD8QwrBn8gmbhDqbgIe1Dok/tueH8DRELbZziCejEuEZHclMXfIN8jGsUJDd1Qb1dgeH8+oamJTd1wWNYN1zFDXiBaxuFWte+R9iLGD8Dz7Bls1AvSPHdlY7RL64oBf3KdifRhNCSdrcKk/J9Top4TQr6rdxMybZgb7sP4FV6blf9jBtYlLhqUkkv4RboVQtkJQP5/DtmRyTLgxCMSk9yxTR3xNKD8T58Sj9/gsuoib7l/2ZKUrTbWRV0L01O0Ak6QSfoBC2PLwEGAKW+gvOUJ6F1AAAAAElFTkSuQmCC') no-repeat center center
-      content ''
-      
-  form
-    display inline-block
-    width 30px
-    height 26px
-    
-  &.i-active
-  
-    .bj-page-header__search__input
-      width 690px
-      opacity 1
-
-.bj-page-header__search__input
-  width 30px
-  height 32px
-  line-height 20px
-  padding 6px 10px 6px 32px
-  background-color #5c6eb8
-  border none
-  display inline-block
-  vertical-align top
-  margin-top 8px
-  -webkit-transition all .3s ease-in
-  -o-transition all .3s ease-in
-  transition all .3s ease-in
-  opacity 0
-  color #fff
-  position absolute
-  top -4px
-  left -2px
-  z-index 9
-  
-  &:focus
-    box-shadow none
-
-@media (max-width:1200px)
-
-  .bj-page-header__search
-    &.i-active
-      .bj-page-header__search__input
-        width 620px
-
-@media (max-width:1125px)
-  .bj-page-header__search
-    &.i-active
-      .bj-page-header__search__input
-        width 550px
-
-@media (max-width:1065px)
-  .bj-page-header__search
-    &.i-active
-      .bj-page-header__search__input
-        width 490px
-
-@media (max-width:770px)
-  .bj-page-header__search
-    &.i-active
-      .bj-page-header__search__input
-        width 270px
-
-.bj-page-header__dropdown
-  .container-fluid
-    max-width 1180px!important
-      
-  article
-    background-color #5c6eb8
-    font-size 10pt
-    padding 35px 50px 0
-    border-top 1px solid #fff
-    position absolute
-    top 0
-    left 0
-    z-index 1000
-    width 100%
-    display none
-    
-  a
-    &:hover
-      opacity 0.5
-      text-decoration none
-      
-  menu
-    padding 0
-    margin 0 0 35px
-    list-style-type none
-    
-  .up
-    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAALCAYAAABlNU3NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQtJREFUeNqk07FLgkEYx/E7SiIJLGhREYUWW3VoyEFwaGhxlGhpChfBUdoEFyEXt0gIAv8BHXQRMlqdtKUhkWwwhLaW4PV78gzyknCvHXzgHe6e33PH82rHcZTl2sUl9vGAL6tTJsBCAEV84xc1hGzO2hSP4x5T9NGV7zZS0JsG+HCOHmao4whBlPCBAa6w5zXgEDd4wxDXriJbyMqNpivhVgFJPGKOFk6l4F97j3Enezs4w/a6gB1c4AUTVBCxHIACXjGSYThwB4RRlrc275qD33LClHSdkQEwk9aQ22klU5DHO5pIeCjsFsMtxqiaJvUyRakTRPGMT/W/FUAaP3jSHv5kr8s07iwEGACkhnUZBhv8fwAAAABJRU5ErkJggg==') no-repeat center 7px
-    background-color #5c6eb8
-    width 171px
-    height 35px
-    position absolute
-    bottom -28px
-    left 50%
-    margin-left -85px
-    border 0
-    
-    &:hover
-      -webkit-animation moveUp .3s
-      -o-animation moveUp .3s
-      animation moveUp .3s
-
-.bj-page-header__dropdown,.bj-page-header__dropdown a,.bj-page-header__dropdown a:hover,.bj-page-header__dropdown a:active,.bj-page-header__dropdown a:focus,.bj-page-header__dropdown h3,.bj-page-header__dropdown .h3
-  color #fff
-
-.bj-page-header
-  .glyphicon
-    font-size 14pt
-    
-  button
-    &.glyphicon-user
-      background 0 0
-      border none
-      padding 0
-      
-  .popover
-    border-radius 3px
-    
-  .popover-content
-    line-height 1.72857143
-    
-    a
-      display block
-      margin-bottom 5px
-      
-    b
-      font-weight 400
-      
-    .glyphicon
-      line-height 1.72857143
-      width auto
-      font-size 10.5pt
-      margin-left 6px
-
-.bj-logo
-  font-size 18pt
-  display inline-block
-  vertical-align top
-  margin-right 10px
-  
-  img
-    max-width 143px
-    vertical-align top
-
-@media (max-width:767px)
-  .bj-logo
-    display inline-block
-    vertical-align top
-    line-height 40px
-
-.bj-logo-space
-  line-height 40px
-  
-  .glyphicon
-    width 40px
-    line-height 40px
-    text-align center
-    
-    &:hover
-        text-decoration none
-        
-  .bj-menu-icon
-    height 40px
-    line-height 40px
-    width 40px
-    display inline-block
-    vertical-align top
-    background url('data:image/gif;base64,R0lGODlhFAATAIABAP///////yH5BAEAAAEALAAAAAAUABMAAAIahI+pyxgPo5y02ouz3rz573HiSJbmuYHqChQAOw==') no-repeat center center
-    
-  div[id^=bx_incl_area]
-    display inline-block
-
-.bj-logo-space__icon
-  margin 0 9px
-  display inline-block
-  vertical-align top
-  
-  &.glyphicon-user
-    &:before
-      display inline-block
-      vertical-align top
-      width 40px
-      height 40px
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWBJREFUeNrs2D9LAzEYx/E7BaVwIDj5AgqC4OAiOBSh0FUo9AUUCq6C4iBKoeDQUXF18EXoqJMgNwmCg3QQRBAEQSkoHeT8Bp7paO+oacgpT+CzJGn7u+Tyh4ZJkgRFLlNBwYsG1IAaUANqQPuygCPcYoAY+4iKELCJHhZxjArO0JD6deuE5iz+pRoGaIxob6OPssVvBKHFZeESNzjI6HOOB+z4mOKyBMwq1zL9uor/ZMAPlHL6mPYvXwEfsZzTZ0kWiZeAF6hntJuNuoYrX/tghDe0RrR3cI9pm33QJqCxgU+spurrsolXLb/fehVHsljWUvVVPOHbx1E3g030ZIrbUpee/hMZ3VhG1PkUl7CNFzxjS4JkfWYeh3iX97HpMmAso9YaMmJ55rCLV5y6CpgMWQzjMg935+o2Yy6jsxM4vczFdsXFRr03oeO1O07nUP880oAaUANqQA34vwP+CDAA4NuFqAyXEG0AAAAASUVORK5CYII=') no-repeat center center
-      content ''
-      
-  &:hover
-    text-decoration none
-    
-  &.bj-cart-icon
-    margin-right 20px
-    
-  &.glyphicon-info-sign
-    margin 0 15px
-
-@media (max-width:767px)
-  .bj-logo-space__icon
-    &.bj-cart-icon
-      float right
-      margin 0 43px 0 -38px
-
-@media (max-width:767px)
-  .bj-logo-space__icon
-    .tooltip
-      display none!important
-
-.bj-top-nav
-  display inline-block
-  
-  a
-    display inline-block
-    line-height 40px
-    padding 0 11px
-    margin 0 11px
-
-.bj-top-subnav
-
-  &:before
-    content ' '
-    display inline-block
-    vertical-align top
-    line-height 40px
-    width 19px
-    height 40px
-    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAXCAYAAADpwXTaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAa1JREFUeNqclU0oBGEYx2dehL1saSVFlAOXzcckJyUXuUmibJGDnJwpbXLZm5MkxMmBEncXDgqHTfnIt4OUkpRS9sL4vfXsNsbMbjNP/Xpm5pn9z//9eN41bds2gkY6nY7J5btlWT/Z52Y+MX5kksoFBRGohknohXHYg09E7eICJupgClqgWUSdsQ2nMAR3vs5wVUQag1VX6RWeoQJqQBuag5TK46oRpj2eLzAki9wOB6DdzEJc+bgqIQ1Ag0e5jHopem8i9i3PK/3mTH856VObgS8EL8n9MkwdiX9zxksRmafhgDsmo1xC+r47hJCOc/ecRWVlgoaet6RyuUpAWwixLTh2OquSJQ4aelXnWd0P5VqlWAixNbjK9SZDjHN9FkLoQu9HXN0Y0rw6Fo1wsax7MnujcDVB7gwhpE+LTecRpGS3B40MrEhLGU6xFPTBUwCxDXH2J3LtxHCbSF2wVEDoEUZxdegu5LYGxWttHTpgPY/YDpx4FTwPR1xGpRPmodVROoIRPnzvJeZ5nundDPtc9sCg48zahQc/y2ahfyfp2XqohVs+8uL37q8AAwDzvYWXMy+5RgAAAABJRU5ErkJggg==') no-repeat center center
-    margin-right -9px
-    margin-left 10px
-    
-  a
-    display inline-block
-    margin 0 22px
 
 .bj-phone
   line-height 40px
@@ -1214,6 +976,7 @@ form
   .glyphicon
     display inline-block
     vertical-align top
+    margin-right 5px
     
     &:before
       display inline-block
@@ -1224,9 +987,7 @@ form
       content ''
 
 .bj-page-header .glyphicon-user:hover,.bj-page-header .glyphicon-shopping-cart:hover,.bj-page-header .glyphicon-search:hover,.bj-page-header .glyphicon-align-justify:hover,.bj-page-header .glyphicon-earphone:hover,.bj-top-nav a:hover
-  -webkit-transition all .3s ease-out
-  -o-transition all .3s ease-out
-  transition all .3s ease-out
+  transition( all .3s ease-out )
   opacity 0.5
 
 @media (max-width:991px)
@@ -1285,55 +1046,6 @@ form
       width 24px
       line-height 24px
       margin-right 9pt
-
-#b-float-phone
-  position fixed
-  bottom -60px
-  left 0
-  width 100%
-  margin 0
-  text-align center
-  padding 15px 0
-  color #fff
-  font-size 16pt
-  height 60px
-  -webkit-transition bottom .2s ease
-  -o-transition bottom .2s ease
-  transition bottom .2s ease
-  z-index 997
-  
-  &.i-visible
-    bottom 0
-    
-  .glyphicon
-    margin-right 10px
-    line-height 60px
-
-.bx-touch
-  #b-float-phone
-    display none
-
-.b-float-phone__bg
-  background-color #a3add7
-  opacity 0.8
-  position absolute
-  top 0
-  left 0
-  width 100%
-  height 60px
-  z-index 998
-
-.b-float-phone__content
-  position absolute
-  top 0
-  left 0
-  width 100%
-  line-height 60px
-  z-index 999
-
-.b-float-phone__text
-  display inline-block
-  white-space nowrap
 
 .bj-footer-bitrix-btn
   position relative
@@ -1493,6 +1205,9 @@ form
 .bj-product-card__img
   display block
   
+  a&:hover
+    opacity 1
+  
   img
     display block
     margin-left auto
@@ -1512,9 +1227,7 @@ form
       background-size contain
       background-position center center
       background-repeat no-repeat
-      -webkit-transition opacity .2s ease
-      -o-transition opacity .2s ease
-      transition opacity .2s ease
+      transition( opacity .2s ease )
 
 .bx-no-touch
   .bj-product-card__img
@@ -1677,9 +1390,7 @@ form
     border-radius 0
     background #fff
     color #5c6eb8
-    -webkit-transition all .2s ease
-    -o-transition all .2s ease
-    transition all .2s ease
+    transition( all .2s ease )
 
 .popup-window-buttons .bx_bt_button:hover,.popup-window-buttons .bx_bt_button:active,.popup-window-buttons .bx_bt_button:focus
   outline 0
@@ -1689,10 +1400,33 @@ form
 
 .side-nav
   background-color #a3add7
+  left 0
   z-index 1062
+  transform(translateX( -100% ))
   
-  &.fixed
-    left -105%
+  &__close
+    width 32px
+    height 32px
+    background transparent
+    font-weight 300
+    text-shadow none
+    background embedurl( 'img/close.svg' )
+    position absolute
+    top 58px
+    right 64px
+    margin-top 0
+    cursor pointer
+    
+    @media( max-width 961px ) and ( min-width 768px )
+      top 30px
+      right 30px
+    
+    @media( max-width 767px )
+      width 20px
+      height 20px
+      top 18px
+      right 20px
+      
     
   a
     font-size 10.5pt
@@ -1846,3 +1580,7 @@ form
   background-color transparent !important
   border-color #523f62 !important
   color #523f62 !important
+  
+.modal-dialog
+  z-index 1041
+  

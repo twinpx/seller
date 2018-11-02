@@ -1,118 +1,107 @@
 ﻿.b-tabs
-
-  nav.b-tabs__nav
-    
-    .b-tabs__nav__top
-      span Подробное описание
-      svg( xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.42 181.42" )
-        defs
-          style .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px;}
-        line.cls-1( x1="4" y1="27.33" x2="176.64" y2="27.33" )
-        line.cls-1( x1="4" y1="151.01" x2="176.64" y2="151.01" )
-        line.cls-1( x1="4" y1="89.17" x2="176.64" y2="89.17" )
-    
-    .b-tabs__nav__menu
-      svg( xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.42 181.42" )
-        defs
-          style .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px;}
-        polyline.cls-1( points="4 47.17 92.92 131.17 176.64 47.45" )
-        
-      .b-tabs__decor
-      a(href="", data-tab="description").b-tabs__tab.i-active Подробное описание
-      a(href="", data-tab="comments").b-tabs__tab Отзывы
-      a(href="", data-tab="props").b-tabs__tab Характеристики
-      a(href="", data-tab="video").b-tabs__tab Видео
-      a(href="", data-tab="files").b-tabs__tab Файлы
-    
+  .b-tabs__nav
+    .b-tabs__nav__top(style='display: none;')
+      span
+        | Отзывы
+      i(style="background-image: url('/bitrix/templates/bejet_seller/images/menu-black.svg');")
+    .b-tabs__nav__menu(style='display: block;')
+      i(style="background-image: url('/bitrix/templates/bejet_seller/images/menu-black.svg');")
+      .b-tabs__decor(style='left: 0px; width: 0px;')
+      a.b-tabs__tab.i-active(href='', data-tab='comments') Отзывы
+      a.b-tabs__tab(href='', data-tab='props') Характеристики
   hr.i-size-M
-
-  .b-tabs__i.i-active( data-tab="description" )
-    
+  .b-tabs__i.i-active(data-tab='comments')
     .row
       .col-sm-8.col-sm-offset-2
-      
-        h2 Заголовок 2
-        p Сабо от Crocs выполнены из полимера ColorLite™ белого цвета. Модель невероятно легкая и удобная благодаря полностью литой конструкции. Детали: эластичные вставки по бокам позволяют регулировать высоту подъема, плоская рифленая подошва контрастного цвета.
-        
-  .b-tabs__i( data-tab="comments" )
-    
-    .row
-      .col-sm-8.col-sm-offset-2
-        
         hr.i-size-S
-        
-        button.btn.btn-default.btn-size-M Добавить комментарий
-        
-        hr.i-size-M
-        
-        include ../comment/include
-        
-        hr.i-line.i-size-L
-        
-        include ../comment/include
-        
-        hr.i-line.i-size-L
-        
-        include ../comment/include
-  
-  .b-tabs__i( data-tab="props" )
-    
+        // div class="b-alert-warning"></div
+        button#collapseCommentButton.btn.btn-default.btn-size-M(type='button', data-toggle='collapse', data-target='#collapseCommentForm', aria-expanded='false', aria-controls='collapseExample', data-ajax-url='/ajax/name-mail.php') Написать отзыв
+        hr
+        #collapseCommentForm.collapse
+          h2 Написать отзыв
+          form.i-invisible.i-animate(action='/ajax/set-comment.php', method='GET')
+            .form-group
+              label ФИО:
+              input.form-control(type='text', name='NAME', value='', required='required')
+              input.form-control(type='hidden', name='ID', value='3029')
+            .form-group
+              label Email:
+              input.form-control(type='email', name='EMAIL', value='', required='required')
+              input.form-control(type='text', name='mail', value='', style='display:none;')
+            .form-group
+              label Комментарий:
+              textarea.form-control(name='MESSAGE', cols='10', rows='10', value='', required='required', style='overflow: hidden; word-wrap: break-word; height: 83px;')
+            #register-user-conf.form-group.checkbox(style='border-bottom: 0;')
+              //
+                input id="filled-in-box" type="checkbox" value="Y" name="" required="required"  class="filled-in"/>
+                <label for="filled-in-box" data-toggle="modal" data-target="#consentModal" class="main-user-consent-request">Нажимая на кнопку «Регистрация», вы даете согласие на обработку своих персональных данных.</label
+              input#filled-in-box.filled-in(type='checkbox', value='Y', name='USERCONSENT')
+              label.main-user-consent-request(for='filled-in-box', data-toggle='modal', data-target='#consentModal', data-bx-user-consent='{"id":1,"sec":"4reejg","autoSave":false,"actionUrl":"\/ajax\/userconsent.php","replace":{"button_caption":null,"fields":null},"submitEventName":"bx-soa-order-save"}')
+                | Нажимая кнопку «», я даю свое согласие на обработку моих
+                | персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей,
+                | определенных в Согласии на обработку персональных данных
+              script(type='text/javascript').
+                BX.ready(function () {
+                var submitBtn = BX('fire_event1');
+                BX.bind(submitBtn, 'click', function(){
+                BX.onCustomEvent('my-event-name1', []);
+                });
+                if (!BX.UserConsent)
+                {
+                return;
+                }
+                var control = BX.UserConsent.load(BX('my_container'));
+                if (!control)
+                {
+                return;
+                }
+                BX.addCustomEvent(
+                control,
+                BX.UserConsent.events.save,
+                function (data) {
+                console.log('js event:', 'save', data);
+                // успешно!
+                // отправляем ajax
+                // или другие действия
+                }
+                );
+                });
+            button.btn.btn-default.btn-size-M(type='submit') Добавить комментарий
+        #consentModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='consentModalLabel')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+                h2#consentModalLabel.modal-title.text-center Текст соглашения
+              .modal-body
+                | Загрузка...
+              .modal-footer.text-center
+                button.btn.btn-default.btn-size-M(type='button') Принимаю
+                button.btn.btn-default.btn-reset.btn-size-M(type='button') Не принимаю
+  .b-tabs__i(data-tab='props')
     .row
       .col-sm-8.col-sm-offset-2
-      
         table.table
-        
-          thead
-            tr
-              th Параметр
-              th Заголовок таблицы
-              th Заголовок таблицы
-              
           tbody
             tr
-              td Состав
-              td Хлопок - 100%
-              td Заголовок таблицы
+              td Артикул
+              td
+                | 42651160OC
             tr
-              td Состав
-              td Хлопок - 100%, полиэстр - 20%, акрил - 50%
-              td Заголовок таблицы
-      
-  .b-tabs__i( data-tab="video" )
-    
-    .row
-      .col-sm-8.col-sm-offset-2
-      
-        include ../../modules/video-block/include
-    
-  .b-tabs__i( data-tab="files" )
-    
-    .row
-    
-      .col-sm-3
-        include ../../modules/file-block/include
-            
-      .col-sm-3
-        include ../../modules/file-block/include2
-            
-      .col-sm-3
-        include ../../modules/file-block/include
-            
-      .col-sm-3
-        include ../../modules/file-block/include
-          
-    hr.i-size-L
-    
-    .row
-    
-      .col-sm-3
-        include ../../modules/file-block/include
-            
-      .col-sm-3
-        include ../../modules/file-block/include
-            
-      .col-sm-3
-        include ../../modules/file-block/include
-            
-      .col-sm-3
-        include ../../modules/file-block/include
+              td Производитель
+              td
+                | Италия
+            tr
+              td Материал
+              td
+                | 100% Хлопок
+            tr
+              td Характеристики
+              td
+                p
+                  | Классический цвет, деним, эффект поношенности, эффект «делаве», логотип, одноцветное изделие, высокая талия, застежка спереди, пуговицы, множество карманов, прямой крой брючин.
+                p
+                  | Ширина низа брючины 16 см.
+
+

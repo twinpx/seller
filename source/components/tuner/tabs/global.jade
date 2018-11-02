@@ -1,0 +1,63 @@
+﻿section.b-seller-tuner__colors
+
+  | Цветовая схема
+  
+  hr.i-line.i-size-L
+  
+  .b-seller-tuner__block
+    input#global-color( type="hidden" name="global-color" value="blue" )
+    .b-item.i-default( style="background-color: blue;" )
+    .b-item( style="background-color: lightblue;" )
+    .b-item( style="background-color: yellow;" )
+    .b-item( style="background-color: orange;" )
+    .b-colorpicker( title="Выбрать цвет" data-default="f502aa" )
+      div
+      
+    
+hr.i-size-L
+
+section.b-seller-tuner__fonts
+
+  | Шрифт
+  
+  hr.i-line.i-size-L
+  
+  .b-seller-tuner__block
+    input#global-font( type="hidden" name="global-font" value="blue" )
+    div Open Sans
+    div Montserrat
+    div Roboto
+    div PT Sans
+    div Lora
+    
+hr.i-size-L
+
+section.b-seller-tuner__tags
+
+  | Цвета ярлыков
+  
+  hr.i-line.i-size-L
+  
+  .b-seller-tuner__block
+    .b-item.i-discount( data-default="ea4b4b" )
+      input#global-discount-color( type="hidden" name="global-discount-color" value="ea4b4b" )
+      .b-tag-color.b-colorpicker( style="background-color: #ea4b4b;" )
+        div
+      .b-tag-name Скидка
+    .b-item.i-hit( data-default="86ad34" )
+      input#global-hit-color( type="hidden" name="global-hit-color" value="86ad34" )
+      .b-tag-color.b-colorpicker( style="background-color: #86ad34;" )
+        div
+      .b-tag-name Хит
+    .b-item.i-new
+      input#global-new-color( type="hidden" name="global-new-color" value="ea4b4b" )
+      .b-tag-color( style="background-color: #ea4b4b;" )
+      .b-tag-name Новинка
+    .b-item.i-recommended
+      input#global-recommended-color( type="hidden" name="global-recommended-color" value="2f7cdb" )
+      .b-tag-color( style="background-color: #2f7cdb;" )
+      .b-tag-name Рекомендуем
+    .b-item.i-action
+      input#global-action-color( type="hidden" name="global-action-color" value="4be1ea" )
+      .b-tag-color( style="background-color: #4be1ea;" )
+      .b-tag-name Акция

@@ -4,26 +4,27 @@ link( rel="stylesheet", href="/components/catalog.detail/style.css" )
 script( src="/components/catalog.detail/script.js" )
 
 .b-catalog-detail
-  
+
+  .b-statistics-data( data-url="/components/catalog.detail/statistics.html" data-method="GET" data-data="ID=4&SESSION_ID=5" )
+
   .row
     .col-sm-8
+      hr.visible-xs-block
       h1 Верблюжье пальто
-    .col-sm-4.b-catalog-detail__tags
-      a Пальто
-      | 
-      a Женщинам
-      | 
-      a Зима
+    .col-sm-4
+      include ../../modules/catalog-tags/include
   
   .row
+  
+    .i-ecom-brand.hidden Lanvin
     
     .col-sm-7.b-catalog-detail__props
       span.text-muted Артикул
         | 
-        span#catalogDetailArt AD006EWLXF08
+        span.catalogDetailProperty1 AD006EWLXF08
       span.text-muted Штрихкод:
         | 
-        span#catalogDetailCode 89919381298
+        span.catalogDetailProperty2 89919381298
       span.text-muted Бренд Lanvin
       span.b-catalog-detail__rating
         table.bx_item_detail_rating(align='center')
@@ -36,13 +37,15 @@ script( src="/components/catalog.detail/script.js" )
                     #bx_vo_4_52_sBq3II_progr.bx_stars_progres(style='width: 0%;')
               td
                 span#bx_vo_4_52_sBq3II_rating.bx_stars_rating_votes ( 0 )
+                
+    .b-catalog-detail__props-slide( style="background-image: url( '/upload/etc.svg' );" )
 
     .col-sm-5.b-catalog-detail__props-icons.text-right
-      .b-icon-discount( data-toggle="tooltip" data-placement="right" title="Скидка" ) 35%
-      .b-icon-recommend( data-toggle="tooltip" data-placement="right" title="Рекомендовано" )
-      .b-icon-hit( data-toggle="tooltip" data-placement="right" title="Хит" )
-      .b-icon-action( data-toggle="tooltip" data-placement="right" title="Акция" )
-      .b-icon-new( data-toggle="tooltip" data-placement="right" title="Новинка" )
+      .b-prop( style="color: #ca3538; border-color: #ca3538;" ) 35%
+      .b-prop( style="color: #528b16; border-color: #528b16;" ) Рекомендуем
+      .b-prop( style="color: #f09e00; border-color: #f09e00;" ) Хит
+      .b-prop( style="color: #8e42b1; border-color: #8e42b1;" ) Акция
+      .b-prop( style="color: #8e42b1; border-color: #8e42b1;" ) Новинка
       
   hr.i-size-M
   
@@ -56,8 +59,6 @@ script( src="/components/catalog.detail/script.js" )
         
         hr.i-size-L
         
-        
-        
         .b-catalog-detail__share
           h5 Поделиться
           script( src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" )
@@ -68,13 +69,11 @@ script( src="/components/catalog.detail/script.js" )
         
       .col-sm-1.b-catalog-detail__icons
         .b-icon-zoom( title="Увеличить" )
-        .b-icon-fav( title="В избранное" )
+        .b-icon-fav#catalogDetailFavIcon( title="В избранное" data-ajax-url="/components/catalog.detail/fav.json" data-stored="N" )
         #commentsIcon.b-icon-comments( title="Комментарии" )
         #shareIcon.b-icon-share( title="Поделиться" )
         #sizeIcon.b-icon-size( title="Размеры" data-activates="slide-size-table" )
       
-      hr.visible-sm.visible-xs.clearfix.i-size-M
-          
       #slide-size-table.side-nav
         .side-nav__close
         
@@ -154,25 +153,42 @@ script( src="/components/catalog.detail/script.js" )
       
         hr.i-size-M.i-line
         
+        .row.b-catalog-detail__subscribe-block.hidden
+          form( action="/components/catalog.detail/subscribe.json" method="GET" )
+            .form-group
+              input#tpid( type="hidden" name="TPID" value="" )
+              label Email
+              input.form-control( type="email" value="" name="EMAIL" required )
+            .form-button
+              button.btn.btn-default.btn-size-M( stype="submit" ) Подписаться
+              
+          .b-message.hidden
+            span Вы успешно подписались!
+        
         .row.b-catalog-detail__button-block
         
           .col-sm-6
-            a.btn.btn-default.btn-size-L.btn-100( href="#" ) Купить
+            a.btn.btn-default.btn-size-L.btn-100( href="#" data-toggle="modal" data-target="#buyDetailModal" data-ajax-url="/components/catalog.detail/buy.json" ) Купить
             
           hr.visible-xs
           
           .col-sm-6.text-center
-            a( href="" ) Отложить
+            a#catalogDetailFavLink( href="" data-ajax-url="/components/catalog.detail/fav.json" data-stored="N" )
+              span Отложить
+              span.i-stored.hidden Отложено
             br
-            a( href="#" data-toggle="modal" data-target="#oneClick" ) Купить в 1 клик
+            a( href="#" data-ajax-url="/components/catalog.detail/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick" ) Купить в 1 клик
           
         hr.i-size-S
           
-        .b-catalog-detail__num В наличии:
-          | 
-          span#catalogDetailNum 6
-          | 
-          | шт.
+        .b-catalog-detail__num
+        
+          .b-catalog-detail__num__y В наличии:
+            | 
+            span#catalogDetailNum 6
+            | 
+            | шт.
+          .b-catalog-detail__num__n Нет в наличии.
         
         hr.i-size-M.i-line
         
@@ -181,6 +197,7 @@ script( src="/components/catalog.detail/script.js" )
           a.b-catalog-detail__prop-title( data-toggle="collapse" href="#commentsBlock" aria-expanded="false" aria-controls="commentsBlock" ) Описание
           
           #commentsBlock.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+            .catalogDetailProperty1
           
           hr.i-size-S.i-line
           
@@ -199,6 +216,24 @@ script( src="/components/catalog.detail/script.js" )
           a.b-catalog-detail__prop-title( data-toggle="collapse" href="#prop4" aria-expanded="false" aria-controls="prop4" ) Собственные свойства
           
           #prop4.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
+            
+  #buyDetailModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='buyDetailModalLabel', style='display: none;', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+          h2#buyDetailModalLabel.modal-title.text-center Товар добавлен в корзину
+        .modal-body.text-center
+          .row
+            .col-sm-6.b-buy-modal-img
+              img( src="" )
+            .col-sm-6.b-buy-modal-text
+              h2 Верблюжье пальто
+              p XL, Синий
+        .modal-footer.text-center
+        
+          a.btn.btn-default.btn-size-M( href="#" ) Перейти в корзину
+          a.btn.btn-default.btn-size-M.btn-reset( href="#" data-dismiss='modal' ) Продолжить выбор
           
   #oneClick.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
     .modal-dialog(role='document')
@@ -206,35 +241,9 @@ script( src="/components/catalog.detail/script.js" )
         .modal-header
         
           button.close(type='button', data-dismiss='modal', aria-label='Close')
-            span(aria-hidden='true') ×
           h2#myModalLabel.modal-title.text-center Купить 1 клик
           
-        form( action="/components/catalog.detail/response.json" method="GET" )
-          
-          .modal-body
-            p При быстром заказе условия доставки и оплаты согласуются с менеджером интернет-магазина.
-            
-            .form-group
-              label ФИО:
-              input.bx-auth-input.form-control(type='text', name='USER_NAME', maxlength='50', value='' required)
-            .form-group
-              label Email:
-              input.bx-auth-input.form-control(type='mail', name='USER_EMAIL', maxlength='50', value='' required)
-            .form-group
-              label Телефон:
-              input.bx-auth-input.form-control(type='tel', name='USER_TEL', maxlength='50', value='' required)
-            .form-group
-              label Комментарий:
-              textarea.bx-auth-input.form-control(name='USER_TEXT', row='50', col='50' required)
-            
-            .form-group.checkbox(style='border-bottom: 0;')
-              input#filled-in-box.filled-in(type='checkbox', value='Y', name='' required)
-              label.main-user-consent-request(for='filled-in-box', data-toggle='modal', data-target='#consentModal') Нажимая на кнопку «Регистрация», вы даете согласие на обработку своих персональных данных.
-          
-          .modal-footer.text-center
-            button.btn.btn-default(type='submit') Отправить
-            button.btn.btn-default.i-gray(type='button', data-dismiss='modal', aria-label='Close') Продолжить покупки
-        
+                  
   div( itemscope='', itemtype='http://schema.org/Product', style='display: none' )
     div( itemprop='name' ) Верблюжье пальто
     img( itemprop='image', src='upload/catalog.detail/1.jpg', alt="Верблюжье пальто" )
@@ -253,87 +262,94 @@ script( src="/components/catalog.detail/script.js" )
   
   include ../../modules/tabs/include
   
+  
+#catalogDetailVideo
+  div Video
+  
+  //-div( data-thumb="/upload/play.png" )
+      iframe( width="100%" height="360" src="https://www.youtube.com/embed/_h7-0gCc_Hw" frameborder="0" allowfullscreen )  
+  
 #catalogDetailData
-  div(data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF01" data-code="89919381201" data-num="1")
+  div( data-id="tp1" data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='http://assembly.2px.ru/upload/iblock/f80/f804a7769247187e7683df949a212037.jpg;http://assembly.2px.ru/upload/iblock/f80/f804a7769247187e7683df949a212037.jpg;http://assembly.2px.ru/upload/iblock/f80/f804a7769247187e7683df949a212037.jpg' data-num="0" data-property1="AD006EWLXF01" data-property2="89919381201" data-available="Y" data-subscribe="Y" )
   
-  div(data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/4.jpg;/upload/catalog.detail/5.jpg;/upload/catalog.detail/6.jpg' data-art="AD006EWLXF02" data-code="89919381202" data-num="2") 
+  div( data-id="tp2" data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/4.jpg;/upload/catalog.detail/5.jpg;/upload/catalog.detail/6.jpg' data-big-photo='/upload/catalog.detail/4.jpg;/upload/catalog.detail/5.jpg;/upload/catalog.detail/6.jpg' data-property1="AD006EWLXF02" data-property2="89919381202" data-num="2" data-available="Y") 
   
-  div(data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/7.jpg;/upload/catalog.detail/8.jpg;/upload/catalog.detail/9.jpg' data-art="AD006EWLXF03" data-code="89919381203" data-num="3") 
+  div( data-id="tp3" data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/7.jpg;/upload/catalog.detail/8.jpg;/upload/catalog.detail/9.jpg' data-big-photo='/upload/catalog.detail/7.jpg;/upload/catalog.detail/8.jpg;/upload/catalog.detail/9.jpg', data-property1="AD006EWLXF03", data-property2="89919381203", data-num="3" data-available="Y") 
   
-  div(data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/10.jpg;/upload/catalog.detail/11.jpg;/upload/catalog.detail/12.jpg' data-art="AD006EWLXF04" data-code="89919381204" data-num="4") 
+  div( data-id="tp4" data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/10.jpg;/upload/catalog.detail/11.jpg;/upload/catalog.detail/12.jpg' data-big-photo='/upload/catalog.detail/10.jpg;/upload/catalog.detail/11.jpg;/upload/catalog.detail/12.jpg' data-property1="AD006EWLXF04" data-property2="89919381204" data-num="4" data-available="Y") 
   
-  div(data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/13.jpg;/upload/catalog.detail/14.jpg;/upload/catalog.detail/15.jpg' data-art="AD006EWLXF05" data-code="89919381205" data-num="5") 
+  div( data-id="tp5" data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/13.jpg;/upload/catalog.detail/14.jpg;/upload/catalog.detail/15.jpg' data-big-photo='/upload/catalog.detail/13.jpg;/upload/catalog.detail/14.jpg;/upload/catalog.detail/15.jpg' data-property1="AD006EWLXF05" data-property2="89919381205" data-num="5" data-available="Y") 
   
-  div(data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/16.jpg;/upload/catalog.detail/17.jpg;/upload/catalog.detail/18.jpg' data-art="AD006EWLXF06" data-code="89919381206" data-num="6") 
+  div( data-id="tp6" data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.' data-property1="AD006EWLXF06" data-property2="89919381206" data-num="6" data-available="Y") 
   
-  div(data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/19.jpg;/upload/catalog.detail/20.jpg;/upload/catalog.detail/21.jpg' data-art="AD006EWLXF07" data-code="89919381207" data-num="7") 
+  div( data-id="tp7" data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/19.jpg;/upload/catalog.detail/20.jpg;/upload/catalog.detail/21.jpg' data-big-photo='/upload/catalog.detail/19.jpg' data-property1="AD006EWLXF07" data-property2="89919381207" data-num="7" data-available="Y") 
   
-  div(data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/22.jpg;/upload/catalog.detail/23.jpg;/upload/catalog.detail/24.jpg' data-art="AD006EWLXF08" data-code="89919381208" data-num="8") 
+  div( data-id="tp8" data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/22.jpg;/upload/catalog.detail/23.jpg;/upload/catalog.detail/24.jpg' data-big-photo='/upload/catalog.detail/22.jpg;/upload/catalog.detail/23.jpg;/upload/catalog.detail/24.jpg' data-property1="AD006EWLXF08" data-property2="89919381208" data-num="8" data-subscribe="Y") 
   
-  div(data-color-color_ref='/upload/colors/9.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/25.jpg;/upload/catalog.detail/26.jpg;/upload/catalog.detail/27.jpg' data-art="AD006EWLXF09" data-code="89919381209" data-num="9") 
+  div( data-id="tp9" data-color-color_ref='/upload/colors/9.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/25.jpg;/upload/catalog.detail/26.jpg;/upload/catalog.detail/27.jpg' data-big-photo='/upload/catalog.detail/25.jpg;/upload/catalog.detail/26.jpg;/upload/catalog.detail/27.jpg' data-property1="AD006EWLXF09" data-property2="89919381209" data-num="9" data-subscribe="Y") 
   
-  div(data-color-color_ref='/upload/colors/10.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/28.jpg;/upload/catalog.detail/29.jpg;/upload/catalog.detail/30.jpg;/upload/catalog.detail/31.jpg' data-art="AD006EWLXF10" data-code="89919381210" data-num="10") 
+  div( data-id="tp10" data-color-color_ref='/upload/colors/10.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/28.jpg;/upload/catalog.detail/29.jpg;/upload/catalog.detail/30.jpg;/upload/catalog.detail/31.jpg' data-big-photo='/upload/catalog.detail/28.jpg;/upload/catalog.detail/29.jpg;/upload/catalog.detail/30.jpg;/upload/catalog.detail/31.jpg' data-property1="AD006EWLXF10" data-property2="89919381210" data-num="10" data-subscribe="Y") 
   
-  div(data-color-color_ref='/upload/colors/11.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/32.jpg;/upload/catalog.detail/33.jpg;/upload/catalog.detail/34.jpg;/upload/catalog.detail/35.jpg' data-art="AD006EWLXF11" data-code="89919381211" data-num="11") 
+  div( data-id="tp11" data-color-color_ref='/upload/colors/11.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/32.jpg;/upload/catalog.detail/33.jpg;/upload/catalog.detail/34.jpg;/upload/catalog.detail/35.jpg' data-big-photo='/upload/catalog.detail/32.jpg;/upload/catalog.detail/33.jpg;/upload/catalog.detail/34.jpg;/upload/catalog.detail/35.jpg' data-property1="AD006EWLXF11" data-property2="89919381211" data-num="11" data-subscribe="Y") 
   
-  div(data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/36.jpg;/upload/catalog.detail/37.jpg;/upload/catalog.detail/38.jpg;/upload/catalog.detail/39.jpg' data-art="AD006EWLXF12" data-code="89919381212" data-num="12") 
+  div( data-id="tp12" data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/36.jpg;/upload/catalog.detail/37.jpg;/upload/catalog.detail/38.jpg;/upload/catalog.detail/39.jpg' data-big-photo='/upload/catalog.detail/36.jpg;/upload/catalog.detail/37.jpg;/upload/catalog.detail/38.jpg;/upload/catalog.detail/39.jpg' data-property1="AD006EWLXF12" data-property2="89919381212" data-num="12" data-subscribe="Y") 
   
-  div(data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/40.jpg;/upload/catalog.detail/41.jpg;/upload/catalog.detail/42.jpg;/upload/catalog.detail/43.jpg' data-art="AD006EWLXF13" data-code="89919381213" data-num="13") 
+  div( data-id="tp13" data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/40.jpg;/upload/catalog.detail/41.jpg;/upload/catalog.detail/42.jpg;/upload/catalog.detail/43.jpg' data-big-photo='/upload/catalog.detail/40.jpg;/upload/catalog.detail/41.jpg;/upload/catalog.detail/42.jpg;/upload/catalog.detail/43.jpg' data-property1="AD006EWLXF13" data-property2="89919381213" data-num="13") 
   
-  div(data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/44.jpg;/upload/catalog.detail/45.jpg;/upload/catalog.detail/46.jpg;/upload/catalog.detail/47.jpg;/upload/catalog.detail/48.jpg' data-art="AD006EWLXF14" data-code="89919381214" data-num="14")
+  div( data-id="tp14" data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/44.jpg;/upload/catalog.detail/45.jpg;/upload/catalog.detail/46.jpg;/upload/catalog.detail/47.jpg;/upload/catalog.detail/48.jpg' data-big-photo='/upload/catalog.detail/44.jpg;/upload/catalog.detail/45.jpg;/upload/catalog.detail/46.jpg;/upload/catalog.detail/47.jpg;/upload/catalog.detail/48.jpg' data-property1="AD006EWLXF14" data-property2="89919381214" data-num="14")
   
-  div(data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/49.jpg;/upload/catalog.detail/50.jpg;/upload/catalog.detail/51.jpg;/upload/catalog.detail/52.jpg' data-art="AD006EWLXF15" data-code="89919381215" data-num="15") 
+  div( data-id="tp15" data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/49.jpg;/upload/catalog.detail/50.jpg;/upload/catalog.detail/51.jpg;/upload/catalog.detail/52.jpg' data-big-photo='/upload/catalog.detail/49.jpg;/upload/catalog.detail/50.jpg;/upload/catalog.detail/51.jpg;/upload/catalog.detail/52.jpg' data-property1="AD006EWLXF15" data-property2="89919381215" data-num="15") 
   
-  div(data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/53.jpg;/upload/catalog.detail/54.jpg;/upload/catalog.detail/55.jpg;/upload/catalog.detail/56.jpg' data-art="AD006EWLXF16" data-code="89919381216" data-num="16") 
+  div( data-id="tp16" data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/53.jpg;/upload/catalog.detail/54.jpg;/upload/catalog.detail/55.jpg;/upload/catalog.detail/56.jpg' data-big-photo='/upload/catalog.detail/53.jpg;/upload/catalog.detail/54.jpg;/upload/catalog.detail/55.jpg;/upload/catalog.detail/56.jpg' data-property1="AD006EWLXF16" data-property2="89919381216" data-num="16") 
   
-  div(data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/57.jpg;/upload/catalog.detail/58.jpg;/upload/catalog.detail/59.jpg;/upload/catalog.detail/60.jpg' data-art="AD006EWLXF17" data-code="89919381217" data-num="17") 
+  div( data-id="tp17" data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/57.jpg;/upload/catalog.detail/58.jpg;/upload/catalog.detail/59.jpg;/upload/catalog.detail/60.jpg' data-big-photo='/upload/catalog.detail/57.jpg;/upload/catalog.detail/58.jpg;/upload/catalog.detail/59.jpg;/upload/catalog.detail/60.jpg' data-property1="AD006EWLXF17" data-property2="89919381217" data-num="17") 
   
-  div(data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/61.jpg;/upload/catalog.detail/62.jpg;/upload/catalog.detail/63.jpg' data-art="AD006EWLXF18" data-code="89919381218" data-num="18") 
+  div( data-id="tp18" data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/61.jpg;/upload/catalog.detail/62.jpg;/upload/catalog.detail/63.jpg' data-big-photo='/upload/catalog.detail/61.jpg;/upload/catalog.detail/62.jpg;/upload/catalog.detail/63.jpg' data-property1="AD006EWLXF18" data-property2="89919381218" data-num="18") 
   
-  div(data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF19" data-code="89919381219" data-num="19") 
+  div( data-id="tp19" data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF19" data-property2="89919381219" data-num="19") 
   
-  div(data-color-color_ref='/upload/colors/9.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF20" data-code="89919381220" data-num="20") 
+  div( data-id="tp20" data-color-color_ref='/upload/colors/9.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF20" data-property2="89919381220" data-num="20") 
   
-  div(data-color-color_ref='/upload/colors/10.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF21" data-code="89919381221" data-num="21") 
+  div( data-id="tp21" data-color-color_ref='/upload/colors/10.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF21" data-property2="89919381221" data-num="21") 
   
-  div(data-color-color_ref='/upload/colors/11.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF22" data-code="89919381222" data-num="22") 
+  div( data-id="tp22" data-color-color_ref='/upload/colors/11.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF22" data-property2="89919381222" data-num="22") 
   
-  div(data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF23" data-code="89919381223" data-num="23") 
+  div( data-id="tp23" data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF23" data-property2="89919381223" data-num="23") 
   
-  div(data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF24" data-code="89919381224" data-num="24") 
+  div( data-id="tp24" data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF24" data-property2="89919381224" data-num="24") 
   
-  div(data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF25" data-code="89919381225" data-num="25") 
+  div( data-id="tp25" data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF25" data-property2="89919381225" data-num="25") 
   
-  div(data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF26" data-code="89919381226" data-num="26") 
+  div( data-id="tp26" data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF26" data-property2="89919381226" data-num="26") 
   
-  div(data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF27" data-code="89919381227" data-num="27") 
+  div( data-id="tp27" data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF27" data-property2="89919381227" data-num="27") 
   
-  div(data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF28" data-code="89919381228" data-num="28") 
+  div( data-id="tp28" data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF28" data-property2="89919381228" data-num="28") 
   
-  div(data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF29" data-code="89919381229" data-num="29") 
+  div( data-id="tp29" data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF29" data-property2="89919381229" data-num="29") 
   
-  div(data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF30" data-code="89919381230" data-num="30") 
+  div( data-id="tp30" data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF30" data-property2="89919381230" data-num="30") 
   
-  div(data-color-color_ref='/upload/colors/9.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF31" data-code="89919381231" data-num="31") 
+  div( data-id="tp31" data-color-color_ref='/upload/colors/9.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF31" data-property2="89919381231" data-num="31") 
   
-  div(data-color-color_ref='/upload/colors/10.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF32" data-code="89919381232" data-num="32") 
+  div( data-id="tp32" data-color-color_ref='/upload/colors/10.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF32" data-property2="89919381232" data-num="32") 
   
-  div(data-color-color_ref='/upload/colors/11.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF33" data-code="89919381233" data-num="33") 
+  div( data-id="tp33" data-color-color_ref='/upload/colors/11.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF33" data-property2="89919381233" data-num="33") 
   
-  div(data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF34" data-code="89919381234" data-num="34") 
+  div( data-id="tp34" data-color-color_ref='/upload/colors/1.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF34" data-property2="89919381234" data-num="34") 
   
-  div(data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF35" data-code="89919381235" data-num="35") 
+  div( data-id="tp35" data-color-color_ref='/upload/colors/2.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF35" data-property2="89919381235" data-num="35") 
   
-  div(data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF36" data-code="89919381236" data-num="36") 
+  div( data-id="tp36" data-color-color_ref='/upload/colors/3.jpg', data-list-sizes_shoes='40', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF36" data-property2="89919381236" data-num="36") 
   
-  div(data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF37" data-code="89919381237" data-num="37") 
+  div( data-id="tp37" data-color-color_ref='/upload/colors/4.jpg', data-list-sizes_shoes='35', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF37" data-property2="89919381237" data-num="37") 
   
-  div(data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF38" data-code="89919381238" data-num="38") 
+  div( data-id="tp38" data-color-color_ref='/upload/colors/5.jpg', data-list-sizes_shoes='36', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF38" data-property2="89919381238" data-num="38") 
   
-  div(data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF39" data-code="89919381239" data-num="39") 
+  div( data-id="tp39" data-color-color_ref='/upload/colors/6.jpg', data-list-sizes_shoes='37', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF39" data-property2="89919381239" data-num="39") 
   
-  div(data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF40" data-code="89919381240" data-num="40") 
+  div( data-id="tp40" data-color-color_ref='/upload/colors/7.jpg', data-list-sizes_shoes='38', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF40" data-property2="89919381240" data-num="40") 
   
-  div(data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-art="AD006EWLXF41" data-code="89919381241" data-num="41") 
+  div( data-id="tp41" data-color-color_ref='/upload/colors/8.jpg', data-list-sizes_shoes='39', data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF41" data-property2="89919381241" data-num="41") 
 
 // end /components/catalog.detail/

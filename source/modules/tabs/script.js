@@ -52,7 +52,7 @@
         showItem( $this );
         setUrl( $this );
         setText( $this );
-        $.scrollTo( $menu, 500);
+        $.scrollTo( $( self ), 500);
       }
       
       function setText( $tab ) {
@@ -65,6 +65,16 @@
         }
         var tab = $tab.data( 'tab' ),
             url = "?tab=" + tab;
+            
+        if ( window.location.search === '' || ( String( window.location.search ).search( '#' ) !== -1 && String( window.location.search ).search( '?' ) === -1 )) {
+          url = "?tab=" + tab + window.location.search;
+        } else {
+          if ( String( window.location.search ).search( '[\?|&]tab=' ) === -1 ) {
+            url = window.location.search + '&tab=' + tab;
+          } else {
+            url = String( window.location.search ).replace( /[\?|&](tab\=\w+)&?/.exec( String( window.location.search ))[1], 'tab=' + tab );
+          }
+        }
         
         if ( !popFlag ) {
           window.history.pushState( {tab: tab}, "page 2", url );
@@ -81,10 +91,12 @@
             $items.removeClass( 'i-active' );
             $item.addClass( 'i-active' );
             if ( $item.find( '.fotorama' ).length ) {
-              $item.find( '.fotorama' ).data('fotorama').resize({ width: "100%" });
+              $item.find( '.fotorama' ).data( 'fotorama' ).resize({ width: "100%" });
             }
           }
         });
+        
+        $( '.b-tabs__nav__menu i:visible' ).click();
       }
       
       function moveDecor( $tab ) {
@@ -130,7 +142,57 @@
     });
   });
   
-  $( '.b-tabs__nav__top, .b-tabs__nav__menu svg' ).click( function() {
+  $( '.b-tabs__nav__top, .b-tabs__nav__menu i' ).click( function() {
 		$( '.b-tabs__nav__top' ).slideToggle();
 		$( '.b-tabs__nav__menu' ).slideToggle();
 	});
+  
+  var $commentsTab = $( '.b-tabs__i[data-tab="comments"]' );
+  
+  $commentsTab.find( 'form' ).submit( function(e) {
+    e.preventDefault();
+    
+    var $form = $( this );
+    
+    $.ajax({
+      url: $form.attr("action"),
+      type: $form.attr("method"),
+      dataType: "json",
+      data: $form.serialize(),
+      success: function( data ) {
+        if ( data && data.STATUS === 'Y' && data.RESPONSE ) {
+          //add comment
+          if ( $commentsTab.find( '.b-new-comment:eq(0)' ).length ) {
+            $commentsTab.find( '.b-new-comment:eq(0)' ).before( '<div class="b-new-comment">' + data.RESPONSE + '<hr class="i-line i-size-L"></div>' );
+          } else {
+            $( '#collapseCommentForm' ).before( '<div class="b-new-comment">' + data.RESPONSE + '<hr class="i-line i-size-L"></div>' );
+          }
+          $commentsTab.find( '.b-new-comment:eq(0)' ).slideDown();
+          $.scrollTo( $commentsTab.find( '.b-new-comment:eq(0)' ).offset().top - 200, 500);
+          //reset the form
+          $form.find( 'textarea.form-control' ).val('');
+          //hide an error message
+          $commentsTab.find( '.b-alert-warning' ).slideUp( function() {
+            $( this ).remove();
+          });
+        } else if ( data && data.STATUS === 'E' && data.MESSAGE ) {
+          //show the message
+          if ( $commentsTab.find( '.b-alert-warning' ).length ) {
+            $commentsTab.find( '.b-alert-warning span' ).addClass( 'i-hide' );
+            setTimeout( function() { $commentsTab.find( '.b-alert-warning span' ).text( data.MESSAGE ).removeClass( 'i-hide' );}, 300 );
+          } else {
+            $form.before( '<div class="b-alert-warning i-slide"><span>' + data.MESSAGE + '</span></div>' );
+            $commentsTab.find( '.b-alert-warning' ).slideDown();
+          }
+        }
+      },
+      error: function( a, b, c ) {
+        if ( window.console ) {
+          console.log(a);
+          console.log(b);
+          console.log(c);
+        }
+      }
+    });
+    
+  });

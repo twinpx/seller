@@ -14,10 +14,7 @@
     
     &__menu
       display flex
-      justify-content space-between
-      
-      a
-        color initial
+      justify-content left
       
       @media( max-width: 767px)
         border-bottom none
@@ -50,6 +47,10 @@
     
     &.i-active
       font-weight 700
+      color initial
+      
+      &:hover
+        color initial
     
     a&:hover
       text-decoration none
@@ -62,6 +63,17 @@
     &.i-active
       opacity(1)
       display block
+      
+  .table>tbody>tr>td,
+  .table>tbody>tr>th
+    border-top none
+    
+  .b-new-comment
+    display none
+    
+.b-tabs__i[data-tab="comments"] input[type="email"]
+  padding-left 12px
+  background-image none
 
 @media (max-width: 767px)
 
@@ -69,17 +81,7 @@
     margin 0 -15px 20px
     width auto
     min-height 50px
-    
-    a
-      
-      &,
-      &:hover,
-      &:focus,
-      &:active
-        color #fff
-        
-    span
-      color #fff
+    border-bottom none
 
   .b-tabs__nav__top
     cursor pointer
@@ -91,27 +93,27 @@
 
   .b-tabs__nav__top,
   .b-tabs__nav__menu
-    background-color #2f3055
+    background-color #f9f9f9
     padding 14px 20px
     position relative
-    color #fff
 
-  .b-tabs__nav__top svg,
-  .b-tabs__nav__menu svg
+  .b-tabs__nav__top i,
+  .b-tabs__nav__menu i
     display block
     width 19px
+    height 19px
     position absolute
     top 16px
     right 20px
     cursor pointer
 
-  .b-tabs__nav__menu svg
+  .b-tabs__nav__menu i
     transform rotate(180deg)
     -webkit-transform rotate(180deg)
 	
 @media (min-width: 768px)
 	.b-tabs__nav__top,
-	.b-tabs__nav__menu svg
+	.b-tabs__nav__menu i
 		display none !important
 	
 	.b-tabs__nav__menu

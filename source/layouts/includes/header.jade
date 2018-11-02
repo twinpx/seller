@@ -1,2 +1,127 @@
-header.b-header
-  .b-container
+﻿header.bj-page-header
+  section.bj-page-header__top
+    .container-fluid
+      .row
+      
+        .col-md-10.col-sm-9.col-xs-12.bj-logo-space
+          span.bj-logo
+            img( width='143', alt='', src='/template/images/logo.png', height='40', title='' )
+            
+          .bj-top-nav.hidden-xs
+            a( href="/catalog/" ) Каталог
+            a( href="/lookbook/" ) LookBook
+            a( href="/catalog/" ) Акции
+            a( href="/catalog/" ) Оплата
+            a( href="/catalog/" ) Доставка
+          
+            a#nav-button.bj-nav-button( href='#', data-activates='sideNavPanel' )
+              span.glyphicon.glyphicon-align-justify
+            
+        .col-md-2.col-sm-3.bj-phone
+          a.glyphicon.glyphicon-earphone.hidden-xs(href='#', data-toggle='modal', data-target='#myModal')
+          
+          span#search.bj-page-header__search.hidden-xs
+            span.glyphicon.glyphicon-search.hidden-xs(href='')
+            form(action='/catalog/')
+              input#title-search-input.bj-page-header__search__input.form-control(type='search', name='q', value='', size='23', maxlength='50', autocomplete='off')
+              input(name='s', type='hidden', value='')
+              
+          span#sale-basket-basket-line-container
+            a#bx_cart_block.bj-logo-space__icon.bj-cart-icon(href='/personal/cart/')
+              span.glyphicon.glyphicon-shopping-cart
+              span#bx_cart_num.bj-cart-icon__num 0
+              
+          #personal_menu(style='display:inline-block')
+            button.bj-logo-space__icon.glyphicon.glyphicon-user.hidden-xs(href='#', data-content='<a href="/auth/">Войти</a><a href="/auth/?register=yes">Зарегистрироваться</a>', data-original-title='', title='')
+          
+  section.bj-page-header__sub
+    .container-fluid
+      
+      a( href="" ) Поиск
+      a( href="" ) О магазине
+      a( href="" ) Новости
+      a( href="" ) Контакты
+      a( href="" ) Вакансии
+      a( href="" ) Как купить
+      a( href="" ) Оплата
+      a( href="" ) Доставка
+      a( href="" ) Гарантии
+      a( href="" ) Вакансии
+      a( href="" ) Скидки
+      a( href="" ) Доставка
+      a( href="" ) Гарантии
+              
+              
+          
+          #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                  |                   
+                  h2#myModalLabel.modal-title.text-center &Ncy;&acy;&shcy; &tcy;&iecy;&lcy;&iecy;&fcy;&ocy;&ncy;
+                |                 
+                .modal-body.text-center
+                  .bj-text-x-large 8 (495) 212 85 06
+                  |                   
+                  .small &Pcy;&ncy;-&Vcy;&scy; 10-19
+                |                 
+                .modal-footer.text-center(style='display:none')
+                  button.btn.btn-default(type='button') &Zcy;&acy;&kcy;&acy;&zcy;&acy;&tcy;&softcy; &zcy;&vcy;&ocy;&ncy;&ocy;&kcy;
+  
+
+  
+button#nav-button( data-activates="sideNavPanel" ) Button
+  
+ul#sideNavPanel.side-nav
+  li.logo
+    span.bj-logo
+      img(width='143', alt='', src='', height='40', title='')
+  li.no-padding
+    .media
+      .media-body
+        ul
+          li
+            a(href='/personal/') admin admin
+          li
+            a(href='/?logout=yes') Выйти
+      .media-right
+        a(href='/personal/')
+          img(src='', width='64', height='48')
+  li.no-padding
+    ul
+      li
+        a(href='/personal/cart/')
+          | Корзина 
+          span.badge 3
+      li
+        a(href='/personal/index.php?SECTION=orders') Мои заказы
+  li.no-padding
+    ul
+      li
+        a(href='/search/') Поиск
+      li
+        a(href='/catalog/') Каталог
+      li
+        a(href='/campaign/') Акции
+      li
+        a(href='/journal/') Журнал
+      li
+        a(href='/lookbook/') LookBook
+      li
+        a(href='/about/') О магазине
+      li
+        a(href='/news/') Новости
+      li
+        a(href='/about/contacts/') Контакты
+      li
+        a(href='/about/vacancies/') Вакансии
+      li
+        a(href='/about/howto/') Как купить
+      li
+        a(href='/payment/') Оплата
+      li
+        a(href='/about/delivery/') Доставка
+      li
+        a(href='/about/guaranty/') Гарантии

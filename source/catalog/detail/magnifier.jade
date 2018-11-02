@@ -1,0 +1,25 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Catalog detail page | Seller
+
+block content
+
+  .container-fluid
+
+    .row
+      .col-sm-8
+        h1 Верблюжье пальто
+      .col-sm-4
+        include ../../modules/catalog-tags/include
+        
+    link( rel="stylesheet" href="/template/magnify.css" )
+      
+    img.zoom( src="/upload/catalog.detail/1.jpg" data-magnify-src="/upload/catalog.detail/1.jpg" width="200" height="200" )
+    
+    script
+      | $(document).ready(function() {
+      |   $('.zoom').magnify({speed: 200, magnifiedWidth: 1000, magnifiedHeght: 1000});
+      | });
+      
+    hr.i-size-L

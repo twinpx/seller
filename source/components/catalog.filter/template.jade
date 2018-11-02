@@ -1,0 +1,222 @@
+﻿// start /components/catalog.filter/
+
+link( rel="stylesheet", href="/components/catalog.filter/style.css" )
+script( src="/components/catalog.filter/script.js" )
+
+.b-catalog-filter-switch
+  span Использовать фильтр
+  span Свернуть фильтр
+  .b-catalog-filter-switch__icon( style="background-image: url(/template/images/filter.svg);" )
+  
+.b-catalog-filter
+
+  .bx-filter.bx-site
+    .bx-filter-section
+      .bx-filter-title Подбор параметров
+      form.smartfilter(name='_form', action='/catalog/muzhskie_botinki/', method='get')
+        .row
+          .col-lg-12.bx-filter-parameters-box.bx-active
+            span.bx-filter-container-modef
+            .bx-filter-parameters-box-title(onclick='smartFilter.hideFilterProps(this)')
+              span
+                | Розничная цена 
+                i.fa.fa-angle-down(data-role='prop_angle')
+            .bx-filter-block(data-role='bx_filter_block', style='display: block;')
+              .bx-filter-parameters-box-container
+                link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+                script( src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" )
+                script( src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" )
+                .price-slider-range-text
+                  span#priceSliderRangeText От 5000 - до 24000
+                  |  Р .
+                #priceSliderRange.ui-slider.ui-corner-all.ui-slider-horizontal.ui-widget.ui-widget-content
+                  .ui-slider-range.ui-corner-all.ui-widget-header(style='left: 0%; width: 100%;')
+                  span.ui-slider-handle.ui-corner-all.ui-state-default(tabindex='0', style='left: 0%;')
+                  span.ui-slider-handle.ui-corner-all.ui-state-default(tabindex='0', style='left: 100%;')
+                input#arrFILTER_P1_MIN.min-price(type='hidden', name='arrFILTER_P1_MIN', value='5000', size='5', onchange='smartFilter.keyup(this)')
+                input#arrFILTER_P1_MAX.max-price(type='hidden', name='arrFILTER_P1_MAX', value='24000', size='5', onchange='smartFilter.keyup(this)')
+          .col-lg-12.bx-filter-parameters-box.bx-active
+            span.bx-filter-container-modef
+            .bx-filter-parameters-box-title(onclick='smartFilter.hideFilterProps(this)')
+              span.bx-filter-parameters-box-hint
+                | Производитель																
+                i.fa.fa-angle-up(data-role='prop_angle')
+            .bx-filter-block(data-role='bx_filter_block', style='display: block;')
+              .row.bx-filter-parameters-box-container
+                .col-xs-12
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_10_3068188247', for='arrFILTER_10_3068188247')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_10_3068188247(type='checkbox', value='Y', name='arrFILTER_10_3068188247', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='Италия')
+                          | Италия
+                          sup (
+                            span(data-role='count_arrFILTER_10_3068188247') 3
+                            | )
+              div(style='clear: both')
+          .col-lg-12.bx-filter-parameters-box.bx-active
+            span.bx-filter-container-modef
+            .bx-filter-parameters-box-title(onclick='smartFilter.hideFilterProps(this)')
+              span.bx-filter-parameters-box-hint
+                | Материал																
+                i.fa.fa-angle-down(data-role='prop_angle')
+            .bx-filter-block(data-role='bx_filter_block', style='display: block;')
+              .row.bx-filter-parameters-box-container
+                .col-xs-12
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_11_870750918', for='arrFILTER_11_870750918')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_11_870750918(type='checkbox', value='Y', name='arrFILTER_11_870750918', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='Кожа')
+                          | Кожа
+                          sup (
+                            span(data-role='count_arrFILTER_11_870750918') 3
+                            | )
+              div(style='clear: both')
+          .col-lg-12.bx-filter-parameters-box
+            span.bx-filter-container-modef
+            .bx-filter-parameters-box-title(onclick='smartFilter.hideFilterProps(this)')
+              span.bx-filter-parameters-box-hint
+                | Бренд																
+                i.fa.fa-angle-down(data-role='prop_angle')
+            .bx-filter-block(data-role='bx_filter_block')
+              .row.bx-filter-parameters-box-container
+                .col-xs-12
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_13_945058907', for='arrFILTER_13_945058907')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_13_945058907(type='checkbox', value='Y', name='arrFILTER_13_945058907', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='Benetton')
+                          | Benetton
+                          sup (
+                            span(data-role='count_arrFILTER_13_945058907') 1
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_13_2707236321', for='arrFILTER_13_2707236321')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_13_2707236321(type='checkbox', value='Y', name='arrFILTER_13_2707236321', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='Chanel')
+                          | Chanel
+                          sup (
+                            span(data-role='count_arrFILTER_13_2707236321') 1
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_13_2366072709', for='arrFILTER_13_2366072709')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_13_2366072709(type='checkbox', value='Y', name='arrFILTER_13_2366072709', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='Christian Louboutin')
+                          | Christian Louboutin
+                          sup (
+                            span(data-role='count_arrFILTER_13_2366072709') 1
+                            | )
+              div(style='clear: both')
+          .col-lg-12.bx-filter-parameters-box
+            span.bx-filter-container-modef
+            .bx-filter-parameters-box-title(onclick='smartFilter.hideFilterProps(this)')
+              span.bx-filter-parameters-box-hint
+                | Цвет																
+                i.fa.fa-angle-down(data-role='prop_angle')
+            .bx-filter-block(data-role='bx_filter_block')
+              .row.bx-filter-parameters-box-container
+                .col-xs-12
+                  .bx-filter-param-btn-block
+                    input#arrFILTER_28_1830392916(style='display: block', type='checkbox', name='arrFILTER_28_1830392916', value='Y')
+                    label.bx-filter-param-label(for='arrFILTER_28_1830392916', data-role='label_arrFILTER_28_1830392916', onclick="smartFilter.keyup(BX('arrFILTER_28_1830392916')); BX.toggleClass(this, 'bx-active');")
+                      span.bx-filter-param-btn.bx-color-sl
+                        span.bx-filter-btn-color-icon(style="background-image:url('/upload/uf/916/91699ed33351a69af6380d76ee525ead.jpg');")
+                      span.bx-filter-param-text(title='Коричневый')
+                        | Коричневый
+                        sup (
+                          span(data-role='count_arrFILTER_28_1830392916') 2
+                          | )
+                    input#arrFILTER_28_2307242536(style='display: block', type='checkbox', name='arrFILTER_28_2307242536', value='Y')
+                    label.bx-filter-param-label(for='arrFILTER_28_2307242536', data-role='label_arrFILTER_28_2307242536', onclick="smartFilter.keyup(BX('arrFILTER_28_2307242536')); BX.toggleClass(this, 'bx-active');")
+                      span.bx-filter-param-btn.bx-color-sl
+                        span.bx-filter-btn-color-icon(style="background-image:url('/upload/uf/120/120478350cf77f3d8b90981067cc687a.jpg');")
+                      span.bx-filter-param-text(title='Черный')
+                        | Черный
+                        sup (
+                          span(data-role='count_arrFILTER_28_2307242536') 1
+                          | )
+              div(style='clear: both')
+          .col-lg-12.bx-filter-parameters-box
+            span.bx-filter-container-modef
+            .bx-filter-parameters-box-title(onclick='smartFilter.hideFilterProps(this)')
+              span.bx-filter-parameters-box-hint
+                | Размеры обуви																
+                i.fa.fa-angle-down(data-role='prop_angle')
+            .bx-filter-block.bx-filter-block-size(data-role='bx_filter_block')
+              .row.bx-filter-parameters-box-container
+                .col-xs-12
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_29_4088798008', for='arrFILTER_29_4088798008')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_29_4088798008(type='checkbox', value='Y', name='arrFILTER_29_4088798008', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='35')
+                          | 35
+                          sup (
+                            span(data-role='count_arrFILTER_29_4088798008') 3
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_29_2226203566', for='arrFILTER_29_2226203566')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_29_2226203566(type='checkbox', value='Y', name='arrFILTER_29_2226203566', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='36')
+                          | 36
+                          sup (
+                            span(data-role='count_arrFILTER_29_2226203566') 3
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_29_498629140', for='arrFILTER_29_498629140')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_29_498629140(type='checkbox', value='Y', name='arrFILTER_29_498629140', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='37')
+                          | 37
+                          sup (
+                            span(data-role='count_arrFILTER_29_498629140') 3
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_29_1790921346', for='arrFILTER_29_1790921346')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_29_1790921346(type='checkbox', value='Y', name='arrFILTER_29_1790921346', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='38')
+                          | 38
+                          sup (
+                            span(data-role='count_arrFILTER_29_1790921346') 3
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_29_4194326291', for='arrFILTER_29_4194326291')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_29_4194326291(type='checkbox', value='Y', name='arrFILTER_29_4194326291', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='39')
+                          | 39
+                          sup (
+                            span(data-role='count_arrFILTER_29_4194326291') 3
+                            | )
+                  .checkbox
+                    label.bx-filter-param-label(data-role='label_arrFILTER_29_2366072709', for='arrFILTER_29_2366072709')
+                      span.bx-filter-input-checkbox
+                        input#arrFILTER_29_2366072709(type='checkbox', value='Y', name='arrFILTER_29_2366072709', onclick='smartFilter.click(this)')
+                        span.bx-filter-param-text(title='40')
+                          | 40
+                          sup (
+                            span(data-role='count_arrFILTER_29_2366072709') 3
+                            | )
+              div(style='clear: both')
+        // //row
+        .row
+          .col-xs-12.bx-filter-button-box
+            .bx-filter-block
+              .bx-filter-parameters-box-container
+                input#set_filter.btn.btn-default.btn-size-S(type='submit', name='set_filter', value='Показать')
+                input#del_filter.btn.btn-link(type='submit', name='del_filter', value='Сбросить')
+                #modef.bx-filter-popup-result.right(style='display:block')
+                  | Выбрано: 
+                  span#modef_num 0
+                  span.arrow
+                  br
+                  a(href='/catalog/muzhskie_botinki/?set_filter=y', target='') Показать
+        .clb
+
+
+// end /components/catalog.filter/

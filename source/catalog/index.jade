@@ -1,0 +1,141 @@
+﻿extends ../layouts/main.jade
+
+block title
+  title Catalog page | Seller
+
+block content
+
+  .container-fluid
+  
+    .b-catalog-section
+  
+      .row
+        .col-sm-8
+          h1 Верблюжье пальто
+        .col-sm-4
+          include ../modules/catalog-tags/include
+      
+      include ../modules/theme-photo/include
+      
+      hr.hidden-xs
+      hr.i-size-L.visible-xs-block
+      
+      include ../components/catalog.blocks/template
+      
+      hr
+      
+      .row
+      
+        .col-sm-3
+        
+          include ../components/catalog.collection/menu
+          
+          hr
+        
+          include ../components/catalog.filter/template
+            
+        hr.visible-xs-block.i-size-L
+        
+        .col-sm-9
+        
+          .row
+    
+            .col-sm-6
+              
+              .bj-sorting
+                .text-muted Сортировка:
+                .dropdown
+                  a#dLabel(href='#', role='button', data-toggle='dropdown', data-target='#', aria-expanded='false')
+                    | Недорогие вещи для зимы
+                    span.caret
+                  ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+                    li
+                      a(href='/catalog/shoes/?sort=cheap#sort') Недорогие
+                    li
+                      a(href='/catalog/shoes/?sort=new#sort') Новые
+                    li
+                      a(href='/catalog/shoes/?sort=popular#sort') Популярные
+                .clearfix
+            hr.visible-xs
+                
+            .col-sm-6.text-right.hidden-xs
+              include ../modules/pagination/include
+              
+          hr.i-line.i-size-L
+        
+          include ../components/catalog.collection/meta
+          include ../modules/gallery/fotorama
+          
+          include ../components/catalog.collection/template-1-vert
+          hr.i-size-XL
+          include ../components/catalog.collection/template-1-hor
+          hr.i-size-XL
+          include ../components/catalog.collection/template-2
+          hr.i-size-XL
+          include ../components/catalog.collection/template-3
+          hr.i-size-XL
+          include ../components/catalog.collection/template-4
+          hr.i-size-XL
+          include ../components/catalog.collection/template-1+4.jade
+          hr.i-size-XL
+          include ../components/catalog.collection/template-4+1.jade
+          hr.i-size-XL
+          include ../components/catalog.collection/template-6
+          hr.i-size-XL
+          include ../components/catalog.collection/template-1+6.jade
+          
+          include ../components/catalog.collection/modals.jade
+            
+      hr.visible-xs-block.i-size-L
+        
+      .col-sm-9
+      
+        .row
+
+          .col-sm-6
+            .bj-sorting
+              .text-muted Сортировка:
+              .dropdown
+                a#dLabel(href='#', role='button', data-toggle='dropdown', data-target='#', aria-expanded='false')
+                  | Недорогие вещи для зимы
+                  span.caret
+                ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+                  li
+                    a(href='/catalog/shoes/?sort=cheap#sort') Недорогие
+                  li
+                    a(href='/catalog/shoes/?sort=new#sort') Новые
+                  li
+                    a(href='/catalog/shoes/?sort=popular#sort') Популярные
+              .clearfix
+          hr.visible-xs
+          .col-sm-6
+          
+        hr.i-line.i-size-L
+      
+      include ../components/catalog.collection/template-1-vert
+      hr.i-size-XL
+      include ../components/catalog.collection/template-1-hor
+      hr.i-size-XL
+      include ../components/catalog.collection/template-2
+      hr.i-size-XL
+      include ../components/catalog.collection/template-3
+      hr.i-size-XL
+      include ../components/catalog.collection/template-4
+      hr.i-size-XL
+      include ../components/catalog.collection/template-1+4.jade
+      hr.i-size-XL
+      include ../components/catalog.collection/template-4+1.jade
+      hr.i-size-XL
+      include ../components/catalog.collection/template-6
+      hr.i-size-XL
+      include ../components/catalog.collection/template-1+6.jade
+              
+      hr.visible-xs
+    
+      .row
+            
+        .col-sm-6.col-sm-offset-6.text-right
+          
+          include ../modules/pagination/include
+          
+      hr

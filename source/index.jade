@@ -4,4 +4,38 @@ block title
   title Main page | seller
 
 block content
-  h1 seller main page
+
+  .container
+  
+    include ./components/tuner/button
+    h1 seller main page
+    
+    ul
+      li
+        a( href="/catalog/" ) Catalog
+      li
+        a( href="/catalog/detail/" ) Catalog detail
+      li
+        a( href="/lookbook/" ) Lookbook
+        
+      hr
+      
+      link( rel="stylesheet" href="/components/catalog.collection/style.css" )
+      link( rel="stylesheet" href="/components/catalog.detail/style.css" )
+        
+      .b-catalog-detail__props-icons
+        .b-prop.i-discount( style="color: #ca3538; border-color: #ca3538;" ) 35%
+        .b-prop.i-recommended( style="color: #528b16; border-color: #528b16;" ) Рекомендуем
+        .b-prop.i-hit( style="color: #f09e00; border-color: #f09e00;" ) Хит
+        .b-prop.i-action( style="color: #8e42b1; border-color: #8e42b1;" ) Акция
+        .b-prop.i-new( style="color: #8e42b1; border-color: #8e42b1;" ) Новинка
+        
+      hr
+        
+      div( style="position: absolute;" )
+        .b-catalog-element__props-icons
+          .b-prop.i-discount( style="color: #ca3538; border-color: #ca3538;" ) 35%
+          .b-prop.i-recommended( style="color: #528b16; border-color: #528b16;" ) Рекомендуем
+          .b-prop.i-hit( style="color: #f09e00; border-color: #f09e00;" ) Хит
+          .b-prop.i-action( style="color: #8e42b1; border-color: #8e42b1;" ) Акция
+          .b-prop.i-new( style="color: #8e42b1; border-color: #8e42b1;" ) Новинка

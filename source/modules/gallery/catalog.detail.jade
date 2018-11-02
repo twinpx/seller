@@ -1,6 +1,20 @@
-﻿.b-catalog-detail__gallery
+﻿.b-catalog-detail__gallery(  data-magnifier="false" data-magnifier-ratio="2" )
+  // data-magnifier показывает нужно ли применять лупу
+  // data-magnifier-ratio это настраиваемый параметр, задаёт коэффициент увеличения картинки внутри лупы. Устанавливается пользователем через настройки Битрикс
+  
 
-  .fotorama( data-width="100%" data-ratio="1/1" data-nav="thumbs" data-thumbwidth="65" data-thumbheight="65" data-allowfullscreen="true" )
-    img( src="/upload/catalog.detail/1.jpg" alt="" )
-    img( src="/upload/catalog.detail/2.jpg" alt="" )
-    img( src="/upload/catalog.detail/3.jpg" alt="" )
+  link( rel="stylesheet" href="/template/magnify.css" )
+  style
+    |.magnify > .magnify-lens {width: 500px; height: 500px;}
+  //styles for the magifying lense
+
+  .fotorama( data-width="100%" data-ratio="2/3" data-nav="thumbs" data-thumbwidth="65" data-thumbheight="65" data-allowfullscreen="true" )
+    div
+      a( href="/upload/catalog.detail/2.jpg" )
+        img( src="/upload/catalog.detail/1.jpg" alt="" data-magnify-src="/upload/catalog.detail/2.jpg" )
+    div
+      a( href="/upload/catalog.detail/1.jpg" )
+        img( src="/upload/catalog.detail/2.jpg" alt="" data-magnify-src="/upload/catalog.detail/1.jpg" )
+    div
+      a( href="/upload/catalog.detail/1.jpg" )
+        img( src="/upload/catalog.detail/3.jpg" alt="" data-magnify-src="/upload/catalog.detail/1.jpg" )

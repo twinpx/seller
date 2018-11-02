@@ -8,7 +8,18 @@ body
   @media( max-width 767px )
     font-weight 400
     
-h2
+a:hover,
+a:focus
+  text-decoration none
+  opacity .7
+    
+h1
+  
+  @media( max-width 767px )
+    text-align center
+    
+h2,
+.b-h2
   font-size 13.5pt
   
 hr
@@ -73,3 +84,42 @@ hr
 .side-nav
   transition( all 0.3s linear )
   box-shadow 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 20px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
+  height 100%
+  
+.text-info {
+    color: #f33;
+}
+
+.b-preloader
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+.b-preloader img {
+    /*opacity: 0;*/
+    -webkit-animation: animationBorderStepOpacity linear 1s;
+    -moz-animation: animationBorderStepOpacity linear 1s;
+    -o-animation: animationBorderStepOpacity linear 1s;
+    animation: animationBorderStepOpacity linear 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    /*-webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    -o-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;*/
+}
+
+@keyframes animationBorderStepOpacity
+  0%
+    transform:rotate(0)
+  100%
+    transform:rotate(360deg)
+
+.container-fluid { padding-right: 15px; padding-left: 15px; }

@@ -11,8 +11,11 @@ html( lang="ru" class="bx-no-touch" )
   body
     include includes/header.jade
     
+    include ../components/tuner/template
+    
     
     block content
       h1 seller
     
+    include ../modules/float-phone/include
     include includes/footer.jade
