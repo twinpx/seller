@@ -1,0 +1,73 @@
+@import '../../styl/component-include.styl'
+
+@media (min-width: 768px)
+
+  .modal-dialog 
+    width 750px
+
+.modal-backdrop
+  background #fff
+
+.modal-content
+  border-radius 0
+  border 5px solid #a3add7
+  -webkit-box-shadow none
+  box-shadow none
+
+.modal-header
+  color #000
+  padding 26px
+  position relative
+  //border-bottom none
+
+.modal-body
+  color #000
+  padding-top 40px
+  padding-bottom 40px
+
+.modal-body span,.modal-body div
+  color #000
+
+.modal-footer
+  text-align center
+  padding-top 40px
+  padding-bottom 30px
+  
+  .btn,
+  .btn+.btn
+    margin 0 12px 10px
+    
+h2.modal-title
+  
+  @media( max-width 767px )
+    font-size 12pt
+
+.bj-text-x-large
+  font-size 2.37rem
+
+.modal
+  .close
+    width 16px
+    height 16px
+    background transparent
+    font-weight 300
+    font-size 0
+    text-shadow none
+    background embedurl( 'img/close.svg' )
+    position absolute
+    top 30px
+    right 30px
+    margin-top 0
+    opacity 1
+    
+    &:hover
+      opacity .7
+      
+    @media( max-width 767px )
+      width 20px
+      height 20px
+      top 27px
+      right 27px
+
+.modal-dialog
+  z-index 1041

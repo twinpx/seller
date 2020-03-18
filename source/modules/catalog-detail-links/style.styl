@@ -1,0 +1,81 @@
+@import '../../styl/component-include.styl'
+
+#catalogDetailNextLink,
+#catalogDetailPrevLink {
+    display: block;
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 50vh;
+    left: calc( (100vw - 1200px)/2 - 32px );
+    margin-top: -32px;
+    opacity: 0;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    -webkit-transform: translateX( -20px );
+    transform: translateX( -20px );
+    z-index: 1000;
+}
+#catalogDetailNextLink {
+    left: auto;
+    right: calc( (100vw - 1200px)/2 - 32px );
+    -webkit-transform: translateX( 20px );
+    transform: translateX( 20px );
+}
+
+@media( max-width: 1274px ) {
+  #catalogDetailPrevLink {
+    left: 10px;
+  }
+  #catalogDetailNextLink {
+    right: 10px;
+  }
+}
+
+@media( max-width: 1024px ) {
+  #catalogDetailPrevLink,
+  #catalogDetailNextLink {
+    opacity: .7;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@media( max-width: 767px ) {
+  #catalogDetailNextLink,
+  #catalogDetailPrevLink {
+    width: 32px;
+    height: 32px;
+    margin-top: -16px;
+  }
+}
+
+#catalogDetailNextLink.i-appear,
+#catalogDetailPrevLink.i-appear {
+    opacity: .7;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+/*hide class is for mobile version, when the buttons are always visible, except footer area*/
+#catalogDetailNextLink.i-hide,
+#catalogDetailPrevLink.i-hide {
+  opacity: 0;
+}
+#catalogDetailNextLink.i-hide {
+  -webkit-transform: translateX( 20px );
+  transform: translateX( 20px );
+}
+#catalogDetailPrevLink.i-hide {
+  -webkit-transform: translateX( -20px );
+  transform: translateX( -20px );
+}
+
+#catalogDetailNextLink:hover,
+#catalogDetailPrevLink:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

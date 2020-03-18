@@ -1,0 +1,124 @@
+// start /components/header_1_6_0_3/
+
+link( rel="stylesheet", href="/components/header_1_6_0_3/style.css" )
+script( src="/components/header_1_6_0_3/script.js" )
+
+#sellerHeader_3
+  header.bj-page-header.i-load
+    section.bj-page-header__top
+      .container-fluid
+              
+        .row
+        
+          span.bj-page-header__search.hidden-xs
+            form( action='/catalog/' )
+              span.bj-page-header__search-icon( style=" background-image: url( '/template/images/headers/header_1_6_0_3/search.svg' );" )
+              input#title-search-input.bj-page-header__search__input.form-control(type='search', name='q', size='23', maxlength='50', autocomplete='off' value='' placeholder="Я ищу..." )
+              input(name='s', type='hidden', value='')
+        
+          .col-md-4.col-sm-3.col-xs-3.bj-search-space
+          
+            a#nav-button.bj-nav-button( href='#', data-activates='sideNavPanel' )
+              span.bj-menu-icon( style="background-image: url( '/template/images/headers/header_1_6_0_3/menu.svg' );" )
+            
+            span.bj-search-icon.hidden-xs
+              span( style=" background-image: url( '/template/images/headers/header_1_6_0_3/search.svg' );" )
+              
+            #bx_incl_area_3( title="Двойной щелчок - Редактировать пункты меню." )
+              .bj-top-nav.hidden-sm.hidden-xs
+                a.bj-page-header__menu-link( href="/catalog/" ) Каталог
+                a( href="/lookbook/" ) LookBook         
+              
+          .col-md-4.col-sm-6.col-xs-6.bj-logo-space
+              
+            .bj-logo
+              #bx_incl_area_4( title="Двойной щелчок - Редактировать файл включаемой области" )
+                img( width='143', alt='', src='/template/images/headers/header_1_6_0_3/logo.png', height='40', title='' )
+            
+          .col-md-4.col-sm-3.col-xs-3.bj-basket-space.text-right
+          
+            #bx_incl_area_5( title="Двойной щелчок - Редактировать пункты меню" )
+              .bj-top-nav.hidden-sm.hidden-xs
+                a( href="/catalog/" ) Оплата
+                a( href="/catalog/" ) Доставка
+              
+            span#sale-basket-basket-line-container
+              #bx_incl_area_6( title="Двойной щелчок - Редактировать параметры компонента" )
+                a#bx_cart_block.bj-cart-icon(href='/personal/cart/')
+                  span.b-shopping-cart( style=" background-image: url( '/template/images/headers/header_1_6_0_3/basket.svg' );" )
+                  span#bx_cart_num.bj-cart-icon__num 0
+            
+            .bj-page-header__search-close
+            
+                
+    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+            |                   
+            h2#myModalLabel.modal-title.text-center Наш телефон
+          |                 
+          .modal-body.text-center
+            .bj-text-x-large 8 (495) 212 85 06
+            |                   
+            .small &Pcy;&ncy;-&Vcy;&scy; 10-19
+          |                 
+          .modal-footer.text-center(style='display:none')
+            button.btn.btn-default(type='button') Закажите звонок
+  
+include ../../components/tuner/button2
+
+ul#sideNavPanel.side-nav
+  li.logo
+    span.bj-logo
+      img(width='143', alt='', src='', height='40', title='')
+  li.no-padding
+    .media
+      .media-body
+        ul
+          li
+            a(href='/personal/') admin admin
+          li
+            a(href='/?logout=yes') Выйти
+      .media-right
+        a(href='/personal/')
+          img(src='', width='64', height='48')
+  li.no-padding
+    ul
+      li
+        a(href='/personal/cart/')
+          | Корзина 
+          span.badge 3
+      li
+        a(href='/personal/index.php?SECTION=orders') Мои заказы
+  li.no-padding
+    ul
+      li
+        a(href='/search/') Поиск
+      li
+        a.bj-page-header__menu-link(href='/catalog/') Каталог
+      li
+        a(href='/campaign/') Акции
+      li
+        a(href='/journal/') Журнал
+      li
+        a(href='/lookbook/') LookBook
+      li
+        a(href='/about/') О магазине
+      li
+        a(href='/news/') Новости
+      li
+        a(href='/about/contacts/') Контакты
+      li
+        a(href='/about/vacancies/') Вакансии
+      li
+        a(href='/about/howto/') Как купить
+      li
+        a(href='/payment/') Оплата
+      li
+        a(href='/about/delivery/') Доставка
+      li
+        a(href='/about/guaranty/') Гарантии
+
+// end /components/header_1_6_0_3/

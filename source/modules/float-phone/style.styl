@@ -19,10 +19,18 @@
     bottom: 0
 }
 
-#b-float-phone .glyphicon {
+#b-float-phone .bj-footer-earphone-icon
     margin-right: 10px;
     line-height: 60px
-}
+    
+    &:before
+      display: inline-block;
+      vertical-align: baseline;
+      width: 16px;
+      height: 16px;
+      background: url(./images/phone.svg) no-repeat center center;
+      margin-top: 10px;
+      content: '';
 
 .bx-touch #b-float-phone {
     display: none

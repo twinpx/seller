@@ -1,0 +1,31 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Результаты поиска | Seller
+
+block content
+   
+  .bj-page-content.container-fluid
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        span Результаты поиска
+        
+    h1 джинсы
+    
+    .search-page
+      form.form-inline( action="" method="get" )
+        .form-group
+          input.form-control( type="text" name="q" value="джинсы" size="40" )
+          input.btn.btn-default( type="submit" value="Искать" )
+          input( type="hidden" name="how" value="r" )
+        
+    hr.i-size-L
+    
+    a( href="http://seller-assembly.2px.ru/catalog/?q=%EF%E0%EB%FC%F2%EE&s=") http://seller-assembly.2px.ru/catalog/?q=%EF%E0%EB%FC%F2%EE&s=
+        
+    p Стили на сервере - /bitrix/templates/bejet_seller-1.6.0/components/bitrix/search.page/bejetstore/style.css
+    p Стили в маркапе - /components/search.page/style.css
+    p Стили элементов формы подгружаются из template_styles.css

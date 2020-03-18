@@ -1,0 +1,197 @@
+
+<!-- start /components/tuner/-->
+<link rel="stylesheet" href="/components/tuner/style.css"/>
+<script src="/components/tuner/script.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js"></script>
+<script>window.colorpickerStrings = { save: 'Сохранить', clear: 'Очистить' };</script>
+<div id="seller-tuner" class="b-seller-tuner side-nav i-bj">
+  <!--.i-no-transition-->
+  <div class="b-seller-tuner-close"></div>
+  <div class="b-h2"><span>Настройки вашего Seller</span><a href="?reset=y">Отменить</a></div>
+  <hr class="i-size-L"/>
+  <form action="" method="GET">
+    <div class="row">
+      <div class="col-sm-2 b-seller-tuner__menu"><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a></div>
+      <div class="col-sm-10 b-seller-tuner__content">
+        <div data-tab="global" class="i-active">
+          <section data-ajax-url="/components/tuner/json/color.json" data-ajax-method="GET" class="b-seller-tuner__colors-1">Основной цвет
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <input id="global-color-1" type="hidden" name="global-color-1" value="blue"/>
+              <div style="background-color: blue;" class="b-item i-active i-default"></div>
+              <div style="background-color: lightblue;" class="b-item"></div>
+              <div style="background-color: yellow;" class="b-item"></div>
+              <div style="background-color: orange;" class="b-item"></div>
+              <div title="Выбрать цвет" data-default="f502aa" class="b-colorpicker">
+                <div></div>
+              </div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section data-ajax-url="/components/tuner/json/color.json" data-ajax-method="GET" class="b-seller-tuner__colors-2">Дополнительный цвет
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <input id="global-color-2" type="hidden" name="global-color-2" value="blue"/>
+              <div style="background-color: blue;" class="b-item i-active i-default"></div>
+              <div style="background-color: lightblue;" class="b-item"></div>
+              <div style="background-color: yellow;" class="b-item"></div>
+              <div style="background-color: orange;" class="b-item"></div>
+              <div title="Выбрать цвет" data-default="f502aa" class="b-colorpicker">
+                <div>     </div>
+              </div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section data-ajax-url="/components/tuner/json/font.json" data-ajax-method="GET" class="b-seller-tuner__fonts">Шрифт
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <input id="global-font" type="hidden" name="global-font" value="blue"/>
+              <div style="font-family: 'Open Sans' !important;" class="i-active i-default">Open Sans</div>
+              <div style="font-family: 'Montserrat' !important;">Montserrat</div>
+              <div style="font-family: 'Roboto' !important;">Roboto</div>
+              <div style="font-family: 'PT Sans' !important;">PT Sans</div>
+              <div style="font-family: 'Lora' !important;">Lora</div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section data-ajax-url="/components/tuner/json/font-size.json" data-ajax-method="GET" class="b-seller-tuner__font-size">Размер шрифта
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <input id="global-font-size" type="hidden" name="global-font-size" value="11pt"/>
+              <div style="font-size: 10.5pt;" data-font-size="11pt" class="i-active i-default">11 pt</div>
+              <div style="font-size: 12pt;" data-font-size="12pt">12 pt</div>
+              <div style="font-size: 13pt;" data-font-size="13pt">13 pt</div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section data-ajax-url="/components/tuner/json/screen-width.json" data-ajax-method="GET" class="b-seller-tuner__screen-width">Ширина экрана
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <input id="global-screen-width" type="hidden" name="global-screen-width" value="blue"/>
+              <div class="i-active i-default">1200 px</div>
+              <div>1355 px</div>
+              <div>1500 px</div>
+              <div>1700 px</div>
+              <div>99%</div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section data-ajax-url="/components/tuner/json/tags.json" data-ajax-method="GET" class="b-seller-tuner__tags">Цвета ярлыков
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <div data-tag="discount" class="b-item i-discount">
+                <input id="global-discount-color" type="hidden" name="global-discount-color" value="ea4b4b"/>
+                <div data-default="ea4b4b" class="b-tag-color b-colorpicker">
+                  <div></div>
+                </div>
+                <div class="b-tag-name">Скидка</div>
+              </div>
+              <div data-tag="hit" class="b-item i-hit">
+                <input id="global-hit-color" type="hidden" name="global-hit-color" value="86ad34"/>
+                <div data-default="86ad34" class="b-tag-color b-colorpicker">
+                  <div></div>
+                </div>
+                <div class="b-tag-name">Хит</div>
+              </div>
+              <div data-tag="new" class="b-item i-new">
+                <input id="global-new-color" type="hidden" name="global-new-color" value="ea4b4b"/>
+                <div data-default="ea4b4b" class="b-tag-color b-colorpicker">
+                  <div></div>
+                </div>
+                <div class="b-tag-name">Новинка</div>
+              </div>
+              <div data-tag="recommended" class="b-item i-recommended">
+                <input id="global-recommended-color" type="hidden" name="global-recommended-color" value="2f7cdb"/>
+                <div data-default="2f7cdb" class="b-tag-color b-colorpicker">
+                  <div></div>
+                </div>
+                <div class="b-tag-name">Рекомендуем</div>
+              </div>
+              <div data-tag="action" class="b-item i-action">
+                <input id="global-action-color" type="hidden" name="global-action-color" value="4be1ea"/>
+                <div data-default="4be1ea" class="b-tag-color b-colorpicker">
+                  <div></div>
+                </div>
+                <div class="b-tag-name">Акция</div>
+              </div>
+              <p>
+                Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет.
+                Заголовок H2
+                Выбрав необходимые товары или услуги, пользователь обычно имеет возможность тут же на сайте выбрать метод оплаты и доставки. Совокупность отобранных товаров, способ оплаты и доставки представляют собой законченный заказ, который оформляется на сайте путем сообщения минимально необходимой информации о покупателе. Информация о покупателе может храниться в базе данных магазина если бизнес-модель магазина рассчитана на повторные покупки, или же отправляться разово.
+                Отслеживание ведется с помощью методов веб-аналитики. Часто при оформлении заказа предусматривается возможность сообщить некоторые дополнительные пожелания от покупателя продавцу.
+                Заголовок H3
+                Однако, в этом случае следует быть осторожным, поскольку доказать неполучение товара электронным способом существенно сложнее, чем в случае физической доставки.
+                По данным опроса портала Mail.ru необходимость регистрации при заказе товара или услуги часто мешает пользователям совершать покупки в интернет-магазинах. В интернет-магазинах, рассчитанных на повторные покупки, также ведется отслеживание возвратов посетителя и история покупок. Кроме того, существуют сайты, в которых заказ принимается по телефону, электронной почте, Jabber или ICQ.
+                Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет.
+                Заголовок H2
+                Выбрав необходимые товары или услуги, пользователь обычно имеет возможность тут же на сайте выбрать метод оплаты и доставки. Совокупность отобранных товаров, способ оплаты и доставки представляют собой законченный заказ, который оформляется на сайте путем сообщения минимально необходимой информации о покупателе. Информация о покупателе может храниться в базе данных магазина если бизнес-модель магазина рассчитана на повторные покупки, или же отправляться разово.
+                Отслеживание ведется с помощью методов веб-аналитики. Часто при оформлении заказа предусматривается возможность сообщить некоторые дополнительные пожелания от покупателя продавцу.
+                Заголовок H3
+                Однако, в этом случае следует быть осторожным, поскольку доказать неполучение товара электронным способом существенно сложнее, чем в случае физической доставки.
+              </p>
+            </div>
+          </section>
+        </div>
+        <div data-tab="header">
+          <section data-ajax-url="/components/tuner/color.json" data-ajax-method="GET" class="b-seller-tuner__headers">
+            <input id="headers" type="hidden" name="headers" value="1"/>Шапка сайта
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">Вариант 1
+              <div data-value="1" class="b-seller-tuner__img i-active"><img src="/components/tuner/img/header1.jpg" alt=""/></div>
+            </div>
+            <hr class="i-size-L"/>
+            <div class="b-seller-tuner__block">Вариант 2
+              <div data-value="2" class="b-seller-tuner__img"><img src="/components/tuner/img/header1.jpg" alt=""/></div>
+            </div>
+            <hr class="i-size-L"/>
+            <div class="b-seller-tuner__block">Вариант 3
+              <div data-value="3" class="b-seller-tuner__img"><img src="/components/tuner/img/header1.jpg" alt=""/></div>
+            </div>
+          </section>
+        </div>
+        <div data-tab="catalog">
+          <section class="b-seller-tuner__colors">Цветовая схема
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <div style="background-color: blue;"></div>
+              <div style="background-color: lightblue;"></div>
+              <div style="background-color: yellow;"></div>
+              <div style="background-color: orange;"></div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section class="b-seller-tuner__fonts">Шрифт
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <div>Open Sans</div>
+              <div>Montserrat</div>
+              <div>Roboto</div>
+              <div>PT Sans</div>
+              <div>Lora</div>
+            </div>
+          </section>
+          <hr class="i-size-L"/>
+          <section class="b-seller-tuner__tags">Цвета ярлыков
+            <hr class="i-line i-size-L"/>
+            <div class="b-seller-tuner__block">
+              <div><span style="background-color: #ea4b4b;"></span><em>Скидка</em></div>
+              <div><span style="background-color: #86ad34;"></span><em>Хит</em></div>
+              <div><span style="background-color: #ea4b4b;"></span><em>Новинка</em></div>
+              <div><span style="background-color: #2f7cdb;"></span><em>Рекомендуем</em></div>
+              <div><span style="background-color: #4be1ea;"></span><em>Акция</em></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="b-seller-tuner__bottom">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-2">
+          <button type="submit" class="btn btn-default">Сохранить настройки</button><a href="?reset=y">Отменить</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- end /components/tuner/-->

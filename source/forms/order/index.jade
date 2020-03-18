@@ -1,0 +1,35 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Оформление заказа | Seller
+
+block content
+   
+  .bj-page-content.container-fluid
+      
+    ol.breadcrumb.hidden-xs
+      li
+        a(href="/" title="Главная страница") Главная страница
+      li
+        span Мои заказы
+        
+    hr.visible-xs-block
+    
+    h1 Оформление заказа
+        
+    hr.i-size-L
+    
+    a( href="http://seller-assembly.2px.ru/personal/order/make/") http://seller-assembly.2px.ru/personal/order/make/
+        
+    p Стили на сервере
+    
+    ul
+      li /bitrix/templates/bejet_seller-1.6.0/components/bitrix/sale.location.selector.search/.default/style.css
+      li /bitrix/templates/bejet_seller-1.6.0/components/bitrix/sale.order.ajax/seller_1.4.1/style.css
+      
+    p Стили в маркапе - /components/sale.personal.order.cancel/style.css
+    p Стили элементов формы
+    
+    ul
+      li /forms/order/form-elements-style-loaction.styl
+      li /forms/order/form-elements-style.styl

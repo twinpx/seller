@@ -1,0 +1,148 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Личный кабинет | Seller
+
+block content
+   
+  .bj-page-content.container-fluid
+      
+    ol.breadcrumb.hidden-xs
+      li
+        a(href="/" title="Главная страница") Главная страница
+      li
+        a(href="/personal/index.php" title="Персональный кабинет") Персональный кабинет
+      li
+        span Личные данные
+        
+    hr.visible-xs-block
+    
+    h1 Личные данные
+    
+    .row
+    
+      .col-sm-2
+      
+        include ../../components/personal.menu/template
+                
+      .col-sm-10
+      
+        .bx_profile
+        
+          form(method="post" name="form1" action="/personal/?SECTION=private" enctype="multipart/form-data" role="form")
+            input#sessid(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+            input(type="hidden" name="lang" value="s1")
+            input(type="hidden" name="ID" value="1")
+            input(type="hidden" name="LOGIN" value="support@twinpx.ru")
+            
+            #user_div_reg.main-profile-block-shown
+              .main-profile-block-date-info
+                span.small
+                  span Дата обновления:
+                  span 11.11.2019 13:57:36
+                span.small
+                  span Последняя авторизация:
+                  span 04.03.2020 12:42:30
+              .form-group
+                label.main-profile-form-label(for="main-profile-name") Имя:
+                .main-profile-form-input
+                  input#main-profile-name.form-control(type="text" name="NAME" maxlength="50" value="support@twinpx.ru")
+              .form-group
+                label.main-profile-form-label(for="main-profile-last-name") Фамилия:
+                .main-profile-form-input
+                  input#main-profile-last-name.form-control(type="text" name="LAST_NAME" maxlength="50" value="")
+              .form-group
+                label.main-profile-form-label(for="main-profile-second-name") Отчество:
+                .main-profile-form-input
+                  input#main-profile-second-name.form-control(type="text" name="SECOND_NAME" maxlength="50" value="")
+              .form-group
+                label.main-profile-form-label(for="main-profile-email") E-Mail:
+                .main-profile-form-input
+                  input#main-profile-email.form-control(type="text" name="EMAIL" maxlength="50" value="support@twinpx.ru")
+              .form-group
+                label.main-profile-form-label Фотография:
+                .file-field.input-field
+                  .btn.btn-themes.btn-default.btn-md.btn-inverse
+                    span Выберите изображение
+                    input(name="PERSONAL_PHOTO" type="file")
+                  .file-path-wrapper
+                    input.file-path.validate.form-control(type="text")
+              .form-group
+                p.main-profile-form-password-annotation
+                  | Пароль должен быть не менее 6 символов длиной.
+                label.main-profile-form-label(for="main-profile-password") Новый пароль:
+                .main-profile-form-input
+                  input#main-profile-password.form-control.bx-auth-input.main-profile-password(type="password" name="NEW_PASSWORD" maxlength="50" value="" autocomplete="off")
+              .form-group
+                label.main-profile-form-label.main-profile-password(for="main-profile-password-confirm")
+                  | Подтверждение нового пароля:
+                .main-profile-form-input
+                  input#main-profile-password-confirm.form-control(type="password" name="NEW_PASSWORD_CONFIRM" maxlength="50" value="" autocomplete="off")
+            p.main-profile-form-buttons-block
+              input.btn.btn-themes.btn-default.btn-md.main-profile-submit(type="submit" name="save" value="Сохранить")
+              input.btn.btn-themes.btn-default.btn-md(type="submit" name="reset" value="Отмена")
+              
+          .col-sm-12.main-profile-social-block
+          
+            .soc-serv-main
+              .soc-serv-title-grey
+                | Вы можете связать свой профиль с профилями в социальных сетях и сервисах:
+              .bx-auth-serv-icons
+                a#bx_auth_href_Livejournal(title="Livejournal" href="javascript:void(0)" onclick="BxShowAuthService('Livejournal', '')")
+                  i.bx-ss-icon.livejournal
+                a#bx_auth_href_MailRuOpenID(title="Mail.Ru OpenID" href="javascript:void(0)" onclick="BxShowAuthService('MailRuOpenID', '')")
+                  i.bx-ss-icon.openid-mail-ru
+                a#bx_auth_href_Liveinternet(title="Liveinternet" href="javascript:void(0)" onclick="BxShowAuthService('Liveinternet', '')")
+                  i.bx-ss-icon.liveinternet
+                a#bx_auth_href_Blogger(title="Blogger" href="javascript:void(0)" onclick="BxShowAuthService('Blogger', '')")
+                  i.bx-ss-icon.blogger
+                a#bx_auth_href_OpenID(title="OpenID" href="javascript:void(0)" onclick="BxShowAuthService('OpenID', '')")
+                  i.bx-ss-icon.openid
+              .bx-auth
+                form(method="post" name="bx_auth_services" target="_top" action="/personal/?SECTION=private")
+                  #bx_auth_serv.bx-auth-service-form(style="display:none")
+                    #bx_auth_serv_Livejournal(style="display:none")
+                      span.bx-ss-icon.livejournal
+                      input(type="text" name="OPENID_IDENTITY_LIVEJOURNAL" value="" size="20")
+                      span .livejournal.com
+                      input#sessid_1(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+                      input(type="hidden" name="auth_service_error" value="")
+                      input.button(type="submit" name="" value="Войти")
+                    #bx_auth_serv_MailRuOpenID(style="display:none")
+                      span.bx-ss-icon.openid-mail-ru
+                      input(type="text" name="OPENID_IDENTITY_MAILRU" value="" size="20")
+                      span @mail.ru
+                      input#sessid_2(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+                      input(type="hidden" name="auth_service_error" value="")
+                      input.button(type="submit" name="" value="Войти")
+                    #bx_auth_serv_Liveinternet(style="display:none")
+                      span.bx-ss-icon.liveinternet
+                      span liveinternet.ru/users/
+                      input(type="text" name="OPENID_IDENTITY_LIVEINTERNET" value="" size="15")
+                      input#sessid_3(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+                      input(type="hidden" name="auth_service_error" value="")
+                      input.button(type="submit" name="" value="Войти")
+                    #bx_auth_serv_Blogger(style="display:none")
+                      span.bx-ss-icon.blogger
+                      input(type="text" name="OPENID_IDENTITY_BLOGGER" value="" size="20")
+                      span .blogspot.com
+                      input#sessid_4(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+                      input(type="hidden" name="auth_service_error" value="")
+                      input.button(type="submit" name="" value="Войти")
+                    #bx_auth_serv_OpenID(style="display:none")
+                      span.bx-ss-icon.openid
+                      span OpenID:
+                      input(type="text" name="OPENID_IDENTITY_OPENID" value="" size="30")
+                      input#sessid_5(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+                      input(type="hidden" name="auth_service_error" value="")
+                      input.button(type="submit" name="" value="Войти")
+                  input(type="hidden" name="auth_service_id" value="")
+          .clearfix
+            
+    hr.i-size-L
+    
+    a( href="http://seller-assembly.2px.ru/personal/index.php?SECTION=private") http://seller-assembly.2px.ru/personal/index.php?SECTION=private
+        
+    p Стили на сервере - /bitrix/templates/bejet_seller-1.6.0/components/bitrix/sale.personal.section/new/bitrix/main.profile/.default/style.css
+    p Стили в маркапе - /components/main.profile/style.css
+    p Стили элементов формы /forms/personal/form-elements-style.styl

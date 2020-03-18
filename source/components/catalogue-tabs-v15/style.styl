@@ -1,0 +1,55 @@
+@import '../../styl/component-include.styl'
+
+.bj-catalogue-tabs.i-v15
+
+  .nav-tabs
+    border none
+    margin-bottom 20px
+    display flex
+    align-items flex-start
+    justify-content flex-start
+    
+    > li
+      background transparent
+      padding-right 60px
+      
+      &:last-child
+        padding-right 0
+        
+      a
+        display inline-block
+        padding 0 0 7px
+        margin 0
+        border none
+        border-radius none
+        font-size 13.5pt
+        font-weight 400
+        
+        &:hover
+          background transparent
+          border none
+        
+      &.active
+        
+        a,
+        a:focus
+          color #333
+          border none
+          border-bottom 1px solid #333
+          padding-bottom 6px
+          background-color transparent
+          
+        a,
+        a:hover,
+        a:blur
+          opacity 1 !important
+            
+    @media( max-width 767px )
+      
+      > li
+        padding-right 14px
+        
+        a
+          font-size 10.5pt
+            
+        

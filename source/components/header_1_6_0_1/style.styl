@@ -1,0 +1,821 @@
+@import '../../styl/component-include.styl'
+
+#sellerHeader_1.b-header
+  width auto
+  
+#sellerHeader_1
+
+  .bj-cart-icon
+    cursor pointer
+
+  .bj-page-header__top a
+  
+    &,
+    &:hover,
+    &:active,
+    &:focus
+      color #fff
+      text-decoration none
+    
+  .bj-page-header__top
+    background-color #333
+
+  .bj-page-header__top,
+  .bj-page-header__submenu
+    padding 10px 0 0
+    height 60px
+    overflow hidden
+    
+  .bj-page-header__submenu
+    background-color #fff
+    
+    .row
+      margin-left 0
+      margin-right 0
+      
+    a
+      line-height 40px
+      display inline-block
+
+  .bj-page-header__submenu .col-md-2,.bj-page-header__submenu .col-md-6
+    padding-left 0
+    padding-right 0
+
+  .bj-menu-icon
+    display inline-block
+    vertical-align top
+    margin-top 12px
+    width 16px
+    height 16px
+    background-repeat no-repeat
+    background-position center center
+    background-size cover
+
+  @media (max-width:1200px)
+
+    .bj-page-header__search
+      &.i-active
+        .bj-page-header__search__input
+          width 620px
+
+  @media (max-width:1125px)
+    .bj-page-header__search
+      &.i-active
+        .bj-page-header__search__input
+          width 550px
+
+  @media (max-width:1065px)
+    .bj-page-header__search
+      &.i-active
+        .bj-page-header__search__input
+          width 490px
+
+  @media (max-width:770px)
+    .bj-page-header__search
+      &.i-active
+        .bj-page-header__search__input
+          width 270px
+
+  .bj-page-header__dropdown
+
+    &-hr
+      padding-top 35px
+      border-top 1px solid rgba( 255,255,255,.1 )
+        
+    article
+      background-color #333
+      font-size .8rem
+      position absolute
+      top 0
+      left 0
+      z-index 1000
+      width 100%
+      display none
+      
+      strong
+        font-size .9rem
+      
+      menu li
+        transform( translateX( -10px ))
+        transition( all .5s ease )
+        opacity 0
+      
+      &.i-animate
+        
+        menu li
+          transform( translateX(0))
+          opacity 1
+          
+          &:nth-of-type(1)
+            transition-delay .05s
+          
+          &:nth-of-type(2)
+            transition-delay .1s
+          
+          &:nth-of-type(3)
+            transition-delay .15s
+          
+          &:nth-of-type(4)
+            transition-delay .2s
+          
+          &:nth-of-type(5)
+            transition-delay .25s
+          
+          &:nth-of-type(6)
+            transition-delay .3s
+          
+          &:nth-of-type(7)
+            transition-delay .35s
+          
+          &:nth-of-type(8)
+            transition-delay .4s
+          
+          &:nth-of-type(9)
+            transition-delay .45s
+          
+          &:nth-of-type(10)
+            transition-delay .5s
+          
+          &:nth-of-type(11)
+            transition-delay .55s
+      
+    a
+        
+      img
+        transition( opacity .5s ease )
+        
+      &:hover
+        text-decoration none
+        
+        img
+          opacity .7
+        
+    menu
+      padding 0
+      margin 0 0 35px
+      list-style-type none
+      
+    .up
+      background-color #333
+      width 171px
+      height 35px
+      position absolute
+      bottom -28px
+      left 50%
+      margin-left -85px
+      border 0
+      text-align center
+      
+      &:before
+        content ''
+        display block
+        margin 0 auto
+        width 30px
+        height 15px
+        background embedurl( 'img/row-up.svg' ) no-repeat center
+        background-size cover
+        
+      &:hover:before
+        animation moveUp .2s ease-in
+        
+    &-b
+      margin-bottom 35px
+      
+      img
+        width 100%
+        height auto
+        opacity 1 !important
+        
+    .media-body
+      text-align left
+
+  .bj-page-header__dropdown,
+  .bj-page-header__user-dropdown
+
+    &,
+    a,
+    a:hover,
+    a:active,
+    a:focus,
+    h3,
+    .h3
+      color #fff
+      
+  .bj-page-header__user-dropdown
+
+    &-hr
+      padding-top 20px
+      border-top 1px solid rgba( 255,255,255,.1 )
+        
+    article
+      background-color #333
+      font-size 10.5pt
+      position absolute
+      top 0
+      left 0
+      z-index 1000
+      width 100%
+      display none
+      padding 15px 0
+      
+      .container-fluid
+        opacity 0
+        transition( opacity .5s ease )
+      
+      &.i-animate
+      
+        .container-fluid
+          opacity 1
+
+    a
+      display inline-block
+      margin-right 50px
+      line-height 35px
+
+  .bj-page-header
+        
+    .popover
+      border-radius 3px
+      
+    .popover-content
+      line-height 1.72857143
+      
+      a
+        display block
+        margin-bottom 5px
+        
+      b
+        font-weight 400
+        
+      .glyphicon
+        line-height 1.72857143
+        width auto
+        font-size 10.5pt
+        margin-left 6px
+        
+    &__sub
+      background-color #333
+      display none
+      
+      &-wrapper
+        border-top 1px solid rgba( 227,227,227,.1 )
+        padding 15px 0
+      
+      a
+        display inline-block
+        margin-right 50px
+        line-height 35px
+        
+        &,
+        &:hover,
+        &:active,
+        &:focus
+          color #fff
+          
+    .bj-nav-button,
+    .bj-top-nav a,
+    .bj-earphone-icon,
+    .bj-cart-icon,
+    .bj-personal,
+    .bj-search-icon
+      transform( scale(0))
+      
+    &:after
+      content ''
+      display none
+      width 100%
+      height 100%
+      position absolute
+      top 0
+      left 0
+      transition( background .5s ease )
+      z-index 10
+      
+    &.i-load
+                  
+      .bj-nav-button,
+      .bj-top-nav a,
+      .bj-earphone-icon,
+      .bj-cart-icon,
+      .bj-personal,
+      .bj-search-icon
+        transition( transform 1s ease )
+        transform( scale(1))
+        
+      .bj-nav-button,
+      .bj-earphone-icon
+        transition-delay 0s
+        
+      .bj-top-nav
+        
+        a
+        
+          &:nth-of-type(5)
+            transition-delay .05s
+        
+          &:nth-of-type(4)
+            transition-delay .1s
+        
+          &:nth-of-type(3)
+            transition-delay .15s
+        
+          &:nth-of-type(2)
+            transition-delay .2s
+        
+          &:nth-of-type(1)
+            transition-delay .25s
+            
+      .bj-cart-icon
+        transition-delay .05s
+        
+      .bj-personal
+        transition-delay .1s
+        
+      .bj-search-icon
+        transition-delay .1s
+          
+    &.i-search
+      position relative
+      
+      &:after
+        display block
+        
+      .bj-logo
+        position relative
+        z-index 11
+            
+      .bj-nav-button,
+      .bj-top-nav a,
+      .bj-earphone-icon,
+      .bj-cart-icon,
+      .bj-personal,
+      .bj-search-icon
+        transform( scale(0))
+        
+      .bj-nav-button,
+      .bj-earphone-icon
+        transition-delay 0
+        
+      .bj-top-nav
+        
+        a
+        
+          &:nth-of-type(5)
+            transition-delay .05s
+        
+          &:nth-of-type(4)
+            transition-delay .1s
+        
+          &:nth-of-type(3)
+            transition-delay .15s
+        
+          &:nth-of-type(2)
+            transition-delay .2s
+        
+          &:nth-of-type(1)
+            transition-delay .25s
+            
+      .bj-cart-icon
+        transition-delay .05s
+        
+      .bj-personal
+        transition-delay .1s
+        
+      .bj-search-icon
+        transition-delay .1s
+        
+      .bj-page-header__search-close
+        display block
+        
+      .bj-page-header__search
+        display inline-block
+        
+        
+    &.i-ready:after
+      background rgba( 0,0,0,.6 )
+      
+    &.i-ready
+    
+      .bj-page-header__search
+        opacity 1
+        transform( translateX(0))
+        transition( all .5s ease .5s )
+        
+        &-close
+          
+          &:before
+            transform( rotate( 45deg ))
+            
+          &:after
+            transform( rotate( -45deg ))
+      
+    &__search
+      display none
+      vertical-align top
+      width calc( 100% - 153px )
+      opacity 0
+      transform( translateX( 100px ))
+      position absolute
+      top 0
+      left 153px
+      z-index 11
+      
+      form
+        position relative
+      
+      &-icon
+        display inline-block
+        vertical-align top
+        width 16px
+        height 16px
+        background-repeat no-repeat
+        background-position center center
+        background-size cover
+        position absolute
+        top 11px
+        left 20px
+        
+      &__input
+        width 100%
+        height 40px
+        padding 6px 10px 6px 62px
+        background-color transparent !important
+        border none
+        display inline-block
+        vertical-align top
+        color #fff
+        box-sizing( border-box !important )
+        
+        &::placeholder
+          color #fff
+          
+        &::-ms-input-placeholder
+          color #fff
+        
+        &:focus
+          box-shadow none
+          
+      &-close
+        display none
+        vertical-align top
+        width 20px
+        height 20px
+        position relative
+        cursor pointer
+        position absolute
+        top 9px
+        right 15px
+        z-index 11
+        
+        &:before
+          content ''
+          display inline-block
+          border-top 1px solid #fff
+          width 18px
+          transition( transform 0.5s ease )
+          position absolute
+          top 9px
+          right 0
+        
+        &:after
+          content ''
+          display inline-block
+          border-top 1px solid #fff
+          width 18px
+          transition( transform 0.5s ease )
+          position absolute
+          top 9px
+          right 0
+          
+        &:hover
+          opacity .7
+
+  .bj-logo
+    font-size 18pt
+    display inline-block
+    vertical-align top
+    margin-right 10px
+    
+    img
+      max-width 143px
+      vertical-align top
+
+  @media (max-width:767px)
+    .bj-logo
+      display inline-block
+      vertical-align top
+      line-height 40px
+
+  .bj-logo-space
+    line-height 40px
+    
+  div[id^=bx_incl_area]
+    display inline-block
+    
+  #personal_menu
+    
+    button
+      display inline-block
+      vertical-align top
+      width 16px
+      height 16px
+      background-repeat no-repeat
+      background-position center center
+      background-size cover
+      margin-top 12px
+        
+      &:hover
+        text-decoration none
+
+  @media (max-width:767px)
+      
+    #personal_menu .tooltip
+      display none !important
+
+  .bj-top-nav
+    display inline-block
+    
+    a
+      display inline-block
+      line-height 40px
+      padding 0 11px
+      margin 0 11px
+
+  .bj-top-subnav
+
+    &:before
+      content ' '
+      display inline-block
+      vertical-align top
+      line-height 40px
+      width 19px
+      height 40px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAXCAYAAADpwXTaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAa1JREFUeNqclU0oBGEYx2dehL1saSVFlAOXzcckJyUXuUmibJGDnJwpbXLZm5MkxMmBEncXDgqHTfnIt4OUkpRS9sL4vfXsNsbMbjNP/Xpm5pn9z//9eN41bds2gkY6nY7J5btlWT/Z52Y+MX5kksoFBRGohknohXHYg09E7eICJupgClqgWUSdsQ2nMAR3vs5wVUQag1VX6RWeoQJqQBuag5TK46oRpj2eLzAki9wOB6DdzEJc+bgqIQ1Ag0e5jHopem8i9i3PK/3mTH856VObgS8EL8n9MkwdiX9zxksRmafhgDsmo1xC+r47hJCOc/ecRWVlgoaet6RyuUpAWwixLTh2OquSJQ4aelXnWd0P5VqlWAixNbjK9SZDjHN9FkLoQu9HXN0Y0rw6Fo1wsax7MnujcDVB7gwhpE+LTecRpGS3B40MrEhLGU6xFPTBUwCxDXH2J3LtxHCbSF2wVEDoEUZxdegu5LYGxWttHTpgPY/YDpx4FTwPR1xGpRPmodVROoIRPnzvJeZ5nundDPtc9sCg48zahQc/y2ahfyfp2XqohVs+8uL37q8AAwDzvYWXMy+5RgAAAABJRU5ErkJggg==') no-repeat center center
+      margin-right -9px
+      margin-left 10px
+      
+    a
+      display inline-block
+      margin 0 22px
+      
+      
+  .bj-personal-icon:hover,
+  .b-shopping-cart:hover,
+  .bj-search-icon:hover,
+  .bj-menu-icon:hover,
+  .bj-earphone-icon:hover,
+  .bj-top-nav a:hover
+    transition( all .3s ease-out )
+    opacity 0.5
+    
+  .b-shopping-cart
+    display inline-block
+    vertical-align top
+    width 16px
+    height 16px
+    margin-top 12px
+    background-repeat no-repeat
+    background-position center center
+    background-size cover
+    
+  .bj-earphone-icon
+
+    span
+      display inline-block
+      vertical-align top
+      margin-top 12px
+      width 16px
+      height 16px
+      background-repeat no-repeat
+      background-position center center
+      background-size cover
+      
+    @media( max-width: 767px )
+      margin-left 15px !important
+
+  .bj-search-icon
+    position relative
+    display inline-block
+    cursor pointer
+      
+    span
+      display inline-block
+      vertical-align top
+      width 16px
+      height 16px
+      margin-top 12px
+      background-repeat no-repeat
+      background-position center center
+      background-size cover
+        
+  .bj-page-header
+      
+    button.bj-personal-icon
+      background 0 0
+      border none
+      padding 0
+      
+    .col-md-3
+      text-align right
+      
+  div.bj-personal-icon
+    width 20px
+    height 20px
+    background url( '/upload/logo-pomidor.jpg' ) no-repeat center
+    background-size cover
+    cursor pointer
+    border-radius 51%
+    margin-top 10px
+        
+  .bj-logo-space
+    line-height 40px
+    
+  .bj-personal,
+  .bj-cart-icon,
+  .bj-search-icon,
+  .bj-nav-button,
+  .bj-earphone-icon
+    display inline-block
+    vertical-align top
+    width 40px
+    line-height 40px
+    text-align center
+    margin-left 20px
+    
+    &:hover
+      text-decoration none
+      
+    @media( max-width 1100px )
+      margin-left 15px
+      
+    @media( max-width 1020px )
+      margin-left 13px
+      
+    @media( max-width 567px )
+      width 30px
+      
+  .bj-cart-icon
+    margin-left 12px
+    margin-right 20px
+    
+  .bj-search-icon
+    margin-left 10px
+    
+  @media( max-width 1100px )
+  
+    .bj-personal
+      margin-left 0
+    
+  @media( max-width 1020px )
+
+    .bj-cart-icon
+      margin-left 9px
+      
+    .bj-search-icon
+      margin-left 10px
+      
+    .bj-personal
+      margin-left 27px
+    
+  @media( max-width 567px )
+  
+    .bj-cart-icon
+      margin-right 10px
+      
+  .bj-personal
+    position relative
+    z-index 1
+    
+  .bj-page-header__cart-dropdown
+
+    &,
+    a,
+    a:hover,
+    a:active,
+    a:focus,
+    h3,
+    .h3
+      color #fff
+    
+    &-hr
+      padding-top 20px
+      border-top 1px solid rgba( 255,255,255,.1 )
+        
+    article
+      background-color #333
+      font-size 10.5pt
+      position absolute
+      top 0
+      left 0
+      z-index 1000
+      width 100%
+      display none
+      padding 0 0 30px
+      
+      .container-fluid
+        opacity 0
+        transition( opacity .5s ease )
+        min-height 125px
+      
+      &.i-animate
+      
+        .container-fluid
+          opacity 1
+          
+    p
+      font-size 8pt
+      
+    .btn-default
+      border-color #fff
+      color #fff
+      
+      &:hover,
+      &:active,
+      &:focus
+        background-color transparent
+        border-color rgba( 255,255,255,.7 )
+        color #fff
+        
+    .progress
+      position absolute
+      bottom 0
+      margin 0
+      background-color #ffffffaa
+      background-image none
+      height 4px !important
+      border-radius 0 !important
+      
+    .col-sm-4
+      opacity 0
+      transition( all 1s ease )
+      transform(translateX( -50px ))
+      
+      &:nth-child(1)
+        transition-delay .2s
+      
+      &:nth-child(2)
+        transition-delay .1s
+      
+      &:nth-child(3)
+        transition-delay 0s
+      
+    &.i-loaded
+      
+      .col-sm-4
+        opacity 1
+        transform(translateX(0))
+    
+      .progress
+        visibility hidden
+        
+  .bj-page-header__cart-message
+    text-align center
+    margin-top 45px
+    transform( translateY( -15px ))
+        
+  .b-cart-dropdown__item
+    display flex
+    justify-content flex-start
+    font-size 9pt
+    line-height 1.2
+      
+    span
+      width calc( 100% - 61px - 18px )
+    
+    span.b-cart-dropdown__item-img
+      width 61px
+      height 61px
+      background-color #66666633
+      margin-right 18px
+    
+    b
+      display block
+      margin-top 10px
+    
+    img
+      margin-right 18px
+      
+  .bj-cart-icon
+    position relative
+    
+  .bj-cart-icon__num
+    position absolute
+    top 12px
+    left 37px
+    line-height 16px
+    font-size .85rem
+    color #fff
+    
+    @media( max-width 567px )
+      left 31px
+    
+@keyframes moveUp
+  0%
+    transform( translateY(0))
+
+  50%
+    transform( translateY(-3px))
+
+  100%
+    transform( translateY(0))
+    

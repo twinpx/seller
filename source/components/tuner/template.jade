@@ -6,11 +6,15 @@ script( src="/components/tuner/script.js" )
 link( rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.css" )
 script( src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js" )
 
-#seller-tuner.b-seller-tuner.side-nav
+script
+  | window.colorpickerStrings = { save: 'Сохранить', clear: 'Очистить' };
+
+#seller-tuner.b-seller-tuner.side-nav.i-bj
+  //.i-no-transition
   .b-seller-tuner-close
   .b-h2
     span Настройки вашего Seller
-    a( href="?reset=y" ) Сбросить по умолчанию
+    a( href="?reset=y" ) Отменить
   
   hr.i-size-L
     
@@ -18,12 +22,42 @@ script( src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js" )
   
     .row
       
-      .col-sm-3.b-seller-tuner__menu
+      .col-sm-2.b-seller-tuner__menu
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
+        a.i-active( href="global" ) Общие
+        a( href="header" ) Шапка
+        a( href="catalog" ) Каталог
         a.i-active( href="global" ) Общие
         a( href="header" ) Шапка
         a( href="catalog" ) Каталог
         
-      .col-sm-9.b-seller-tuner__content
+      .col-sm-10.b-seller-tuner__content
         
         div.i-active( data-tab="global" )
           
@@ -40,8 +74,8 @@ script( src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js" )
     .b-seller-tuner__bottom
     
       .row
-        .col-sm-9.col-sm-offset-3
+        .col-sm-10.col-sm-offset-2
           button.btn.btn-default( type="submit" ) Сохранить настройки
-          a( href="?reset=y" ) Сбросить по умолчанию
+          a( href="?reset=y" ) Отменить
 
 // end /components/tuner/

@@ -1,0 +1,129 @@
+﻿header.bj-page-header
+  section.bj-page-header__top
+    .container-fluid
+      .row
+      
+        .col-md-9.col-sm-8.col-xs-6.bj-logo-space
+          span.bj-logo
+            img( width='143', alt='', src='/template/images/logo.png', height='40', title='' )
+            
+            
+          span.bj-page-header__search.hidden-xs
+            form( action='/catalog/' )
+              span.bj-page-header__search-icon( style=" background-image: url( '/template/images/search.svg' );" )
+              input#title-search-input.bj-page-header__search__input.form-control(type='search', name='q', size='23', maxlength='50', autocomplete='off' value='' placeholder="Я ищу..." )
+              input(name='s', type='hidden', value='')
+            
+          .bj-top-nav.hidden-sm.hidden-xs
+            a.bj-page-header__menu-link( href="/catalog/" ) Каталог
+            a( href="/lookbook/" ) LookBook
+            a( href="/catalog/" ) Акции
+            a( href="/catalog/" ) Оплата
+            a( href="/catalog/" ) Доставка
+          
+          a#nav-button.bj-nav-button.hidden-sm.hidden-xs( href='#', data-activates='sideNavPanel' )
+            span.bj-menu-icon( style="background-image: url( '/template/images/menu.svg' );" )
+            
+        .col-md-3.col-sm-4.col-xs-6
+        
+          a#nav-button-xs.bj-nav-button.visible-sm-inline-block.visible-xs-inline-block( href='#', data-activates='sideNavPanel' )
+            span.bj-menu-icon( style="background-image: url( '/template/images/menu.svg' );" )
+        
+          #personal_menu.bj-personal.hidden-xs
+            button.bj-personal-icon( href='#', data-content='<a href="/auth/">Войти</a><a href="/auth/?register=yes">Зарегистрироваться</a>', data-original-title='', title='' style=" background-image: url( '/template/images/profile-icon.svg' );")
+                      
+          span.bj-search-icon.hidden-xs
+            span( style=" background-image: url( '/template/images/search.svg' );" )
+              
+          a.bj-earphone-icon(href='#', data-toggle='modal', data-target='#myModal' )
+            span( style="background-image: url( '/template/images/tel-white.svg' );" )
+          
+          .bj-page-header__search-close
+          
+  section.bj-page-header__sub
+    .container-fluid
+      .bj-page-header__sub-wrapper
+      
+        a.bj-page-header__menu-link( href="" ) Каталог
+        a( href="" ) О магазине
+        a( href="" ) Новости
+        a( href="" ) Контакты
+        a( href="" ) Вакансии
+        a( href="" ) Как купить
+        a( href="" ) Оплата
+        a( href="" ) Доставка
+        a( href="" ) Гарантии
+        a( href="" ) Вакансии
+        a( href="" ) Скидки
+        a( href="" ) Доставка
+        a( href="" ) Гарантии
+        
+  include header-dropdown
+          
+  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+          |                   
+          h2#myModalLabel.modal-title.text-center &Ncy;&acy;&shcy; &tcy;&iecy;&lcy;&iecy;&fcy;&ocy;&ncy;
+        |                 
+        .modal-body.text-center
+          .bj-text-x-large 8 (495) 212 85 06
+          |                   
+          .small &Pcy;&ncy;-&Vcy;&scy; 10-19
+        |                 
+        .modal-footer.text-center(style='display:none')
+          button.btn.btn-default(type='button') &Zcy;&acy;&kcy;&acy;&zcy;&acy;&tcy;&softcy; &zcy;&vcy;&ocy;&ncy;&ocy;&kcy;
+  
+ul#sideNavPanel.side-nav
+  li.logo
+    span.bj-logo
+      img(width='143', alt='', src='', height='40', title='')
+  li.no-padding
+    .media
+      .media-body
+        ul
+          li
+            a(href='/personal/') admin admin
+          li
+            a(href='/?logout=yes') Выйти
+      .media-right
+        a(href='/personal/')
+          img(src='', width='64', height='48')
+  li.no-padding
+    ul
+      li
+        a(href='/personal/cart/')
+          | Корзина 
+          span.badge 3
+      li
+        a(href='/personal/index.php?SECTION=orders') Мои заказы
+  li.no-padding
+    ul
+      li
+        a(href='/search/') Поиск
+      li
+        a.bj-page-header__menu-link(href='/catalog/') Каталог
+      li
+        a(href='/campaign/') Акции
+      li
+        a(href='/journal/') Журнал
+      li
+        a(href='/lookbook/') LookBook
+      li
+        a(href='/about/') О магазине
+      li
+        a(href='/news/') Новости
+      li
+        a(href='/about/contacts/') Контакты
+      li
+        a(href='/about/vacancies/') Вакансии
+      li
+        a(href='/about/howto/') Как купить
+      li
+        a(href='/payment/') Оплата
+      li
+        a(href='/about/delivery/') Доставка
+      li
+        a(href='/about/guaranty/') Гарантии

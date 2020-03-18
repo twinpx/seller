@@ -1,0 +1,610 @@
+// start /components/sale.basket.basket/
+
+link( rel="stylesheet", href="/components/sale.basket.basket/style.css" )
+script( src="/components/sale.basket.basket/script.js" )
+
+hr.visible-xs-block
+    
+h1 Моя корзина
+
+#basket-root.bx-basket.bx-blue.bx-step-opacity(style="opacity: 1;")
+  .row
+    .col
+      #basket-warning.alert.alert-warning.alert-dismissable(style="display: none;")
+        span.close(data-entity="basket-items-warning-notification-close") ×
+        div(data-entity="basket-general-warnings" style="display: none;")
+        div(data-entity="basket-item-warnings" style="display: none;")
+          | В вашей корзине 
+          a(href="javascript:void(0)" data-entity="basket-items-warning-count")
+          |  требует внимания.
+  .row
+    .col
+      #basket-items-list-wrapper.mb-3.basket-items-list-wrapper.basket-items-list-wrapper-height-fixed.basket-items-list-wrapper-compact
+        .basket-items-list-header(data-entity="basket-items-list-header")
+          .basket-items-search-field(data-entity="basket-filter")
+            .form.input-group
+              input.form-control(type="text" placeholder="Фильтр" data-entity="basket-filter-input")
+            button.basket-items-search-clear-btn(type="button" data-entity="basket-filter-clear-btn") ×
+          .basket-items-list-header-filter
+            a.basket-items-list-header-filter-item.active(href="javascript:void(0)" data-entity="basket-items-count" data-filter="all" style="") В корзине 9 товаров
+            a.basket-items-list-header-filter-item(href="javascript:void(0)" data-entity="basket-items-count" data-filter="similar" style="display: none;")
+            a.basket-items-list-header-filter-item(href="javascript:void(0)" data-entity="basket-items-count" data-filter="warning" style="display: none;")
+            a.basket-items-list-header-filter-item(href="javascript:void(0)" data-entity="basket-items-count" data-filter="delayed" style="display: none;")
+            a.basket-items-list-header-filter-item(href="javascript:void(0)" data-entity="basket-items-count" data-filter="not-available" style="display: none;")
+        #basket-items-list-container.basket-items-list-container(style="min-height: calc((100vh - 15px) - 0px);")
+          #basket-items-list-overlay.basket-items-list-overlay(style="display: none;")
+          #basket-item-list.basket-items-list(style="min-height: calc((100vh - 15px) - 0px);")
+            #basket-item-list-empty-result.basket-search-not-found(style="display: none;")
+              .basket-search-not-found-icon
+              .basket-search-not-found-text По данному запросу товаров не найдено
+            table#basket-item-table.basket-items-list-table
+              tbody
+                tr#basket-item-37.basket-items-list-item-container(data-entity="basket-item" data-id="37")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-37.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/pukhoviki/pukhovik_detskiy/")
+                          img.basket-item-image(alt="Пуховик детский " src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/b7c/160_160_1/b7cc22e867cc838333f7920fc2527263.jpg")
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/pukhoviki/pukhovik_detskiy/")
+                            span(data-entity="basket-item-name") Пуховик детский 
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="XS" data-entity="basket-item-sku-field" data-initial="true" data-value-id="XS" data-sku-name="XS" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XS
+                                li.basket-item-scu-item(title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner S
+                                li.basket-item-scu-item(title="M" data-entity="basket-item-sku-field" data-initial="false" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner M
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-37.basket-item-price-current-text
+                          | 14 000 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-37.basket-item-amount-filed(type="text" value="7" data-value="7" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-37.basket-item-price-current-text
+                          | 98 000 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-16.basket-items-list-item-container(data-entity="basket-item" data-id="16")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-16.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/pukhoviki/vetrovka_red/")
+                          img.basket-item-image(alt="Ветровка Red " src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/1f6/160_160_1/1f6d13bf323b8dd8e3d68d57610053bb.jpg")
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/pukhoviki/vetrovka_red/")
+                            span(data-entity="basket-item-name") Ветровка Red 
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="Красный" data-entity="basket-item-sku-field" data-initial="true" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item(title="XS" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XS" data-sku-name="XS" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XS
+                                li.basket-item-scu-item(title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner S
+                                li.basket-item-scu-item.selected(title="M" data-entity="basket-item-sku-field" data-initial="true" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner M
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-16.basket-item-price-current-text
+                          | 890 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-16.basket-item-amount-filed(type="text" value="1200" data-value="1200" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-16.basket-item-price-current-text
+                          | 1 068 000 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-22.basket-items-list-item-container(data-entity="basket-item" data-id="22")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-22.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/dzhinsy/dzhinsy_siwy/")
+                          img.basket-item-image(alt="Джинсы Siwy " src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/e5d/160_160_1/e5dbc184c366841a843cc1969f68137a.jpg")
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/dzhinsy/dzhinsy_siwy/")
+                            span(data-entity="basket-item-name") Джинсы Siwy 
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="XS" data-entity="basket-item-sku-field" data-initial="true" data-value-id="XS" data-sku-name="XS" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XS
+                                li.basket-item-scu-item(title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner S
+                                li.basket-item-scu-item(title="M" data-entity="basket-item-sku-field" data-initial="false" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner M
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-22.basket-item-price-current-text
+                          | 3 940 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-22.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-22.basket-item-price-current-text
+                          | 3 940 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-26.basket-items-list-item-container(data-entity="basket-item" data-id="26")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-26.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/")
+                          img.basket-item-image(alt=" Prada рубашка в клетку,  Синий,  40,  M,  110,  38" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/2b9/160_160_1/2b9544590f46e836942545aa49ec52f5.jpg")
+                          .basket-item-label-text.basket-item-label-big.basket-item-label-top.basket-item-label-left
+                            .d-none.d-sm-block
+                              span(title="Рекомендуем") Рекомендуем
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/")
+                            span(data-entity="basket-item-name")  Prada рубашка в клетку,  Синий,  40,  M,  110,  38
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="Синий" data-entity="basket-item-sku-field" data-initial="true" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);")
+                                li.basket-item-scu-item(title="Красный" data-entity="basket-item-sku-field" data-initial="false" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры обуви
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 40
+                                li.basket-item-scu-item(title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 41
+                                li.basket-item-scu-item(title="42" data-entity="basket-item-sku-field" data-initial="false" data-value-id="42" data-sku-name="42" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 42
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="M" data-entity="basket-item-sku-field" data-initial="true" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner M
+                                li.basket-item-scu-item(title="L" data-entity="basket-item-sku-field" data-initial="false" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner L
+                                li.basket-item-scu-item(title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XL
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-26.basket-item-price-current-text
+                          | 500 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-26.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-26.basket-item-price-current-text
+                          | 500 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-27.basket-items-list-item-container(data-entity="basket-item" data-id="27")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-27.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/")
+                          img.basket-item-image(alt=" Prada рубашка в клетку,  Красный,  40,  L,  110,  46" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/a1c/160_160_1/a1ccaf318fbd82d75b73c28854acd0d0.jpg")
+                          .basket-item-label-text.basket-item-label-big.basket-item-label-top.basket-item-label-left
+                            .d-none.d-sm-block
+                              span(title="Рекомендуем") Рекомендуем
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/")
+                            span(data-entity="basket-item-name")  Prada рубашка в клетку,  Красный,  40,  L,  110,  46
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item(title="Синий" data-entity="basket-item-sku-field" data-initial="false" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);")
+                                li.basket-item-scu-item.selected(title="Красный" data-entity="basket-item-sku-field" data-initial="true" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры обуви
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 40
+                                li.basket-item-scu-item(title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 41
+                                li.basket-item-scu-item(title="42" data-entity="basket-item-sku-field" data-initial="false" data-value-id="42" data-sku-name="42" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 42
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="L" data-entity="basket-item-sku-field" data-initial="true" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner L
+                                li.basket-item-scu-item(title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XL
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-27.basket-item-price-current-text
+                          | 600 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-27.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-27.basket-item-price-current-text
+                          | 600 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-29.basket-items-list-item-container(data-entity="basket-item" data-id="29")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-29.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/krosovki/diadora_heritage_krossovki/")
+                          img.basket-item-image(alt=" Diadora heritage кроссовки,  Белый,   40" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/d11/160_160_1/d11d183bda376858adb415619709c355.jpg")
+                          .basket-item-label-text.basket-item-label-big.basket-item-label-top.basket-item-label-left
+                            .d-none.d-sm-block
+                              span(title="Новинка") Новинка
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/krosovki/diadora_heritage_krossovki/")
+                            span(data-entity="basket-item-name")  Diadora heritage кроссовки,  Белый,   40
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="Белый" data-entity="basket-item-sku-field" data-initial="true" data-value-id="white" data-sku-name="Белый" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/cfd/cfd709846dcaa3dade007f50d17a0308.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры обуви
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item(title="36" data-entity="basket-item-sku-field" data-initial="false" data-value-id="36" data-sku-name="36" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 36
+                                li.basket-item-scu-item(title="37" data-entity="basket-item-sku-field" data-initial="false" data-value-id="37" data-sku-name="37" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 37
+                                li.basket-item-scu-item.selected(title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 40
+                                li.basket-item-scu-item(title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 41
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-29.basket-item-price-current-text
+                          | 9 500 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-29.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-29.basket-item-price-current-text
+                          | 9 500 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-30.basket-items-list-item-container(data-entity="basket-item" data-id="30")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-30.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/")
+                          img.basket-item-image(alt=" Prada рубашка в клетку,  Синий,  40,  M,  110,  36" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/601/160_160_1/6017528ef6fbdf40245db59fee665f53.jpg")
+                          .basket-item-label-text.basket-item-label-big.basket-item-label-top.basket-item-label-left
+                            .d-none.d-sm-block
+                              span(title="Рекомендуем") Рекомендуем
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/")
+                            span(data-entity="basket-item-name")  Prada рубашка в клетку,  Синий,  40,  M,  110,  36
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="Синий" data-entity="basket-item-sku-field" data-initial="true" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);")
+                                li.basket-item-scu-item(title="Красный" data-entity="basket-item-sku-field" data-initial="false" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры обуви
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 40
+                                li.basket-item-scu-item(title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 41
+                                li.basket-item-scu-item(title="42" data-entity="basket-item-sku-field" data-initial="false" data-value-id="42" data-sku-name="42" data-property="SIZES_SHOES")
+                                  span.basket-item-scu-item-inner 42
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="M" data-entity="basket-item-sku-field" data-initial="true" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner M
+                                li.basket-item-scu-item(title="L" data-entity="basket-item-sku-field" data-initial="false" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner L
+                                li.basket-item-scu-item(title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XL
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-30.basket-item-price-current-text
+                          | 500 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-30.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-30.basket-item-price-current-text
+                          | 500 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-31.basket-items-list-item-container(data-entity="basket-item" data-id="31")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-31.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/rubashki-muzh/dzhinsovaya_rubashka_edwa/")
+                          img.basket-item-image(alt=" Джинсовая рубашка EDWA,  Синий" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/112/160_160_1/11243f73f44cd953351e1fed44c9cc8d.jpg")
+                          .basket-item-label-text.basket-item-label-big.basket-item-label-top.basket-item-label-left
+                            .d-none.d-sm-block
+                              span(title="Новинка") Новинка
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/rubashki-muzh/dzhinsovaya_rubashka_edwa/")
+                            span(data-entity="basket-item-name")  Джинсовая рубашка EDWA,  Синий
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="Синий" data-entity="basket-item-sku-field" data-initial="true" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item(title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner S
+                                li.basket-item-scu-item(title="M" data-entity="basket-item-sku-field" data-initial="false" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner M
+                                li.basket-item-scu-item.selected(title="L" data-entity="basket-item-sku-field" data-initial="true" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner L
+                                li.basket-item-scu-item(title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner XL
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-31.basket-item-price-current-text
+                          | 6 620 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-31.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-31.basket-item-price-current-text
+                          | 6 620 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+                tr#basket-item-35.basket-items-list-item-container(data-entity="basket-item" data-id="35")
+                  td.basket-items-list-item-descriptions
+                    #basket-item-height-aligner-35.basket-items-list-item-descriptions-inner
+                      .basket-item-block-image
+                        a.basket-item-image-link(href="/catalog/kurtki/allegri_legkoe_palto/")
+                          img.basket-item-image(alt=" Allegri легкое пальто,  Коричневый,  52" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/35e/160_160_1/35e741bdb3a83e1ced71b5bcb7f57afa.jpg")
+                      .basket-item-block-info
+                        span.basket-item-actions-remove.d-block.d-md-none(data-entity="basket-item-delete")
+                        h2.basket-item-info-name
+                          a.basket-item-info-name-link(href="/catalog/kurtki/allegri_legkoe_palto/")
+                            span(data-entity="basket-item-name")  Allegri легкое пальто,  Коричневый,  52
+                        .basket-item-block-properties
+                          .basket-item-property.basket-item-property-scu-image(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Цвет
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item.selected(title="Коричневый" data-entity="basket-item-sku-field" data-initial="true" data-value-id="brown" data-sku-name="Коричневый" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/51f/51f98e0e3f588e930599f7431803aff3.jpg);")
+                                li.basket-item-scu-item(title="Синий" data-entity="basket-item-sku-field" data-initial="false" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF")
+                                  span.basket-item-scu-item-inner(style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);")
+                          .basket-item-property.basket-item-property-scu-text(data-entity="basket-item-sku-block")
+                            .basket-item-property-name Размеры одежды 
+                            .basket-item-property-value
+                              ul.basket-item-scu-list
+                                li.basket-item-scu-item(title="48" data-entity="basket-item-sku-field" data-initial="false" data-value-id="48" data-sku-name="48" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner 48
+                                li.basket-item-scu-item(title="50" data-entity="basket-item-sku-field" data-initial="false" data-value-id="50" data-sku-name="50" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner 50
+                                li.basket-item-scu-item.selected(title="52" data-entity="basket-item-sku-field" data-initial="true" data-value-id="52" data-sku-name="52" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner 52
+                                li.basket-item-scu-item(title="54" data-entity="basket-item-sku-field" data-initial="false" data-value-id="54" data-sku-name="54" data-property="SIZES_CLOTHES")
+                                  span.basket-item-scu-item-inner 54
+                          .basket-item-property-custom.basket-item-property-custom-text(data-entity="basket-item-property")
+                            .basket-item-property-custom-name Тип цены
+                            .basket-item-property-custom-value(data-column-property-code="TYPE" data-entity="basket-item-property-column-value")
+                              | Розничная цена
+                  td.basket-items-list-item-price.basket-items-list-item-price-for-one
+                    .basket-item-block-price.d-none.d-sm-block
+                      .basket-item-price-current
+                        span#basket-item-price-35.basket-item-price-current-text
+                          | 31 500 руб.
+                      .basket-item-price-title
+                        | цена за 1 шт
+                  td.basket-items-list-item-amount
+                    .basket-item-block-amount(data-entity="basket-item-quantity-block")
+                      span.basket-item-amount-btn-minus(data-entity="basket-item-quantity-minus")
+                      .basket-item-amount-filed-block
+                        input#basket-item-quantity-35.basket-item-amount-filed(type="text" value="1" data-value="1" data-entity="basket-item-quantity-field")
+                      span.basket-item-amount-btn-plus(data-entity="basket-item-quantity-plus")
+                      .basket-item-amount-field-description
+                        | шт
+                  td.basket-items-list-item-price
+                    .basket-item-block-price
+                      .basket-item-price-current
+                        span#basket-item-sum-price-35.basket-item-price-current-text
+                          | 31 500 руб.
+                  td.basket-items-list-item-remove.d-none.d-md-block
+                    .basket-item-block-actions
+                      span.basket-item-actions-remove(data-entity="basket-item-delete")
+  .row
+    .col(data-entity="basket-total-block")
+      .basket-checkout-container(data-entity="basket-checkout-aligner")
+        .basket-coupon-section
+          .basket-coupon-block-field
+            .basket-coupon-block-field-description
+              | Введите код купона для скидки:
+            .form
+              .form-group(style="position: relative;")
+                input.form-control(type="text" id="" placeholder="" data-entity="basket-coupon-input")
+                span.basket-coupon-block-coupon-btn
+        .basket-checkout-section
+          .basket-checkout-section-inner
+            .basket-checkout-block.basket-checkout-block-total
+              .basket-checkout-block-total-inner
+                .basket-checkout-block-total-title Итого:
+                .basket-checkout-block-total-description
+                  | Сумма НДС: 0 руб.
+            .basket-checkout-block.basket-checkout-block-total-price
+              .basket-checkout-block-total-price-inner
+                .basket-coupon-block-total-price-current(data-entity="basket-total-price")
+                  | 1 219 160 руб.
+            .basket-checkout-block.basket-checkout-block-btn
+              button.btn.btn-default.basket-btn-checkout(data-entity="basket-checkout-button")
+                | Оформить заказ
+        .basket-coupon-alert-section
+          .basket-coupon-alert-inner
+
+// end /components/sale.basket.basket/

@@ -1,0 +1,26 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Моя корзина | Seller
+
+block content
+   
+  .bj-page-content.container-fluid
+      
+    ol.breadcrumb.hidden-xs
+      li
+        a(href="/" title="Главная страница") Главная страница
+      li
+        span Моя корзина
+        
+    hr.i-size-L
+    
+    p
+      a( href="http://seller-assembly.2px.ru/personal/cart/") http://seller-assembly.2px.ru/personal/cart/
+
+    p
+      a( href="/personal/cart/" ) Страница markup Моя корзина
+        
+    p Стили на сервере - /bitrix/templates/bejet_seller-1.6.0/components/bitrix/sale.basket.basket/.default/style.css
+    p Стили в маркапе - /components/sale.basket.basket/style.css
+    p Стили элементов формы /forms/cart/form-elements-style.styl
