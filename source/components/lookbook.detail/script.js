@@ -4,6 +4,10 @@
   
   $( function() {
     
+    $( '.b-catalog-detail__gallery' ).delegate( '.fotorama__html a', 'click', function(e) {
+      e.preventDefault();
+    });
+    
     var $div = $( '#lookbookDetailData' );
     
     //gallery
