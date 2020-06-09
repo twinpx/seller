@@ -1,0 +1,28 @@
+extends ../layouts/main.jade
+
+block title
+  title Search result | seller
+  
+block header
+  include ../components/header_1_6_0_1/template
+
+block content
+
+  .container-fluid
+    
+    hr.i-size-L
+    hr.i-size-L
+    hr.i-size-L
+    
+    h1 Seller
+    ul
+      li
+        a( href="/catalog/" ) Catalog
+      li
+        a( href="/catalog/detail/" ) Catalog detail
+      li
+        a( href="/lookbook/" ) Lookbook
+      li
+        a( href="/cart/" ) Корзина
+        
+  include ../components/search.title/template

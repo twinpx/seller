@@ -784,8 +784,8 @@ input.sale-paysystem-yandex-button-item:active {
 
 #bx-soa-orderSave [type="checkbox"].filled-in:checked+label:after,
 #register-user-conf [type="checkbox"].filled-in:checked+label:after { 
-   border: 2px solid @brand-primary; 
-   background-color: @brand-primary; 
+   border: 2px solid @brand-primary !important; 
+   background-color: @brand-primary !important; 
 }
 
 .form-group [type="checkbox"].filled-in:not(:checked)+label:after {
@@ -840,6 +840,17 @@ input.sale-paysystem-yandex-button-item:active {
 }
 
 //bx.sale.order.ajax
+#bx-soa-order [type="radio"]:checked+span:after,
+#bx-soa-order [type="radio"].with-gap:checked+span:before,
+#bx-soa-order [type="radio"].with-gap:checked+span:after {
+    border-color: @brand-primary !important;
+}
+
+#bx-soa-order [type="radio"]:checked+span:after,
+#bx-soa-order [type="radio"].with-gap:checked+span:after {
+    background-color: @brand-primary !important;
+}
+
 //style
 
 //style_cart
