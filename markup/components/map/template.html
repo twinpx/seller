@@ -1,0 +1,29 @@
+
+<!-- start /components/map/-->
+<!-- Если в настройках Bitrix клиент отключает использование карты, то компонент не подключаем.-->
+<link rel="stylesheet" href="/components/map/style.css"/>
+<script src="/components/map/script.js"></script>
+<div class="container-fluid">
+  <div class="b-map">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;amp;apikey=3da27ed2-82cd-4c8f-8a07-8b32774f2abc" type="text/javascript"></script>
+    <div class="b-map__heading">
+      <div>Список магазинов:</div>
+      <div class="b-map__dropdown">
+        <div class="b-map__dropdown-head">Все</div>
+        <div class="b-map__dropdown-body">
+          <div data-tab="all" class="b-map__dropdown-item i-active">Все</div>
+          <div data-tab="moscow" class="b-map__dropdown-item i-active">Москва</div>
+          <div data-tab="spb" class="b-map__dropdown-item i-active">Санкт-Петербург</div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <script>
+       
+      //cluster icons are black by default
+      var yMapPlacemarksIcons = 'invertedDarkblueClusterIcons';//take a look here for different icons https://tech.yandex.ru/maps/archive/doc/jsapi/2.0/ref/reference/option.presetStorage-docpage/
+    </script>
+    <div id="yMapShops" data-ajax-url="/components/map/placemarks.json" data-ajax-method="GET"></div>
+  </div>
+</div>
+<!-- end /components/map/-->

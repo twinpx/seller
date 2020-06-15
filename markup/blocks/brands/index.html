@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru" class="bx-no-touch">
+  <head>
+    <title>Brands component | Seller</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="/template/libs/bootstrap-3.3.7.css">
+    <link rel="stylesheet" href="/template/libs/materialize.css">
+    <link rel="stylesheet" href="/template/template_styles.css">
+    <link rel="stylesheet" href="/template/colors.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
+    <script src="/template/libs/jquery-1.11.1.min.js"></script>
+    <script src="/template/libs/materialize-0.100.0.min.js"></script>
+    <script src="/template/script.js"></script>
+    <script src="/template/libs/bootstrap-3.3.7.js"></script>
+  </head>
+  <body>
+    <!-- start /components/header_1_6_0_1/-->
+    <link rel="stylesheet" href="/components/header_1_6_0_1/style.css">
+    <script src="/components/header_1_6_0_1/script.js"></script>
+    <div id="sellerHeader_1">
+      <header class="bj-page-header i-load">
+        <section class="bj-page-header__top">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-9 col-sm-6 col-xs-6 bj-logo-space"><span class="bj-logo"><img width="143" alt="" src="/template/images/headers/header_1_6_0_1/logo.png" height="40" title=""></span><span class="bj-page-header__search hidden-xs">
+                  <form action="/catalog/"><span style=" background-image: url( '/template/images/headers/header_1_6_0_1/search.svg' );" class="bj-page-header__search-icon"></span>
+                    <input id="title-search-input" type="search" name="q" size="23" maxlength="50" autocomplete="off" value="" placeholder="Я ищу..." class="bj-page-header__search__input form-control">
+                    <input name="s" type="hidden" value="">
+                  </form></span>
+                <div class="bj-top-nav hidden-sm hidden-xs"><a href="/catalog/" class="bj-page-header__menu-link">Каталог</a><a href="/lookbook/">LookBook</a><a href="/catalog/">Акции</a><a href="/catalog/">Оплата</a><a href="/catalog/">Доставка</a></div><a id="nav-button" href="#" class="bj-nav-button hidden-sm hidden-xs"><span style="background-image: url( '/template/images/headers/header_1_6_0_1/menu.svg' );" class="bj-menu-icon"></span></a>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-6"><a id="nav-button-xs" href="#" data-activates="sideNavPanel" class="bj-nav-button visible-sm-inline-block visible-xs-inline-block"><span style="background-image: url( '/template/images/headers/header_1_6_0_1/menu.svg' );" class="bj-menu-icon"></span></a>
+                <div id="personal_menu" class="bj-personal hidden-xs">
+                  <div class="bj-personal-icon"></div>
+                </div><span id="sale-basket-basket-line-container"><a id="bx_cart_block" href="/personal/cart/" class="bj-cart-icon"><span style=" background-image: url( '/template/images/headers/header_1_6_0_1/basket.svg' );" class="b-shopping-cart"></span><span id="bx_cart_num" class="bj-cart-icon__num">0</span></a></span><span class="bj-search-icon hidden-xs"><span style=" background-image: url( '/template/images/headers/header_1_6_0_1/search.svg' );"></span></span><a href="#" data-toggle="modal" data-target="#myModal" class="bj-earphone-icon"><span style="background-image: url( '/template/images/headers/header_1_6_0_1/phone.svg' );"></span></a>
+                <div class="bj-page-header__search-close"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bj-page-header__sub">
+          <div class="container-fluid">
+            <div class="bj-page-header__sub-wrapper"><a href="" class="bj-page-header__menu-link">Каталог</a><a href="">О магазине</a><a href="">Новости</a><a href="">Контакты</a><a href="">Вакансии</a><a href="">Как купить</a><a href="">Оплата</a><a href="">Доставка</a><a href="">Гарантии</a><a href="">Вакансии</a><a href="">Скидки</a><a href="">Доставка</a><a href="">Гарантии</a></div>
+          </div>
+        </section>
+        <section class="bj-page-header__dropdown">
+          <div class="i-relative">
+            <article>
+              <div class="container-fluid">
+                <div class="bj-page-header__dropdown-hr"></div>
+                <div class="row">
+                  <div class="col-md-9 col-sm-12">
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <h3><a href="/catalog/muzhchinam/">Мужчинам</a></h3>
+                        <menu>
+                          <li><a href="/catalog/kurtki/">Куртки</a></li>
+                          <li><a href="/catalog/shoes/">Обувь</a></li>
+                          <li><a href="/catalog/bryuki/">Брюки</a></li>
+                          <li><a href="/catalog/rubashki-muzh/">Рубашки</a></li>
+                        </menu>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h3><a href="/catalog/zhenshchinam/">Женщинам</a></h3>
+                        <menu>
+                          <li><a href="/catalog/zhenskoe_belje/">Белье</a></li>
+                          <li><a href="/catalog/w-bryuki/">Брюки</a></li>
+                          <li><a href="/catalog/dzhinsy/">Деним</a></li>
+                          <li><a href="/catalog/zhenskaya_obuv/">Обувь</a></li>
+                          <li><a href="/catalog/palto/">Пальто</a></li>
+                          <li><a href="/catalog/platya_women/">Платья</a></li>
+                          <li><a href="/catalog/accessories/">Аксессуары</a></li>
+                        </menu>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <h3><a href="/catalog/devochkam/">Девочкам</a></h3>
+                        <menu>
+                          <li><a href="/catalog/platya/">Платья</a></li>
+                          <li><a href="/catalog/futbolki-devochkam/">Футболки</a></li>
+                          <li><a href="/catalog/shorty/">Шорты</a></li>
+                        </menu>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <h3><a href="/catalog/malchikam/">Мальчикам</a></h3>
+                        <menu>
+                          <li><a href="/catalog/kurtki_malchikam/">Куртки</a></li>
+                          <li><a href="/catalog/svitery/">Свитеры</a></li>
+                          <li><a href="/catalog/futbolki/">Футболки</a></li>
+                        </menu>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="bj-page-header__dropdown-b hidden-sm hidden-xs"><a href=""><img src="/template/images/banner.jpg"></a></div>
+                  </div>
+                </div>
+                <div><a href="/brand/"><strong>Бренды </strong> (Все 8)</a></div>            
+                <hr>            
+                <div class="row">
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/alexander-mcqueen/"><img alt="" src="/template/images/brand1.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/alexander-mcqueen/">Alexander McQueen</a></div>
+                    </div>
+                  </div>                
+                  <hr class="visible-xs-block clearfix">                
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/benetton/"><img alt="" src="/template/images/brand2.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/benetton/">Benetton</a></div>
+                    </div>
+                  </div>                
+                  <div class="visible-xs-block visible-sm-block clearfix"></div>                
+                  <hr class="visible-xs-block visible-sm-block">                
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/adidas/"><img alt="" src="/template/images/brand3.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/adidas/">Adidas</a></div>
+                    </div>
+                  </div>                
+                  <hr class="visible-xs-block clearfix">                
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/burberry/"><img alt="" src="/template/images/brand4.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/burberry/">Burberry</a></div>
+                    </div>
+                  </div>
+                </div>            
+                <hr>            
+                <div class="row">
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/chanel/"><img alt="" src="/template/images/brand5.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/chanel/">Chanel</a></div>
+                    </div>
+                  </div>                
+                  <hr class="visible-xs-block clearfix">                
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/christian-louboutin/"><img alt="" src="/template/images/brand6.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/christian-louboutin/">Christian Louboutin</a></div>
+                    </div>
+                  </div>                
+                  <div class="visible-xs-block visible-sm-block clearfix"></div>                
+                  <hr class="visible-xs-block visible-sm-block">                
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/diesel/"><img alt="" src="/template/images/brand7.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/diesel/">Diesel</a></div>
+                    </div>
+                  </div>                
+                  <hr class="visible-xs-block clearfix">                
+                  <div class="col-md-3 col-sm-6">
+                    <div class="media">
+                      <div class="media-left media-middle"><a href="/brand/dior/"><img alt="" src="/template/images/brand8.png" class="media-object"></a></div>                        
+                      <div class="media-body media-middle"><a href="/brand/dior/">Dior</a></div>
+                    </div>
+                  </div>
+                </div>            
+                <hr>            
+                <hr class="i-size-L">            
+                <button class="up"></button>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="cartDropdown" data-url="/template/cart-droprown-ajax.html" data-method="GET" class="bj-page-header__cart-dropdown">
+          <div class="i-relative">
+            <article>
+              <div class="container-fluid"></div>
+              <div class="progress">
+                <div class="indeterminate"></div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="userDropdown" class="bj-page-header__user-dropdown">
+          <div class="i-relative">
+            <article>
+              <div class="container-fluid"><a href="">Войти</a><a href="">Регистрация</a>
+                <hr><a href="">tatiana</a><a href="">Мои заказы</a><a href="">Выйти</a>
+              </div>
+            </article>
+          </div>
+        </section>
+        <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade">
+          <div role="document" class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"></button>                  
+                <h2 id="myModalLabel" class="modal-title text-center">&Ncy;&acy;&shcy; &tcy;&iecy;&lcy;&iecy;&fcy;&ocy;&ncy;</h2>
+              </div>                
+              <div class="modal-body text-center">
+                <div class="bj-text-x-large">8 (495) 212 85 06</div>                  
+                <div class="small">&Pcy;&ncy;-&Vcy;&scy; 10-19</div>
+              </div>                
+              <div style="display:none" class="modal-footer text-center">
+                <button type="button" class="btn btn-default">&Zcy;&acy;&kcy;&acy;&zcy;&acy;&tcy;&softcy; &zcy;&vcy;&ocy;&ncy;&ocy;&kcy;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <ul id="sideNavPanel" class="side-nav">
+      <li class="logo"><span class="bj-logo"><img width="143" alt="" src="" height="40" title=""></span></li>
+      <li class="no-padding">
+        <div class="media">
+          <div class="media-body">
+            <ul>
+              <li><a href="/personal/">admin admin</a></li>
+              <li><a href="/?logout=yes">Выйти</a></li>
+            </ul>
+          </div>
+          <div class="media-right"><a href="/personal/"><img src="" width="64" height="48"></a></div>
+        </div>
+      </li>
+      <li class="no-padding">
+        <ul>
+          <li><a href="/personal/cart/">Корзина <span class="badge">3</span></a></li>
+          <li><a href="/personal/index.php?SECTION=orders">Мои заказы</a></li>
+        </ul>
+      </li>
+      <li class="no-padding">
+        <ul>
+          <li><a href="/search/">Поиск</a></li>
+          <li><a href="/catalog/" class="bj-page-header__menu-link">Каталог</a></li>
+          <li><a href="/campaign/">Акции</a></li>
+          <li><a href="/journal/">Журнал</a></li>
+          <li><a href="/lookbook/">LookBook</a></li>
+          <li><a href="/about/">О магазине</a></li>
+          <li><a href="/news/">Новости</a></li>
+          <li><a href="/about/contacts/">Контакты</a></li>
+          <li><a href="/about/vacancies/">Вакансии</a></li>
+          <li><a href="/about/howto/">Как купить</a></li>
+          <li><a href="/payment/">Оплата</a></li>
+          <li><a href="/about/delivery/">Доставка</a></li>
+          <li><a href="/about/guaranty/">Гарантии</a></li>
+        </ul>
+      </li>
+    </ul><a id="seller-tuner-icon" data-activates="seller-tuner" class="hidden-xs"><span style="background-image: url( '/template/images/headers/header_1_6_0_1/tuner.svg' );"></span></a>
+    <!-- end /components/header_1_6_0_1/-->
+    <!-- start /components/tuner/-->
+    <link rel="stylesheet" href="/components/tuner/style.css">
+    <script src="/components/tuner/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/pickr-widget/dist/pickr.min.js"></script>
+    <script>window.colorpickerStrings = { save: 'Сохранить', clear: 'Очистить' };</script>
+    <div id="seller-tuner" class="b-seller-tuner side-nav i-bj">
+      <!--.i-no-transition-->
+      <div class="b-seller-tuner-close"></div>
+      <div class="b-h2"><span>Настройки вашего Seller</span><a href="?reset=y">Отменить</a></div>
+      <hr class="i-size-L">
+      <form action="" method="GET">
+        <div class="row">
+          <div class="col-sm-2 b-seller-tuner__menu"><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a><a href="global" class="i-active">Общие</a><a href="header">Шапка</a><a href="catalog">Каталог</a></div>
+          <div class="col-sm-10 b-seller-tuner__content">
+            <div data-tab="global" class="i-active">
+              <section data-ajax-url="/components/tuner/json/color.json" data-ajax-method="GET" class="b-seller-tuner__colors-1">Основной цвет
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <input id="global-color-1" type="hidden" name="global-color-1" value="blue">
+                  <div style="background-color: blue;" class="b-item i-active i-default"></div>
+                  <div style="background-color: lightblue;" class="b-item"></div>
+                  <div style="background-color: yellow;" class="b-item"></div>
+                  <div style="background-color: orange;" class="b-item"></div>
+                  <div title="Выбрать цвет" data-default="f502aa" class="b-colorpicker">
+                    <div></div>
+                  </div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section data-ajax-url="/components/tuner/json/color.json" data-ajax-method="GET" class="b-seller-tuner__colors-2">Дополнительный цвет
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <input id="global-color-2" type="hidden" name="global-color-2" value="blue">
+                  <div style="background-color: blue;" class="b-item i-active i-default"></div>
+                  <div style="background-color: lightblue;" class="b-item"></div>
+                  <div style="background-color: yellow;" class="b-item"></div>
+                  <div style="background-color: orange;" class="b-item"></div>
+                  <div title="Выбрать цвет" data-default="f502aa" class="b-colorpicker">
+                    <div>     </div>
+                  </div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section data-ajax-url="/components/tuner/json/font.json" data-ajax-method="GET" class="b-seller-tuner__fonts">Шрифт
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <input id="global-font" type="hidden" name="global-font" value="blue">
+                  <div style="font-family: 'Open Sans' !important;" class="i-active i-default">Open Sans</div>
+                  <div style="font-family: 'Montserrat' !important;">Montserrat</div>
+                  <div style="font-family: 'Roboto' !important;">Roboto</div>
+                  <div style="font-family: 'PT Sans' !important;">PT Sans</div>
+                  <div style="font-family: 'Lora' !important;">Lora</div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section data-ajax-url="/components/tuner/json/font-size.json" data-ajax-method="GET" class="b-seller-tuner__font-size">Размер шрифта
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <input id="global-font-size" type="hidden" name="global-font-size" value="11pt">
+                  <div style="font-size: 10.5pt;" data-font-size="11pt" class="i-active i-default">11 pt</div>
+                  <div style="font-size: 12pt;" data-font-size="12pt">12 pt</div>
+                  <div style="font-size: 13pt;" data-font-size="13pt">13 pt</div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section data-ajax-url="/components/tuner/json/screen-width.json" data-ajax-method="GET" class="b-seller-tuner__screen-width">Ширина экрана
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <input id="global-screen-width" type="hidden" name="global-screen-width" value="blue">
+                  <div class="i-active i-default">1200 px</div>
+                  <div>1355 px</div>
+                  <div>1500 px</div>
+                  <div>1700 px</div>
+                  <div>99%</div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section data-ajax-url="/components/tuner/json/tags.json" data-ajax-method="GET" class="b-seller-tuner__tags">Цвета ярлыков
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <div data-tag="discount" class="b-item i-discount">
+                    <input id="global-discount-color" type="hidden" name="global-discount-color" value="ea4b4b">
+                    <div data-default="ea4b4b" class="b-tag-color b-colorpicker">
+                      <div></div>
+                    </div>
+                    <div class="b-tag-name">Скидка</div>
+                  </div>
+                  <div data-tag="hit" class="b-item i-hit">
+                    <input id="global-hit-color" type="hidden" name="global-hit-color" value="86ad34">
+                    <div data-default="86ad34" class="b-tag-color b-colorpicker">
+                      <div></div>
+                    </div>
+                    <div class="b-tag-name">Хит</div>
+                  </div>
+                  <div data-tag="new" class="b-item i-new">
+                    <input id="global-new-color" type="hidden" name="global-new-color" value="ea4b4b">
+                    <div data-default="ea4b4b" class="b-tag-color b-colorpicker">
+                      <div></div>
+                    </div>
+                    <div class="b-tag-name">Новинка</div>
+                  </div>
+                  <div data-tag="recommended" class="b-item i-recommended">
+                    <input id="global-recommended-color" type="hidden" name="global-recommended-color" value="2f7cdb">
+                    <div data-default="2f7cdb" class="b-tag-color b-colorpicker">
+                      <div></div>
+                    </div>
+                    <div class="b-tag-name">Рекомендуем</div>
+                  </div>
+                  <div data-tag="action" class="b-item i-action">
+                    <input id="global-action-color" type="hidden" name="global-action-color" value="4be1ea">
+                    <div data-default="4be1ea" class="b-tag-color b-colorpicker">
+                      <div></div>
+                    </div>
+                    <div class="b-tag-name">Акция</div>
+                  </div>
+                  <p>
+                    Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет.
+                    Заголовок H2
+                    Выбрав необходимые товары или услуги, пользователь обычно имеет возможность тут же на сайте выбрать метод оплаты и доставки. Совокупность отобранных товаров, способ оплаты и доставки представляют собой законченный заказ, который оформляется на сайте путем сообщения минимально необходимой информации о покупателе. Информация о покупателе может храниться в базе данных магазина если бизнес-модель магазина рассчитана на повторные покупки, или же отправляться разово.
+                    Отслеживание ведется с помощью методов веб-аналитики. Часто при оформлении заказа предусматривается возможность сообщить некоторые дополнительные пожелания от покупателя продавцу.
+                    Заголовок H3
+                    Однако, в этом случае следует быть осторожным, поскольку доказать неполучение товара электронным способом существенно сложнее, чем в случае физической доставки.
+                    По данным опроса портала Mail.ru необходимость регистрации при заказе товара или услуги часто мешает пользователям совершать покупки в интернет-магазинах. В интернет-магазинах, рассчитанных на повторные покупки, также ведется отслеживание возвратов посетителя и история покупок. Кроме того, существуют сайты, в которых заказ принимается по телефону, электронной почте, Jabber или ICQ.
+                    Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет.
+                    Заголовок H2
+                    Выбрав необходимые товары или услуги, пользователь обычно имеет возможность тут же на сайте выбрать метод оплаты и доставки. Совокупность отобранных товаров, способ оплаты и доставки представляют собой законченный заказ, который оформляется на сайте путем сообщения минимально необходимой информации о покупателе. Информация о покупателе может храниться в базе данных магазина если бизнес-модель магазина рассчитана на повторные покупки, или же отправляться разово.
+                    Отслеживание ведется с помощью методов веб-аналитики. Часто при оформлении заказа предусматривается возможность сообщить некоторые дополнительные пожелания от покупателя продавцу.
+                    Заголовок H3
+                    Однако, в этом случае следует быть осторожным, поскольку доказать неполучение товара электронным способом существенно сложнее, чем в случае физической доставки.
+                  </p>
+                </div>
+              </section>
+            </div>
+            <div data-tab="header">
+              <section data-ajax-url="/components/tuner/color.json" data-ajax-method="GET" class="b-seller-tuner__headers">
+                <input id="headers" type="hidden" name="headers" value="1">Шапка сайта
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">Вариант 1
+                  <div data-value="1" class="b-seller-tuner__img i-active"><img src="/components/tuner/img/header1.jpg" alt=""></div>
+                </div>
+                <hr class="i-size-L">
+                <div class="b-seller-tuner__block">Вариант 2
+                  <div data-value="2" class="b-seller-tuner__img"><img src="/components/tuner/img/header1.jpg" alt=""></div>
+                </div>
+                <hr class="i-size-L">
+                <div class="b-seller-tuner__block">Вариант 3
+                  <div data-value="3" class="b-seller-tuner__img"><img src="/components/tuner/img/header1.jpg" alt=""></div>
+                </div>
+              </section>
+            </div>
+            <div data-tab="catalog">
+              <section class="b-seller-tuner__colors">Цветовая схема
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <div style="background-color: blue;"></div>
+                  <div style="background-color: lightblue;"></div>
+                  <div style="background-color: yellow;"></div>
+                  <div style="background-color: orange;"></div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section class="b-seller-tuner__fonts">Шрифт
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <div>Open Sans</div>
+                  <div>Montserrat</div>
+                  <div>Roboto</div>
+                  <div>PT Sans</div>
+                  <div>Lora</div>
+                </div>
+              </section>
+              <hr class="i-size-L">
+              <section class="b-seller-tuner__tags">Цвета ярлыков
+                <hr class="i-line i-size-L">
+                <div class="b-seller-tuner__block">
+                  <div><span style="background-color: #ea4b4b;"></span><em>Скидка</em></div>
+                  <div><span style="background-color: #86ad34;"></span><em>Хит</em></div>
+                  <div><span style="background-color: #ea4b4b;"></span><em>Новинка</em></div>
+                  <div><span style="background-color: #2f7cdb;"></span><em>Рекомендуем</em></div>
+                  <div><span style="background-color: #4be1ea;"></span><em>Акция</em></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="b-seller-tuner__bottom">
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-2">
+              <button type="submit" class="btn btn-default">Сохранить настройки</button><a href="?reset=y">Отменить</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- end /components/tuner/-->
+    <div class="container-fluid">
+      <!-- start /components/brands/-->
+      <link rel="stylesheet" href="/template/swiper.min.css">
+      <script src="/template/libs/swiper.min.js"></script>
+      <link rel="stylesheet" href="/components/brands/style.css">
+      <script src="/components/brands/script.js"></script>
+      <style>
+        .b-brands { height: 400px; }
+        .b-brands__placeholder { display: flex; align-items: stretch; margin: 0 -15px; }
+        .b-brands__placeholder span { width: calc( 25% - 30px ); margin: 0 15px; background-color: #fff; height: 300px; }
+        .swiper-wrapper { position: absolute; top: 0; left: 0; opacity: 0; transform: opacity 0.5s ease; -webkit-transform: opacity 0.5s ease; }
+        .swiper-button-next, .swiper-button-prev { display: none; }
+      </style>
+      <div class="b-brands">
+        <div class="container-fluid">
+          <div class="b-hr-heading i-no-line">
+            <div class="b-hr-heading__content"><a href="">Бренды</a></div>
+          </div>
+          <div class="b-brands__placeholder"><span></span><span></span><span></span><span></span></div>
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+              <div class="swiper-slide">
+                <div style="background-image: url(/upload/catalog.detail/14.jpg);" class="b-brands-card"></div>
+              </div>
+            </div>
+            <div style="background-image: url( '/components/brands/images/right-arrow.svg' );" class="swiper-button-next"></div>
+            <div style="background-image: url( '/components/brands/images/left-arrow.svg' );" class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+      <!-- end /components/brands/-->
+    </div>
+    <div id="b-float-phone">
+      <div class="b-float-phone__bg"></div><span class="b-float-phone__content"><span class="bj-footer-earphone-icon"></span><span class="b-float-phone__text">+7 499 35 007 98</span></span>
+    </div>
+    <footer class="b-footer">
+      <div class="b-container">
+        <div class="b-row">
+          <div class="b-col-sm-4"></div>
+          <div class="b-col-sm-4"></div>
+          <div class="b-col-sm-4"></div>
+        </div>
+      </div>
+    </footer>
+    <div id="circlePreloader">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

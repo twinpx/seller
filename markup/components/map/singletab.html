@@ -1,0 +1,21 @@
+
+<!-- start /components/map/-->
+<link rel="stylesheet" href="/components/map/style.css"/>
+<script src="/components/map/script.js"></script>
+<div data-singletab="true" class="b-map">
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;amp;apikey=1ac0f649-71bc-46a0-81e9-aa38258cf982" type="text/javascript"></script>
+  <div class="b-map__nav">
+    <div data-tab="kindergartens" class="b-map__nav-item i-active">Детские сады</div>
+    <div data-tab="museums" class="b-map__nav-item i-active">Музеи</div>
+    <div class="b-map__nav-item i-active">Клиники</div>
+    <div class="b-map__nav-item i-active">Парки</div>
+  </div>
+  <script>
+     
+    var yMapPlacemarks = { kindergartens: [ { coords: [ 55.751572, 37.573855 ], icon:  '/components/map/images/map-theater.png' }, { coords: [ 55.741570, 37.573854 ], icon:  '/components/map/images/map-theater.png' } ], museums: [ { coords: [ 55.781571, 37.573856 ], icon:  '/components/map/images/map-theater.png' }, { coords: [ 55.781573, 37.513853 ], icon:  '/components/map/images/map-theater.png' } ] };
+    //cluster icons are black by default
+    var yMapPlacemarksIcons = 'invertedDarkgreenClusterIcons';//take a look here for different icons https://tech.yandex.ru/maps/archive/doc/jsapi/2.0/ref/reference/option.presetStorage-docpage/
+  </script>
+  <div id="yMap"></div>
+</div>
+<!-- end /components/map/-->

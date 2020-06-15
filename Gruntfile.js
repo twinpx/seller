@@ -19,7 +19,8 @@ module.exports = function( grunt ) {
             src: [
               '**/*.jade',
               '!layouts/**/*.jade',
-              '!modules/**/*.jade'
+              '!modules/**/*.jade',
+              '!components/**/*.jade'
             ],
             dest: '<%= dest%>',
             ext: '.html',
@@ -39,7 +40,8 @@ module.exports = function( grunt ) {
             src: [
               '**/*.jade',
               '!layouts/**/*.jade',
-              '!modules/**/*.jade'
+              '!modules/**/*.jade',
+              '!components/**/*.jade'
             ],
             dest: '<%= temp%>',
             ext: '.html',
@@ -193,7 +195,7 @@ module.exports = function( grunt ) {
     },
     
     jshint: {
-      dev: {
+      devTemplate: {
         options: {
           curly: true,
           eqeqeq: true,
@@ -207,7 +209,24 @@ module.exports = function( grunt ) {
         },
         files: {
           src: [
-            '<%= source %>js/script.js',
+            '<%= source %>js/script.js'
+          ]
+        }
+      },
+      devComponents: {
+        options: {
+          curly: true,
+          eqeqeq: true,
+          eqnull: true,
+          browser: true,
+          newcap: true,
+          globals: {
+            jQuery: true,
+            console: true
+          }
+        },
+        files: {
+          src: [
             '<%= source %>components/**/*.js'
           ]
         }
@@ -423,17 +442,33 @@ module.exports = function( grunt ) {
         tasks: 'jade:dev'
       },
       
-      css: {
-        files: '<%= source %>**/*.styl',
-        tasks: 'css'
+      cssTemplate: {
+        files: [
+          '<%= source %>**/*.styl',
+          '!<%= source %>components/**/*.styl'
+        ],
+        tasks: 'stylus:template'
       },
       
-      js: {
+      cssComponents: {
+        files: '<%= source %>components/**/*.styl',
+        tasks: 'stylus:components'
+      },
+      
+      jsTemplate: {
         files: [
           '<%= source %>**/*.js',
-          '!<%= source %>js/script.js'
+          '!<%= source %>js/script.js',
+          '!<%= source %>components/**/script.js'
         ],
-        tasks: [ 'js' ]
+        tasks: [ 'jstemplate' ]
+      },
+      
+      jsComponents: {
+        files: [
+          '<%= source %>components/**/script.js'
+        ],
+        tasks: [ 'jscomponents' ]
       },
       
       img: {
@@ -466,7 +501,9 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   
   grunt.registerTask( 'css', [ 'stylus:template', 'stylus:components', /*'less:prod',*/ 'concat:pluginsCSS' ]);
-  grunt.registerTask( 'js', [ 'concat:js', 'jshint:dev', 'concat:pluginsJS', 'uglify:devTemplate', 'uglify:devComponents', 'clean:js' ] );
+  grunt.registerTask( 'js', [ 'concat:js', 'jshint:devTemplate', 'jshint:devComponents', 'concat:pluginsJS', 'uglify:devTemplate', 'uglify:devComponents', 'clean:js' ] );
+  grunt.registerTask( 'jstemplate', [ 'concat:js', 'jshint:devTemplate', 'concat:pluginsJS', 'uglify:devTemplate', 'clean:js' ] );
+  grunt.registerTask( 'jscomponents', [ 'jshint:devComponents', 'uglify:devComponents' ] );
   grunt.registerTask( 'html', [ 'copy:images', 'jade:dev' ] );
   grunt.registerTask( 'less', [ 'concat:LESS', 'concat:prodLESS', 'copy:prodLESS' ] );
   grunt.registerTask( 'default', [ 'connect', 'css', 'js', 'html', 'watch' ] );
@@ -480,7 +517,7 @@ module.exports = function( grunt ) {
     //js
     'concat:prod',
     'copy:prodComponents',
-    'jshint:prod',
+    //'jshint:prod',
     'uglify:prodTemplate',
     'uglify:prodMinTemplate',
     'concat:prodPluginsJS',
