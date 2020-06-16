@@ -1,0 +1,120 @@
+// start /components/shop-detail/
+
+link( rel="stylesheet", href="/template/swiper.min.css" )
+script( src="/template/libs/swiper.min.js" )
+
+link( rel="stylesheet", href="/components/shop.detail/style.css" )
+script( src="/components/shop.detail/script.js" )
+
+script( src="https://api-maps.yandex.ru/2.1/?apikey=3da27ed2-82cd-4c8f-8a07-8b32774f2abc&lang=ru_RU" type="text/javascript" )
+
+script
+  | window.shopDetailMapCoords = [55.76, 37.64];
+  | window.shopDetailMapZoom = 12;
+  | window.shopDetailMapBalloonHref = '/upload/map-hint.png';
+  
+style
+  | .b-shop-detail__placeholder { transition: opacity 0.2s ease; -webkit-transition: opacity 0.2s ease; -moz-transition: opacity 0.2s ease; -ms-transition: opacity 0.2s ease; } .b-shop-detail__placeholder .b-ph__line1 { width: 70%; height: 10px; background-color: #f2f2f2;  margin-bottom: 5px;} .b-shop-detail__placeholder .b-ph__line2 { width: 45%; height: 10px; background-color: #f2f2f2; } .b-shop-detail__placeholder .b-ph__gallery { padding-top: 65%; background-color: #f2f2f2; margin: 20px 0 50px; } .b-shop-detail__placeholder .b-ph__text { margin-bottom: 30px; } .b-shop-detail__placeholder .b-ph__map { background-color: #f2f2f2; position: absolute; top: 0; left: calc(50% + 15px); height: 100%; width: calc(50vw - 25px); } .b-shop-detail__container {opacity: 0; transition: opacity 0.5s ease; -webkit-transition: opacity 0.5s ease; -moz-transition: opacity 0.5s ease; -ms-transition: opacity 0.5s ease; position: absolute; top: 0; left: 0; width: 100%; z-index: 1; } @media (max-width: 991px) { .b-shop-detail__placeholder .b-ph__map { position: static; top: auto; left: auto; height: 500px; width: auto; }}
+
+.b-shop-detail( itemscope itemtype="http://schema.org/Store" )
+
+  .container-fluid
+  
+    .b-shop-detail__placeholder
+      .row
+        .col-md-6
+          .b-ph__line1
+          .b-ph__gallery
+          .b-ph__text
+            .b-ph__line1
+            .b-ph__line2
+          .b-ph__text
+            .b-ph__line1
+            .b-ph__line2
+            
+        .b-ph__map
+        
+    .row.b-shop-detail__container
+      .col-md-6
+      
+        h5 Адрес
+        | ул. Авиаконструктора Микояна, 10, Москва
+        
+        hr.i-size-M
+        
+        .b-shop-detail__gallery
+          .swiper-container
+            .swiper-wrapper
+              .swiper-slide
+                img.swiper-lazy.b-shop-detail__ill( itemprop="image" data-src="/upload/shop-ill.jpg" )
+                .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+              .swiper-slide
+                img.swiper-lazy.b-shop-detail__ill( itemprop="image" data-src="/upload/shop-ill.jpg" )
+                .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+              .swiper-slide
+                img.swiper-lazy.b-shop-detail__ill( itemprop="image" data-src="/upload/shop-ill.jpg" )
+                .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+              .swiper-slide
+                img.swiper-lazy.b-shop-detail__ill( itemprop="image" data-src="/upload/shop-ill.jpg" )
+                .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+              .swiper-slide
+                img.swiper-lazy.b-shop-detail__ill( itemprop="image" data-src="/upload/shop-ill.jpg" )
+                .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            
+          .swiper-button-next( style="background-image: url( '/components/shops/images/right-arrow.svg' );" )
+          .swiper-button-prev( style="background-image: url( '/components/shops/images/left-arrow.svg' );" )
+            
+        hr.i-size-M
+        
+        .row
+          .col-xs-6
+          
+            h5 Метро
+            span( itemprop="address" ) ЦСКА
+            
+            hr.i-size-M
+            
+            h5 Режим пработы
+            time( itemprop="openingHours" datetime="Пн - Пт: 9.00 - 18.00 Сб - Вс: выходные" ) Пн - Пт: 9.00 - 18.00<br>
+              | Сб - Вс: выходные
+            
+          .col-xs-6
+          
+            h5 Телефон
+            span( itemprop="telephone" content="+89917109601" ) 99 999 999 99
+            
+            hr.i-size-M
+            
+            h5 Email
+            a( href="mailto:info@site.ru" itemprop="email" ) info@site.ru
+            
+        hr.i-size-L
+        
+        .b-shop-detail__social
+          a( href="" style="background-image: url( '/upload/shops/facebook.svg' );" )
+          a( href="" style="background-image: url( '/upload/shops/instagram.svg' );" )
+          a( href="" style="background-image: url( '/upload/shops/pinterest.svg' );" )
+          a( href="" style="background-image: url( '/upload/shops/vk.svg' );" )
+          a( href="" style="background-image: url( '/upload/shops/youtube.svg' );" )
+          
+        hr.i-size-L
+          
+        .b-shop-detail__description( itemprop="description" ) Виды одежды: мужская одежда, женская одежда, детская одежда. Виды обуви: детская обувь, мужская обувь, женская обувь.
+        
+        hr.i-size-L
+        
+        .b-shop-detail__back-link.hidden-sm.hidden-xs
+          a( href="" ) Вернуться к списку
+      
+      #shopDetailMapID.b-shop-detail__map( itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates" )
+        meta( itemprop="latitude" content="40.75" )
+        meta( itemprop="longitude" content="73.98" )
+                
+      .col-md-6.visible-sm-block.visible-xs-block
+      
+        hr.i-size-L
+        
+        .b-shop-detail__back-link
+          a( href="" ) Вернуться к списку
+
+// end /components/shop-detail/

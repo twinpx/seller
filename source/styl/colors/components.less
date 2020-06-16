@@ -150,3 +150,78 @@
 .bx-filter .bx-filter-input-checkbox input[type="checkbox"]:checked+.bx-filter-param-text:after, .bx-filter .bx-filter-popup-result {
   background-color: @brand-primary;
 }
+
+//tuner
+#seller-tuner-icon {
+  background-color: @brand-primary;
+}
+
+.b-seller-tuner.side-nav {
+
+  a {
+  
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      color: @brand-secondary;
+    }
+  }
+  
+  .btn-default {
+  
+    &,
+    &:hover,
+    &:active,
+    &:active:focus {
+      background-color: @brand-primary !important;
+      border-color: @brand-primary !important;
+    }
+  }
+}
+
+.b-seller-tuner__fonts .b-seller-tuner__block,
+.b-seller-tuner__font-size .b-seller-tuner__block,
+.b-seller-tuner__screen-width .b-seller-tuner__block {
+    
+  div.i-active {
+    background-color: @brand-primary;
+  }
+}
+
+.side-nav .pcr-app .pcr-interaction input {
+
+  &.pcr-save {
+  
+    &,
+    &:hover,
+    &:active,
+    &:active:focus {
+      background-color: @brand-primary;
+      border-color: @brand-primary;
+      color: #fff;
+    
+      &:hover,
+      &:active {
+        opacity: .7
+      }
+    }
+      
+    &:hover,
+    &:focus {
+      background: lighten( @brand-primary, 5%);
+      border-color: lighten( @brand-primary, 5%);
+    }
+  }
+    
+  &.pcr-clear {
+    color: @brand-primary;
+  }
+}
+
+//sale.basket.basket
+
+.basket-item-property-scu-text .basket-item-scu-item,
+.basket-item-property-scu-text .basket-item-scu-item.not-available:hover {
+  color: @link-color;
+}

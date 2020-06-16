@@ -1,0 +1,186 @@
+extends ../../layouts/main.jade
+
+block title
+  title Reg form | seller
+
+block content
+
+  .container-fluid
+    
+    h1 Регистрация
+    .bx_registration_page
+      .bx-auth
+        noindex
+          style.
+            div.bx-auth {
+            width: auto !important;
+            max-width: 100%;
+            }
+            .bx-auth .errortext {
+            height: 30px;
+            background-color: #d65561;
+            color: #fff;
+            line-height: 30px;
+            font-size: 8pt;
+            text-align: center;
+            display: block;
+            }
+            div.bx-auth .btn {
+            min-width: 190px;
+            }
+            .b-form-wrapper {
+            border: 1px solid #f2f2f2;
+            padding: 16px 30px;
+            }
+            .b-form-wrapper-sub-header {
+            border: 1px solid #f2f2f2;
+            line-height: 80px;
+            padding: 0 91px;
+            font-size: 13.5pt;
+            font-weight: 300;
+            margin-bottom: 0;
+            border-bottom: none;
+            }
+            .b-form-wrapper label {
+            margin-bottom: 2px;
+            color: #333;
+            line-height: normal;
+            vertical-align: top;
+            font-size: 8pt;
+            }
+            .b-form-wrapper .form-group {
+            border-bottom: 1px solid #f2f2f2;
+            padding: 0 63px 20px;
+            margin-bottom: 15px;
+            }
+            @media (max-width: 767px) {
+            .b-form-wrapper-sub-header,
+            .b-form-wrapper .form-group {
+            padding-right: 0;
+            padding-left: 0;
+            }
+            }
+            .bx-auth .checkbox label {
+            padding-left: 37px;
+            position: relative;
+            font-weight: normal;
+            font-size: 9pt;
+            line-height: 1.4;
+            }
+            .bx-auth [type="checkbox"]+label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            display: inline-block;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+            .bx-auth [type="checkbox"].filled-in:not(:checked)+label:before {
+            width: 0;
+            height: 0;
+            border: 3px solid transparent;
+            left: 6px;
+            top: 10px;
+            -webkit-transform: rotateZ(37deg);
+            transform: rotateZ(37deg);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+            }
+            .bx-auth [type="checkbox"].filled-in:checked+label:before {
+            top: 5px;
+            left: 1px;
+            width: 8px;
+            height: 13px;
+            border-top: 2px solid transparent;
+            border-left: 2px solid transparent;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            -webkit-transform: rotateZ(37deg);
+            transform: rotateZ(37deg);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+            }
+            .bx-auth [type="checkbox"]:checked+label:before {
+            top: -4px;
+            left: -5px;
+            width: 12px;
+            height: 22px;
+            border-top: 2px solid transparent;
+            border-left: 2px solid transparent;
+            border-right: 2px solid #26a69a;
+            border-bottom: 2px solid #26a69a;
+            -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+            }
+            .bx-auth [type="checkbox"].filled-in:checked+label:after {
+            top: 3px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #26a69a;
+            background-color: #26a69a;
+            z-index: 0;
+            }
+            .bx-auth [type="checkbox"].filled-in:not(:checked)+label:after {
+            height: 20px;
+            width: 20px;
+            background-color: transparent;
+            border: 2px solid #5a5a5a;
+            top: 3px;
+            z-index: 0;
+            }
+            .bx-auth [type="checkbox"].filled-in+label:before, .bx-auth [type="checkbox"].filled-in+label:after {
+            content: '';
+            left: 0;
+            position: absolute;
+            -webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+            transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+            z-index: 1;
+            }
+            .bx-auth [type="checkbox"].filled-in+label:after {
+            border-radius: 2px;
+            }
+            .bx-auth .checkbox input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 7px;
+            left: 0;
+            margin: 0;
+            }
+            .bx-auth [type="checkbox"]:not(:checked), .bx-auth [type="checkbox"]:checked {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            }
+            @media (max-width: 767px) {
+            .bx-auth .button-block {
+            text-align: center;
+            }
+            }
+          h3.b-form-wrapper-sub-header &Lcy;&icy;&chcy;&ncy;&ycy;&iecy; &dcy;&acy;&ncy;&ncy;&ycy;&iecy;
+          .b-form-wrapper
+            form(method='post' action='/auth/?register=yes' name='bform')
+        
+              fieldset
+                legend.hidden Защита
+                .form-group(style='border-bottom: 0;')
+                  div( style="display: flex; justify-content: space-between;" )
+                    div
+                      label(style='color: #fff;') *
+                      br
+                      input(type='hidden' name='captcha_sid' value='0346f3552d46ab6868e5957be7a34754')
+                      img(src='http://seller-assembly.2px.ru/bitrix/tools/captcha.php?captcha_sid=0346f3552d46ab6868e5957be7a34754' width='180' height='40' alt='CAPTCHA')
+                    hr.visible-xs-block
+                    div( style="width: calc( 100% - 180px - 20px );" )
+                      label
+                        span.starrequired *
+                        | Введите слово на картинке
+                      input.form-control(type='text' name='captcha_word' maxlength='50' value='')
+              // /CAPTCHA
+    hr.i-size-L

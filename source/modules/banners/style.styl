@@ -1,0 +1,79 @@
+@import '../../styl/component-include.styl'
+
+.b-inform-blocks
+  position relative
+  padding-top calc( 33.33333333% - 15px )
+  
+  hr
+    display none
+      
+  @media( max-width 575px )
+    padding-top 0
+    
+    hr
+      display block
+
+  &__item
+    background-repeat no-repeat
+    background-position center top
+    background-size cover
+    position absolute
+    top 0
+    height 100%
+    z-index 1
+    
+    .b-inform-blocks > &:first-child,
+    .b-inform-blocks [id*=bx_incl_area]:first-of-type &
+      left 0
+    
+    .b-inform-blocks > &:last-child,
+    .b-inform-blocks [id*=bx_incl_area]:last-of-type &
+      right 0
+    
+    &.i-size-4
+      width calc( 33.33333333% - 15px )
+    
+    &.i-size-6
+      width calc( 50% - 15px )
+    
+    &.i-size-8
+      width calc( 66.66666667% - 15px )
+      
+    @media( min-width 576px ) and ( max-width 767px )
+    
+      &.i-size-4
+        width calc( 33.33333333% - 5px )
+      
+      &.i-size-6
+        width calc( 50% - 5px )
+      
+      &.i-size-8
+        width calc( 66.66666667% - 5px )
+      
+    @media( max-width 575px )
+      display block
+      width auto !important
+      position static
+      top auto
+      left auto !important
+      right auto !important
+      padding-top 100%
+
+.b-inform-blocks [id*=bx_incl_area]
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+  
+.b-inform-blocks [id*=bx_incl_area]:first-of-type
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+
+.b-inform-blocks [id*=bx_incl_area]:last-child
+  position absolute
+  top 0
+  right 0

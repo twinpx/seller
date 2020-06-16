@@ -1,0 +1,234 @@
+// start /components/shops/
+
+link( rel="stylesheet", href="/template/swiper.min.css" )
+script( src="/template/libs/swiper.min.js" )
+
+link( rel="stylesheet", href="/components/shops/style.css" )
+script( src="/components/shops/script.js" )
+
+style
+  | .b-shops { height: 400px; }
+  | .b-shops__placeholder { display: flex; align-items: stretch; margin: 0 -15px; }
+  | .b-shops__placeholder span { width: calc( 25% - 30px ); margin: 0 15px; background-color: #fff; height: 300px; }
+  | .swiper-wrapper { position: absolute; top: 0; left: 0; opacity: 0; transform: opacity 0.5s ease; -webkit-transform: opacity 0.5s ease; }
+  | .swiper-button-next, .swiper-button-prev { display: none; }
+
+.b-shops
+
+  .b-shops-bg( style="background-image: url( '/components/shops/images/shops-bg.png' );" )
+  
+  .container-fluid
+  
+    .b-hr-heading.i-no-line
+      .b-hr-heading__content
+        a( href="" ) Магазины
+        
+    .b-shops__placeholder
+      span
+      span
+      span
+      span
+        
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide
+          .b-shops-card( itemscope itemtype="http://schema.org/Store" )
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+        .swiper-slide
+          .b-shops-card
+            a.b-shops-card__img.swiper-lazy( href="" )
+              img.swiper-lazy( src="" data-src="/upload/catalog.detail/14.jpg" alt="" itemprop="image" )
+              .swiper-lazy-preloader( style="background-image: url( '/template/images/preloader.png' );" )
+            h6
+              b
+                a( href="" itemprop="name" ) ТРЦ Тройка
+            span Метро «Красносельская»
+            br
+            span( itemprop="telephone" content="+89917109601" ) 8-991-710-96-01
+            br
+            span( itemprop="address" ) Павильон 124
+            br
+            time( itemprop="openingHours" datetime="18:00-20:00" ) С 18:00 до 20:00
+            p Флагманский магазин Seller находится недалеко от центрального выхода...
+            
+      .swiper-button-next( style="background-image: url( '/components/shops/images/right-arrow.svg' );" )
+      .swiper-button-prev( style="background-image: url( '/components/shops/images/left-arrow.svg' );" )
+
+// end /components/shops/

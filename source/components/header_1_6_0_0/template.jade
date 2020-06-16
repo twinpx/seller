@@ -1,0 +1,335 @@
+// start /components/header_1_6_0_0/
+
+link( rel="stylesheet", href="/components/header_1_6_0_0/style.css" )
+script( src="/components/header_1_6_0_0/script.js" )
+
+#sellerHeader_0
+
+  ul#sideNavPanel.side-nav
+    li.logo
+      span.bj-logo
+        img( width='143', alt='', src='/template/images/logo.png', height='40', title='' )
+    li.no-padding
+      .media
+        .media-body
+          ul
+            li
+              a(href='/auth/') Войти
+            li
+              a(href='/auth/?register=yes') Зарегистрироваться
+    li.no-padding
+      ul
+        li
+          a(href='/search/') Поиск
+        li
+          a(href='/catalog/') Каталог
+        li
+          a(href='/campaign/') Акции
+        li
+          a(href='/journal/') Журнал
+        li
+          a(href='/lookbook/') LookBook
+        li
+          a(href='/about/') О магазине
+        li
+          a(href='/news/') Новости
+        li
+          a(href='/about/contacts/') Контакты
+        li
+          a(href='/about/vacancies/') Вакансии
+        li
+          a(href='/about/howto/') Как купить
+        li
+          a(href='/payment/') Оплата
+        li
+          a(href='/about/delivery/') Доставка
+        li
+          a(href='/about/guaranty/') Гарантии
+
+  header.bj-page-header
+    section.bj-page-header__top
+      .container-fluid
+        .row
+          .col-md-10.col-sm-9.col-xs-12.bj-logo-space
+            a.bj-logo( href="/" )
+              img(width='143', alt='', src='/template/images/logo.png', height='40', title='')
+            |                     
+            #personal_menu(style='display:inline-block')
+              // 'start_frame_cache_personal_menu'
+              button.bj-logo-space__icon.bj-header-user-icon.hidden-xs(href='#', data-content='<a href="/auth/">Войти</a><a href="/auth/?register=yes">Зарегистрироваться</a>', data-original-title='', title='')
+              // 'end_frame_cache_personal_menu'
+            |                     
+            script.
+              var obEshopBasket = new JSEshopBasket("/bitrix/templates/bejet_seller/components/bitrix/sale.basket.basket.line/top/ajax.php", "s1");
+            |                     
+            span#sale-basket-basket-line-container
+              // 'start_frame_cache_sale-basket-basket-line-container'
+              a#bx_cart_block.bj-logo-space__icon.bj-cart-icon(href='/personal/cart/')
+                span.bj-header-shopping-cart-icon
+                |                     
+                span#bx_cart_num.bj-cart-icon__num 3
+              |                     
+              script.
+                var catalogDetailStoredProducts = [];
+              // 'end_frame_cache_sale-basket-basket-line-container'
+            |                     
+            span#search.bj-page-header__search.hidden-xs
+              span.bj-header-search-icon.hidden-xs(href='')
+              |                     
+              form(action='/catalog/')
+                input#title-search-input.bj-page-header__search__input.form-control(type='search', name='q', value='', size='23', maxlength='50', autocomplete='off')
+                |                         
+                input(name='s', type='hidden', value='')
+            |                     
+            script.
+              BX.ready(function() {
+              new JCTitleSearch({
+              'AJAX_PAGE': '/',
+              'CONTAINER_ID': 'search',
+              'INPUT_ID': 'title-search-input',
+              'MIN_QUERY_LEN': 2
+              });
+              });
+            |                     
+            a#nav-button.bj-nav-button(href='#', data-activates='sideNavPanel')
+              span.bj-header-align-justify-icon
+            |                     
+            .bj-top-nav.hidden-sm.hidden-xs
+              a(href='/payment/') &Ocy;&pcy;&lcy;&acy;&tcy;&acy;
+              |                         
+              a(href='/about/delivery/') &Dcy;&ocy;&scy;&tcy;&acy;&vcy;&kcy;&acy;
+          |                 
+          .col-md-2.col-sm-3.bj-phone
+            span.bj-phone__num.hidden-xs
+              | 8 (495) 212 85 06
+              // <span class="bj-phone__time">c 8:00 до 23:00</span>
+            |                     
+            a.bj-header-earphone-icon.hidden-xs(href='#', data-toggle='modal', data-target='#myModal')
+            |                     
+            a.bj-header-earphone-icon.visible-xs-block(href='tel:8 (495) 212 85 06')
+            |                     
+            #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true')
+                    |                                     
+                    h2#myModalLabel.modal-title.text-center &Ncy;&acy;&shcy; &tcy;&iecy;&lcy;&iecy;&fcy;&ocy;&ncy;
+                  |                                 
+                  .modal-body.text-center
+                    .bj-text-x-large 8 (495) 212 85 06
+                    |                                     
+                    .small &Pcy;&ncy;-&Vcy;&scy; 10-19
+                  |                                 
+                  .modal-footer.text-center(style='display:none')
+                    button.btn.btn-default(type='button') &Zcy;&acy;&kcy;&acy;&zcy;&acy;&tcy;&softcy; &zcy;&vcy;&ocy;&ncy;&ocy;&kcy;
+    section.bj-page-header__dropdown
+      .i-relative.container-fluid
+        article
+          .row
+            .col-md-3.col-sm-6
+              h3
+                a(href='/catalog/muzhchinam/') &Mcy;&ucy;&zhcy;&chcy;&icy;&ncy;&acy;&mcy;
+              |                         
+              menu
+                li
+                  a(href='/catalog/kurtki/') &Kcy;&ucy;&rcy;&tcy;&kcy;&icy;
+                |                             
+                li
+                  a(href='/catalog/shoes/') &Ocy;&bcy;&ucy;&vcy;&softcy;
+                |                             
+                li
+                  a(href='/catalog/bryuki/') &Bcy;&rcy;&yucy;&kcy;&icy;
+                |                             
+                li
+                  a(href='/catalog/rubashki-muzh/') &Rcy;&ucy;&bcy;&acy;&shcy;&kcy;&icy;
+            |                     
+            .col-md-3.col-sm-6
+              h3
+                a(href='/catalog/zhenshchinam/') &ZHcy;&iecy;&ncy;&shchcy;&icy;&ncy;&acy;&mcy;
+              |                         
+              menu
+                li
+                  a(href='/catalog/zhenskoe_belje/') &Bcy;&iecy;&lcy;&softcy;&iecy;
+                |                             
+                li
+                  a(href='/catalog/w-bryuki/') &Bcy;&rcy;&yucy;&kcy;&icy;
+                |                             
+                li
+                  a(href='/catalog/dzhinsy/') &Dcy;&iecy;&ncy;&icy;&mcy;
+                |                             
+                li
+                  a(href='/catalog/zhenskaya_obuv/') &Ocy;&bcy;&ucy;&vcy;&softcy;
+                |                             
+                li
+                  a(href='/catalog/palto/') &Pcy;&acy;&lcy;&softcy;&tcy;&ocy;
+                |                             
+                li
+                  a(href='/catalog/platya_women/') &Pcy;&lcy;&acy;&tcy;&softcy;&yacy;
+                |                             
+                li
+                  a(href='/catalog/accessories/') &Acy;&kcy;&scy;&iecy;&scy;&scy;&ucy;&acy;&rcy;&ycy;
+            |                     
+            .col-md-3.col-sm-6
+              h3
+                a(href='/catalog/devochkam/') &Dcy;&iecy;&vcy;&ocy;&chcy;&kcy;&acy;&mcy;
+              |                         
+              menu
+                li
+                  a(href='/catalog/platya/') &Pcy;&lcy;&acy;&tcy;&softcy;&yacy;
+                |                             
+                li
+                  a(href='/catalog/futbolki-devochkam/') &Fcy;&ucy;&tcy;&bcy;&ocy;&lcy;&kcy;&icy;
+                |                             
+                li
+                  a(href='/catalog/shorty/') &SHcy;&ocy;&rcy;&tcy;&ycy;
+            |                     
+            .col-md-3.col-sm-6
+              h3
+                a(href='/catalog/malchikam/') &Mcy;&acy;&lcy;&softcy;&chcy;&icy;&kcy;&acy;&mcy;
+              |                         
+              menu
+                li
+                  a(href='/catalog/kurtki_malchikam/') &Kcy;&ucy;&rcy;&tcy;&kcy;&icy;
+                |                             
+                li
+                  a(href='/catalog/svitery/') &Scy;&vcy;&icy;&tcy;&iecy;&rcy;&ycy;
+                |                             
+                li
+                  a(href='/catalog/futbolki/') &Fcy;&ucy;&tcy;&bcy;&ocy;&lcy;&kcy;&icy;
+          |                 
+          div
+            a(href='/brand/')
+              strong &Bcy;&rcy;&iecy;&ncy;&dcy;&ycy;
+              |  (&Vcy;&scy;&iecy; 8)
+          |                 
+          hr
+          |                 
+          .row
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/alexander-mcqueen/')
+                    img.media-object(alt='', src='/upload/iblock/68e/68eb7a0fa3b2293e48b67da3dd52f26f.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/alexander-mcqueen/') Alexander McQueen
+            |                     
+            hr.visible-xs-block.clearfix
+            |                     
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/benetton/')
+                    img.media-object(alt='', src='/upload/iblock/831/8318a742d75162215d7c64138ff5be87.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/benetton/') Benetton
+            |                     
+            .visible-xs-block.visible-sm-block.clearfix
+            |                     
+            hr.visible-xs-block.visible-sm-block
+            |                     
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/adidas/')
+                    img.media-object(alt='', src='/upload/iblock/9d9/9d996da17ccef5771e10cddb6129e5cf.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/adidas/') Adidas
+            |                     
+            hr.visible-xs-block.clearfix
+            |                     
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/burberry/')
+                    img.media-object(alt='', src='/upload/iblock/4d4/4d4302dafe2368942afd55b0f7e8dea7.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/burberry/') Burberry
+          |                 
+          hr
+          |                 
+          .row
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/chanel/')
+                    img.media-object(alt='', src='/upload/iblock/2d8/2d8d75e5bec28defe323e807bf4fd5a0.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/chanel/') Chanel
+            |                     
+            hr.visible-xs-block.clearfix
+            |                     
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/christian-louboutin/')
+                    img.media-object(alt='', src='/upload/iblock/8c5/8c5de7cb5f749991a4f809770642f9a3.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/christian-louboutin/') Christian Louboutin
+            |                     
+            .visible-xs-block.visible-sm-block.clearfix
+            |                     
+            hr.visible-xs-block.visible-sm-block
+            |                     
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/diesel/')
+                    img.media-object(alt='', src='/upload/iblock/9ce/9ce6a7cf4c1e47807aa4949d794cb083.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/diesel/') Diesel
+            |                     
+            hr.visible-xs-block.clearfix
+            |                     
+            .col-md-3.col-sm-6
+              .media
+                .media-left.media-middle
+                  a(href='/brand/dior/')
+                    img.media-object(alt='', src='/upload/iblock/ab4/ab4c1db188703a2b0c6b95da359b4e7a.png')
+                |                             
+                .media-body.media-middle
+                  a(href='/brand/dior/') Dior
+          |                 
+          hr
+          |                 
+          hr.i-size-L
+          |                 
+          button.up
+    |     
+    section.bj-page-header__submenu
+      .container-fluid
+        .row
+          .col-md-2.col-xs-4
+            a.bj-page-header__menu-link.bj-icon-link( href='/catalog/' )
+              span.bj-icon.i-menu.bj-icon-link__icon
+              span.bj-icon-link__link Каталог
+          |                 
+          .col-md-2.col-xs-4
+            a.bj-page-header__looks-link.bj-icon-link(href='/lookbook/')
+              span.bj-icon.i-looks.bj-icon-link__icon
+              |                         
+              span.bj-icon-link__link Looks
+          |                 
+          .col-md-6.hidden-sm.hidden-xs
+            .bj-top-subnav
+              a(href='/catalog/?q=%C4%E5%F2%FF%EC') &Dcy;&iecy;&tcy;&yacy;&mcy;
+              a(href='/catalog/?q=%C6%E5%ED%F9%E8%ED%E0%EC') &ZHcy;&iecy;&ncy;&shchcy;&icy;&ncy;&acy;&mcy;
+              a(href='/catalog/?q=%CC%F3%E6%F7%E8%ED%E0%EC') &Mcy;&ucy;&zhcy;&chcy;&icy;&ncy;&acy;&mcy;
+              a(href='/catalog/?q=%CE%E1%F3%E2%FC') &Ocy;&bcy;&ucy;&vcy;&softcy;
+              a(href='/catalog/?q=%CE%F1%E5%ED%FC') &Ocy;&scy;&iecy;&ncy;&softcy;
+          |                 
+          .col-md-2.col-xs-4
+            a.bj-page-header__sales-link.bj-icon-link(href='/campaign/')
+              span.bj-icon.i-flash.bj-icon-link__icon
+              |                         
+              span.bj-icon-link__link &Acy;&kcy;&tscy;&icy;&icy;
+
+// end /components/header_1_6_0_0/

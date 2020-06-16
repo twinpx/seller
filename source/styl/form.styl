@@ -1,3 +1,6 @@
+input
+  -webkit-appearance none
+
 .b-alert-warning
   background-color #d65561
   color #fff
@@ -44,6 +47,17 @@ form.i-invisible
     &:nth-of-type(5)
       animation-delay .6s
 
+.form-control
+  border-radius 0
+  -webkit-box-shadow none
+  box-shadow none
+  font-size .95rem
+  -webkit-appearance:none;
+  
+  &:focus
+    border 1px solid #ccc
+    box-shadow none
+
 .form-group
 
   label
@@ -51,12 +65,12 @@ form.i-invisible
     color #333
     line-height normal
     vertical-align top
-    font-size 8pt
+    font-size .85rem
     
   .form-control
     height 29pt
     padding 6px 10px
-    font-size 10.5pt
+    font-size .95rem
     line-height 1.72857143
     
   textarea.form-control
@@ -66,7 +80,7 @@ form.i-invisible
     padding-left 37px
     position relative
     font-weight normal
-    font-size 9pt
+    font-size .85rem
     line-height 1.4
   
   [type="checkbox"]+label
@@ -147,7 +161,7 @@ form.i-invisible
     z-index 1
   
   [type="checkbox"].filled-in+label:after
-    border-radius 2px
+    border-radius 0
   
   .checkbox input[type="checkbox"]
     width 16px

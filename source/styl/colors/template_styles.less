@@ -20,7 +20,6 @@
 	}
 }
 
-.bj-page-header__top,
 .bj-page-footer,
 .b-float-phone__bg {
 	background-color: @brand-primary;
@@ -30,15 +29,6 @@
 .popup-window-buttons .bx_bt_button {
 	border-color: @brand-secondary;
 	color: @brand-secondary;
-}
-
-.bj-page-header__search__input {
-	background-color: @brand-secondary;
-}
-
-.bj-page-header__dropdown article,
-.bj-page-header__dropdown .up {
-	background-color: @brand-primary;
 }
 
 .bx_item_detail .bx_item_slider .bx_slide ul li {
@@ -92,12 +82,7 @@ input.sale-paysystem-yandex-button-item:active {
 
 
 
-#bx-soa-orderSave [type="checkbox"].filled-in:checked+label:after { 
-   border: 2px solid @brand-primary; 
-   background-color: @brand-primary; 
-}
-
-
+#bx-soa-orderSave [type="checkbox"].filled-in:checked+label:after,
 #register-user-conf [type="checkbox"].filled-in:checked+label:after { 
    border: 2px solid @brand-primary; 
    background-color: @brand-primary; 
@@ -105,29 +90,26 @@ input.sale-paysystem-yandex-button-item:active {
 
 .bx-sls .quick-location-tag,
 .bx-slst .quick-location-tag {
-    display: inline-block;
-    background: #fff;
-	border: 1px solid #eee;
-    border-radius: 3px;
-    padding: 10px 15px 11px;
-    margin: 10px 6px;
-    cursor: pointer;
-    vertical-align: middle;
-    font-size: 10.5pt;
-    line-height: 20px;
-    height: auto;
-    color: @brand-primary;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 10px 15px 11px;
+  margin: 10px 6px;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: 10.5pt;
+  line-height: 20px;
+  height: auto;
+  color: @brand-primary;
 }
-  
+ 
+.form-group [type="checkbox"].filled-in:not(:checked)+label:after {
+  border-color: @brand-secondary;
+} 
 .form-group [type="checkbox"].filled-in:checked+label:after {
   border-color: @brand-primary;
   background-color: @brand-primary;
-}
-
-@media (max-width: 767px) {
- .b-tabs__nav__top, .b-tabs__nav__menu {
-background-color: @brand-primary;
-}
 }
 
 .bx-filter .bx-filter-input-checkbox input[type="checkbox"]:checked+.bx-filter-param-text:after {
@@ -141,7 +123,6 @@ background-color: @brand-primary;
 .bx-filter .bx-filter-popup-result {   
    background: @brand-primary;
 }
-
 
 .bx_item_detail_rating .bx_stars_progres {
   background-color: @brand-primary;

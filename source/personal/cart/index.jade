@@ -1,0 +1,25 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Basket | Seller
+
+block content
+
+  .container-fluid
+    
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        span Моя корзина
+        
+    .b-hr-heading
+      .b-hr-heading__content
+        span Выберите один из подарков
+    
+    hr.i-size-L
+  
+    include ../../components/catalog.collection-props/meta
+    include ../../components/catalog.collection-props/template-4-gifts
+        
+    include ../../components/sale.basket.basket/template

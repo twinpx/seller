@@ -1,0 +1,136 @@
+// start /components/forms.reg/
+
+link( rel="stylesheet", href="/components/forms.reg/style.css" )
+link( rel="stylesheet", href="/components/forms.reg/template_styles.css" )
+script( src="/components/forms.reg/script.js" )
+
+h1 Регистрация нового пользователя
+
+.bx_registration_page
+  .bx-auth
+    .item-feedback
+      | Регистрация доступна только ОПТОВЫМ клиентам
+    br
+    .b-form-wrapper
+      form(method="post" action="/registration/" name="regform" enctype="multipart/form-data")
+        .form-group
+          label
+            | Адрес e-mail:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="text" name="REGISTER[EMAIL]" value="")
+        .form-group
+          label
+            | Пароль:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="password" name="REGISTER[PASSWORD]" value="" autocomplete="off")
+        .form-group
+          label
+            | Подтверждение пароля:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="password" name="REGISTER[CONFIRM_PASSWORD]" value="" autocomplete="off")
+        .form-group
+          label
+            | Имя:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="text" name="REGISTER[NAME]" value="")
+        .form-group
+          label
+            | Фамилия:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="text" name="REGISTER[LAST_NAME]" value="" autocomplete)
+        .form-group
+          label
+            | Телефон:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="text" name="REGISTER[PERSONAL_PHONE]" value="")
+        .form-group
+          label
+            | Город:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="text" name="REGISTER[PERSONAL_CITY]" value="")
+        .form-group
+          label
+            | Наименование компании:
+            span.starrequired *
+          input.bx-auth-input.form-control(size="30" type="text" name="REGISTER[WORK_COMPANY]" value="")
+        .form-group
+          label
+            | ИНН:
+            span.starrequired *
+          #main_UF_INN.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_INN" value="" size="20")
+        .form-group
+          label Юридический адрес:
+          #main_UF_UR_ADDRESS.fields.string
+            .fields.string
+              textarea.fields.string.form-control(name="UF_UR_ADDRESS" cols="50" rows="5")
+        .form-group
+          label Фактический адрес:
+          #main_UF_FIZ_ADDRESS.fields.string
+            .fields.string
+              textarea.fields.string.form-control(name="UF_FIZ_ADDRESS" cols="50" rows="5")
+        .form-group
+          label ОГРН:
+          #main_UF_OGRN.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_OGRN" value="" size="20")
+        .form-group
+          label КПП:
+          #main_UF_KPP.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_KPP" value="" size="20")
+        .form-group
+          label Р/С:
+          #main_UF_RC.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_RC" value="" size="20")
+        .form-group
+          label БАНК:
+          #main_UF_BANK.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_BANK" value="" size="20")
+        .form-group
+          label К/С:
+          #main_UF_KS.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_KS" value="" size="20")
+        .form-group
+          label БИК:
+          #main_UF_BIC.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_BIC" value="" size="20")
+        .form-group
+          label ОКПО:
+          #main_UF_OKPO.fields.string
+            .fields.string
+              input.fields.string.form-control(type="text" name="UF_OKPO" value="" size="20")
+        .form-group
+          .row
+            .col-sm-4
+              label(style="color: #fff;") *
+              br
+              input(type="hidden" name="captcha_sid" value="06c6252d442120ffdbebd96032234a15")
+              img(src="/bitrix/tools/captcha.php?captcha_sid=06c6252d442120ffdbebd96032234a15" width="180" height="40" alt="CAPTCHA")
+            hr.visible-xs-block
+            .col-sm-8
+              label
+                span.starrequired *
+                | Введите слово на картинке
+              input.form-control(type="text" name="captcha_word" maxlength="50" value="")
+        #register-user-conf.form-group.checkbox(style="border-bottom: 0;")
+          input#filled-in-box.filled-in(type="checkbox" value="Y" name="" checked="")
+          label.main-user-consent-request(for="filled-in-box" data-toggle="modal" data-target="#consentModal")
+            | Нажимая на кнопку «Регистрация», вы даете согласие на обработку своих персональных данных.
+            br
+            a(target="_blank" href="/about/rules/") Пользовательское соглашение
+            | .
+        .form-group.button-block(style="border-bottom: 0;")
+          input.btn.btn-default.i-moke-button(type="button" name="R" value="Регистрация")
+          input.btn.btn-default(type="submit" name="register_submit_button" value="Регистрация")
+        //
+          <p>Пароль должен быть не менее 6 символов длиной.</p>
+          <p><span class="starrequired">*</span>Поля, обязательные для заполнения.</p
+
+
+// end /components/forms.reg/

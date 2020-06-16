@@ -1,35 +1,9 @@
-var logoArray = [ '/upload/logo-vybor-vkusa.png', '/upload/logo-pomidor.jpg', '/upload/salat.jpg' ];
-$( '#logoVyborVkusa' ).attr({ src: logoArray[ Math.floor( Math.random() * logoArray.length )] });
+$( '#scroll' ).niceScroll();
+$( '#button' ).click( function() {
+  $( '#scroll' ).show();
+});
 
 $( '[data-toggle="tooltip"]' ).tooltip();
-
-$(".bj-page-header .bj-logo-space__icon.glyphicon-user").popover({
-    html: !0,
-    trigger: "click",
-    placement: "bottom"
-});
-
-$( document ).click( function(e) {
-  if ( !$( e.target ).hasClass( 'glyphicon-user' ) && !$(e.target).hasClass( 'popover-content' )) {
-    $( ".bj-page-header .bj-logo-space__icon.glyphicon-user" ).popover( 'hide' );
-  }
-});
-
-$(".bj-page-header__menu-link").click(function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $(".bj-page-header__dropdown article").slideDown();
-});
-$(".bj-page-header__dropdown article").click(function(e) {
-    e.stopPropagation();
-});
-$(".bj-page-header__dropdown .up").click(function(e) {
-    $(this).closest("article").slideUp();
-    e.preventDefault();
-});
-$(document).click(function() {
-    $(".bj-page-header__dropdown article").slideUp();
-});
 
 if ( document.getElementById( 'viewCounter' )) {
   $.ajax({
@@ -63,14 +37,26 @@ function scrollWindow(e) {
   
 }
 
-$("#nav-button").sideNav();
-
 //header search
-$(".bj-page-header__search .glyphicon").click(function() {
-    $(this).closest(".bj-page-header__search").addClass("i-active").find("input").focus();
+$( '.bj-search-icon' ).click(function() {
+  $( '.bj-page-header' ).addClass( 'i-search' );
+  $( '.bj-page-header__sub:visible' ).slideUp();
+  setTimeout( function() {
+    $( '.bj-page-header' ).addClass( 'i-ready' );
+    $( '.bj-page-header__search__input' ).focus();
+  }, 100);
+  //$(this).closest(".bj-page-header__search").addClass("i-active").find("input").focus();
 });
-$(".bj-page-header__search__input").blur(function() {
-    $(this).val("").closest(".bj-page-header__search").removeClass("i-active");
+$( '.bj-page-header__search__input' ).blur(function() {
+  //$( '.bj-page-header' ).removeClass( 'i-search' ).removeClass( 'i-ready' );
+  //$(this).val("").closest(".bj-page-header__search").removeClass("i-active");
+});
+$( '.bj-page-header__search-close' ).click( function(e) {
+  e.preventDefault();
+  $( '.bj-page-header' ).removeClass( 'i-ready' );
+  setTimeout( function() {
+    $( '.bj-page-header' ).removeClass( 'i-search' );
+  }, 300);
 });
 
 //filter menu
@@ -81,39 +67,42 @@ $(".bj-hidden-link").click(function(e) {
 });
 
 //mobile banner
-/*(function() {
-    function a() {
-        var mob = "ontouchstart"in document.documentElement;
-        return mob && $(document).width() <= 600 ? "mobile" : "desktop";
-    }
-    function c() {
-      //window.location.replace(window.location);
-      $.ajax({
-        url: $( '#gallery-ajax' ).data( 'url' ) + '?type=' + a(),
-        type: $( '#gallery-ajax' ).data( 'method' ),
-        dataType: "html",
-        success: function(data) {
-          $( '#gallery-ajax' ).html( data );
-        },
-        error: function() {}
+(function() {
+  if ( !document.getElementById( 'gallery-ajax' )) {
+    return;
+  }
+  function a() {
+      var mob = "ontouchstart" in document.documentElement;
+      return mob && $(document).width() <= 600 ? "mobile" : "desktop";
+  }
+  function c() {
+    //window.location.replace(window.location);
+    $.ajax({
+      url: $( '#gallery-ajax' ).data( 'url' ) + '?type=' + a(),
+      type: $( '#gallery-ajax' ).data( 'method' ),
+      dataType: "html",
+      success: function(data) {
+        $( '#gallery-ajax' ).html( data );
+      },
+      error: function() {}
+    });
+  }
+  function d(a) {
+      Cookies.set("mobile", a, {
+          expires: 30,
+          path: "/",
+          domain: window.location.hostname
       });
-    }
-    function d(a) {
-        Cookies.set("mobile", a, {
-            expires: 30,
-            path: "/",
-            domain: window.location.hostname
-        });
-    }
-    var e, f;
-    e = a();
-    f = Cookies.get("mobile");
-    
-    //if ( !f && e !== f ) {
-      d(e);
-      c(e);
-    //}
-}());*/
+  }
+  var e, f;
+  e = a();
+  f = Cookies.get("mobile");
+  
+  //if ( !f && e !== f ) {
+    d(e);
+    c(e);
+  //}
+}());
 
 //subscribe form
 ( function() {

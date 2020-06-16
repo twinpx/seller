@@ -6,10 +6,13 @@ html( lang="ru" class="bx-no-touch" )
       
     include includes/meta.jade
     include includes/styles.jade
+    include includes/fonts.jade
     include includes/scripts.jade
     
   body
-    include includes/header.jade
+  
+    block header
+      include ../components/header_1_6_0_1/template
     
     include ../components/tuner/template
     
