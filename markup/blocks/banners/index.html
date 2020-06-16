@@ -8,12 +8,14 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="/template/libs/bootstrap-3.3.7.css">
     <link rel="stylesheet" href="/template/libs/materialize.css">
+    <link rel="stylesheet" href="/template/template_styles.css">
+    <link rel="stylesheet" href="/template/colors.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
-    <script src="/template/libs/jquery-1.10.2.min.js"></script>
+    <script src="/template/libs/jquery-1.11.1.min.js"></script>
     <script src="/template/libs/materialize-0.100.0.min.js"></script>
     <script src="/template/script.js"></script>
     <script src="/template/libs/bootstrap-3.3.7.js"></script>
@@ -447,22 +449,35 @@
       <hr class="i-size-L">
       <hr class="i-size-L">
       <hr class="i-size-L">
+      <!-- start /components/inform-blocks/-->
+      <link rel="stylesheet" href="/components/inform-blocks/style.css">
+      <script src="/components/inform-blocks/script.js"></script>
       <div class="b-inform-blocks">
-        <div href="" style="background-image: url( '/upload/inform-blocks/banner-1_2-1.jpg' );" class="b-inform-blocks__item i-size-6"></div>
-        <hr><a href="" style="background-image: url( '/upload/inform-blocks/banner-1_2-2.jpg' );" class="b-inform-blocks__item i-size-6"></a>
-      </div>
-      <hr class="i-size-M hidden-xs">
-      <hr class="visible-xs-block">
-      <div class="b-inform-blocks"><a href="" style="background-image: url( '/upload/inform-blocks/banner-1_3-1.jpg' );" class="b-inform-blocks__item i-size-4"></a>
+        <div class="b-inform-blocks__item i-size-6">
+          <div style="background-image: url( '/upload/inform-blocks/banner-1_2-1.jpg' );"></div>
+        </div>
         <hr>
-        <div href="" style="background-image: url( '/upload/inform-blocks/banner-2_3-1.jpg' );" class="b-inform-blocks__item i-size-8"></div>
+        <div class="b-inform-blocks__item i-size-6"><a href="" style="background-image: url( '/upload/inform-blocks/banner-1_2-2.jpg' );"></a></div>
       </div>
       <hr class="i-size-M hidden-xs">
       <hr class="visible-xs-block">
       <div class="b-inform-blocks">
-        <div href="" style="background-image: url( '/upload/inform-blocks/banner-2_3-2.png' );" class="b-inform-blocks__item i-size-8"></div>
-        <hr><a href="" style="background-image: url( '/upload/inform-blocks/banner-1_3-2.jpg' );" class="b-inform-blocks__item i-size-4"></a>
+        <div class="b-inform-blocks__item i-size-4"><a href="" style="background-image: url( '/upload/inform-blocks/banner-1_3-1.jpg' );"></a></div>
+        <hr>
+        <div class="b-inform-blocks__bx-wrapper b-inform-blocks__item i-size-8">
+          <div style="background-image: url( '/upload/inform-blocks/banner-2_3-1.jpg' );"></div>
+        </div>
       </div>
+      <hr class="i-size-M hidden-xs">
+      <hr class="visible-xs-block">
+      <div class="b-inform-blocks">
+        <div class="b-inform-blocks__item i-size-8">
+          <div style="background-image: url( '/upload/inform-blocks/banner-2_3-2.png' );"></div>
+        </div>
+        <hr>
+        <div class="b-inform-blocks__item i-size-4"><a href="" style="background-image: url( '/upload/inform-blocks/banner-1_3-2.jpg' );"></a></div>
+      </div>
+      <!-- end /components/inform-blocks/-->
     </div>
     <div id="b-float-phone">
       <div class="b-float-phone__bg"></div><span class="b-float-phone__content"><span class="bj-footer-earphone-icon"></span><span class="b-float-phone__text">+7 499 35 007 98</span></span>
@@ -476,8 +491,6 @@
         </div>
       </div>
     </footer>
-    <link rel="stylesheet" href="/template/template_styles.css">
-    <link rel="stylesheet" href="/template/colors.css">
     <div id="circlePreloader">
       <div class="preloader-wrapper active">
         <div class="spinner-layer">

@@ -408,6 +408,10 @@
           showOffer( $data );
           return;
         }
+          
+        if ( $element.find( '.b-catalog-element__data[ data-actual-item ]' ).length ) {
+          showOffer( $element.find( '.b-catalog-element__data div[ data-id=' + $element.find( '.b-catalog-element__data' ).data( 'actual-item' ) + ' ]' ));
+        }
       
         //get size by default
         var sizeCookie;

@@ -147,6 +147,7 @@
 .btn-default
   border-color #5c6eb8
   border-width 2px
+  border-style solid
   text-shadow none
   box-shadow none
   font-size .9rem
@@ -212,6 +213,12 @@
 
 .dropdown-menu
   border-radius 0
+  
+  ul&
+    padding-left 0 !important
+    
+    li
+      list-style-type none
 
 .small
   font-size .85rem
@@ -276,6 +283,11 @@ h1,.h1,h2,.h2,h3,.h3
 h3,.h3
   font-size .9rem
   font-weight 700
+  /*font-size 1.3rem
+  font-weight 400
+  
+  @media( max-width 767px )
+    font-size 1.15rem*/
 
 h4,.h4,h5,.h5
   color #999
@@ -688,28 +700,8 @@ a.bj-icon-link,a.bj-icon-link:hover,a.bj-icon-link:active,a.bj-icon-link:focus
     &.right
       float none!important
 
-div
-  &.bx-auth
-    max-width 600px
-    margin-top 12px
-    margin-bottom 10px
-    
-    form
-      padding 0
-      margin 0
-
-input[type=email],
-.form-group input.form-control[type=email]
-  background-image url(images/envelope.png)
-  background-repeat no-repeat
-  background-position 10px center
-  padding-left 42px
-  
-input[type=email]:-webkit-autofill,
-.form-group input.form-control[type=email]:-webkit-autofill
-  padding-left 10px
-
-.bj-range__input-min,.bj-range__input-max
+.bj-range__input-min,
+.bj-range__input-max
   display none!important
 
 .bj-range
@@ -1419,3 +1411,14 @@ form
   background-color transparent !important
   border-color #523f62 !important
   color #523f62 !important
+  
+div.bx-auth {
+    max-width: 600px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+div.bx-auth form {
+    padding: 0;
+    margin: 0
+}

@@ -246,6 +246,10 @@
             propList = propList.replace( /&quot;/g, '\"');
             propList = JSON.parse( propList );
           }
+          
+          if ( $element.find( '.b-catalog-element__data[ data-actual-item ]' ).length ) {
+            $activeDataDiv = $element.find( '.b-catalog-element__data div[ data-id=' + $element.find( '.b-catalog-element__data' ).data( 'actual-item' ) + ' ]' );
+          }
       
       //click colors
       /*$colorsBlock.delegate( '.b-catalog-element__colors-item', 'click', function() {

@@ -8,12 +8,14 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="/template/libs/bootstrap-3.3.7.css">
     <link rel="stylesheet" href="/template/libs/materialize.css">
+    <link rel="stylesheet" href="/template/template_styles.css">
+    <link rel="stylesheet" href="/template/colors.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;amp;subset=cyrillic-ext" rel="stylesheet">
-    <script src="/template/libs/jquery-1.10.2.min.js"></script>
+    <script src="/template/libs/jquery-1.11.1.min.js"></script>
     <script src="/template/libs/materialize-0.100.0.min.js"></script>
     <script src="/template/script.js"></script>
     <script src="/template/libs/bootstrap-3.3.7.js"></script>
@@ -545,55 +547,47 @@
             </div>
             <hr>
             <!-- start /components/catalog.filter/-->
+            <link rel="stylesheet" href="/template/libs/jquery-ui-1.11.1.min.css">
+            <script src="/template/libs/jquery-ui-1.11.1.min.js"></script>
             <link rel="stylesheet" href="/components/catalog.filter/style.css">
             <script src="/components/catalog.filter/script.js"></script>
             <div class="b-catalog-filter-switch"><span>Использовать фильтр</span><span>Свернуть фильтр</span>
               <div style="background-image: url(/template/images/filter.svg);" class="b-catalog-filter-switch__icon"></div>
             </div>
             <div class="b-catalog-filter">
-              <div class="bx-filter bx-site">
+              <div class="bx-filter">
                 <div class="bx-filter-section">
                   <div class="bx-filter-title">Подбор параметров</div>
-                  <form name="_form" action="/catalog/muzhskie_botinki/" method="get" class="smartfilter">
+                  <form name="_form" action="/catalog/kurtki/" method="get" class="smartfilter">
                     <div class="row">
                       <div class="col-lg-12 bx-filter-parameters-box bx-active"><span class="bx-filter-container-modef"></span>
-                        <div onclick="smartFilter.hideFilterProps(this)" class="bx-filter-parameters-box-title"><span>Розничная цена <i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
-                        <div data-role="bx_filter_block" style="display: block;" class="bx-filter-block">
+                        <div class="bx-filter-parameters-box-title"><span>Розничная цена <i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div data-role="bx_filter_block" style="display: none;" class="bx-filter-block">
                           <div class="bx-filter-parameters-box-container">
-                            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-                            <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-                            <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-                            <div class="price-slider-range-text"><span id="priceSliderRangeText">От 5000 - до 24000</span> Р .</div>
-                            <div id="priceSliderRange" data-fact-min-value="500" data-fact-max-value="30500" data-min-value="500" data-max-value="30500" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                              <div style="left: 0%; width: 100%;" class="ui-slider-range ui-corner-all ui-widget-header"></div><span tabindex="0" style="left: 0%;" class="ui-slider-handle ui-corner-all ui-state-default"></span><span tabindex="0" style="left: 100%;" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
-                            <input id="arrFILTER_P1_MIN" type="hidden" name="arrFILTER_P1_MIN" value="5000" size="5" onchange="smartFilter.keyup(this)" class="min-price">
-                            <input id="arrFILTER_P1_MAX" type="hidden" name="arrFILTER_P1_MAX" value="24000" size="5" onchange="smartFilter.keyup(this)" class="max-price">
+                            <div class="price-slider-range-text"><span id="priceSliderRangeText"></span>											руб.</div>
+                            <div id="priceSliderRange" data-fact-min-value="7062" data-fact-max-value="704564" data-min-value="7062" data-max-value="704564"></div>
+                            <input id="arrFILTER_P1_MIN" type="hidden" name="arrFILTER_P1_MIN" value="" size="5" onchange="smartFilter.keyup(this)" class="min-price">
+                            <input id="arrFILTER_P1_MAX" type="hidden" name="arrFILTER_P1_MAX" value="" size="5" onchange="smartFilter.keyup(this)" class="max-price">
+                            <div id="colorUnavailableActive_c4ca4238a0b923820dcc509a6f75849b"></div>
+                            <div id="colorAvailableInactive_c4ca4238a0b923820dcc509a6f75849b"></div>
+                            <div id="colorAvailableActive_c4ca4238a0b923820dcc509a6f75849b"></div>
+                            <div id="left_slider_c4ca4238a0b923820dcc509a6f75849b"></div>
+                            <div id="right_slider_c4ca4238a0b923820dcc509a6f75849b"></div>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-12 bx-filter-parameters-box bx-active"><span class="bx-filter-container-modef"></span>
-                        <div onclick="smartFilter.hideFilterProps(this)" class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Производитель																<i data-role="prop_angle" class="fa fa-angle-up"></i></span></div>
-                        <div data-role="bx_filter_block" style="display: block;" class="bx-filter-block">
+                      <div class="col-lg-12 bx-filter-parameters-box"><span class="bx-filter-container-modef"></span>
+                        <div class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Акция																		<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div data-role="bx_filter_block" class="bx-filter-block">
                           <div class="row bx-filter-parameters-box-container">
                             <div class="col-xs-12">
-                              <div class="checkbox">
-                                <label data-role="label_arrFILTER_10_3068188247" for="arrFILTER_10_3068188247" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_10_3068188247" type="checkbox" value="Y" name="arrFILTER_10_3068188247" onclick="smartFilter.click(this)"><span title="Италия" class="bx-filter-param-text">Италия<sup>(<span data-role="count_arrFILTER_10_3068188247">3</span>)</sup></span></span></label>
+                              <div class="radio">
+                                <label for="all_arrFILTER_9_2226203566" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="all_arrFILTER_9_2226203566" type="radio" value="" name="arrFILTER_9" onclick="smartFilter.click(this)"><span class="bx-filter-param-text">Все</span></span></label>
                               </div>
-                            </div>
-                          </div>
-                          <div style="clear: both"></div>
-                        </div>
-                      </div>
-                      <div class="col-lg-12 bx-filter-parameters-box bx-active"><span class="bx-filter-container-modef"></span>
-                        <div onclick="smartFilter.hideFilterProps(this)" class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Материал																<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
-                        <div data-role="bx_filter_block" style="display: block;" class="bx-filter-block">
-                          <div class="row bx-filter-parameters-box-container">
-                            <div class="col-xs-12">
-                              <div class="checkbox">
-                                <label data-role="label_arrFILTER_11_870750918" for="arrFILTER_11_870750918" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_11_870750918" type="checkbox" value="Y" name="arrFILTER_11_870750918" onclick="smartFilter.click(this)"><span title="Кожа" class="bx-filter-param-text">Кожа<sup>(<span data-role="count_arrFILTER_11_870750918">3</span>)</sup></span></span></label>
+                              <div class="radio">
+                                <label data-role="label_arrFILTER_9_2226203566" for="arrFILTER_9_2226203566" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_9_2226203566" type="radio" value="2226203566" name="arrFILTER_9" onclick="smartFilter.click(this)"><span title="Готовимся к лету" class="bx-filter-param-text">Готовимся к лету <sup>(<span data-role="count_arrFILTER_9_2226203566">1</span>)</sup></span></span></label>
                               </div>
                             </div>
                           </div>
@@ -601,21 +595,97 @@
                         </div>
                       </div>
                       <div class="col-lg-12 bx-filter-parameters-box"><span class="bx-filter-container-modef"></span>
-                        <div onclick="smartFilter.hideFilterProps(this)" class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Бренд																<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Производитель																		<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div data-role="bx_filter_block" class="bx-filter-block">
+                          <div class="row bx-filter-parameters-box-container">
+                            <div class="col-xs-12">
+                              <div class="bx-filter-select-container">
+                                <div onclick="smartFilter.showDropDownPopup(this, '11')" class="bx-filter-select-block">
+                                  <div data-role="currentOption" class="bx-filter-select-text">Все</div>
+                                  <div class="bx-filter-select-arrow"></div>
+                                  <input id="all_arrFILTER_11_1141174940" style="display: none" type="radio" name="arrFILTER_11" value="">
+                                  <input id="arrFILTER_11_1141174940" style="display: none" type="radio" name="arrFILTER_11" value="1141174940">
+                                  <input id="arrFILTER_11_3887157092" style="display: none" type="radio" name="arrFILTER_11" value="3887157092">
+                                  <input id="arrFILTER_11_3425387233" style="display: none" type="radio" name="arrFILTER_11" value="3425387233">
+                                  <input id="arrFILTER_11_180402125" style="display: none" type="radio" name="arrFILTER_11" value="180402125">
+                                  <div data-role="dropdownContent" style="display: none;" class="bx-filter-select-popup">
+                                    <ul>
+                                      <li>
+                                        <label for="all_arrFILTER_11_1141174940" data-role="label_all_arrFILTER_11_1141174940" onclick="smartFilter.selectDropDownItem(this, 'all_arrFILTER_11_1141174940')" class="bx-filter-param-label">Все</label>
+                                      </li>
+                                      <li>
+                                        <label for="arrFILTER_11_1141174940" data-role="label_arrFILTER_11_1141174940" onclick="smartFilter.selectDropDownItem(this, 'arrFILTER_11_1141174940')" class="bx-filter-param-label">Индонезия</label>
+                                      </li>
+                                      <li>
+                                        <label for="arrFILTER_11_3887157092" data-role="label_arrFILTER_11_3887157092" onclick="smartFilter.selectDropDownItem(this, 'arrFILTER_11_3887157092')" class="bx-filter-param-label">Италия</label>
+                                      </li>
+                                      <li>
+                                        <label for="arrFILTER_11_3425387233" data-role="label_arrFILTER_11_3425387233" onclick="smartFilter.selectDropDownItem(this, 'arrFILTER_11_3425387233')" class="bx-filter-param-label">Турция</label>
+                                      </li>
+                                      <li>
+                                        <label for="arrFILTER_11_180402125" data-role="label_arrFILTER_11_180402125" onclick="smartFilter.selectDropDownItem(this, 'arrFILTER_11_180402125')" class="bx-filter-param-label">Филипины</label>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div style="clear: both"></div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 bx-filter-parameters-box"><span class="bx-filter-container-modef"></span>
+                        <div class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Материал																		<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
                         <div data-role="bx_filter_block" class="bx-filter-block">
                           <div class="row bx-filter-parameters-box-container">
                             <div class="col-xs-12">
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_13_945058907" for="arrFILTER_13_945058907" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_13_945058907" type="checkbox" value="Y" name="arrFILTER_13_945058907" onclick="smartFilter.click(this)"><span title="Benetton" class="bx-filter-param-text">Benetton<sup>(<span data-role="count_arrFILTER_13_945058907">1</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_12_708586757" for="arrFILTER_12_708586757" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_708586757" type="checkbox" value="Y" name="arrFILTER_12_708586757" onclick="smartFilter.click(this)"><span title="100% Кожа ягненка" class="bx-filter-param-text">100% Кожа ягненка <sup>(<span data-role="count_arrFILTER_12_708586757">2</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_13_2707236321" for="arrFILTER_13_2707236321" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_13_2707236321" type="checkbox" value="Y" name="arrFILTER_13_2707236321" onclick="smartFilter.click(this)"><span title="Chanel" class="bx-filter-param-text">Chanel<sup>(<span data-role="count_arrFILTER_13_2707236321">1</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_12_2762080488" for="arrFILTER_12_2762080488" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_2762080488" type="checkbox" value="Y" name="arrFILTER_12_2762080488" onclick="smartFilter.click(this)"><span title="100% Полиамид" class="bx-filter-param-text">100% Полиамид <sup>(<span data-role="count_arrFILTER_12_2762080488">1</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_13_2366072709" for="arrFILTER_13_2366072709" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_13_2366072709" type="checkbox" value="Y" name="arrFILTER_13_2366072709" onclick="smartFilter.click(this)"><span title="Christian Louboutin" class="bx-filter-param-text">Christian Louboutin<sup>(<span data-role="count_arrFILTER_13_2366072709">1</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_12_3058182597" for="arrFILTER_12_3058182597" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_3058182597" type="checkbox" value="Y" name="arrFILTER_12_3058182597" onclick="smartFilter.click(this)"><span title="100% Полиэстер" class="bx-filter-param-text">100% Полиэстер <sup>(<span data-role="count_arrFILTER_12_3058182597">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_2900465438" for="arrFILTER_12_2900465438" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_2900465438" type="checkbox" value="Y" name="arrFILTER_12_2900465438" onclick="smartFilter.click(this)"><span title="100% Телячья кожа" class="bx-filter-param-text">100% Телячья кожа <sup>(<span data-role="count_arrFILTER_12_2900465438">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_1290661601" for="arrFILTER_12_1290661601" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_1290661601" type="checkbox" value="Y" name="arrFILTER_12_1290661601" onclick="smartFilter.click(this)"><span title="100% Хлопок" class="bx-filter-param-text">100% Хлопок <sup>(<span data-role="count_arrFILTER_12_1290661601">4</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_1070465724" for="arrFILTER_12_1070465724" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_1070465724" type="checkbox" value="Y" name="arrFILTER_12_1070465724" onclick="smartFilter.click(this)"><span title="100% Шелк" class="bx-filter-param-text">100% Шелк <sup>(<span data-role="count_arrFILTER_12_1070465724">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_3929463384" for="arrFILTER_12_3929463384" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_3929463384" type="checkbox" value="Y" name="arrFILTER_12_3929463384" onclick="smartFilter.click(this)"><span title="Вискоза" class="bx-filter-param-text">Вискоза <sup>(<span data-role="count_arrFILTER_12_3929463384">2</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_1555801033" for="arrFILTER_12_1555801033" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_1555801033" type="checkbox" value="Y" name="arrFILTER_12_1555801033" onclick="smartFilter.click(this)"><span title="Полиуретан" class="bx-filter-param-text">Полиуретан <sup>(<span data-role="count_arrFILTER_12_1555801033">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_3517037434" for="arrFILTER_12_3517037434" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_3517037434" type="checkbox" value="Y" name="arrFILTER_12_3517037434" onclick="smartFilter.click(this)"><span title="Полиэстер" class="bx-filter-param-text">Полиэстер <sup>(<span data-role="count_arrFILTER_12_3517037434">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_2273640581" for="arrFILTER_12_2273640581" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_2273640581" type="checkbox" value="Y" name="arrFILTER_12_2273640581" onclick="smartFilter.click(this)"><span title="Хлопок" class="bx-filter-param-text">Хлопок <sup>(<span data-role="count_arrFILTER_12_2273640581">2</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_637813386" for="arrFILTER_12_637813386" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_637813386" type="checkbox" value="Y" name="arrFILTER_12_637813386" onclick="smartFilter.click(this)"><span title="Шерсть" class="bx-filter-param-text">Шерсть <sup>(<span data-role="count_arrFILTER_12_637813386">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_12_937961152" for="arrFILTER_12_937961152" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_12_937961152" type="checkbox" value="Y" name="arrFILTER_12_937961152" onclick="smartFilter.click(this)"><span title="Эластан" class="bx-filter-param-text">Эластан <sup>(<span data-role="count_arrFILTER_12_937961152">1</span>)</sup></span></span></label>
                               </div>
                             </div>
                           </div>
@@ -623,15 +693,13 @@
                         </div>
                       </div>
                       <div class="col-lg-12 bx-filter-parameters-box"><span class="bx-filter-container-modef"></span>
-                        <div onclick="smartFilter.hideFilterProps(this)" class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Цвет																<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Бренд																		<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
                         <div data-role="bx_filter_block" class="bx-filter-block">
                           <div class="row bx-filter-parameters-box-container">
                             <div class="col-xs-12">
-                              <div class="bx-filter-param-btn-block">
-                                <input id="arrFILTER_28_1830392916" style="display: block" type="checkbox" name="arrFILTER_28_1830392916" value="Y">
-                                <label for="arrFILTER_28_1830392916" data-role="label_arrFILTER_28_1830392916" onclick="smartFilter.keyup(BX('arrFILTER_28_1830392916')); BX.toggleClass(this, 'bx-active');" class="bx-filter-param-label"><span class="bx-filter-param-btn bx-color-sl"><span style="background-image:url('/upload/uf/916/91699ed33351a69af6380d76ee525ead.jpg');" class="bx-filter-btn-color-icon"></span></span><span title="Коричневый" class="bx-filter-param-text">Коричневый<sup>(<span data-role="count_arrFILTER_28_1830392916">2</span>)</sup></span></label>
-                                <input id="arrFILTER_28_2307242536" style="display: block" type="checkbox" name="arrFILTER_28_2307242536" value="Y">
-                                <label for="arrFILTER_28_2307242536" data-role="label_arrFILTER_28_2307242536" onclick="smartFilter.keyup(BX('arrFILTER_28_2307242536')); BX.toggleClass(this, 'bx-active');" class="bx-filter-param-label"><span class="bx-filter-param-btn bx-color-sl"><span style="background-image:url('/upload/uf/120/120478350cf77f3d8b90981067cc687a.jpg');" class="bx-filter-btn-color-icon"></span></span><span title="Черный" class="bx-filter-param-text">Черный<sup>(<span data-role="count_arrFILTER_28_2307242536">1</span>)</sup></span></label>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_14_2366072709" for="arrFILTER_14_2366072709" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_14_2366072709" type="checkbox" value="Y" name="arrFILTER_14_2366072709" onclick="smartFilter.click(this)"><span title="Christian Louboutin" class="bx-filter-param-text">Christian Louboutin <sup>(<span data-role="count_arrFILTER_14_2366072709">1</span>)</sup></span></span></label>
                               </div>
                             </div>
                           </div>
@@ -639,33 +707,77 @@
                         </div>
                       </div>
                       <div class="col-lg-12 bx-filter-parameters-box"><span class="bx-filter-container-modef"></span>
-                        <div onclick="smartFilter.hideFilterProps(this)" class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Размеры обуви																<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Цвет																		<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
+                        <div data-role="bx_filter_block" class="bx-filter-block">
+                          <div class="row bx-filter-parameters-box-container">
+                            <div class="col-xs-12">
+                              <div class="bx-filter-param-btn-inline">
+                                <input id="arrFILTER_29_1830392916" style="display: none" type="checkbox" name="arrFILTER_29_1830392916" value="Y">
+                                <label for="arrFILTER_29_1830392916" data-role="label_arrFILTER_29_1830392916" onclick="smartFilter.keyup(BX('arrFILTER_29_1830392916')); BX.toggleClass(this, 'bx-active');" class="bx-filter-param-label"><span class="bx-filter-param-btn bx-color-sl"><span style="background-image:url('/upload/colors/1.jpg');" class="bx-filter-btn-color-icon"></span></span></label>
+                                <input id="arrFILTER_29_2654390964" style="display: none" type="checkbox" name="arrFILTER_29_2654390964" value="Y">
+                                <label for="arrFILTER_29_2654390964" data-role="label_arrFILTER_29_2654390964" onclick="smartFilter.keyup(BX('arrFILTER_29_2654390964')); BX.toggleClass(this, 'bx-active');" class="bx-filter-param-label"><span class="bx-filter-param-btn bx-color-sl"><span style="background-image:url('/upload/colors/2.jpg');" class="bx-filter-btn-color-icon"></span></span></label>
+                                <input id="arrFILTER_29_3499814433" style="display: none" type="checkbox" name="arrFILTER_29_3499814433" value="Y">
+                                <label for="arrFILTER_29_3499814433" data-role="label_arrFILTER_29_3499814433" onclick="smartFilter.keyup(BX('arrFILTER_29_3499814433')); BX.toggleClass(this, 'bx-active');" class="bx-filter-param-label bx-active"><span class="bx-filter-param-btn bx-color-sl"><span style="background-image:url('/upload/colors/7.jpg');" class="bx-filter-btn-color-icon"></span></span></label>
+                                <input id="arrFILTER_29_2307242536" style="display: none" type="checkbox" name="arrFILTER_29_2307242536" value="Y">
+                                <label for="arrFILTER_29_2307242536" data-role="label_arrFILTER_29_2307242536" onclick="smartFilter.keyup(BX('arrFILTER_29_2307242536')); BX.toggleClass(this, 'bx-active');" class="bx-filter-param-label"><span class="bx-filter-param-btn bx-color-sl"><span style="background-image:url('/upload/colors/8.jpg');" class="bx-filter-btn-color-icon"></span></span></label>
+                              </div>
+                            </div>
+                          </div>
+                          <div style="clear: both"></div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 bx-filter-parameters-box"><span class="bx-filter-container-modef"></span>
+                        <div class="bx-filter-parameters-box-title"><span class="bx-filter-parameters-box-hint">Размеры одежды 																		<i data-role="prop_angle" class="fa fa-angle-down"></i></span></div>
                         <div data-role="bx_filter_block" class="bx-filter-block bx-filter-block-size">
                           <div class="row bx-filter-parameters-box-container">
                             <div class="col-xs-12">
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_29_4088798008" for="arrFILTER_29_4088798008" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_29_4088798008" type="checkbox" value="Y" name="arrFILTER_29_4088798008" onclick="smartFilter.click(this)"><span title="35" class="bx-filter-param-text">35<sup>(<span data-role="count_arrFILTER_29_4088798008">3</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_31_3596227959" for="arrFILTER_31_3596227959" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_3596227959" type="checkbox" value="Y" name="arrFILTER_31_3596227959" onclick="smartFilter.click(this)"><span title="S" class="bx-filter-param-text">S <sup>(<span data-role="count_arrFILTER_31_3596227959">4</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_29_2226203566" for="arrFILTER_29_2226203566" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_29_2226203566" type="checkbox" value="Y" name="arrFILTER_29_2226203566" onclick="smartFilter.click(this)"><span title="36" class="bx-filter-param-text">36<sup>(<span data-role="count_arrFILTER_29_2226203566">3</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_31_1330857165" for="arrFILTER_31_1330857165" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_1330857165" type="checkbox" value="Y" name="arrFILTER_31_1330857165" onclick="smartFilter.click(this)"><span title="M" class="bx-filter-param-text">M <sup>(<span data-role="count_arrFILTER_31_1330857165">6</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_29_498629140" for="arrFILTER_29_498629140" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_29_498629140" type="checkbox" value="Y" name="arrFILTER_29_498629140" onclick="smartFilter.click(this)"><span title="37" class="bx-filter-param-text">37<sup>(<span data-role="count_arrFILTER_29_498629140">3</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_31_945058907" for="arrFILTER_31_945058907" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_945058907" type="checkbox" value="Y" name="arrFILTER_31_945058907" onclick="smartFilter.click(this)"><span title="L" class="bx-filter-param-text">L <sup>(<span data-role="count_arrFILTER_31_945058907">5</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_29_1790921346" for="arrFILTER_29_1790921346" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_29_1790921346" type="checkbox" value="Y" name="arrFILTER_29_1790921346" onclick="smartFilter.click(this)"><span title="38" class="bx-filter-param-text">38<sup>(<span data-role="count_arrFILTER_29_1790921346">3</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_31_2788221432" for="arrFILTER_31_2788221432" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_2788221432" type="checkbox" value="Y" name="arrFILTER_31_2788221432" onclick="smartFilter.click(this)"><span title="XL" class="bx-filter-param-text">XL <sup>(<span data-role="count_arrFILTER_31_2788221432">3</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_29_4194326291" for="arrFILTER_29_4194326291" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_29_4194326291" type="checkbox" value="Y" name="arrFILTER_29_4194326291" onclick="smartFilter.click(this)"><span title="39" class="bx-filter-param-text">39<sup>(<span data-role="count_arrFILTER_29_4194326291">3</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_31_3510096238" for="arrFILTER_31_3510096238" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_3510096238" type="checkbox" value="Y" name="arrFILTER_31_3510096238" onclick="smartFilter.click(this)"><span title="XXL" class="bx-filter-param-text">XXL <sup>(<span data-role="count_arrFILTER_31_3510096238">1</span>)</sup></span></span></label>
                               </div>
                               <div class="checkbox">
-                                <label data-role="label_arrFILTER_29_2366072709" for="arrFILTER_29_2366072709" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
-                                    <input id="arrFILTER_29_2366072709" type="checkbox" value="Y" name="arrFILTER_29_2366072709" onclick="smartFilter.click(this)"><span title="40" class="bx-filter-param-text">40<sup>(<span data-role="count_arrFILTER_29_2366072709">3</span>)</sup></span></span></label>
+                                <label data-role="label_arrFILTER_31_1212055764" for="arrFILTER_31_1212055764" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_1212055764" type="checkbox" value="Y" name="arrFILTER_31_1212055764" onclick="smartFilter.click(this)"><span title="XXXL" class="bx-filter-param-text">XXXL <sup>(<span data-role="count_arrFILTER_31_1212055764">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_31_1846465501" for="arrFILTER_31_1846465501" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_1846465501" type="checkbox" value="Y" name="arrFILTER_31_1846465501" onclick="smartFilter.click(this)"><span title="46" class="bx-filter-param-text">46 <sup>(<span data-role="count_arrFILTER_31_1846465501">1</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_31_2272098024" for="arrFILTER_31_2272098024" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_2272098024" type="checkbox" value="Y" name="arrFILTER_31_2272098024" onclick="smartFilter.click(this)"><span title="48" class="bx-filter-param-text">48 <sup>(<span data-role="count_arrFILTER_31_2272098024">2</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_31_1768101828" for="arrFILTER_31_1768101828" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_1768101828" type="checkbox" value="Y" name="arrFILTER_31_1768101828" onclick="smartFilter.click(this)"><span title="50" class="bx-filter-param-text">50 <sup>(<span data-role="count_arrFILTER_31_1768101828">3</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_31_4191947349" for="arrFILTER_31_4191947349" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_4191947349" type="checkbox" value="Y" name="arrFILTER_31_4191947349" onclick="smartFilter.click(this)"><span title="52" class="bx-filter-param-text">52 <sup>(<span data-role="count_arrFILTER_31_4191947349">4</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_31_2396732099" for="arrFILTER_31_2396732099" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_2396732099" type="checkbox" value="Y" name="arrFILTER_31_2396732099" onclick="smartFilter.click(this)"><span title="54" class="bx-filter-param-text">54 <sup>(<span data-role="count_arrFILTER_31_2396732099">4</span>)</sup></span></span></label>
+                              </div>
+                              <div class="checkbox">
+                                <label data-role="label_arrFILTER_31_1889509032" for="arrFILTER_31_1889509032" class="bx-filter-param-label"><span class="bx-filter-input-checkbox">
+                                    <input id="arrFILTER_31_1889509032" type="checkbox" value="Y" name="arrFILTER_31_1889509032" onclick="smartFilter.click(this)"><span title="56" class="bx-filter-param-text">56 <sup>(<span data-role="count_arrFILTER_31_1889509032">2</span>)</sup></span></span></label>
                               </div>
                             </div>
                           </div>
@@ -673,14 +785,13 @@
                         </div>
                       </div>
                     </div>
-                    <!-- //row-->
                     <div class="row">
                       <div class="col-xs-12 bx-filter-button-box">
                         <div class="bx-filter-block">
                           <div class="bx-filter-parameters-box-container">
-                            <input id="set_filter" type="submit" name="set_filter" value="Показать" class="btn btn-default btn-size-S">
-                            <input id="del_filter" type="submit" name="del_filter" value="Сбросить" class="btn btn-link">
-                            <div id="modef" style="display:block" class="bx-filter-popup-result right">Выбрано: <span id="modef_num">0</span><span class="arrow"></span><br><a href="/catalog/muzhskie_botinki/?set_filter=y" target="">Показать</a></div>
+                            <input id="set_filter" type="submit" name="set_filter" value="Показать" class="btn btn-default btn-themes">
+                            <input id="del_filter" type="button" name="del_filter" value="Сбросить" class="btn btn-link">
+                            <div id="modef" style="display:none" class="bx-filter-popup-result right">Выбрано: <span id="modef_num">0</span><span class="arrow"></span><br><a href="/catalog/kurtki/filter/clear/apply/" target="">Показать</a></div>
                           </div>
                         </div>
                       </div>
@@ -5336,8 +5447,6 @@
         </div>
       </div>
     </footer>
-    <link rel="stylesheet" href="/template/template_styles.css">
-    <link rel="stylesheet" href="/template/colors.css">
     <div id="circlePreloader">
       <div class="preloader-wrapper active">
         <div class="spinner-layer">

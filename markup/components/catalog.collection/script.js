@@ -240,6 +240,9 @@
                     showOffer($data);
                     return;
                 }
+                if ($element.find(".b-catalog-element__data[ data-actual-item ]").length) {
+                    showOffer($element.find(".b-catalog-element__data div[ data-id=" + $element.find(".b-catalog-element__data").data("actual-item") + " ]"));
+                }
                 var sizeCookie;
                 var sizeFlag = false;
                 if ($element.find(".b-catalog-element__sizes-item:eq(0)").length) {

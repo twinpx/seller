@@ -656,7 +656,11 @@
             });
             for (var key in $div.data()) {
                 if (key.search("property") !== -1) {
-                    $(".catalogDetailP" + key.substring(1)).text($div.data(key)).parent().removeClass("hidden");
+                    if (String($div.data(key)).search("&") !== -1) {
+                        $(".catalogDetailP" + key.substring(1)).html($.parseHTML($div.data(key))[0].nodeValue).parent().removeClass("hidden");
+                    } else {
+                        $(".catalogDetailP" + key.substring(1)).html($div.data(key)).parent().removeClass("hidden");
+                    }
                 }
             }
             if ($(".b-catalog-detail__price").length) {

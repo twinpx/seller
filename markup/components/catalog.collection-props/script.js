@@ -117,6 +117,9 @@
                 propList = propList.replace(/&quot;/g, '"');
                 propList = JSON.parse(propList);
             }
+            if ($element.find(".b-catalog-element__data[ data-actual-item ]").length) {
+                $activeDataDiv = $element.find(".b-catalog-element__data div[ data-id=" + $element.find(".b-catalog-element__data").data("actual-item") + " ]");
+            }
             $propListBlock.delegate(".b-catalog-element__colors-item, .b-catalog-element__sizes-item", "click", function() {
                 var $item = $(this);
                 if ($item.hasClass("i-active")) {

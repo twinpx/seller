@@ -888,7 +888,8 @@
       });
       for ( var key in $div.data()) {
         if ( key.search( 'property' ) !== -1 ) {
-          $( '.catalogDetailP' + key.substring(1)).text( $div.data( key )).parent().removeClass( 'hidden' );
+          //$( '.catalogDetailP' + key.substring(1)).text( $div.data( key )).parent().removeClass( 'hidden' );
+          $(".catalogDetailP" + key.substring(1)).html( $div.data(key)).parent().removeClass("hidden");
         }
       }
       //price

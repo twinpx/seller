@@ -1,6 +1,9 @@
 (function($) {
     "use strict";
     $(function() {
+        setTimeout(function() {
+            $(".b-ph-block").addClass("i-ph-animated");
+        }, 500);
         $("#scroll").niceScroll();
         $("#button").click(function() {
             $("#scroll").show();
@@ -41,7 +44,6 @@
                 $(".bj-page-header__search__input").focus();
             }, 100);
         });
-        $(".bj-page-header__search__input").blur(function() {});
         $(".bj-page-header__search-close").click(function(e) {
             e.preventDefault();
             $(".bj-page-header").removeClass("i-ready");

@@ -63,7 +63,7 @@
 	flex: 1;
 }
 
-.basket-coupon-block-coupon-btn {
+/*.basket-coupon-block-coupon-btn {
 	position: absolute;
 	top: 50%;
 	right: 10px;
@@ -81,7 +81,7 @@
 	cursor: pointer;
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-}
+}*/
 
 .basket-coupon-alert-section { width: 100%; }
 
@@ -420,8 +420,6 @@
 .basket-items-search-field .input-group {
   display: block !important;
 }
-
-.basket-items-search-field .form-control { z-index: 1; }
 
 .basket-items-list-header-filter-item {
 	margin-left: 25px;
@@ -860,6 +858,8 @@
     text-transform: uppercase;
     margin: 0 3px 3px 0;
     display: inline-block;
+    border-width: 1px;
+    border-style: solid;
 }
 
 /*endregion*/
@@ -2362,11 +2362,6 @@ body.bx-theme-green .catalog-block-header{border-color:#63aa28;}
 body.bx-theme-red .catalog-block-header{border-color:#da3737;}
 body.bx-theme-yellow .catalog-block-header{border-color:#f4b236;}
 
-#basket-root {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .b-form-wrapper label,
 .bx-soa .bx-soa-customer-label, .bx-soa .bx-soa-custom-label {
 	font-size: .85rem !important;
@@ -2374,3 +2369,5 @@ body.bx-theme-yellow .catalog-block-header{border-color:#f4b236;}
 .bx-soa-section.bx-selected .bx-soa-section-title {
 	font-size: 1.2rem;
 }
+
+@import '../../forms/cart/form-elements-style.styl'

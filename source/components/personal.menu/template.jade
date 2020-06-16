@@ -1,0 +1,38 @@
+﻿// start /components/personal.menu/
+
+link( rel="stylesheet", href="/components/personal.menu/style.css" )
+
+.b-personal-slide-menu
+  .b-personal-slide-menu__top
+    span Мои заказы
+    svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 181.42 181.42")
+      defs
+        style.
+          .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px;}
+      line.cls-1(x1="4" y1="27.33" x2="176.64" y2="27.33")
+      line.cls-1(x1="4" y1="151.01" x2="176.64" y2="151.01")
+      line.cls-1(x1="4" y1="89.17" x2="176.64" y2="89.17")
+  .b-personal-slide-menu__menu
+    svg(xmlns="http://www.w3.org/2000/svg" viewbox="0 0 181.42 181.42")
+      defs
+        style.
+          .cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:5px;}
+      polyline.cls-1(points="4 47.17 92.92 131.17 176.64 47.45")
+    ul.personal
+      li
+        a(href="/personal/index.php?SECTION=private") Личные данные
+      li
+        a(href="/personal/index.php?SECTION=account") Личный счет
+      li
+        a(href="/about/contacts/") Контакты
+      li
+        a(href="/personal/cart/") Корзина
+      li
+        span
+          a(href="/personal/index.php?SECTION=orders") Мои заказы
+      li
+        a(href="/personal/index.php?SECTION=orders&filter_history=Y") История заказов
+      li
+        a(href="/personal/index.php?SECTION=profile") Профили заказов
+
+// end /components/personal.menu/

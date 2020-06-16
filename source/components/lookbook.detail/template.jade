@@ -1,0 +1,80 @@
+// start /components/lookbook.detail/
+
+link( rel="stylesheet", href="/components/lookbook.detail/style.css" )
+script( src="/components/lookbook.detail/script.js" )
+
+h1 Джинсы с туфлями
+
+.bj-look
+  .row
+    .col-sm-7
+      
+      include ../../modules/gallery/fotorama
+      include ../../modules/gallery/catalog.detail.jade
+        
+        
+    hr.visible-xs.i-size-M
+    .col-sm-5
+      h3 Описание
+      p
+      p
+        | Деним — актуальнейшая ткань для городского стиля. В сочетании с туфлями на каблуках джинсы приобретают необходимую элегантность и очень украшают общий образ. Такой ансамбль изысканно смотрится и отлично подходит для неформальных рабочих будней, создавая роскошный облик без лишней официальности.
+      p
+      hr
+      table.bj-look__table
+        tr
+          td
+            a( href="/catalog/dzhinsy/calvin_klein_jeans_dzhinsovye_bryuki/" target="_blank" ) Calvin Klein jeans джинсовые брюки
+          td 5 000 руб.
+        tr
+          td
+            a( href="/catalog/dzhinsy/diesel_dzhinsovye_bryuki/" target="_blank" ) Diesel джинсовые брюки
+          td 14 660 руб.
+        tr
+          td
+            a( href="/catalog/dzhinsy/dzhinsy_j_brand/" target="_blank" ) Джинсы J Brand
+          td 4 800 руб.
+        tr
+          td
+            a( href="/catalog/dzhinsy/dzhinsy_siwy/" target="_blank" ) Джинсы Siwy
+          td 3 940 руб.
+      hr
+      a.btn.btn-default.btn-100.btn-size-L(href="/personal/cart/add2backet.php?order[]=142&order[]=152&order[]=155&order[]=158&") Купить
+      
+  #lookbookDetailData( data-photo='/upload/lookbook/1.jpg;/upload/lookbook/2.jpg;/upload/lookbook/4.jpg' data-big-photo='/upload/lookbook/1.jpg;/upload/lookbook/2.jpg;/upload/lookbook/4.jpg', data-dimensions="[{ \"width\": 255, \"height\": 255 }, { \"width\": 676, \"height\": 1200 }, { \"width\": 730, \"height\": 472 }]" ) 
+      
+hr.hidden-xs.i-size-L
+hr.visible-xs-block.i-size-XL
+  
+.row
+
+  .col-sm-6
+  
+    .bj-sorting
+      .text-muted Сортировка:
+      .dropdown
+        a#dLabel( href="#" role="button" data-toggle="dropdown" data-target="#" aria-expanded="false" )
+          | Недорогие												
+          span.caret
+          
+        ul.dropdown-menu(role="menu" aria-labelledby="dLabel")
+          li
+            a( href="/lookbook/gorodskoy-stil/dzhinsy-s-tuflyami/?sort=cheap&CODE=gorodskoy-stil&ELEMENT=dzhinsy-s-tuflyami#sort" ) Недорогие
+          li
+            a( href="/lookbook/gorodskoy-stil/dzhinsy-s-tuflyami/?sort=new&CODE=gorodskoy-stil&ELEMENT=dzhinsy-s-tuflyami#sort" ) Новые
+          li
+            a( href="/lookbook/gorodskoy-stil/dzhinsy-s-tuflyami/?sort=popular&CODE=gorodskoy-stil&ELEMENT=dzhinsy-s-tuflyami#sort" ) Популярные
+      .clearfix
+  
+hr.i-line.i-size-L
+    
+.b-catalog-section
+    
+  include ../../components/catalog.collection-props/meta
+  include ../../modules/gallery/fotorama
+    
+  include ../../components/catalog.collection-props/template-4
+    
+  hr.i-size-L
+
+// end /components/lookbook.detail/

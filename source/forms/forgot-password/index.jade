@@ -1,0 +1,22 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Восстановление пароля | Seller
+
+block content
+   
+  .bj-page-content.container-fluid
+  
+    ol.breadcrumb
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        span Авторизация
+        
+    hr.i-size-L
+    
+    a( href="http://seller-assembly.2px.ru/auth/?forgot_password=yes") http://seller-assembly.2px.ru/auth/?forgot_password=yes
+        
+    p Стили на сервере - /bitrix/templates/bejet_seller-1.6.0/components/bitrix/system.auth.changepasswd/.default/style.css
+    p Стили в маркапе - /components/system.auth.changepasswd/style.css
+    p Стили элементов формы подгружаются из template_styles.css

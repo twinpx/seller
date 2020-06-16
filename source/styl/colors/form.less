@@ -1,0 +1,162 @@
+//components.less
+
+//bx.sale.order.ajax
+//style
+
+.sale_order_full_table input[type=submit]:hover,
+.sale_order_full_table input[type=submit]:active,
+.sale_order_full_table input[type=submit]:focus {
+	background: @brand-primary;
+	border-color: @brand-primary;
+}
+
+.bx_order_list .bx_order_list_table thead tr td a.btn-default,
+.bx_order_list .bx_order_list_table_order thead tr td a.btn-default,
+.bx_order_list .bx_order_list_table tbody tr td a.btn-default,
+.bx_order_list .bx_order_list_table_order tbody tr td a.btn-default {
+	color: @brand-secondary;
+}
+
+.sale_order_full_table input[type=submit] {
+	border-color: @brand-secondary;
+	color:@brand-secondary;
+}
+
+//style_cart
+
+.bx_ordercart .bx_ordercart_order_table_container thead tr td a.btn-default,
+.bx_ordercart .bx_ordercart_order_table_container tbody tr td a.btn-default {
+	color: @brand-secondary;
+}
+
+//bx.sale.personal.order.cancel
+
+.bx_my_order_cancel input[type="submit"]:hover,
+.bx_my_order_cancel input[type="submit"]:active,
+.bx_my_order_cancel input[type="submit"]:focus {
+	background: @brand-primary !important;
+	border-color:@brand-primary !important;
+}
+
+.bx_my_order_cancel input[type="submit"] {
+	border-color: @brand-secondary !important;
+	color: @brand-secondary !important;
+}
+
+//bx.sale.personal.order.detail
+
+.tablebodytext input:hover,
+.tablebodytext input:active,
+.tablebodytext input:focus {
+	background: @brand-primary;
+	border-color: @brand-primary;
+}
+
+.tablebodytext input {
+	border-color: @brand-secondary;
+	color:@brand-secondary;
+}
+
+//bx.sale.personal.order.list
+
+.bx_my_order .bx_my_order_table td a.btn-default {
+	color: @brand-secondary;
+}
+
+//catalog detail
+
+.bx-filter .bx-filter-input-checkbox input[type="checkbox"]:checked+.bx-filter-param-text:after, .bx-filter .bx-filter-popup-result,
+.bx-filter .bx-filter-input-checkbox input[type="radio"]:checked+.bx-filter-param-text:after {
+  background-color: @brand-primary;
+}
+
+//tuner
+
+.b-seller-tuner.side-nav {
+  
+  .btn-default {
+  
+    &,
+    &:hover,
+    &:active,
+    &:active:focus {
+      background-color: @brand-primary !important;
+      border-color: @brand-primary !important;
+    }
+  }
+}
+
+.side-nav .pcr-app .pcr-interaction input {
+
+  &.pcr-save {
+  
+    &,
+    &:hover,
+    &:active,
+    &:active:focus {
+      background-color: @brand-primary;
+      border-color: @brand-primary;
+      color: #fff;
+    
+      &:hover,
+      &:active {
+        opacity: .7
+      }
+    }
+      
+    &:hover,
+    &:focus {
+      background: lighten( @brand-primary, 5%);
+      border-color: lighten( @brand-primary, 5%);
+    }
+  }
+    
+  &.pcr-clear {
+    color: @brand-primary;
+  }
+}
+
+//template_styes.less
+
+.btn-default,
+.popup-window-buttons .bx_bt_button {
+	&:hover,
+	&:active,
+	&:focus {
+		background: @brand-primary;
+		border-color: @brand-primary;
+	}
+}
+
+.btn-default,
+.popup-window-buttons .bx_bt_button {
+	border-color: @brand-secondary;
+	color: @brand-secondary;
+}
+
+.btn-inverse { background-color: @brand-primary; border-color: @brand-primary; color: #fff !important;}
+.btn-inverse:hover,.btn-inverse:active,.btn-inverse:focus { background-color: transparent !important; border-color: @brand-secondary !important; color: @brand-secondary !important;}
+
+input.sale-paysystem-yandex-button-item {
+    border: 2px solid @brand-secondary !important;
+}
+input.sale-paysystem-yandex-button-item:hover,
+input.sale-paysystem-yandex-button-item:focus,
+input.sale-paysystem-yandex-button-item:active {
+   border: 2px solid @brand-primary !important;
+   background-color: @brand-primary !important;
+}
+
+#bx-soa-orderSave [type="checkbox"].filled-in:checked+label:after,
+#register-user-conf [type="checkbox"].filled-in:checked+label:after { 
+   border: 2px solid @brand-primary !important; 
+   background-color: @brand-primary !important; 
+}
+
+.form-group [type="checkbox"].filled-in:not(:checked)+label:after {
+  border-color: @brand-secondary;
+} 
+.form-group [type="checkbox"].filled-in:checked+label:after {
+  border-color: @brand-primary;
+  background-color: @brand-primary;
+}

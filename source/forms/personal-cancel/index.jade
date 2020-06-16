@@ -1,0 +1,57 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Личный кабинет - Мои заказы - Отмена | Seller
+
+block content
+   
+  .bj-page-content.container-fluid
+      
+    ol.breadcrumb.hidden-xs
+      li
+        a(href="/" title="Главная страница") Главная страница
+      li
+        a(href="/personal/index.php" title="Персональный кабинет") Персональный кабинет
+      li
+        a(href="/personal/index.php?SECTION=orders" title="Мои заказы") Мои заказы
+      li
+        span Отмена заказа №8
+        
+    hr.visible-xs-block
+    
+    h1 Персональный кабинет
+    
+    .row
+    
+      .col-sm-2
+      
+        include ../../components/personal.menu/template
+                
+      .col-sm-10
+      
+        a(href="/personal/index.php?SECTION=orders") В список заказов
+        .bx_my_order_cancel
+          form(method="post" action="/personal/?SECTION=orders&ID=8&CANCEL=Y")
+            input(type="hidden" name="CANCEL" value="Y")
+            input#sessid(type="hidden" name="sessid" value="7109821ca03e35b768c231e562e363b4")
+            input(type="hidden" name="ID" value="8")
+            | 			Вы уверены, что хотите отменить			
+            a(href="/personal/index.php?SECTION=orders&ID=8") заказ #8
+            | ?
+            b Отмена заказа необратима.
+            br
+            br
+            | 			Укажите, пожалуйста, причину отмены заказа:
+            br
+            textarea(name="REASON_CANCELED")
+            br
+            br
+            input(type="submit" name="action" value="Отменить заказ")
+        
+    hr.i-size-L
+    
+    a( href="http://seller-assembly.2px.ru/personal/index.php?SECTION=orders&ID=4&CANCEL=Y") http://seller-assembly.2px.ru/personal/index.php?SECTION=orders&ID=4&CANCEL=Y
+        
+    p Стили на сервере - /bitrix/components/bitrix/sale.personal.order.cancel/templates/.default/style.css
+    p Стили в маркапе - /components/sale.personal.order.cancel/style.css
+    p Стили элементов формы /forms/personal-cancel/form-elements-style.styl
