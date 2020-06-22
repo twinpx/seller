@@ -1,0 +1,656 @@
+
+<!-- start /components/sale.basket.basket/-->
+<link rel="stylesheet" href="/components/sale.basket.basket/style.css"/>
+<script src="/components/sale.basket.basket/script.js"></script>
+<hr class="visible-xs-block"/>
+<h1>Моя корзина</h1>
+<div id="basket-root" style="opacity: 1;" class="bx-basket bx-blue bx-step-opacity">
+  <div class="row">
+    <div class="col">
+      <div id="basket-warning" style="display: none;" class="alert alert-warning alert-dismissable"><span data-entity="basket-items-warning-notification-close" class="close">×</span>
+        <div data-entity="basket-general-warnings" style="display: none;"></div>
+        <div data-entity="basket-item-warnings" style="display: none;">В вашей корзине<a href="javascript:void(0)" data-entity="basket-items-warning-count"></a> требует внимания.</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div id="basket-items-list-wrapper" style="" class="mb-3 basket-items-list-wrapper basket-items-list-wrapper-height-fixed">
+        <div data-entity="basket-items-list-header" style="" class="basket-items-list-header">
+          <div data-entity="basket-filter" class="basket-items-search-field">
+            <div class="form input-group">
+              <input type="text" placeholder="Фильтр" data-entity="basket-filter-input" class="form-control"/>
+            </div>
+            <button type="button" data-entity="basket-filter-clear-btn" class="basket-items-search-clear-btn">×</button>
+          </div>
+          <div class="basket-items-list-header-filter"><a href="javascript:void(0)" data-entity="basket-items-count" data-filter="all" style="" class="basket-items-list-header-filter-item active">В корзине 9 товаров</a><a href="javascript:void(0)" data-entity="basket-items-count" data-filter="similar" style="display: none;" class="basket-items-list-header-filter-item"></a><a href="javascript:void(0)" data-entity="basket-items-count" data-filter="warning" style="display: none;" class="basket-items-list-header-filter-item"></a><a href="javascript:void(0)" data-entity="basket-items-count" data-filter="delayed" style="display: none;" class="basket-items-list-header-filter-item"></a><a href="javascript:void(0)" data-entity="basket-items-count" data-filter="not-available" style="display: none;" class="basket-items-list-header-filter-item"></a></div>
+        </div>
+        <div id="basket-items-list-container" style="min-height: calc((100vh - 15px) - 60px);" class="basket-items-list-container">
+          <div id="basket-items-list-overlay" style="display: none;" class="basket-items-list-overlay"></div>
+          <div id="basket-item-list" style="min-height: calc((100vh - 15px) - 60px);" class="basket-items-list">
+            <div id="basket-item-list-empty-result" style="display: none;" class="basket-search-not-found">
+              <div class="basket-search-not-found-icon"></div>
+              <div class="basket-search-not-found-text">По данному запросу товаров не найдено</div>
+            </div>
+            <table id="basket-item-table" class="basket-items-list-table">
+              <tbody>
+                <tr id="basket-item-37" data-entity="basket-item" data-id="37" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-37" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/pukhoviki/pukhovik_detskiy/" class="basket-item-image-link"><img alt="Пуховик детский " src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/b7c/160_160_1/b7cc22e867cc838333f7920fc2527263.jpg" class="basket-item-image"/></a>
+                        <div class="basket-item-label-text basket-item-label-big basket-item-label-top basket-item-label-left">
+                          <div class="d-none d-sm-block"><span title="Новинка">Новинка</span></div>
+                        </div>
+                      </div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/pukhoviki/pukhovik_detskiy/" class="basket-item-info-name-link"><span data-entity="basket-item-name">Пуховик детский </span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="XS" data-entity="basket-item-sku-field" data-initial="true" data-value-id="XS" data-sku-name="XS" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">XS</span></li>
+                                <li title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">S</span></li>
+                                <li title="M" data-entity="basket-item-sku-field" data-initial="false" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">M</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-old"><span class="basket-item-price-old-text">9&nbsp;500 руб.</span></div>
+                      <div class="basket-item-price-current"><span id="basket-item-price-37" class="basket-item-price-current-text">14 000 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-37" type="text" value="7" data-value="7" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-old"><span class="basket-item-price-old-text">9&nbsp;500 руб.</span></div>
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-37" class="basket-item-price-current-text">98 000 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                      <div class="basket-item-price-difference">Экономия<span id="basket-item-sum-price-difference-76" style="white-space: nowrap;">9&nbsp;500 руб.</span></div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-55" data-entity="basket-item" data-id="55" class="basket-items-list-item-container basket-items-list-item-container-expend">
+                  <td colspan="5" class="basket-items-list-item-notification">
+                    <div id="basket-item-height-aligner-55" style="min-height: 0px;" class="basket-items-list-item-notification-inner basket-items-list-item-notification-removed">
+                      <div class="basket-items-list-item-overlay"></div>
+                      <div class="basket-items-list-item-removed-container">
+                        <div>Товар <strong> Dolce & Gabbana сандалии,  Белый,  44</strong> был удален из корзины.</div>
+                        <div class="basket-items-list-item-removed-block"><a href="javascript:void(0)" data-entity="basket-item-restore-button">Восстановить</a><span data-entity="basket-item-close-restore-button" style="background-image: url( '/components/sale.basket.basket/img/return.svg' );" class="basket-items-list-item-clear-btn"></span></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr id="basket-item-16" data-entity="basket-item" data-id="16" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-16" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/pukhoviki/vetrovka_red/" class="basket-item-image-link"><img alt="Ветровка Red " src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/1f6/160_160_1/1f6d13bf323b8dd8e3d68d57610053bb.jpg" class="basket-item-image"/></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/pukhoviki/vetrovka_red/" class="basket-item-info-name-link"><span data-entity="basket-item-name">Ветровка Red </span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Красный" data-entity="basket-item-sku-field" data-initial="true" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);" class="basket-item-scu-item-inner"></span></li>
+                                <li title="Красный" data-entity="basket-item-sku-field" data-initial="true" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/cfd/cfd709846dcaa3dade007f50d17a0308.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="XS" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XS" data-sku-name="XS" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">XS</span></li>
+                                <li title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">S</span></li>
+                                <li title="M" data-entity="basket-item-sku-field" data-initial="true" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">M</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                          <div data-entity="basket-item-sku-notification" class="basket-items-list-item-double">
+                            <div class="alert alert-info alert-dismissable"><a href="javascript:void(0)" data-entity="basket-item-show-similar-link" class="basket-items-list-item-double-anchor">Этот товар</a> 
+                              уже есть в корзине в количестве 1 шт<br/><a href="javascript:void(0)" data-entity="basket-item-merge-sku-link" class="basket-items-list-item-double-anchor">Объединить товары в одну позицию c количеством 2 шт?</a>
+                              <div class="icon-warning"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-16" class="basket-item-price-current-text">890 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-16" type="text" value="1200" data-value="1200" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-16" class="basket-item-price-current-text">1 068 000 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-22" data-entity="basket-item" data-id="22" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-22" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/dzhinsy/dzhinsy_siwy/" class="basket-item-image-link"><img alt="Джинсы Siwy " src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/e5d/160_160_1/e5dbc184c366841a843cc1969f68137a.jpg" class="basket-item-image"/></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/dzhinsy/dzhinsy_siwy/" class="basket-item-info-name-link"><span data-entity="basket-item-name">Джинсы Siwy </span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="XS" data-entity="basket-item-sku-field" data-initial="true" data-value-id="XS" data-sku-name="XS" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">XS</span></li>
+                                <li title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">S</span></li>
+                                <li title="M" data-entity="basket-item-sku-field" data-initial="false" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">M</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-22" class="basket-item-price-current-text">3 940 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-22" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-22" class="basket-item-price-current-text">3 940 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-26" data-entity="basket-item" data-id="26" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-26" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/" class="basket-item-image-link"><img alt=" Prada рубашка в клетку,  Синий,  40,  M,  110,  38" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/2b9/160_160_1/2b9544590f46e836942545aa49ec52f5.jpg" class="basket-item-image"/>
+                          <div class="basket-item-label-text basket-item-label-big basket-item-label-top basket-item-label-left">
+                            <div style="color: #528b16; border-color: #528b16;" class="b-prop">Рекомендуем</div>
+                            <div style="color: #8e42b1; border-color:#8e42b1;" class="b-prop">Акция</div>
+                          </div></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/" class="basket-item-info-name-link"><span data-entity="basket-item-name"> Prada рубашка в клетку,  Синий,  40,  M,  110,  38</span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Синий" data-entity="basket-item-sku-field" data-initial="true" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);" class="basket-item-scu-item-inner"></span></li>
+                                <li title="Красный" data-entity="basket-item-sku-field" data-initial="false" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF" class="basket-item-scu-item"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры обуви</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">40</span></li>
+                                <li title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">41</span></li>
+                                <li title="42" data-entity="basket-item-sku-field" data-initial="false" data-value-id="42" data-sku-name="42" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">42</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="M" data-entity="basket-item-sku-field" data-initial="true" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">M</span></li>
+                                <li title="L" data-entity="basket-item-sku-field" data-initial="false" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">L</span></li>
+                                <li title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">XL</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-26" class="basket-item-price-current-text">500 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-26" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-26" class="basket-item-price-current-text">500 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-27" data-entity="basket-item" data-id="27" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-27" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/" class="basket-item-image-link"><img alt=" Prada рубашка в клетку,  Красный,  40,  L,  110,  46" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/a1c/160_160_1/a1ccaf318fbd82d75b73c28854acd0d0.jpg" class="basket-item-image"/>
+                          <div class="basket-item-label-text basket-item-label-big basket-item-label-top basket-item-label-left">
+                            <div style="color: #8e42b1; border-color:#8e42b1;" class="b-prop">Акция</div>
+                          </div></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/" class="basket-item-info-name-link"><span data-entity="basket-item-name"> Prada рубашка в клетку,  Красный,  40,  L,  110,  46</span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Синий" data-entity="basket-item-sku-field" data-initial="false" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF" class="basket-item-scu-item"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);" class="basket-item-scu-item-inner"></span></li>
+                                <li title="Красный" data-entity="basket-item-sku-field" data-initial="true" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры обуви</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">40</span></li>
+                                <li title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">41</span></li>
+                                <li title="42" data-entity="basket-item-sku-field" data-initial="false" data-value-id="42" data-sku-name="42" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">42</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="L" data-entity="basket-item-sku-field" data-initial="true" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">L</span></li>
+                                <li title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">XL</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-27" class="basket-item-price-current-text">600 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-27" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-27" class="basket-item-price-current-text">600 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-29" data-entity="basket-item" data-id="29" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-29" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/krosovki/diadora_heritage_krossovki/" class="basket-item-image-link"><img alt=" Diadora heritage кроссовки,  Белый,   40" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/d11/160_160_1/d11d183bda376858adb415619709c355.jpg" class="basket-item-image"/>
+                          <div class="basket-item-label-text basket-item-label-big basket-item-label-top basket-item-label-left">
+                            <div style="color: #8e42b1; border-color:#8e42b1;" class="b-prop">Акция</div>
+                          </div></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/krosovki/diadora_heritage_krossovki/" class="basket-item-info-name-link"><span data-entity="basket-item-name"> Diadora heritage кроссовки,  Белый,   40</span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Белый" data-entity="basket-item-sku-field" data-initial="true" data-value-id="white" data-sku-name="Белый" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/cfd/cfd709846dcaa3dade007f50d17a0308.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры обуви</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="36" data-entity="basket-item-sku-field" data-initial="false" data-value-id="36" data-sku-name="36" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">36</span></li>
+                                <li title="37" data-entity="basket-item-sku-field" data-initial="false" data-value-id="37" data-sku-name="37" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">37</span></li>
+                                <li title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">40</span></li>
+                                <li title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">41</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-29" class="basket-item-price-current-text">9 500 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-29" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-29" class="basket-item-price-current-text">9 500 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-30" data-entity="basket-item" data-id="30" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-30" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/" class="basket-item-image-link"><img alt=" Prada рубашка в клетку,  Синий,  40,  M,  110,  36" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/601/160_160_1/6017528ef6fbdf40245db59fee665f53.jpg" class="basket-item-image"/>
+                          <div class="basket-item-label-text basket-item-label-big basket-item-label-top basket-item-label-left">
+                            <div style="color: #8e42b1; border-color:#8e42b1;" class="b-prop">Акция</div>
+                          </div></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/rubashki-muzh/prada_rubashka_v_kletku/" class="basket-item-info-name-link"><span data-entity="basket-item-name"> Prada рубашка в клетку,  Синий,  40,  M,  110,  36</span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Синий" data-entity="basket-item-sku-field" data-initial="true" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);" class="basket-item-scu-item-inner"></span></li>
+                                <li title="Красный" data-entity="basket-item-sku-field" data-initial="false" data-value-id="red" data-sku-name="Красный" data-property="COLOR_REF" class="basket-item-scu-item"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/422/42286b95d6227e8a3ec22b3efdd12194.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры обуви</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="40" data-entity="basket-item-sku-field" data-initial="true" data-value-id="40" data-sku-name="40" data-property="SIZES_SHOES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">40</span></li>
+                                <li title="41" data-entity="basket-item-sku-field" data-initial="false" data-value-id="41" data-sku-name="41" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">41</span></li>
+                                <li title="42" data-entity="basket-item-sku-field" data-initial="false" data-value-id="42" data-sku-name="42" data-property="SIZES_SHOES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">42</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="M" data-entity="basket-item-sku-field" data-initial="true" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">M</span></li>
+                                <li title="L" data-entity="basket-item-sku-field" data-initial="false" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">L</span></li>
+                                <li title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">XL</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-30" class="basket-item-price-current-text">500 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-30" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-30" class="basket-item-price-current-text">500 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-31" data-entity="basket-item" data-id="31" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-31" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/rubashki-muzh/dzhinsovaya_rubashka_edwa/" class="basket-item-image-link"><img alt=" Джинсовая рубашка EDWA,  Синий" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/112/160_160_1/11243f73f44cd953351e1fed44c9cc8d.jpg" class="basket-item-image"/>
+                          <div class="basket-item-label-text basket-item-label-big basket-item-label-top basket-item-label-left">
+                            <div style="color: #8e42b1; border-color:#8e42b1;" class="b-prop">Акция</div>
+                          </div></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/rubashki-muzh/dzhinsovaya_rubashka_edwa/" class="basket-item-info-name-link"><span data-entity="basket-item-name"> Джинсовая рубашка EDWA,  Синий</span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Синий" data-entity="basket-item-sku-field" data-initial="true" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="S" data-entity="basket-item-sku-field" data-initial="false" data-value-id="S" data-sku-name="S" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">S</span></li>
+                                <li title="M" data-entity="basket-item-sku-field" data-initial="false" data-value-id="M" data-sku-name="M" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">M</span></li>
+                                <li title="L" data-entity="basket-item-sku-field" data-initial="true" data-value-id="L" data-sku-name="L" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">L</span></li>
+                                <li title="XL" data-entity="basket-item-sku-field" data-initial="false" data-value-id="XL" data-sku-name="XL" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">XL</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-31" class="basket-item-price-current-text">6 620 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-31" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-31" class="basket-item-price-current-text">6 620 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+                <tr id="basket-item-35" data-entity="basket-item" data-id="35" class="basket-items-list-item-container">
+                  <td class="basket-items-list-item-descriptions">
+                    <div id="basket-item-height-aligner-35" class="basket-items-list-item-descriptions-inner">
+                      <div class="basket-item-block-image"><a href="/catalog/kurtki/allegri_legkoe_palto/" class="basket-item-image-link"><img alt=" Allegri легкое пальто,  Коричневый,  52" src="http://seller-assembly.2px.ru/upload/resize_cache/iblock/35e/160_160_1/35e741bdb3a83e1ced71b5bcb7f57afa.jpg" class="basket-item-image"/></a></div>
+                      <div class="basket-item-block-info"><span data-entity="basket-item-delete" class="basket-item-actions-remove d-block d-md-none"></span>
+                        <h2 class="basket-item-info-name"><a href="/catalog/kurtki/allegri_legkoe_palto/" class="basket-item-info-name-link"><span data-entity="basket-item-name"> Allegri легкое пальто,  Коричневый,  52</span></a></h2>
+                        <div class="basket-item-block-properties">
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-image">
+                            <div class="basket-item-property-name">Цвет</div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="Коричневый" data-entity="basket-item-sku-field" data-initial="true" data-value-id="brown" data-sku-name="Коричневый" data-property="COLOR_REF" class="basket-item-scu-item selected"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/51f/51f98e0e3f588e930599f7431803aff3.jpg);" class="basket-item-scu-item-inner"></span></li>
+                                <li title="Синий" data-entity="basket-item-sku-field" data-initial="false" data-value-id="blue" data-sku-name="Синий" data-property="COLOR_REF" class="basket-item-scu-item"><span style="background-image: url(http://seller-assembly.2px.ru/upload/uf/734/73471079b994ca2b524f5d938d193041.jpg);" class="basket-item-scu-item-inner"></span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-sku-block" class="basket-item-property basket-item-property-scu-text">
+                            <div class="basket-item-property-name">Размеры одежды </div>
+                            <div class="basket-item-property-value">
+                              <ul class="basket-item-scu-list">
+                                <li title="48" data-entity="basket-item-sku-field" data-initial="false" data-value-id="48" data-sku-name="48" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">48</span></li>
+                                <li title="50" data-entity="basket-item-sku-field" data-initial="false" data-value-id="50" data-sku-name="50" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">50</span></li>
+                                <li title="52" data-entity="basket-item-sku-field" data-initial="true" data-value-id="52" data-sku-name="52" data-property="SIZES_CLOTHES" class="basket-item-scu-item selected"><span class="basket-item-scu-item-inner">52</span></li>
+                                <li title="54" data-entity="basket-item-sku-field" data-initial="false" data-value-id="54" data-sku-name="54" data-property="SIZES_CLOTHES" class="basket-item-scu-item"><span class="basket-item-scu-item-inner">54</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div data-entity="basket-item-property" class="basket-item-property-custom basket-item-property-custom-text">
+                            <div class="basket-item-property-custom-name">Тип цены</div>
+                            <div data-column-property-code="TYPE" data-entity="basket-item-property-column-value" class="basket-item-property-custom-value">Розничная цена</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price basket-items-list-item-price-for-one">
+                    <div class="basket-item-block-price d-none d-sm-block">
+                      <div class="basket-item-price-current"><span id="basket-item-price-35" class="basket-item-price-current-text">31 500 руб.</span></div>
+                      <div class="basket-item-price-title">цена за 1 шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-amount">
+                    <div data-entity="basket-item-quantity-block" class="basket-item-block-amount"><span data-entity="basket-item-quantity-minus" class="basket-item-amount-btn-minus"></span>
+                      <div class="basket-item-amount-filed-block">
+                        <input id="basket-item-quantity-35" type="text" value="1" data-value="1" data-entity="basket-item-quantity-field" class="basket-item-amount-filed"/>
+                      </div><span data-entity="basket-item-quantity-plus" class="basket-item-amount-btn-plus"></span>
+                      <div class="basket-item-amount-field-description">шт</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-price">
+                    <div class="basket-item-block-price">
+                      <div class="basket-item-price-current"><span id="basket-item-sum-price-35" class="basket-item-price-current-text">31 500 руб.</span></div>
+                      <div class="basket-item-price-title">Итого</div>
+                    </div>
+                  </td>
+                  <td class="basket-items-list-item-remove d-none d-md-block">
+                    <div class="basket-item-block-actions"><span data-entity="basket-item-delete" class="basket-item-actions-remove"></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div data-entity="basket-total-block" class="col">
+      <div data-entity="basket-checkout-aligner" class="basket-checkout-container">
+        <div class="basket-coupon-section">
+          <div class="basket-coupon-block-field">
+            <div class="basket-coupon-block-field-description">Введите код купона для скидки:</div>
+            <div class="form">
+              <div style="position: relative;" class="form-group">
+                <input type="text" id="" placeholder="" data-entity="basket-coupon-input" class="form-control"/><span class="basket-coupon-block-coupon-btn"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="basket-checkout-section">
+          <div class="basket-checkout-section-inner">
+            <div class="basket-checkout-block basket-checkout-block-total">
+              <div class="basket-checkout-block-total-inner">
+                <div class="basket-checkout-block-total-title">Итого:</div>
+                <div class="basket-checkout-block-total-description">Сумма НДС: 0 руб.</div>
+              </div>
+            </div>
+            <div class="basket-checkout-block basket-checkout-block-total-price">
+              <div class="basket-checkout-block-total-price-inner">
+                <div data-entity="basket-total-price" class="basket-coupon-block-total-price-current">1 219 160 руб.</div>
+              </div>
+            </div>
+            <div class="basket-checkout-block basket-checkout-block-btn">
+              <button data-entity="basket-checkout-button" class="btn btn-lg btn-default basket-btn-checkout">Оформить заказ</button>
+            </div>
+          </div>
+        </div>
+        <div class="basket-coupon-alert-section">
+          <div class="basket-coupon-alert-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end /components/sale.basket.basket/-->

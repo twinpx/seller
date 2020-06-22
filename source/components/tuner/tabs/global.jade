@@ -1,22 +1,40 @@
-﻿section.b-seller-tuner__colors
+﻿section.b-seller-tuner__colors-1( data-ajax-url="/components/tuner/json/color.json" data-ajax-method="GET" )
 
-  | Цветовая схема
+  | Основной цвет
   
   hr.i-line.i-size-L
   
   .b-seller-tuner__block
-    input#global-color( type="hidden" name="global-color" value="blue" )
-    .b-item.i-default( style="background-color: blue;" )
+    
+    input#global-color-1( type="hidden" name="global-color-1" value="blue" )
+    .b-item.i-active.i-default( style="background-color: blue;" )
     .b-item( style="background-color: lightblue;" )
     .b-item( style="background-color: yellow;" )
     .b-item( style="background-color: orange;" )
     .b-colorpicker( title="Выбрать цвет" data-default="f502aa" )
       div
+    
+hr.i-size-L
       
+section.b-seller-tuner__colors-2( data-ajax-url="/components/tuner/json/color.json" data-ajax-method="GET" )
+
+  | Дополнительный цвет
+  
+  hr.i-line.i-size-L
+  
+  .b-seller-tuner__block
+    
+    input#global-color-2( type="hidden" name="global-color-2" value="blue" )
+    .b-item.i-active.i-default( style="background-color: blue;" )
+    .b-item( style="background-color: lightblue;" )
+    .b-item( style="background-color: yellow;" )
+    .b-item( style="background-color: orange;" )
+    .b-colorpicker( title="Выбрать цвет" data-default="f502aa" )
+      div      
     
 hr.i-size-L
 
-section.b-seller-tuner__fonts
+section.b-seller-tuner__fonts( data-ajax-url="/components/tuner/json/font.json" data-ajax-method="GET" )
 
   | Шрифт
   
@@ -24,40 +42,95 @@ section.b-seller-tuner__fonts
   
   .b-seller-tuner__block
     input#global-font( type="hidden" name="global-font" value="blue" )
-    div Open Sans
-    div Montserrat
-    div Roboto
-    div PT Sans
-    div Lora
+    div.i-active.i-default( style="font-family: 'Open Sans' !important;" ) Open Sans
+    div( style="font-family: 'Montserrat' !important;" ) Montserrat
+    div( style="font-family: 'Roboto' !important;" ) Roboto
+    div( style="font-family: 'PT Sans' !important;" ) PT Sans
+    div( style="font-family: 'Lora' !important;" ) Lora
     
 hr.i-size-L
 
-section.b-seller-tuner__tags
+section.b-seller-tuner__font-size( data-ajax-url="/components/tuner/json/font-size.json" data-ajax-method="GET" )
+
+  | Размер шрифта
+  
+  hr.i-line.i-size-L
+  
+  .b-seller-tuner__block
+    input#global-font-size( type="hidden" name="global-font-size" value="11pt" )
+    div.i-active.i-default( style="font-size: 10.5pt;" data-font-size="11pt" ) 11 pt
+    div( style="font-size: 12pt;" data-font-size="12pt" ) 12 pt
+    div( style="font-size: 13pt;" data-font-size="13pt" ) 13 pt
+    
+hr.i-size-L
+
+section.b-seller-tuner__screen-width( data-ajax-url="/components/tuner/json/screen-width.json" data-ajax-method="GET" )
+
+  | Ширина экрана
+  
+  hr.i-line.i-size-L
+  
+  .b-seller-tuner__block
+    input#global-screen-width( type="hidden" name="global-screen-width" value="blue" )
+    div.i-active.i-default 1200 px
+    div 1355 px
+    div 1500 px
+    div 1700 px
+    div 99%
+    
+hr.i-size-L
+
+section.b-seller-tuner__tags( data-ajax-url='/components/tuner/json/tags.json', data-ajax-method='GET' )
 
   | Цвета ярлыков
   
   hr.i-line.i-size-L
   
   .b-seller-tuner__block
-    .b-item.i-discount( data-default="ea4b4b" )
-      input#global-discount-color( type="hidden" name="global-discount-color" value="ea4b4b" )
-      .b-tag-color.b-colorpicker( style="background-color: #ea4b4b;" )
+  
+    .b-item.i-discount( data-tag='discount' )
+      input#global-discount-color( type='hidden', name='global-discount-color', value='ea4b4b' )
+      .b-tag-color.b-colorpicker( data-default='ea4b4b' )
         div
       .b-tag-name Скидка
-    .b-item.i-hit( data-default="86ad34" )
-      input#global-hit-color( type="hidden" name="global-hit-color" value="86ad34" )
-      .b-tag-color.b-colorpicker( style="background-color: #86ad34;" )
+      
+    .b-item.i-hit( data-tag='hit' )
+      input#global-hit-color( type='hidden', name='global-hit-color', value='86ad34' )
+      .b-tag-color.b-colorpicker( data-default='86ad34' )
         div
       .b-tag-name Хит
-    .b-item.i-new
-      input#global-new-color( type="hidden" name="global-new-color" value="ea4b4b" )
-      .b-tag-color( style="background-color: #ea4b4b;" )
+      
+    .b-item.i-new( data-tag='new' )
+      input#global-new-color( type='hidden', name='global-new-color', value='ea4b4b' )
+      .b-tag-color.b-colorpicker( data-default='ea4b4b' )
+        div
       .b-tag-name Новинка
-    .b-item.i-recommended
-      input#global-recommended-color( type="hidden" name="global-recommended-color" value="2f7cdb" )
-      .b-tag-color( style="background-color: #2f7cdb;" )
+      
+    .b-item.i-recommended( data-tag='recommended' )
+      input#global-recommended-color(type='hidden', name='global-recommended-color', value='2f7cdb')
+      .b-tag-color.b-colorpicker( data-default='2f7cdb' )
+        div
       .b-tag-name Рекомендуем
-    .b-item.i-action
-      input#global-action-color( type="hidden" name="global-action-color" value="4be1ea" )
-      .b-tag-color( style="background-color: #4be1ea;" )
+      
+    .b-item.i-action( data-tag='action' )
+      input#global-action-color( type='hidden', name='global-action-color', value='4be1ea' )
+      .b-tag-color.b-colorpicker( data-default='4be1ea' )
+        div
       .b-tag-name Акция
+      
+    p
+      | Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет.
+      | Заголовок H2
+      | Выбрав необходимые товары или услуги, пользователь обычно имеет возможность тут же на сайте выбрать метод оплаты и доставки. Совокупность отобранных товаров, способ оплаты и доставки представляют собой законченный заказ, который оформляется на сайте путем сообщения минимально необходимой информации о покупателе. Информация о покупателе может храниться в базе данных магазина если бизнес-модель магазина рассчитана на повторные покупки, или же отправляться разово.
+      | Отслеживание ведется с помощью методов веб-аналитики. Часто при оформлении заказа предусматривается возможность сообщить некоторые дополнительные пожелания от покупателя продавцу.
+      | Заголовок H3
+      | Однако, в этом случае следует быть осторожным, поскольку доказать неполучение товара электронным способом существенно сложнее, чем в случае физической доставки.
+      | По данным опроса портала Mail.ru необходимость регистрации при заказе товара или услуги часто мешает пользователям совершать покупки в интернет-магазинах. В интернет-магазинах, рассчитанных на повторные покупки, также ведется отслеживание возвратов посетителя и история покупок. Кроме того, существуют сайты, в которых заказ принимается по телефону, электронной почте, Jabber или ICQ.
+      | Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет.
+      | Заголовок H2
+      | Выбрав необходимые товары или услуги, пользователь обычно имеет возможность тут же на сайте выбрать метод оплаты и доставки. Совокупность отобранных товаров, способ оплаты и доставки представляют собой законченный заказ, который оформляется на сайте путем сообщения минимально необходимой информации о покупателе. Информация о покупателе может храниться в базе данных магазина если бизнес-модель магазина рассчитана на повторные покупки, или же отправляться разово.
+      | Отслеживание ведется с помощью методов веб-аналитики. Часто при оформлении заказа предусматривается возможность сообщить некоторые дополнительные пожелания от покупателя продавцу.
+      | Заголовок H3
+      | Однако, в этом случае следует быть осторожным, поскольку доказать неполучение товара электронным способом существенно сложнее, чем в случае физической доставки.
+
+

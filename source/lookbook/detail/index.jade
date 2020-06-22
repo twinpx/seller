@@ -1,0 +1,20 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title LookBook | Seller
+
+block content
+
+  .container-fluid
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        a(href='/lookbook/', title='LookBook') LookBook
+      li
+        span Джинсы с туфлями
+        
+    hr
+    
+    include ../../components/lookbook.detail/template

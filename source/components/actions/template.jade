@@ -1,0 +1,81 @@
+// start /components/actions/
+
+link( rel="stylesheet", href="/components/actions/style.css" )
+script( src="/components/actions/script.js" )
+
+.b-actions
+  .row
+    .col-sm-8
+      h1 Верблюжье пальто
+    .col-sm-4
+      include ../../modules/catalog-tags/include
+  
+  hr
+    
+  .row
+
+    .col-sm-6
+      
+      .bj-sorting
+        .text-muted Сортировка:
+        .dropdown
+          a#dLabel(href='#', role='button', data-toggle='dropdown', data-target='#', aria-expanded='false')
+            | Недорогие вещи для зимы
+            span.caret
+          ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+            li
+              a(href='/catalog/shoes/?sort=cheap#sort') Недорогие
+            li
+              a(href='/catalog/shoes/?sort=new#sort') Новые
+            li
+              a(href='/catalog/shoes/?sort=popular#sort') Популярные
+        .clearfix
+    hr.visible-xs
+        
+    .col-sm-6.text-right.hidden-xs
+      include ../../modules/pagination/include
+      
+  hr.i-line.i-size-L
+
+  include ../../components/catalog.collection/meta
+  include ../../modules/gallery/fotorama
+  
+  include ../../components/catalog.collection/template-4
+  
+  include ../../components/catalog.collection/modals.jade
+        
+  hr.visible-xs-block.i-size-L
+    
+  .col-sm-9
+  
+    .row
+
+      .col-sm-6
+        .bj-sorting
+          .text-muted Сортировка:
+          .dropdown
+            a#dLabel(href='#', role='button', data-toggle='dropdown', data-target='#', aria-expanded='false')
+              | Недорогие вещи для зимы
+              span.caret
+            ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+              li
+                a(href='/catalog/shoes/?sort=cheap#sort') Недорогие
+              li
+                a(href='/catalog/shoes/?sort=new#sort') Новые
+              li
+                a(href='/catalog/shoes/?sort=popular#sort') Популярные
+          .clearfix
+      hr.visible-xs
+      .col-sm-6
+      
+    hr.i-line.i-size-L
+      
+  .row
+        
+    .col-sm-6.col-sm-offset-6.text-right
+      
+      include ../../modules/pagination/include
+      
+  hr
+
+// end /components/actions/

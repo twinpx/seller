@@ -1,0 +1,4 @@
+{
+  "STATUS": "Y",
+  "RESULT": ".b-float-phone__bg { background-color: blue !important;} .b-seller-tuner.side-nav .b-h2 a, .b-seller-tuner.side-nav .b-h2 a:hover, .b-seller-tuner.side-nav .b-h2 a:active, .b-seller-tuner.side-nav .b-h2 a:focus { color: blue !important; } .btn-default, .popup-window-buttons .bx_bt_button { border-color: blue !important; color: blue !important; } a {color: blue !important;} .side-nav .b-seller-tuner__bottom a, .side-nav .b-seller-tuner__bottom a:hover, .side-nav .b-seller-tuner__bottom a:active, .side-nav .b-seller-tuner__bottom a:focus { color: blue!important; } .btn-default:hover, .btn-default:active, .btn-default:focus { background-color: blue !important; color: #fff !important; }"
+}

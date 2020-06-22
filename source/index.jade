@@ -5,37 +5,93 @@ block title
 
 block content
 
-  .container
-  
-    include ./components/tuner/button
-    h1 seller main page
+  .container-fluid
     
+    hr.i-size-L
+    hr.i-size-L
+    hr.i-size-L
+    
+    h1 Seller
+    
+    h2 GUI
     ul
       li
-        a( href="/catalog/" ) Catalog
+        a( href="/gui/" ) Заголовки и текст
+    
+    h2 Каталог
+    ul
+      li
+        a( href="/catalog-props/" ) Catalog
       li
         a( href="/catalog/detail/" ) Catalog detail
       li
+        a( href="/catalog/detail-props/" ) Catalog detail with 4 props
+      li
+        a( href="/catalog/catalog-filter/" ) Catalog filter
+        
+    h2 Другие страницы
+    ul
+      li
         a( href="/lookbook/" ) Lookbook
+      li
+        a( href="/lookbook/detail/" ) Lookbook detail
+      li
+        a( href="/personal/cart/" ) Моя корзина
+      li
+        a( href="/personal/cart-compact/" ) Моя корзина (compact version)
+      li
+        a( href="/instagram/" ) Instagram
+      li
+        a( href="/shops/" ) Магазины
+      li
+        a( href="/shops/shop-detail/" ) Магазин детально
+      li
+        a( href="/actions/" ) Акции
         
-      hr
-      
-      link( rel="stylesheet" href="/components/catalog.collection/style.css" )
-      link( rel="stylesheet" href="/components/catalog.detail/style.css" )
+    h2 Блоки
+    ul
+      li
+        a( href="/blocks/catalogue-tabs/" ) Вкладки с товарами (components/catalogue-tabs/)
+      li
+        a( href="/blocks/banners/" ) Баннеры на главной
+      li
+        a( href="/blocks/top-banner/" ) Топ баннер
         
-      .b-catalog-detail__props-icons
-        .b-prop.i-discount( style="color: #ca3538; border-color: #ca3538;" ) 35%
-        .b-prop.i-recommended( style="color: #528b16; border-color: #528b16;" ) Рекомендуем
-        .b-prop.i-hit( style="color: #f09e00; border-color: #f09e00;" ) Хит
-        .b-prop.i-action( style="color: #8e42b1; border-color: #8e42b1;" ) Акция
-        .b-prop.i-new( style="color: #8e42b1; border-color: #8e42b1;" ) Новинка
+    h2 Шапки
+    ul
+      li
+        a( href="/headers/1_6_0_0/" ) 1_6_0_0
+      li
+        a( href="/headers/1_6_0_1/" ) 1_6_0_1
+      li
+        a( href="/headers/1_6_0_2/" ) 1_6_0_2
+      li
+        a( href="/headers/1_6_0_3/" ) 1_6_0_3
+      li
+        a( href="/headers/icons/" ) Иконки
         
-      hr
+    h2 Формы
+    ul
+      li
+        a( href="/forms/auth/" ) Авторизация
+      li
+        a( href="/forms/reg/" ) Регистрация
+      li
+        a( href="/forms/forgot-password/" ) Восстановление пароля
+      li
+        a( href="/forms/catalog-detail-comment/" ) Товар - Отзыв к товару
+      li
+        a( href="/forms/catalog-detail-buy/" ) Товар - Купить в 1 клик
+      li
+        a( href="/forms/cart/" ) Скидка в корзине
+      li
+        a( href="/forms/order/" ) Оформление заказа
+      li
+        a( href="/forms/contacts/" ) Контакты
+      li
+        a( href="/forms/personal/" ) Личный кабинет
+      li
+        a( href="/forms/personal-cancel/" ) Личный кабинет - Отмена заказа <span style="color: red;">(оформить)</span>
+      li
+        a( href="/forms/search/" ) Результаты поиска <span style="color: red;">(оформить)</span>
         
-      div( style="position: absolute;" )
-        .b-catalog-element__props-icons
-          .b-prop.i-discount( style="color: #ca3538; border-color: #ca3538;" ) 35%
-          .b-prop.i-recommended( style="color: #528b16; border-color: #528b16;" ) Рекомендуем
-          .b-prop.i-hit( style="color: #f09e00; border-color: #f09e00;" ) Хит
-          .b-prop.i-action( style="color: #8e42b1; border-color: #8e42b1;" ) Акция
-          .b-prop.i-new( style="color: #8e42b1; border-color: #8e42b1;" ) Новинка

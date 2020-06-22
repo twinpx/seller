@@ -1,7 +1,11 @@
+html
+  font-size 11pt
+
 body
   background #fff
   font-family "Open Sans", Arial
-  font-weight 300
+  font-weight 400
+  font-size 1rem
   color #666666
   line-height 1.7
   
@@ -20,7 +24,10 @@ h1
     
 h2,
 .b-h2
-  font-size 13.5pt
+  font-size 1.35rem
+  
+  @media( max-width 767px )
+    font-size 1.2rem
   
 hr
     
@@ -46,29 +53,9 @@ hr
     padding-right 12px
     padding-left 12px
     
-.b-hr-heading
-  border-top 1px solid #f2f2f2
-  font-family "Open Sans","Times New Roman",serif
-  font-size 10.5pt
-  font-weight 400
-  position relative
-  margin 15px 0
-
-.b-hr-heading__content
-  position absolute
-  width 100%
-  text-align center
-  top -12px
-  left 0
-  display block
-
-.b-hr-heading__content span
-  display inline-block
-  background #fff
-  padding 0 8px
-  
-  .i-grey &
-    background transparent
+  &-lg,
+  &-group-lg > &
+    font-size: 1.2rem
   
 .b-section
   padding 50px 0
@@ -85,6 +72,10 @@ hr
   transition( all 0.3s linear )
   box-shadow 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 20px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
   height 100%
+  
+  &.i-no-transition
+    transition( none !important )
+    transform( translateX(0) !important)
   
 .text-info {
     color: #f33;
@@ -122,4 +113,50 @@ hr
   100%
     transform:rotate(360deg)
 
-.container-fluid { padding-right: 15px; padding-left: 15px; }
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  transition( width .2s ease );
+}
+
+.bj-hr-heading,
+.b-hr-heading
+  border-top 1px solid #f2f2f2
+  font-size 1rem
+  font-weight normal
+  position relative
+  margin 40px 0
+  
+  &.i-no-line
+    border-top-color transparent
+    
+    span,
+    a
+      background-color transparent
+  
+  @media( max-width 767px )
+    font-size .9rem
+
+  &__content
+    position absolute
+    width 100%
+    text-align center
+    top -1rem
+    left 0
+    display block
+    
+    @media( max-width 767px )
+      top -.8rem
+    
+    span,
+    a
+      display inline-block
+      background #fff
+      padding 0 8px
+  
+      .i-grey &
+        background transparent
+        
+.row
+  margin-right -15px
+  margin-left -15px

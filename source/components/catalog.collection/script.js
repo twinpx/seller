@@ -71,7 +71,7 @@
     //scroll to paginator
     if ( String( window.location.search ).search( 'PAGEN_2=' ) !== -1 ) {
       setTimeout( function() {
-        $.scrollTo( $( '.b-pagination-block:eq(0)' ).offset().top - 30, 500 );
+        $.scrollTo( $( '.b-catalog-collection:eq(0)' ).offset().top - 30, 500 );
       }, 1500 );
     }
     
@@ -269,7 +269,7 @@
         
         //set cookie
         if ( window.Cookies ) {
-          Cookies.set( 'size', $this.text(), { expires: 365, path: window.location.href });
+          Cookies.set( 'size', $this.text(), { expires: 365, path: window.location.origin });
         }
         
         if ( $element.find( '.b-catalog-element__colors-item' ).length ) {  
@@ -407,6 +407,10 @@
         if ( $data.length === 1 ) {
           showOffer( $data );
           return;
+        }
+          
+        if ( $element.find( '.b-catalog-element__data[ data-actual-item ]' ).length ) {
+          showOffer( $element.find( '.b-catalog-element__data div[ data-id=' + $element.find( '.b-catalog-element__data' ).data( 'actual-item' ) + ' ]' ));
         }
       
         //get size by default

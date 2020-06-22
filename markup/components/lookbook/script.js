@@ -1,1 +1,6 @@
-!function(a){"use strict";a(function(){a(".bj-lookbook__i img").lazyload()})}(jQuery);
+(function($) {
+    "use strict";
+    $(function() {
+        $(".bj-lookbook__i img").lazyload();
+    });
+})(jQuery);

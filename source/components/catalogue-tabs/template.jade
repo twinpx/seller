@@ -1,0 +1,61 @@
+// start /components/catalogue-tabs/
+
+link( rel="stylesheet", href="/components/catalogue-tabs/style.css" )
+script( src="/components/catalogue-tabs/script.js" )
+
+.bj-catalogue-tabs
+
+  // Nav tabs
+  ul.nav.nav-tabs.nav-justified(role='tablist')
+    li.active
+      a.bj-icon-link( href="#recommend-1" role="tab" data-toggle="tab" )
+        span.bj-icon.i-thumbs-up.bj-icon-link__icon
+        span.bj-icon-link__link Рекомендуем
+    li
+      a.bj-icon-link( href="#new-1" role="tab" data-toggle="tab" )
+        span.bj-icon.i-new.bj-icon-link__icon
+        span.bj-icon-link__link Новинки
+    li
+      a.bj-icon-link( href="#hit-1" role="tab" data-toggle="tab" )
+        span.bj-icon.i-hit.bj-icon-link__icon
+        span.bj-icon-link__link Хит продаж
+    li
+      a.bj-icon-link( href="#sales-1" role="tab" data-toggle="tab" )
+        span.bj-icon.i-flash.bj-icon-link__icon
+        span.bj-icon-link__link Акции
+
+        
+  .tab-content
+    #recommend-1.tab-pane.active( data-tab="Рекомендуем" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/meta
+        
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+    #new-1.tab-pane( data-tab="Новинки" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+    #hit-1.tab-pane( data-tab="Хит продаж" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+    #sales-1.tab-pane( data-tab="Акции" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+
+
+// end /components/catalogue-tabs/

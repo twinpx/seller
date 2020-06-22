@@ -1,0 +1,24 @@
+﻿extends ../layouts/main.jade
+
+block title
+  title Instagram | Seller
+
+block content
+
+  .container-fluid
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        a(href='/catalog/', title='Каталог') Каталог
+      li
+        a(href='/catalog/muzhchinam/', title='Мужчинам') Мужчинам
+      li
+        a(href='/catalog/shoes/', title='Обувь') Обувь
+      li
+        a(href='/catalog/muzhskie_botinki/', title='Мужские ботинки') Мужские ботинки
+      li
+        span Кожанные ботинки
+        
+    include ../components/instagram/template

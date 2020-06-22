@@ -1,0 +1,31 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Shop detail | Seller
+
+block content
+
+  .container-fluid
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная') Главная
+      li
+        a(href='/shops/', title='Магазины') Магазины
+      li
+        a(href='/shops/shop-detail/', title='Москва') Москва
+
+  .container-fluid
+    
+    .row
+      .col-sm-8
+        hr.visible-xs-block
+        h1( itemprop="name" ) Seller. Торговый центр «Авиапарк»
+      .col-sm-4
+        include ../../modules/catalog-tags/include
+        
+  include ../../components/shop.detail/template
+  
+  hr.i-size-L
+  hr.i-size-L
+  hr.i-size-L

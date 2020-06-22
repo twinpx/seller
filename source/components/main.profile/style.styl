@@ -1,0 +1,62 @@
+@import '../../styl/component-include.styl'
+
+.bx_profile .main-profile-block-date-info {
+	margin: 0 63px 14px;
+	color: #999;
+}
+.bx_profile .main-profile-block-date-info .small {
+	margin-right: 30px;
+	font-size: 8pt;
+}
+
+.bx_profile .main-profile-form-password-annotation{
+	margin: 1px 0 15px;
+	color: #333;
+	line-height: normal;
+}
+
+.bx_profile .main-profile-block-date-info, .bx_profile .form-group{
+	overflow-y: hidden;
+}
+
+@media (min-width: 992px)
+{
+	.text-md-right{
+		text-align: right;
+	}
+
+	.form-group{
+		display: table;
+		width: 100%;
+	}
+}
+
+.bx_profile .main-profile-social-block {
+	margin-top: 44px;
+	border: 1px solid #f2f2f2;
+	padding: 32px 90px 29px;
+}
+
+.main-profile-form-buttons-block {
+	padding: 18px 63px;
+	margin: 0;
+}
+
+@media (max-width: 767px) {
+	.bx_profile .main-profile-block-date-info {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.bx_profile .form-group,
+	.main-profile-form-buttons-block {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.bx_profile form,
+	.bx_profile .main-profile-social-block {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+}
+    
+@import '../../forms/personal/form-elements-style.styl'

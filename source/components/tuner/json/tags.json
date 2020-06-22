@@ -1,0 +1,4 @@
+{
+  "STATUS": "Y",
+  "RESULT": ".b-catalog-detail__props-icons .i-discount { color: blue !important; border-color: blue !important; } .b-catalog-detail__props-icons .i-recommended { color: pink !important; border-color: pink !important;} .b-catalog-detail__props-icons .i-hit { color: orange !important; border-color: orange !important;} .b-catalog-detail__props-icons .i-action { color: lightgreen !important; border-color: lightgreen !important;} .b-catalog-detail__props-icons .i-new { color: red !important; border-color: red !important;}"
+}

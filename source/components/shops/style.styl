@@ -1,0 +1,115 @@
+@import '../../styl/component-include.styl'
+
+.b-shops
+  position relative
+  padding 10px 0 30px
+  
+  .container-fluid
+    position relative
+    z-index 2
+  
+  .bj-hr-heading,
+  .b-hr-heading
+    margin-right 70px
+    margin-left 70px
+    z-index 5
+  
+  .swiper-container
+    padding-top 47px
+    margin-top -47px
+  
+  .swiper-wrapper
+    align-items stretch
+  
+  .swiper-slide
+    height auto
+    
+  .swiper-button-next,
+  .swiper-button-prev
+    top 0
+    left auto
+    margin-top 0
+    width 25px
+    height 25px
+    background-repeat no-repeat
+    background-position center
+    background-size contain
+    
+    &:after
+      display none
+      
+    &:focus
+      outline none
+    
+  .swiper-button-next
+    right 10px
+    
+  .swiper-button-prev
+    right 45px
+    
+  .swiper-lazy-preloader
+    border-color transparent
+    border-radius 0
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    width 60px
+    height 60px
+    margin-top -30px
+    margin-left -30px
+  
+  &-bg
+    background-color #f2f2f2
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    opacity .07
+    z-index 1
+    
+  &-card
+    background-color #fff
+    padding 15px 15px 25px
+    height 100%
+    min-height 150px
+    color #333
+    font-size .95rem
+    line-height 1.7
+    
+    &__img
+      margin -15px -15px 25px -15px
+      display block
+      
+      img
+        width 100%
+        
+    h6
+      font-size .95rem
+      margin 0 0 20px
+        
+    p
+      color #666666
+      font-size .85rem
+      line-height 1.3
+      margin 16px 0 0
+      
+  /*anti placeholder*/
+  &.i-swiper-init
+    height auto !important
+  
+    .b-shops__placeholder
+      display none !important
+  
+    .swiper-wrapper
+      position relative !important
+      top auto !important
+      left auto !important
+      opacity 1 !important
+    
+    .swiper-button-next,
+    .swiper-button-prev
+      display block !important

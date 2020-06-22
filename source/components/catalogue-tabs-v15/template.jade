@@ -1,0 +1,44 @@
+// start /components/catalogue-tabs-v15/
+
+link( rel="stylesheet", href="/components/catalogue-tabs-v15/style.css" )
+script( src="/components/catalogue-tabs-v15/script.js" )
+
+.bj-catalogue-tabs.i-v15
+
+  // Nav tabs
+  ul.nav.nav-tabs(role='tablist')
+        
+  .tab-content
+    #recommend-0.tab-pane.active( data-tab="Рекомендуем" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/meta
+        
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+    #new-0.tab-pane( data-tab="Новинки" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+    #hit-0.tab-pane( data-tab="Хит продаж" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+    #sales-0.tab-pane( data-tab="Акции" )
+      .bx_catalog_top_home
+      
+        include ../../components/catalog.collection/template-4
+        hr.i-size-XL
+        include ../../components/catalog.collection/template-4
+        
+
+
+// end /components/catalogue-tabs/
