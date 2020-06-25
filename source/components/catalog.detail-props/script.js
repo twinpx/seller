@@ -129,6 +129,11 @@
       e.preventDefault();
       var $btn = $( this );
       
+      if ( $btn.hasClass( 'i-gray' )) {
+        window.location = $btn.attr( 'href' );
+        return;
+      }
+      
       $.ajax({
         url: $btn.data( 'ajax-url' ),
         type: 'GET',
@@ -142,6 +147,18 @@
             $( 'div[data-id=' + $( '.b-catalog-detail' ).attr( 'data-id' ) + ']' ).data({ num: data.num });
             //num of the products in a cart
             $( '#bx_cart_num' ).text( data.cart );
+            
+            //popup window
+            $( '#buyDetailPopup' ).addClass( 'i-show' );
+            setTimeout( function() {
+              $( '#buyDetailPopup' ).addClass( 'i-animate' );
+            }, 100);
+            
+            //button transformation
+            $btn.closest( '.b-catalog-detail__button-block' ).find( '.col-sm-6:eq(0)' ).css({ width: '100%' });
+            $btn.closest( '.b-catalog-detail__button-block' ).find( '.col-sm-6:eq(1)' ).remove();
+            
+            $btn.addClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
           }
         },
         error: function() {}
@@ -149,36 +166,14 @@
       
     });
     
-    //buy modal window
-    $( '#buyDetailModal' ).on( 'show.bs.modal', function (e) {
-      var size = $( '.b-catalog-detail__sizes-item.i-active' ).text();
-      var color = $( '.b-catalog-detail__colors-item.i-active' ).css( 'backgroundImage' );
-      var colorClass = $( '.b-catalog-detail__colors-item.i-active' ).attr( 'class' );
-      var $div = $( '#catalogDetailData div[ data-id=' + $( '.b-catalog-detail' ).attr( 'data-id' ) + ']' );
-      var src = '';
-      var srcString = '';
-      
-      if ( $div.data( 'big-photo' )) {
-        srcString = String( $div.data( 'big-photo' ));
-        src = srcString.substring( 0 , srcString.indexOf(';')) || srcString;
-      } else if ( $div.data( 'photo' )) {
-        srcString = String( $div.data( 'photo' ));
-        src = srcString.substring( 0 , srcString.indexOf(';')) || srcString;
-      }
-      
-      if ( src ) {
-        $( '#buyDetailModal .b-buy-modal-img' ).html( '<img src="' + src + '" alt="">' );
-      } else {
-        $( '#buyDetailModal .b-buy-modal-img' ).html( '' );
-      }
-      
-      $( '#buyDetailModal .b-buy-modal-text' ).html( '<h2>' + $( 'h1' ).text() + '</h2><p><span class="' + colorClass + '" style=\'background-image: ' + color + '; margin-bottom: 20px;\'></span><br>' + size + '</p>' );
+    //popup window
+    $( '#buyDetailPopupOpaco, .b-catalog-detail-popup__close' ).click(function(e) {
+        e.preventDefault();
+        $( '#buyDetailPopup' ).removeClass( 'i-animate' );
+        setTimeout( function() {
+          $( '#buyDetailPopup' ).removeClass( 'i-show' );
+        }, 500);
     });
-  
-		$( '#buyDetailModal .btn-reset' ).click( function(e) {
-      e.preventDefault();
-			$( '#buyDetailModal .modal-header .close' ).click();
-		});
     
     //one click link
     $( '#oneClick' ).on( 'show.bs.modal', function (e) {
@@ -888,7 +883,8 @@
       });
       for ( var key in $div.data()) {
         if ( key.search( 'property' ) !== -1 ) {
-          $( '.catalogDetailP' + key.substring(1)).text( $div.data( key )).parent().removeClass( 'hidden' );
+          //$( '.catalogDetailP' + key.substring(1)).text( $div.data( key )).parent().removeClass( 'hidden' );
+          $(".catalogDetailP" + key.substring(1)).html( $div.data(key)).parent().removeClass("hidden");
         }
       }
       //price

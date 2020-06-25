@@ -52,8 +52,12 @@
           span 2000.00 руб.
           s 7000 руб.
           
-        .b-catalog-element__button
-          a.btn.btn-default.btn-size-S( href="#" data-toggle="modal" data-target="#buyModal" data-ajax-url="/components/catalog.detail/buy.json" ) Купить
+        a.btn.btn-default.btn-size-S( href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" )
+          span.i-show Купить
+          span В корзине
+          
+        a.btn.btn-default.btn-size-S.i-gray( href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" )
+          span.i-show В корзине
           
         .b-catalog-element__subscribe
           a.btn.btn-default.btn-size-S( href="#" data-toggle="modal" data-target="#subscribeModal" data-ajax-url="/components/catalog.collection/subscribe.html?somedata=value" ) Подписаться

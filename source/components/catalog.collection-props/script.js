@@ -116,31 +116,6 @@
       
     }
     
-    //buy modal window
-    $( '#buyModal' ).on( 'show.bs.modal', function (e) {
-      var $button = $( e.relatedTarget );
-      var $element = $button.closest( '.b-catalog-element' );
-      var title = $element.find( '.b-catalog-element__title' ).text();
-      var size = $element.find( '.b-catalog-element__sizes-item.i-active' ).text();
-      var color = $element.find( '.b-catalog-element__colors-item.i-active' ).css( 'backgroundImage' );
-      var colorClass = $element.find( '.b-catalog-element__colors-item.i-active' ).attr( 'class' );
-      var src;
-      
-      if ( $element.find( '.b-catalog-element__img' ).length ) {
-        src = $element.find( '.b-catalog-element__img' ).css( 'backgroundImage' );
-      } else {
-        src = $element.find( '.fotorama__active .b-catalog-element__fotorama-img' ).css( 'backgroundImage' );
-      }      
-      
-      $( '#buyModal .b-buy-modal-img' ).html( '<div style=\'background: ' + src + ' no-repeat center; background-size: cover; padding-top: 130%;\' alt="">' );
-      $( '#buyModal .b-buy-modal-text' ).html( '<h2>' + title + '</h2><p><span class="' + colorClass + '" style=\'background-image: ' + color + '; margin-bottom: 20px;\'></span><br>' + size + '</p>' );
-    });
-  
-		$( '#buyModal .btn-reset' ).click( function(e) {
-      e.preventDefault();
-			$( '#buyModal .modal-header .close' ).click();
-		});
-    
     //subscribe modal
     $( '#subscribeModal' ).on( 'show.bs.modal', function (e) {
       var $link = $( e.relatedTarget );
@@ -202,6 +177,11 @@
       
       var $btn = $( this );
       
+      if ( $btn.hasClass( 'i-gray' )) {
+        window.location = $btn.attr( 'href' );
+        return;
+      }
+      
       $.ajax({
         url: $btn.data( 'ajax-url' ),
         type: 'GET',
@@ -211,11 +191,29 @@
           if ( data && data.STATUS === 'Y' ) {
             //num of the products in a cart
             $( '#bx_cart_num' ).text( data.cart );
+            
+            //buy modal window
+            $( '#buyCatalogElementPopup' ).addClass( 'i-show' );
+            setTimeout( function() {
+              $( '#buyCatalogElementPopup' ).addClass( 'i-animate' );
+            }, 100);
+            
+            //button transformation
+            $btn.addClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
           }
         },
         error: function() {}
       });
       
+    });
+    
+    //popup window
+    $( '#buyCatalogElementPopupOpaco, .b-catalog-element-popup__close' ).click(function(e) {
+        e.preventDefault();
+        $( '#buyCatalogElementPopup' ).removeClass( 'i-animate' );
+        setTimeout( function() {
+          $( '#buyCatalogElementPopup' ).removeClass( 'i-show' );
+        }, 500);
     });
     
     //elements

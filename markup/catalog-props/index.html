@@ -716,6 +716,23 @@
           <div class="b-catalog-section">
             <link rel="stylesheet" href="/components/catalog.collection-props/style.css">
             <script src="/components/catalog.collection-props/script.js"></script>
+            <div id="buyCatalogElementPopup">
+              <div id="buyCatalogElementPopupOpaco"></div>
+              <div id="buyCatalogElementPopupWindow">
+                <div class="b-catalog-element-popup__close"></div>
+                <div class="b-catalog-element-popup__body">Товар добавлен в корзину, <a href="">оформить заказ</a>.</div>
+              </div>
+            </div>
+            <div id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeLabel" class="modal fade">
+              <div role="document" class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                    <h2 id="subscribeLabel" class="modal-title text-center">Подписаться</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
             <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
             <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
             <!-- start /components/catalog.collection/-->
@@ -733,7 +750,7 @@
                       <div class="b-catalog-element__bottom">
                         <div>
                           <div class="b-catalog-element__price">2000 руб.</div>
-                          <div class="b-catalog-element__button"><a href="" data-toggle="modal" data-target="#buyModal" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-S">Купить</a></div>
+                          <div class="b-catalog-element__button"><a href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-S"><span class="i-show">Купить</span><span>В корзине</span></a></div>
                           <div class="b-catalog-element__subscribe"><a href="#" data-toggle="modal" data-target="#subscribeModal" data-ajax-url="/components/catalog.collection/subscribe.html?somedata=value" class="btn btn-default btn-size-S">Подписаться</a></div>
                         </div>
                         <hr class="i-size-S">
@@ -813,7 +830,7 @@
                       <div class="b-catalog-element__bottom">
                         <div>
                           <div class="b-catalog-element__price">2000 руб.</div>
-                          <div class="b-catalog-element__button"><a href="" data-toggle="modal" data-target="#buyModal" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-S">Купить</a></div>
+                          <div class="b-catalog-element__button"><a href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-S i-gray"><span class="i-show">В корзине</span></a></div>
                           <div class="b-catalog-element__subscribe"><a href="#" data-toggle="modal" data-target="#subscribeModal" data-ajax-url="/components/catalog.collection/subscribe.html?somedata=value" class="btn btn-default btn-size-S">Подписаться</a></div>
                         </div>
                         <hr class="i-size-S">

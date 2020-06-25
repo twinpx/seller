@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="/components/catalog.detail-props/style.css"/>
 <script src="/components/catalog.detail-props/script.js"></script>
 <div class="b-catalog-detail">
+  <div id="buyDetailPopup">
+    <div id="buyDetailPopupOpaco"></div>
+    <div id="buyDetailPopupWindow">
+      <div class="b-catalog-detail-popup__close"></div>
+      <div class="b-catalog-detail-popup__body">Товар добавлен в корзину, <a href="">оформить заказ</a>.</div>
+    </div>
+  </div>
   <div data-url="/components/catalog.detail-props/statistics.html" data-method="GET" data-data="ID=4&amp;SESSION_ID=5" class="b-statistics-data"></div>
   <div class="row">
     <div class="col-sm-8">
@@ -379,9 +386,13 @@
           <div class="b-message hidden"><span>Вы успешно подписались!</span></div>
         </div>
         <div class="row b-catalog-detail__button-block">
-          <div class="col-sm-6"><a href="#" data-toggle="modal" data-target="#buyDetailModal" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-L btn-100">Купить</a></div>
+          <div class="col-sm-6"><a href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-L btn-100"><span class="i-show">Купить</span><span>В корзине</span></a></div>
           <hr class="visible-xs"/>
           <div class="col-sm-6 text-center"><a id="catalogDetailFavLink" href="" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N"><span>Отложить</span><span class="i-stored hidden">Отложено</span></a><br/><a href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick">Купить в 1 клик</a></div>
+        </div>
+        <!--если заходит на страницу товара, который уже в корзине, то показываем только кнопку В корзине-->
+        <div class="row b-catalog-detail__button-block">
+          <div class="col-sm-12"><a href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-L btn-100 i-gray"><span class="i-show">В корзине</span></a></div>
         </div>
         <hr class="i-size-S"/>
         <div class="b-catalog-detail__num">
@@ -404,26 +415,6 @@
           <hr class="i-size-S i-line"/><a data-toggle="collapse" href="#prop4" aria-expanded="false" aria-controls="prop4" class="b-catalog-detail__prop-title">Собственные свойства</a>
           <div id="prop4" class="collapse b-catalog-detail__prop-collapse">Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.</div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div id="buyDetailModal" tabindex="-1" role="dialog" aria-labelledby="buyDetailModalLabel" style="display: none;" aria-hidden="true" class="modal fade">
-    <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"></button>
-          <h2 id="buyDetailModalLabel" class="modal-title text-center">Товар добавлен в корзину</h2>
-        </div>
-        <div class="modal-body text-center">
-          <div class="row">
-            <div class="col-sm-6 b-buy-modal-img"><img src=""/></div>
-            <div class="col-sm-6 b-buy-modal-text">
-              <h2>Верблюжье пальто</h2>
-              <p>XL, Синий</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer text-center"><a href="#" class="btn btn-default btn-size-M">Перейти в корзину</a><a href="#" data-dismiss="modal" class="btn btn-default btn-size-M btn-reset">Продолжить выбор</a></div>
       </div>
     </div>
   </div>

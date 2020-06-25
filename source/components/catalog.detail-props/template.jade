@@ -4,6 +4,12 @@ link( rel="stylesheet", href="/components/catalog.detail-props/style.css" )
 script( src="/components/catalog.detail-props/script.js" )
 
 .b-catalog-detail
+            
+  #buyDetailPopup
+    #buyDetailPopupOpaco
+    #buyDetailPopupWindow
+      .b-catalog-detail-popup__close
+      .b-catalog-detail-popup__body Товар добавлен в корзину, <a href="">оформить заказ</a>.
 
   .b-statistics-data( data-url="/components/catalog.detail-props/statistics.html" data-method="GET" data-data="ID=4&SESSION_ID=5" )
 
@@ -122,7 +128,9 @@ script( src="/components/catalog.detail-props/script.js" )
         .row.b-catalog-detail__button-block
         
           .col-sm-6
-            a.btn.btn-default.btn-size-L.btn-100( href="#" data-toggle="modal" data-target="#buyDetailModal" data-ajax-url="/components/catalog.detail/buy.json" ) Купить
+            a.btn.btn-default.btn-size-L.btn-100( href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" )
+              span.i-show Купить
+              span В корзине
             
           hr.visible-xs
           
@@ -132,7 +140,14 @@ script( src="/components/catalog.detail-props/script.js" )
               span.i-stored.hidden Отложено
             br
             a( href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick" ) Купить в 1 клик
-          
+            
+        //если заходит на страницу товара, который уже в корзине, то показываем только кнопку В корзине
+        .row.b-catalog-detail__button-block
+        
+          .col-sm-12
+            a.btn.btn-default.btn-size-L.btn-100.i-gray( href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" )
+              span.i-show В корзине
+                      
         hr.i-size-S
           
         .b-catalog-detail__num
@@ -171,24 +186,6 @@ script( src="/components/catalog.detail-props/script.js" )
           
           #prop4.collapse.b-catalog-detail__prop-collapse Элегантное, слегка укороченное однобортное пальто из верблюжьей шерсти натурального цвета. Натуральные экологичные материалы, классическая модель, идеально сочетающаяся со строгим офисным стилем и деловым casual.
             
-  #buyDetailModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='buyDetailModalLabel', style='display: none;', aria-hidden='true')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-header
-          button.close(type='button', data-dismiss='modal', aria-label='Close')
-          h2#buyDetailModalLabel.modal-title.text-center Товар добавлен в корзину
-        .modal-body.text-center
-          .row
-            .col-sm-6.b-buy-modal-img
-              img( src="" )
-            .col-sm-6.b-buy-modal-text
-              h2 Верблюжье пальто
-              p XL, Синий
-        .modal-footer.text-center
-        
-          a.btn.btn-default.btn-size-M( href="#" ) Перейти в корзину
-          a.btn.btn-default.btn-size-M.btn-reset( href="#" data-dismiss='modal' ) Продолжить выбор
-          
   #oneClick.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
     .modal-dialog(role='document')
       .modal-content
