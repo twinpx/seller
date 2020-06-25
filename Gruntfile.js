@@ -8,24 +8,6 @@ module.exports = function( grunt ) {
     prod: 'markup/',
     
     jade: {
-      iss15918: {
-        options: {
-          pretty: true
-        },
-        files: [
-          {
-            expand: true, 
-            cwd: './<%= source%>',
-            src: [
-              'catalog-props/*.jade',
-              'components/catalog.collection-props/template-2.jade'
-            ],
-            dest: '<%= dest%>',
-            ext: '.html',
-            extDot: 'first'
-          }
-        ]
-      },
       dev: {
         options: {
           pretty: true
@@ -73,11 +55,6 @@ module.exports = function( grunt ) {
         urlfunc: {
           name: 'embedurl',
           limit: 30000
-        }
-      },
-      iss15918: {
-        files: {
-          '<%= dest%>components/catalog.collection-props/style.css': '<%= source%>components/catalog.collection-props/style.styl',
         }
       },
       template: {
@@ -235,24 +212,6 @@ module.exports = function( grunt ) {
           ]
         }
       },
-      iss15918: {
-        options: {
-          curly: true,
-          eqeqeq: true,
-          eqnull: true,
-          browser: true,
-          newcap: true,
-          globals: {
-            jQuery: true,
-            console: true
-          }
-        },
-        files: {
-          src: [
-            '<%= source %>components/catalog.collection-props/*.js'
-          ]
-        }
-      },
       prod: {
         options: {
           curly: true,
@@ -302,18 +261,6 @@ module.exports = function( grunt ) {
             dest: '<%= dest%>components/',
             ext: '.js',
             extDot: 'first'
-          }
-        ]
-      },
-      iss15918: {
-        options: {
-          mangle: false,
-          compress: false,
-          beautify: true
-        },
-        files: [
-          {
-            '<%= dest %>components/catalog.collection-props/script.js': '<%= source %>components/catalog.collection-props/script.js'
           }
         ]
       },
@@ -391,16 +338,6 @@ module.exports = function( grunt ) {
     },
     
     copy: {
-      iss15918: {
-        files: [
-          {
-            expand: true,
-            cwd: '<%= source %>components/catalog.collection-props/',
-            src: [ '**/*.js' ],
-            dest: '<%= dest %>components/catalog.collection-props/'
-          }
-        ]
-      },
       images: {
         files: [
           {
@@ -483,18 +420,28 @@ module.exports = function( grunt ) {
       
       html: {
         files: '**/*.jade',
-        tasks: 'jade:iss15918'
+        tasks: 'jade:dev'
       },
       
       css: {
         files: '<%= source %>**/*.styl',
-        tasks: 'stylus:iss15918'
+        tasks: 'css'
       },
       
-      js: {
+      jsTemplate: {
         files: [
           '<%= source %>**/*.js',
-          '!<%= source %>js/script.js'
+          '!<%= source %>js/script.js',
+          '!<%= source %>components/**/script.js'
+        ],
+        tasks: [ 'jstemplate' ]
+      },
+      
+      iss15918: {
+        files: [
+          '<%= source %>**/*.js',
+          '!<%= source %>js/script.js',
+          '!<%= source %>components/**/script.js'
         ],
         tasks: [ 'jshint:iss15918', 'copy:iss15918' ]
       },
@@ -529,13 +476,14 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   
   grunt.registerTask( 'css', [ 'stylus:template', 'stylus:components', /*'less:prod',*/ 'concat:pluginsCSS' ]);
-  grunt.registerTask( 'js', [ 'concat:js', 'jshint:dev', 'concat:pluginsJS', 'uglify:devTemplate', 'uglify:devComponents', 'clean:js' ] );
+  
+  grunt.registerTask( 'js', [ 'concat:js', 'jshint:devTemplate', 'jshint:devComponents', 'concat:pluginsJS', 'uglify:devTemplate', 'uglify:devComponents', 'clean:js' ] );
+  grunt.registerTask( 'jstemplate', [ 'concat:js', 'jshint:devTemplate', 'concat:pluginsJS', 'uglify:devTemplate', 'clean:js' ] );
+  grunt.registerTask( 'jscomponents', [ 'jshint:devComponents', 'uglify:devComponents' ] );
+  
   grunt.registerTask( 'html', [ 'copy:images', 'jade:dev' ] );
   grunt.registerTask( 'less', [ 'concat:LESS', 'concat:prodLESS', 'copy:prodLESS' ] );
   grunt.registerTask( 'default', [ 'connect', 'css', 'js', 'html', 'watch' ] );
-  
-  //issues
-  grunt.registerTask( 'iss15918', [ 'connect', 'stylus:iss15918', 'jshint:iss15918', 'uglify:iss15918', 'jade:iss15918', 'watch' ] );
   
   grunt.registerTask( 'prod', [
     'stylus:prod',

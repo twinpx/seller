@@ -1,6 +1,12 @@
 (function($) {
     "use strict";
     $(function() {
+<<<<<<< HEAD
+=======
+        $(".b-catalog-detail__gallery").delegate(".fotorama__html a", "click", function(e) {
+            e.preventDefault();
+        });
+>>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
         var $div = $("#lookbookDetailData");
         var images = "";
         var srcArray = [];

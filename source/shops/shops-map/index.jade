@@ -1,0 +1,24 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Shops map | Seller
+
+block content
+
+  .container-fluid
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная') Главная
+      li
+        a(href='/shops/', title='Магазины') Магазины
+        
+  .container-fluid
+    hr.visible-xs-block
+    h1( itemprop="name" ) Магазины
+
+  include ../../components/map/template
+  
+  hr.i-size-L
+  
+  include ../../components/shops-map/template

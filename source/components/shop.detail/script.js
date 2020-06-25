@@ -36,10 +36,7 @@
           zoomControlSize: 'small'
       }),
       
-      shopDetailPlacemark = new ymaps.Placemark( shopDetailMap.getCenter(), {
-          hintContent: 'Собственный значок метки',
-          balloonContent: 'Это красивая метка'
-      }, {
+      shopDetailPlacemark = new ymaps.Placemark( shopDetailMap.getCenter(), {}, {
           // Опции.
           // Необходимо указать данный тип макета.
           iconLayout: 'default#image',

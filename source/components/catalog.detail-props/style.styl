@@ -1,5 +1,6 @@
 @import '../../styl/component-include.styl'
 
+<<<<<<< HEAD
 #buyDetailPopup
   position fixed
   top 0
@@ -88,6 +89,8 @@
   .b-catalog-detail-popup__body
     color #fff
 
+=======
+>>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
 .b-catalog-detail
 
   h1
@@ -522,6 +525,8 @@
   text-transform uppercase
   margin -7px 0 3px 8px
   display inline-block
+  border-width 1px
+  border-style solid
   
   @media( max-width 767px )
     margin 0 4px 3px
@@ -810,6 +815,74 @@
     width 79px
     height 12px
     margin 0
+    
+#oneClick
+
+  p
+    font-size 9pt
+    margin-bottom 20px
+    
+    &:last-child
+      margin-bottom 0
+    
+  .modal-body
+    padding 30px 60px
+    line-height 14px
+    transition( height 0.5s ease )
+    
+    @media( max-width 767px )
+      padding 20px 40px
+    
+  label
+    margin-bottom 6px
+    color #333
+    vertical-align top
+    font-size 8pt
+    
+  .form-control
+    height 29pt
+    padding 6px 10px
+    font-size 10.5pt
+    line-height 1.72857143
+    
+  textarea.form-control
+    height 83px
+    
+  .form-group
+    margin-bottom 21px
+    opacity 0
+    
+    &:last-child
+      margin-bottom 11px
+    
+  &.in .form-group
+    animation form-opacity .3s
+    animation-fill-mode forwards
+  
+    &:nth-of-type(2)
+      animation-delay .15s
+  
+    &:nth-of-type(3)
+      animation-delay .3s
+  
+    &:nth-of-type(4)
+      animation-delay .453s
+  
+    &:nth-of-type(5)
+      animation-delay .6s
+      
+  .btn
+    line-height 1.72857143
+    padding 6px 14px
+    min-width 141px
+    
+    &.i-gray
+      background-color #ececec
+      border-color #ececec
+      display none
+      
+      &:hover
+        color inherit
       
 .fotorama--fullscreen
 

@@ -38,11 +38,26 @@ hr
   &.i-line
     border-top 1px solid #f2f2f2
     
+ul:not([class])
+  padding-left 40px !important
+  
+  li
+    list-style-type disc !important
+    padding-top 2px
+    padding-bottom 2px
+    
+ol
+
+  li
+    padding-top 2px
+    padding-bottom 2px
+    
 .btn
   height auto
   text-transform none
   padding-top 0
   padding-bottom 0
+  font-size .9rem
   
   &:hover
     box-shadow none
@@ -67,6 +82,16 @@ hr
       border-color #f2f2f2
       background-color #f2f2f2
       color #000
+    
+  &-link
+    /*anti materialize*/
+    background-color transparent
+    letter-spacing normal
+    box-shadow none
+    padding 0 12px
+    
+    &:hover
+      background-color transparent
   
 .b-section
   padding 50px 0
@@ -87,6 +112,12 @@ hr
   &.i-no-transition
     transition( none !important )
     transform( translateX(0) !important)
+    
+  ul
+    padding-left 0 !important
+    
+  li
+    list-style-type none !important
   
 .text-info {
     color: #f33;

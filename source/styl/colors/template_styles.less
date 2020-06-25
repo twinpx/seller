@@ -15,6 +15,12 @@
 	background-color: @brand-primary;
 }
 
+.btn-default,
+.popup-window-buttons .bx_bt_button {
+	border-color: @brand-secondary;
+	color: @brand-secondary;
+}
+
 .bx_item_detail .bx_item_slider .bx_slide ul li {
 	&:active .cnt,
 	&.bx_active .cnt,
@@ -51,6 +57,12 @@
       background-color: @brand-primary;
 }
 
+#bx-soa-orderSave [type="checkbox"].filled-in:checked+label:after,
+#register-user-conf [type="checkbox"].filled-in:checked+label:after { 
+   border: 2px solid @brand-primary; 
+   background-color: @brand-primary; 
+} 
+
 .bx-sls .quick-location-tag,
 .bx-slst .quick-location-tag {
   display: inline-block;
@@ -67,6 +79,14 @@
   color: @brand-primary;
 }
  
+.form-group [type="checkbox"].filled-in:not(:checked)+label:after {
+  border-color: @brand-secondary;
+} 
+.form-group [type="checkbox"].filled-in:checked+label:after {
+  border-color: @brand-primary;
+  background-color: @brand-primary;
+}
+
 .bx-filter .bx-filter-input-checkbox input[type="checkbox"]:checked+.bx-filter-param-text:after {
     background-color: @brand-primary;
 }

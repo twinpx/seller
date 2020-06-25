@@ -1,0 +1,52 @@
+@import '../../styl/component-include.styl'
+
+.b-ph
+
+  &-block
+    position relative
+        
+  &-content
+    position absolute
+    top 0
+    left 0
+    width 100%
+    transition( opacity .5s ease )
+    opacity 0
+    z-index 0
+    
+  //4-cols    
+  &-row
+    padding-top 20px
+    transition( opacity .5s ease )
+    margin 0 -15px
+    display flex
+    justify-content space-around
+    
+    @media( max-width 600px )
+      margin 0
+      display block
+      padding-top 0 // row
+    
+  &-col-sm-3
+    width calc( 100% / 3 - 30px )
+    margin 0 15px
+    
+    @media( max-width 600px )
+      width 100%
+      margin 0 0 40px
+  
+  //img-text
+  &-img
+    background-color $placeholder-color
+    padding-top 80%
+    margin-bottom 20px
+  
+  &-text
+    
+    div
+      height 7px
+      background-color $placeholder-color
+      margin-bottom 15px
+      
+      &:last-child
+        width 70%

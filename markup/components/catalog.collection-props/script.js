@@ -29,6 +29,29 @@
                 });
             }
         }
+<<<<<<< HEAD
+=======
+        $("#buyModal").on("show.bs.modal", function(e) {
+            var $button = $(e.relatedTarget);
+            var $element = $button.closest(".b-catalog-element");
+            var title = $element.find(".b-catalog-element__title").text();
+            var size = $element.find(".b-catalog-element__sizes-item.i-active").text();
+            var color = $element.find(".b-catalog-element__colors-item.i-active").css("backgroundImage");
+            var colorClass = $element.find(".b-catalog-element__colors-item.i-active").attr("class");
+            var src;
+            if ($element.find(".b-catalog-element__img").length) {
+                src = $element.find(".b-catalog-element__img").css("backgroundImage");
+            } else {
+                src = $element.find(".fotorama__active .b-catalog-element__fotorama-img").css("backgroundImage");
+            }
+            $("#buyModal .b-buy-modal-img").html("<div style='background: " + src + ' no-repeat center; background-size: cover; padding-top: 130%;\' alt="">');
+            $("#buyModal .b-buy-modal-text").html("<h2>" + title + '</h2><p><span class="' + colorClass + "\" style='background-image: " + color + "; margin-bottom: 20px;'></span><br>" + size + "</p>");
+        });
+        $("#buyModal .btn-reset").click(function(e) {
+            e.preventDefault();
+            $("#buyModal .modal-header .close").click();
+        });
+>>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
         $("#subscribeModal").on("show.bs.modal", function(e) {
             var $link = $(e.relatedTarget);
             $.ajax({
@@ -78,10 +101,13 @@
             e.preventDefault();
             $(".b-catalog-element__button .btn").trigger("add.ecommerce");
             var $btn = $(this);
+<<<<<<< HEAD
             if ($btn.hasClass("i-gray")) {
                 window.location = $btn.attr("href");
                 return;
             }
+=======
+>>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
             $.ajax({
                 url: $btn.data("ajax-url"),
                 type: "GET",
@@ -90,16 +116,20 @@
                 success: function(data) {
                     if (data && data.STATUS === "Y") {
                         $("#bx_cart_num").text(data.cart);
+<<<<<<< HEAD
                         $("#buyCatalogElementPopup").addClass("i-show");
                         setTimeout(function() {
                             $("#buyCatalogElementPopup").addClass("i-animate");
                         }, 100);
                         $btn.addClass("i-gray").find("span").toggleClass("i-show");
+=======
+>>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
                     }
                 },
                 error: function() {}
             });
         });
+<<<<<<< HEAD
         $("#buyCatalogElementPopupOpaco, .b-catalog-element-popup__close").click(function(e) {
             e.preventDefault();
             $("#buyCatalogElementPopup").removeClass("i-animate");
@@ -107,6 +137,8 @@
                 $("#buyCatalogElementPopup").removeClass("i-show");
             }, 500);
         });
+=======
+>>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
         $(".b-catalog-element").each(function() {
             var $element = $(this), $propListBlock = $element.find(".b-catalog-element__propList-block"), $gallery = $element.find(".b-catalog-element__gallery"), $fotorama = $element.find(".b-catalog-element__gallery .b-catalog-element__fotorama"), $data = $element.find(".b-catalog-element__data div"), $activeDataDiv = $data.eq(0), $img = $element.find(".b-catalog-element__img"), $imgHover = $element.find(".b-catalog-element__img-hover"), $art = $element.find(".b-catalog-element__art"), $code = $element.find(".b-catalog-element__code"), $num1 = $element.find(".b-catalog-element__num .i-1"), $num0 = $element.find(".b-catalog-element__num .i-0"), $iconDiscount = $element.find(".b-icon-discount"), $button = $element.find(".b-catalog-element__button"), $subscribe = $element.find(".b-catalog-element__subscribe"), $price = $element.find(".b-catalog-element__price"), $bottom = $element.find(".b-catalog-element__bottom"), propList = $element.find(".b-catalog-element__data").data("prop-list"), propDB = {};
             if (typeof propList === "string") {
