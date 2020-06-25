@@ -193,7 +193,7 @@ module.exports = function( grunt ) {
     },
     
     jshint: {
-      dev: {
+      devTemplate: {
         options: {
           curly: true,
           eqeqeq: true,
@@ -207,7 +207,25 @@ module.exports = function( grunt ) {
         },
         files: {
           src: [
-            '<%= source %>js/script.js',
+            '<%= source %>js/script.js'
+          ]
+        }
+      },
+      devComponents: {
+        options: {
+          curly: true,
+          eqeqeq: true,
+          eqnull: true,
+          browser: true,
+          newcap: true,
+          globals: {
+            jQuery: true,
+            console: true
+          }
+        },
+        files: {
+          src: [
+            '<%= source %>components/**/*.js'
             '<%= source %>components/**/*.js'
           ]
         }
@@ -423,9 +441,22 @@ module.exports = function( grunt ) {
         tasks: 'jade:dev'
       },
       
+      cssTemplate: {
+        files: [
+          '<%= source %>**/*.styl',
+          '!<%= source %>components/**/*.styl'
+        ],
+        tasks: 'stylus:template'
+      },
+      
       css: {
         files: '<%= source %>**/*.styl',
         tasks: 'css'
+      },
+      
+      cssComponents: {
+        files: '<%= source %>components/**/*.styl',
+        tasks: 'stylus:components'
       },
       
       jsTemplate: {
@@ -437,13 +468,11 @@ module.exports = function( grunt ) {
         tasks: [ 'jstemplate' ]
       },
       
-      iss15918: {
+      jsComponents: {
         files: [
-          '<%= source %>**/*.js',
-          '!<%= source %>js/script.js',
-          '!<%= source %>components/**/script.js'
+          '<%= source %>components/**/script.js'
         ],
-        tasks: [ 'jshint:iss15918', 'copy:iss15918' ]
+        tasks: [ 'jscomponents' ]
       },
       
       img: {

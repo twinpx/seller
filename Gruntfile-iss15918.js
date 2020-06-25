@@ -250,7 +250,6 @@ module.exports = function( grunt ) {
         },
         files: {
           src: [
-            '<%= source %>js/script.js',
             '<%= source %>components/**/*.js'
           ]
         }
@@ -514,6 +513,14 @@ module.exports = function( grunt ) {
       cssComponents: {
         files: '<%= source %>components/**/*.styl',
         tasks: 'stylus:components'
+      },
+      
+      jsIss15918: {
+        files: [
+          '<%= source %>**/*.js',
+          '!<%= source %>js/script.js'
+        ],
+        tasks: [ 'jshint:iss15918', 'copy:iss15918' ]
       },
       
       jsTemplate: {
