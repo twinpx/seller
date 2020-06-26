@@ -226,7 +226,6 @@ module.exports = function( grunt ) {
         files: {
           src: [
             '<%= source %>components/**/*.js'
-            '<%= source %>components/**/*.js'
           ]
         }
       },
@@ -429,12 +428,6 @@ module.exports = function( grunt ) {
     },
     
     watch: {
-      livereload: {
-        options: {
-          livereload: true
-        },
-        files: [ '**/*' ]
-      },
       
       html: {
         files: '**/*.jade',
@@ -447,11 +440,6 @@ module.exports = function( grunt ) {
           '!<%= source %>components/**/*.styl'
         ],
         tasks: 'stylus:template'
-      },
-      
-      css: {
-        files: '<%= source %>**/*.styl',
-        tasks: 'css'
       },
       
       cssComponents: {

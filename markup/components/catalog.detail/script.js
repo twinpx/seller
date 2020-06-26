@@ -119,36 +119,9 @@
                 error: function() {}
             });
         });
-<<<<<<< HEAD
         $(".row.b-catalog-detail__button-block .btn").click(function(e) {
             e.preventDefault();
             $("#buyDetailPopup").addClass("i-show");
-=======
-        $("#buyDetailModal").on("show.bs.modal", function(e) {
-            var size = $(".b-catalog-detail__sizes-item.i-active").text();
-            var color = $(".b-catalog-detail__colors-item.i-active").css("backgroundImage");
-            var colorClass = $(".b-catalog-detail__colors-item.i-active").attr("class");
-            var $div = $("#catalogDetailData div[ data-id=" + $(".b-catalog-detail").attr("data-id") + "]");
-            var src = "";
-            var srcString = "";
-            if ($div.data("big-photo")) {
-                srcString = String($div.data("big-photo"));
-                src = srcString.substring(0, srcString.indexOf(";")) || srcString;
-            } else if ($div.data("photo")) {
-                srcString = String($div.data("photo"));
-                src = srcString.substring(0, srcString.indexOf(";")) || srcString;
-            }
-            if (src) {
-                $("#buyDetailModal .b-buy-modal-img").html('<img src="' + src + '" alt="">');
-            } else {
-                $("#buyDetailModal .b-buy-modal-img").html("");
-            }
-            $("#buyDetailModal .b-buy-modal-text").html("<h2>" + $("h1").text() + '</h2><p><span class="' + colorClass + "\" style='background-image: " + color + "; margin-bottom: 20px;'></span><br>" + size + "</p>");
-        });
-        $("#buyDetailModal .btn-reset").click(function(e) {
-            e.preventDefault();
-            $("#buyDetailModal .modal-header .close").click();
->>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
         });
         $("#oneClick").on("show.bs.modal", function(e) {
             var $link = $(e.relatedTarget);
@@ -662,15 +635,11 @@
             });
             for (var key in $div.data()) {
                 if (key.search("property") !== -1) {
-<<<<<<< HEAD
-                    $(".catalogDetailP" + key.substring(1)).text($div.data(key)).parent().removeClass("hidden");
-=======
                     if (String($div.data(key)).search("&") !== -1) {
                         $(".catalogDetailP" + key.substring(1)).html($.parseHTML($div.data(key))[0].nodeValue).parent().removeClass("hidden");
                     } else {
                         $(".catalogDetailP" + key.substring(1)).html($div.data(key)).parent().removeClass("hidden");
                     }
->>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
                 }
             }
             if ($(".b-catalog-detail__price").length) {

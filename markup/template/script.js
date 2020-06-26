@@ -1,12 +1,9 @@
 (function($) {
     "use strict";
     $(function() {
-<<<<<<< HEAD
-=======
         setTimeout(function() {
             $(".b-ph-block").addClass("i-ph-animated");
         }, 500);
->>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
         $("#scroll").niceScroll();
         $("#button").click(function() {
             $("#scroll").show();
@@ -47,10 +44,6 @@
                 $(".bj-page-header__search__input").focus();
             }, 100);
         });
-<<<<<<< HEAD
-        $(".bj-page-header__search__input").blur(function() {});
-=======
->>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
         $(".bj-page-header__search-close").click(function(e) {
             e.preventDefault();
             $(".bj-page-header").removeClass("i-ready");

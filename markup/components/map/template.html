@@ -6,16 +6,16 @@
 <div class="container-fluid">
   <div class="b-map">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;amp;apikey=3da27ed2-82cd-4c8f-8a07-8b32774f2abc" type="text/javascript"></script>
-    <div class="b-map__heading">
-      <div>Список магазинов:</div>
-      <div class="b-map__dropdown">
-        <div class="b-map__dropdown-head">Все</div>
-        <div class="b-map__dropdown-body">
-          <div data-tab="all" class="b-map__dropdown-item i-active">Все</div>
-          <div data-tab="moscow" class="b-map__dropdown-item i-active">Москва</div>
-          <div data-tab="spb" class="b-map__dropdown-item i-active">Санкт-Петербург</div>
-        </div>
+    <div class="bj-sorting">
+      <div class="text-muted">Список магазинов:</div>
+      <div class="dropdown"><a id="dLabel" href="#" role="button" data-toggle="dropdown" data-target="#" aria-expanded="false">Все<span class="caret"></span></a>
+        <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu">
+          <li><a href="" data-tab="all">Все</a></li>
+          <li><a href="" data-tab="moscow">Москва</a></li>
+          <li><a href="" data-tab="spb">Санкт-Петербург</a></li>
+        </ul>
       </div>
+      <div class="clearfix"></div>
     </div>
     <hr/>
     <script>

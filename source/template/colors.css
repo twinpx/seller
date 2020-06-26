@@ -344,6 +344,11 @@ a.bg-primary:hover {
 .b-float-phone__bg {
   background-color: #ffba13;
 }
+.btn-default,
+.popup-window-buttons .bx_bt_button {
+  border-color: #5da400;
+  color: #5da400;
+}
 .bx_item_detail .bx_item_slider .bx_slide ul li:active .cnt,
 .bx_item_detail .bx_item_slider .bx_slide ul li.bx_active .cnt,
 .bx_item_detail .bx_item_slider .bx_slide ul li.bx_active:hover .cnt {
@@ -371,6 +376,11 @@ a.bg-primary:hover {
 .sale-order-list-title-container:before {
   background-color: #ffba13;
 }
+#bx-soa-orderSave [type="checkbox"].filled-in:checked + label:after,
+#register-user-conf [type="checkbox"].filled-in:checked + label:after {
+  border: 2px solid #ffba13;
+  background-color: #ffba13;
+}
 .bx-sls .quick-location-tag,
 .bx-slst .quick-location-tag {
   display: inline-block;
@@ -385,6 +395,13 @@ a.bg-primary:hover {
   line-height: 20px;
   height: auto;
   color: #ffba13;
+}
+.form-group [type="checkbox"].filled-in:not(:checked) + label:after {
+  border-color: #5da400;
+}
+.form-group [type="checkbox"].filled-in:checked + label:after {
+  border-color: #ffba13;
+  background-color: #ffba13;
 }
 .bx-filter .bx-filter-input-checkbox input[type="checkbox"]:checked + .bx-filter-param-text:after {
   background-color: #ffba13;
@@ -516,8 +533,8 @@ input.sale-paysystem-yandex-button-item:active {
 }
 #bx-soa-orderSave [type="checkbox"].filled-in:checked + label:after,
 #register-user-conf [type="checkbox"].filled-in:checked + label:after {
-  border: 2px solid #ffba13;
-  background-color: #ffba13;
+  border: 2px solid #ffba13 !important;
+  background-color: #ffba13 !important;
 }
 .form-group [type="checkbox"].filled-in:not(:checked) + label:after {
   border-color: #5da400;
@@ -556,6 +573,15 @@ input.sale-paysystem-yandex-button-item:active {
 .bx_item_detail_size_small_noadaptive ul li.bx_active a {
   border-color: #ffba13 !important;
   background: #ffba13 !important;
+}
+#bx-soa-order [type="radio"]:checked + span:after,
+#bx-soa-order [type="radio"].with-gap:checked + span:before,
+#bx-soa-order [type="radio"].with-gap:checked + span:after {
+  border-color: #ffba13 !important;
+}
+#bx-soa-order [type="radio"]:checked + span:after,
+#bx-soa-order [type="radio"].with-gap:checked + span:after {
+  background-color: #ffba13 !important;
 }
 .bx_ordercart_order_pay_center .checkout:hover,
 .bx_ordercart_order_pay_center .checkout:active,
@@ -605,12 +631,48 @@ input.sale-paysystem-yandex-button-item:active {
 .b-seller-tuner.side-nav a:focus {
   color: #5da400;
 }
+.b-seller-tuner.side-nav .btn-default,
+.b-seller-tuner.side-nav .btn-default:hover,
+.b-seller-tuner.side-nav .btn-default:active,
+.b-seller-tuner.side-nav .btn-default:active:focus {
+  background-color: #ffba13 !important;
+  border-color: #ffba13 !important;
+}
 .b-seller-tuner__fonts .b-seller-tuner__block div.i-active,
 .b-seller-tuner__font-size .b-seller-tuner__block div.i-active,
 .b-seller-tuner__screen-width .b-seller-tuner__block div.i-active {
   background-color: #ffba13;
 }
+.side-nav .pcr-app .pcr-interaction input.pcr-save,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:hover,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active:focus {
+  background-color: #ffba13;
+  border-color: #ffba13;
+  color: #fff;
+}
+.side-nav .pcr-app .pcr-interaction input.pcr-save:hover,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:hover:hover,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active:hover,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active:focus:hover,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:hover:active,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active:active,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:active:focus:active {
+  opacity: 0.7;
+}
+.side-nav .pcr-app .pcr-interaction input.pcr-save:hover,
+.side-nav .pcr-app .pcr-interaction input.pcr-save:focus {
+  background: #ffc12d;
+  border-color: #ffc12d;
+}
+.side-nav .pcr-app .pcr-interaction input.pcr-clear {
+  color: #ffba13;
+}
 .basket-item-property-scu-text .basket-item-scu-item,
 .basket-item-property-scu-text .basket-item-scu-item.not-available:hover {
   color: #5da400;
+}
+.b-shop-detail__apps a {
+  background-color: #5da400;
 }
