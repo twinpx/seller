@@ -1,4 +1,4 @@
 {
   "STATUS": "Y",
-  "RESULT": ".container-fluid { max-width: 1700px !important;}"
+  "RESULT": ".container-fluid { max-width: 1700px !important;} div.title-search-result { max-width: calc( 1700px - 30px ) !important; } @media( min-width: calc( 1200px - 30px )) { div.title-search-result { left: 15px !important; }} @media( min-width: calc( 1700px - 30px )) { div.title-search-result { left: calc( (100% - 1700px + 30px) / 2 ) !important; }}"
 }

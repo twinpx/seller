@@ -1,7 +1,7 @@
 @import '../../styl/component-include.styl'
 
 .bx_searche
-  padding-top 5px
+  padding-top 15px
 
 .bx_search_container {
 	height: 50px;
@@ -49,13 +49,20 @@ div.title-search-result {
 	display: none;
 	overflow: hidden;
 	z-index: 999;
-	min-width: 370px;
+	max-width: calc( 1200px - 30px ) !important;
 	background-color: #fff;
-	-webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.18);
-	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.18);
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.05);
+	box-shadow: 0 0 20px rgba(0,0,0,0.05);
 	border-radius: 0;
-  width: 60% !important;
-  left: 20% !important;
+  width: calc( 100% - 30px ) !important;
+  top: 60px !important;
+  left: 15px !important;
+}
+
+@media( min-width: calc( 1200px - 30px ) ) {
+  div.title-search-result {
+    left: calc( (100% - 1200px + 30px) / 2 ) !important;
+  }
 }
 
 div.title-search-fader {

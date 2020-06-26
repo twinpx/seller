@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 //placeholder
 setTimeout( function() {
   $( '.b-ph-block' ).addClass( 'i-ph-animated' );
 }, 500 );
 
->>>>>>> 32491bdf5bc82696ce078a061cbcc5ebe78df709
 $( '#scroll' ).niceScroll();
 $( '#button' ).click( function() {
   $( '#scroll' ).show();
