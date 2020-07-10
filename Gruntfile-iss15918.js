@@ -88,8 +88,7 @@ module.exports = function( grunt ) {
             [
               '<%= source%>styl/template_styles.styl',
               '<%= source%>modules/**/*.styl'
-            ],
-          '<%= dest%>template/colors.css': '<%= source%>styl/colors.styl'
+            ]
         }
       },
       components: {

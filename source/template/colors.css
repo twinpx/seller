@@ -614,7 +614,7 @@ input.sale-paysystem-yandex-button-item:active {
   color: #ffba13;
 }
 .b-catalog-detail__sizes-block .b-catalog-detail__sizes-item:not(.i-disabled):hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 #buyDetailPopupWindow {
   background-color: #ffba13;
