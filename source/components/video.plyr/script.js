@@ -26,6 +26,10 @@
       $( '.b-plyr-yt' ).addClass( 'i-canplay' );
       playerYt.play();
     });
+
+    playerYt.on( 'ended', function(e) {
+      playerYt.play();
+    });
     
     //youtube div
     var player2 = new Plyr( '#player2', {
