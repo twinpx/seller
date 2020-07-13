@@ -1,0 +1,20 @@
+// start /components/video.plyr/
+
+link( rel="stylesheet", href="/components/video.plyr/style.css" )
+script( src="/components/video.plyr/script.js" )
+
+link( rel="stylesheet", href="/template/libs/plyr.min.css" )
+script( src="/template/libs/plyr.min.js" )
+  
+h3 Iframe
+
+.b-plyr-yt
+  .preloader
+  #playerYt.plyr__video-embed
+    iframe( src="https://www.youtube.com/embed/M8guTjUoOuo?origin=127.0.0.1&amp;controls=0&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;mute=1" frameborder="0" allowfullscreen allowtransparency allow="autoplay" )
+    
+h3 Div
+
+#player2( data-plyr-provider="youtube" data-plyr-embed-id="M8guTjUoOuo" )
+
+// end /components/video.plyr/

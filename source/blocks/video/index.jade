@@ -1,0 +1,22 @@
+extends ../../layouts/main.jade
+
+block title
+  title Video | Seller
+
+block content
+
+  .container-fluid
+  
+    hr.i-size-L
+    
+    h2 Локальное видео
+        
+    include ../../components/video.plyr/local
+    
+    hr.i-size-L
+    
+    h2 Видео с YouTube
+    
+    include ../../components/video.plyr/youtube
+          
+          
