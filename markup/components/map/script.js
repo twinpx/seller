@@ -24,7 +24,7 @@
                     }
                 }
             });
-            var shopsMap, clusterer, balloonProps, balloonLayout;
+            var shopsMap, clusterer, balloonLayout, balloonContentLayout;
             function initMap() {
                 shopsMap = new ymaps.Map("yMapShops", {
                     center: [ 55.751574, 37.573856 ],
@@ -38,16 +38,24 @@
                 shopsMap.events.add("click", function(e) {
                     shopsMap.balloon.close();
                 });
-                balloonProps = {
+                balloonLayout = ymaps.templateLayoutFactory.createClass('<a href="$[properties.href]" class="b-shop-balloon"><span class="b-shop-balloon__close"></span><span class="b-shop-balloon__img" style="background-image: url(\'$[properties.img]\');"></span><span class="b-shop-balloon__heading">$[properties.heading]</span></a>', {
                     build: function() {
                         this.constructor.superclass.build.call(this);
-                        this._$element = $(".b-shop-balloon", this.getParentElement());
+                        this._$element = $("a.b-shop-balloon", this.getParentElement());
                         this.applyElementOffset();
                         this._$element.find(".b-shop-balloon__close").on("click", $.proxy(this.onCloseClick, this));
                     },
                     clear: function() {
                         this._$element.find(".b-shop-balloon__close").off("click");
                         this.constructor.superclass.clear.call(this);
+                    },
+                    onSublayoutSizeChange: function() {
+                        balloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+                        if (!this._isElement(this._$element)) {
+                            return;
+                        }
+                        this.applyElementOffset();
+                        this.events.fire("shapechange");
                     },
                     applyElementOffset: function() {
                         this._$element.css({
@@ -57,12 +65,20 @@
                     },
                     onCloseClick: function(e) {
                         e.preventDefault();
+                        e.stopPropagation();
                         this.events.fire("userclose");
                     },
+                    getShape: function() {
+                        if (!this._isElement(this._$element)) {
+                            return balloonLayout.superclass.getShape.call(this);
+                        }
+                        var position = this._$element.position();
+                        return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([ [ position.left, position.top ], [ position.left + this._$element[0].offsetWidth, position.top + this._$element[0].offsetHeight ] ]));
+                    },
                     _isElement: function(element) {
-                        return element && element[0] && element.find(".arrow")[0];
+                        return element && element[0];
                     }
-                };
+                });
                 var preset = "islands#blackClusterIcons";
                 if (window.yMapPlacemarksIcons) {
                     preset = "islands#" + yMapPlacemarksIcons;
@@ -71,66 +87,34 @@
                     preset: preset,
                     groupByCoordinates: false
                 });
-                balloonLayout = ymaps.templateLayoutFactory.createClass('<a href="$[properties.href]" class="b-shop-balloon"><span class="b-shop-balloon__close"></span><span class="b-shop-balloon__img" style="background-image: url(\'$[properties.img]\');"></span><span class="b-shop-balloon__heading">$[properties.heading]</span></a>', balloonProps);
-                $(".b-map__nav-item.i-active").each(function() {
-                    setPlacemarks($(this).data("tab"));
-                });
+                setPlacemarks();
                 shopsMap.geoObjects.add(clusterer);
                 shopsMap.setBounds(clusterer.getBounds(), {
                     checkZoomRange: true,
                     duration: 500
                 });
             }
-            $(".b-map__nav-item, .b-map .dropdown-menu a").click(function(e) {
-                var $item = $(this);
-                var $map = $(this).closest(".b-map");
-                clusterer.removeAll();
-                if ($item.hasClass("b-map__nav-item")) {
-                    if ($map.data("singletab")) {
-                        $map.find(".b-map__nav-item").removeClass("i-active");
-                    }
-                    $item.toggleClass("i-active");
-                    $(".b-map__nav-item.i-active").each(function() {
-                        setPlacemarks($(this).data("tab"));
-                    });
-                } else if ($item.is("a")) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if ($item.data("tab") === "all") {
-                        $map.find(".dropdown-menu a").each(function() {
-                            setPlacemarks($(this).data("tab"));
-                        });
-                    } else {
-                        setPlacemarks($item.data("tab"));
-                    }
-                }
-                shopsMap.setBounds(clusterer.getBounds(), {
-                    checkZoomRange: true,
-                    duration: 500
-                });
-            });
-            function setPlacemarks(tab) {
-                if (!tab) {
-                    return;
-                }
+            function setPlacemarks() {
                 try {
-                    window.yMapPlacemarks[tab].forEach(function(elem) {
+                    window.yMapPlacemarks.forEach(function(elem) {
                         var placemark = new ymaps.Placemark(elem.coords, {
                             img: elem.img,
                             heading: elem.heading,
-                            href: elem.href,
-                            balloonContent: "цвет <strong>воды пляжа бонди</strong>"
+                            href: elem.href
                         }, {
                             iconLayout: "default#image",
                             iconImageHref: elem.icon,
                             iconImageSize: [ 32, 32 ],
                             iconImageOffset: [ -16, -16 ],
                             balloonShadow: false,
-                            balloonContentLayout: balloonLayout
+                            balloonLayout: balloonLayout,
+                            balloonPanelMaxMapArea: 0
                         });
                         clusterer.add(placemark);
                     });
-                } catch (e) {}
+                } catch (e) {
+                    console.log(e);
+                }
             }
         });
     });
