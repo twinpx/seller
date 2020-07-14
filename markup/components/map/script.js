@@ -97,15 +97,15 @@
             function setPlacemarks() {
                 try {
                     window.yMapPlacemarks.forEach(function(elem) {
-                        var placemark = new ymaps.Placemark(elem.coords, {
+                        var placemark = new ymaps.Placemark([ elem.lat, elem.lon ], {
                             img: elem.img,
                             heading: elem.heading,
                             href: elem.href
                         }, {
                             iconLayout: "default#image",
                             iconImageHref: elem.icon,
-                            iconImageSize: [ 32, 32 ],
-                            iconImageOffset: [ -16, -16 ],
+                            iconImageSize: [ 43, 64 ],
+                            iconImageOffset: [ -22, -64 ],
                             balloonShadow: false,
                             balloonLayout: balloonLayout,
                             balloonPanelMaxMapArea: 0
