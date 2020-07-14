@@ -1,7 +1,6 @@
 {
   "STATUS" : "Y",
-  "DATA" : {
-    "moscow": [{
+  "DATA" : [{
         "coords": [55.751572, 37.573855],
         "icon": "/components/map/images/pointer.svg",
         "href": "/shops/shop-detail/",
@@ -13,8 +12,8 @@
         "href": "/shops/shop-detail/",
         "img": "/upload/catalog.detail/13.jpg",
         "heading": "ТРЦ Длинное предлинное название"
-    }],
-    "spb": [{
+    },
+    {
         "coords": [55.781571, 37.573856],
         "icon": "/components/map/images/pointer.svg",
         "href": "/shops/shop-detail/",
@@ -26,6 +25,6 @@
         "href": "/shops/shop-detail/",
         "img": "/upload/catalog.detail/11.jpg",
         "heading": "ТРЦ Галерея"
-    }]
-  }
+    }
+  ]
 }

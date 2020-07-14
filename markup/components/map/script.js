@@ -118,7 +118,8 @@
                         var placemark = new ymaps.Placemark(elem.coords, {
                             img: elem.img,
                             heading: elem.heading,
-                            href: elem.href
+                            href: elem.href,
+                            balloonContent: "цвет <strong>воды пляжа бонди</strong>"
                         }, {
                             iconLayout: "default#image",
                             iconImageHref: elem.icon,
