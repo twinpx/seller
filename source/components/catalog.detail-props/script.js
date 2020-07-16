@@ -3,9 +3,6 @@
   'use strict';
   
   $( function() {
-    
-    //ecommerce
-    $( '.b-catalog-detail' ).trigger( 'detail.ecommerce' );
   
     //mobile props
     $( '.b-catalog-detail__props-slide' ).click( function(e) {
@@ -1016,6 +1013,9 @@
           } catch(e) {}
         //}
       } catch(e) {}
+      
+      //ecommerce
+      $( '.b-catalog-detail' ).trigger( 'detail.ecommerce' );
       
     }
         

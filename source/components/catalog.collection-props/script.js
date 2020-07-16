@@ -3,64 +3,7 @@
   'use strict';
   
   $( function() {
-  
-    //bigData from Bitrix
-    /*if ( window.BX ) {
-      BX.ready(BX.delegate( this.bigDataLoad, this ));
-    }
-    
-    function bigDataLoad() {
-        var t = "https://analytics.bitrix.info/crecoms/v1_0/recoms.php",
-            e = BX.ajax.prepareData(this.bigData.params);
-        if (e) {
-            t += (t.indexOf("?") !== -1 ? "&" : "?") + e;
-        }
-        var a = BX.delegate(function(t) {
-            sendRequest({
-                action: "deferredLoad",
-                bigData: "Y",
-                items: t && t.items || [],
-                rid: t && t.id,
-                count: this.bigData.count,
-                rowsRange: this.bigData.rowsRange,
-                shownIds: this.bigData.shownIds
-            });
-        }, this);
-        BX.ajax({
-            method: "GET",
-            dataType: "json",
-            url: t,
-            timeout: 3,
-            onsuccess: a,
-            onfailure: a
-        });
-    }
-    
-    function sendRequest(t) {
-        var e = {
-            siteId: this.siteId,
-            template: this.template,
-            parameters: this.parameters
-        };
-        if (this.ajaxId) {
-            e.AJAX_ID = this.ajaxId
-        }
-        BX.ajax({
-            url: this.componentPath + "/ajax.php" + (document.location.href.indexOf("clear_cache=Y") !== -1 ? "?clear_cache=Y" : ""),
-            method: "POST",
-            dataType: "json",
-            timeout: 60,
-            data: BX.merge(e, t),
-            onsuccess: BX.delegate(function(e) {
-                if (!e || !e.JS)
-                    return;
-                BX.ajax.processScripts(BX.processHTML(e.JS).SCRIPT, false, BX.delegate(function() {
-                    this.showAction(e, t)
-                }, this))
-            }, this)
-        })
-    }*/
-    
+      
     //scroll to sort
     if ( String( window.location.search ).search( 'sort=' ) !== -1 ) {
       setTimeout( function() {
@@ -172,10 +115,12 @@
     $( '.b-catalog-element__button .btn' ).click( function(e) {
       e.preventDefault();
       
-      //ecommerce
-      $( '.b-catalog-element__button .btn' ).trigger( 'add.ecommerce' );
-      
       var $btn = $( this );
+      
+      //ecommerce
+      if ( !$btn.is( '.i-gray' )) {
+        $btn.trigger( 'add.ecommerce' );
+      }
       
       if ( $btn.hasClass( 'i-gray' )) {
         window.location = $btn.attr( 'href' );
@@ -248,54 +193,7 @@
           if ( $element.find( '.b-catalog-element__data[ data-actual-item ]' ).length ) {
             $activeDataDiv = $element.find( '.b-catalog-element__data div[ data-id=' + $element.find( '.b-catalog-element__data' ).data( 'actual-item' ) + ' ]' );
           }
-      
-      //click colors
-      /*$colorsBlock.delegate( '.b-catalog-element__colors-item', 'click', function() {
-        
-        //highlite
-        $element.find( '.b-catalog-element__colors-item' ).removeClass( 'i-active' );
-        $( this ).addClass( 'i-active' );
-        
-        if ( $element.find( '.b-catalog-element__sizes-item' ).length ) {
-          setDisabledSizes( this );//set disabled sizes
-          setDisabledColors( $element.find( '.b-catalog-element__sizes-item.i-active' ));//set disabled colors
-        } else {
-          //show offer
-          $data.each( function() {
-            if ( $element.find( '.b-catalog-element__colors-item.i-active').length && $element.find( '.b-catalog-element__colors-item.i-active').css( 'backgroundImage' ).search( $( this).data( 'color-color_ref' )) !== -1 ) {
-              showOffer( $( this ));
-            }
-          });
-        }
-      });*/
-      
-      //click sizes
-      /*$sizesBlock.delegate( '.b-catalog-element__sizes-item', 'click', function() {
-        var $this = $( this );
-      
-        //highlite
-        $element.find( '.b-catalog-element__sizes-item' ).removeClass( 'i-active' );
-        $this.addClass( 'i-active' );
-        
-        //set cookie
-        if ( window.Cookies ) {
-          Cookies.set( 'size', $this.text(), { expires: 365, path: window.location.origin });
-        }
-        
-        if ( $element.find( '.b-catalog-element__colors-item' ).length ) {  
-          setDisabledColors( this );//set disabled colors
-          setDisabledSizes( $element.find( '.b-catalog-element__colors-item.i-active' ));//set disabled sizes
-        } else {
-          //show offer
-          $data.each( function() {
-            if ( $element.find( '.b-catalog-element__sizes-item.i-active').length && ( $( this).data( 'list-sizes_shoes' )+'' ) === $element.find( '.b-catalog-element__sizes-item.i-active').text()) {
-              showOffer( $( this ));
-            }
-          });
-        }
-        
-      });*/
-      
+            
       //click prop
       $propListBlock.delegate( '.b-catalog-element__colors-item, .b-catalog-element__sizes-item', 'click', function() {
         var $item = $( this );

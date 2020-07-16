@@ -1,7 +1,6 @@
 (function($) {
     "use strict";
     $(function() {
-        $(".b-catalog-detail").trigger("detail.ecommerce");
         $(".b-catalog-detail__props-slide").click(function(e) {
             $(".b-catalog-detail__props").slideToggle();
         });
@@ -799,6 +798,7 @@
                     }
                 } catch (e) {}
             } catch (e) {}
+            $(".b-catalog-detail").trigger("detail.ecommerce");
         }
         function parseQuery(queryString) {
             var query = {};
