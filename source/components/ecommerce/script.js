@@ -103,7 +103,7 @@
     
     //purchase
     //cart
-    $( '.b-catalog-detail__button-block [data-toggle]' ).not( '.btn' ).click( function() {
+    $( '.basket-btn-checkout' ).click( function() {
       var productObj = {
           "id": $( '.b-catalog-detail' ).data( 'id' ),
           "name": $( '.b-catalog-detail h1' ).text(),
