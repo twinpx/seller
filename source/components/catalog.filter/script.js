@@ -3,6 +3,8 @@
   'use strict';
   
   $( function() {
+    
+    $( '.bx-filter-select-popup' ).nicescroll();
   
     var top;
     
