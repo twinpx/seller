@@ -27,7 +27,7 @@
             var shopsMap, clusterer, balloonLayout, balloonContentLayout;
             function initMap() {
                 shopsMap = new ymaps.Map("yMapShops", {
-                    center: [ 55.751574, 37.573856 ],
+                    center: [ window.yMapPlacemarks[0].lat, window.yMapPlacemarks[0].lon ],
                     zoom: 12,
                     controls: [ "geolocationControl", "zoomControl" ]
                 }, {
@@ -89,10 +89,12 @@
                 });
                 setPlacemarks();
                 shopsMap.geoObjects.add(clusterer);
-                shopsMap.setBounds(clusterer.getBounds(), {
-                    checkZoomRange: true,
-                    duration: 500
-                });
+                if (window.yMapPlacemarks.length > 1) {
+                    shopsMap.setBounds(clusterer.getBounds(), {
+                        checkZoomRange: true,
+                        duration: 500
+                    });
+                }
             }
             function setPlacemarks() {
                 try {
