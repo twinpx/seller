@@ -1,6 +1,5 @@
 
 <!-- start /components/catalog.detail-props/-->
-<script src="/components/ecommerce/script.js"></script>
 <link rel="stylesheet" href="/components/catalog.detail-props/style.css"/>
 <script src="/components/catalog.detail-props/script.js"></script>
 <div class="b-catalog-detail">
@@ -388,7 +387,11 @@
         <div class="row b-catalog-detail__button-block">
           <div class="col-sm-6"><a href="/personal/cart/" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-L btn-100"><span class="i-show">Купить</span><span>В корзине</span></a></div>
           <hr class="visible-xs"/>
-          <div class="col-sm-6 text-center"><a id="catalogDetailFavLink" href="" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N"><span>Отложить</span><span class="i-stored hidden">Отложено</span></a><br/><a href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick">Купить в 1 клик</a></div>
+          <div class="col-sm-6 text-center"><a id="catalogDetailFavLink" href="" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N"><span>Отложить</span><span class="i-stored hidden">Отложено</span></a><br/><a href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick">Купить в 1 клик</a>
+            <script>
+              <!-- id цели в Яндекс Метрике - покупка товара в один клик-->window.oneClickYandexId = 124721290;
+            </script>
+          </div>
         </div>
         <!--если заходит на страницу товара, который уже в корзине, то показываем только кнопку В корзине-->
         <div class="row b-catalog-detail__button-block">

@@ -1,6 +1,5 @@
 ﻿// start /components/catalog.detail-props/
 
-script( src="/components/ecommerce/script.js" )
 link( rel="stylesheet", href="/components/catalog.detail-props/style.css" )
 script( src="/components/catalog.detail-props/script.js" )
 
@@ -139,6 +138,8 @@ script( src="/components/catalog.detail-props/script.js" )
               span.i-stored.hidden Отложено
             br
             a( href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick" ) Купить в 1 клик
+            
+            include ../../modules/ecommerce/catalog-detail
             
         //если заходит на страницу товара, который уже в корзине, то показываем только кнопку В корзине
         .row.b-catalog-detail__button-block

@@ -841,7 +841,11 @@
               <div class="row b-catalog-detail__button-block">
                 <div class="col-sm-6"><a href="#" data-toggle="modal" data-target="#buyDetailModal" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-L btn-100">Купить</a></div>
                 <hr class="visible-xs">
-                <div class="col-sm-6 text-center"><a id="catalogDetailFavLink" href="" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N"><span>Отложить</span><span class="i-stored hidden">Отложено</span></a><br><a href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick">Купить в 1 клик</a></div>
+                <div class="col-sm-6 text-center"><a id="catalogDetailFavLink" href="" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N"><span>Отложить</span><span class="i-stored hidden">Отложено</span></a><br><a href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick">Купить в 1 клик</a>
+                  <script>
+                    <!-- id цели в Яндекс Метрике - покупка товара в один клик-->window.oneClickYandexId = 124721290;
+                  </script>
+                </div>
               </div>
               <hr class="i-size-S">
               <div class="b-catalog-detail__num">

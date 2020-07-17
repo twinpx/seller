@@ -1,0 +1,26 @@
+﻿form(action="/components/catalog.detail/response.json" method="GET")
+  .modal-body
+    p
+      | При быстром заказе условия доставки и оплаты согласуются с менеджером интернет-магазина.
+    .form-group
+      label ФИО:
+      input.bx-auth-input.form-control(type="text" name="USER_NAME" maxlength="50" value="Alexey" required="")
+    .form-group
+      label Email:
+      input.bx-auth-input.form-control(type="mail" name="USER_EMAIL" maxlength="50" value="" required="")
+    .form-group
+      label Телефон:
+      input.bx-auth-input.form-control(type="tel" name="USER_TEL" maxlength="50" value="" required="")
+    .form-group
+      label Комментарий:
+      textarea.bx-auth-input.form-control(name="USER_TEXT" row="50" col="50" required="")
+    .form-group.checkbox(style="border-bottom: 0;")
+      input#filled-in-box.filled-in(type="checkbox" value="Y" name="" required="")
+      label.main-user-consent-request(for="filled-in-box" data-toggle="modal" data-target="#consentModal")
+        | Нажимая на кнопку «Регистрация», вы даете согласие на обработку своих персональных данных.
+  .modal-footer.text-center
+    button.btn.btn-default(type="submit") Отправить
+    button.btn.btn-default.i-gray(type="button" data-dismiss="modal" aria-label="Close") Продолжить покупки
+    
+  script
+    | window.oneClickOrderId = "SOME_ID"

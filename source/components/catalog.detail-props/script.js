@@ -215,7 +215,7 @@
             $( '#oneClick .modal-footer .btn' ).hide();
             $( '#oneClick .modal-footer .i-gray' ).show();
             //ecommerce event trigger
-            $( '#oneClick' ).trigger( 'onClickSuccess.ecommerce' );
+            $( '#oneClick' ).trigger( 'oneClickSuccess.ecommerce' );
           }
         },
         error: function( a,b,c ) {

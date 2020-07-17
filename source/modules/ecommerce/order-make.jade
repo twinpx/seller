@@ -1,0 +1,33 @@
+script
+  | window.dataLayer = window.dataLayer || [];
+    
+  | window.dataLayer.push({
+  |   "currencyCode": "RUB",
+  |   "ecommerce": {
+  |     "purchase": {
+  |       "actionField": {
+  |         "id": "SOME_ID_2",
+  |         "goal_id": 124721446
+  |       },
+  |       "products": [{
+  |         "id": "360",
+  |         "name": "Ботинки кожаные",
+  |         "price": 12000,
+  |         "category": "Мужчинам/Ботинки",
+  |         "brand": "Ботинки для мужчин",
+  |         "quantity": 2,
+  |         "variant": "Черный 45",
+  |         "coupon": "PROMO"
+  |       },
+  |       {
+  |         "id": "361",
+  |         "name": "Ремень тканый",
+  |         "price": 1000,
+  |         "category": "Мужчинам/Аксессуары",
+  |         "brand": "Men's fashion",
+  |         "quantity": 5,
+  |         "variant": "Бежевый 20 лен"
+  |       }]
+  |     }
+  |   }
+  | });
