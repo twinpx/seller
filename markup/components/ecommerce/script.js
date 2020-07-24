@@ -1,7 +1,9 @@
 (function($) {
     "use strict";
     $(function() {
+        window.dataLayer = window.dataLayer || [];
         $(".b-catalog-detail").bind("detail.ecommerce", function() {
+            console.log("wer");
             var productObj = {
                 id: $(".b-catalog-detail").data("id"),
                 name: $(".b-catalog-detail h1").text(),
@@ -11,7 +13,7 @@
             if ($(".i-ecom-brand").length) {
                 productObj.brand = $(".i-ecom-brand").text();
             }
-            dataLayer.push({
+            window.dataLayer.push({
                 ecommerce: {
                     detail: {
                         products: [ productObj ]
@@ -19,7 +21,7 @@
                 }
             });
         });
-        $(".b-catalog-detail__button-block .btn-100").click(function() {
+        $(".b-catalog-detail__button-block .btn-100:not( .i-gray )").click(function() {
             var productObj = {
                 id: $(".b-catalog-detail").data("id"),
                 name: $(".b-catalog-detail h1").text(),
@@ -29,7 +31,7 @@
             if ($(".i-ecom-brand").length) {
                 productObj.brand = $(".i-ecom-brand").text();
             }
-            dataLayer.push({
+            window.dataLayer.push({
                 ecommerce: {
                     add: {
                         products: [ productObj ]
@@ -48,7 +50,7 @@
             if ($element.find(".i-ecom-brand").length) {
                 productObj.brand = $element.find(".i-ecom-brand").text();
             }
-            dataLayer.push({
+            window.dataLayer.push({
                 ecommerce: {
                     add: {
                         products: [ productObj ]
@@ -66,7 +68,7 @@
             if ($(".i-ecom-brand").length) {
                 productObj.brand = $(".i-ecom-brand").text();
             }
-            dataLayer.push({
+            window.dataLayer.push({
                 ecommerce: {
                     add: {
                         products: [ productObj ]
@@ -75,7 +77,7 @@
             });
         });
         $("#oneClick").bind("onClickSuccess.ecommerce", function() {
-            dataLayer.push({
+            window.dataLayer.push({
                 ecommerce: {
                     purchase: {
                         actionField: "",

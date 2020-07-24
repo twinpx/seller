@@ -6,6 +6,8 @@
   
     //Yandex ecommerce
     
+    window.dataLayer = window.dataLayer || [];
+    
     //detail
     $( '.b-catalog-detail' ).bind( 'detail.ecommerce', function() {
       var productObj = {
@@ -18,7 +20,7 @@
       if ( $( '.i-ecom-brand' ).length ) {
         productObj.brand = $( '.i-ecom-brand' ).text();
       }
-      dataLayer.push({
+      window.dataLayer.push({
           "ecommerce": {
               "detail": {
                   "products": [ productObj ]
@@ -29,7 +31,7 @@
     
     //add to cart
     //catalog detail buy button
-    $( '.b-catalog-detail__button-block .btn-100' ).click( function() {
+    $( '.b-catalog-detail__button-block .btn-100:not( .i-gray )' ).click( function() {
       var productObj = {
                     "id": $( '.b-catalog-detail' ).data( 'id' ),
                     "name": $( '.b-catalog-detail h1' ).text(),
@@ -40,7 +42,7 @@
       if ( $( '.i-ecom-brand' ).length ) {
         productObj.brand = $( '.i-ecom-brand' ).text();
       }
-      dataLayer.push({
+      window.dataLayer.push({
           "ecommerce": {
               "add": {
                   "products": [ productObj ]
@@ -62,7 +64,7 @@
       if ( $element.find( '.i-ecom-brand' ).length ) {
         productObj.brand = $element.find( '.i-ecom-brand' ).text();
       }
-      dataLayer.push({
+      window.dataLayer.push({
           "ecommerce": {
               "add": {
                   "products": [ productObj ]
@@ -84,7 +86,7 @@
       if ( $( '.i-ecom-brand' ).length ) {
         productObj.brand = $( '.i-ecom-brand' ).text();
       }
-      dataLayer.push({
+      window.dataLayer.push({
           "ecommerce": {
               "add": {
                   "products": [ productObj ]
@@ -95,7 +97,7 @@
     
     //one click success
     $( '#oneClick' ).bind( 'onClickSuccess.ecommerce', function() {
-      dataLayer.push({
+      window.dataLayer.push({
           "ecommerce": {
               "purchase": {
                   "actionField": "",
