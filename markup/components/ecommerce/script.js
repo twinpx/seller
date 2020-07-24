@@ -3,7 +3,6 @@
     $(function() {
         window.dataLayer = window.dataLayer || [];
         $(".b-catalog-detail").bind("detail.ecommerce", function() {
-            console.log("wer");
             var productObj = {
                 id: $(".b-catalog-detail").data("id"),
                 name: $(".b-catalog-detail h1").text(),

@@ -1,7 +1,6 @@
 (function($) {
     "use strict";
     $(function() {
-        $(".bx-filter-select-popup").nicescroll();
         var top;
         if (String(window.location.href).search("filter") !== -1 && $(".b-catalog-filter").length) {
             if ($(".b-catalog-filter").closest(".col-md-3").length) {

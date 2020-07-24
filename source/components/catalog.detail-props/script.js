@@ -159,6 +159,9 @@
             $btn.closest( '.b-catalog-detail__button-block' ).find( '.col-sm-6:eq(1)' ).remove();
             
             $btn.addClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
+            
+            //add incart attribute to the tp
+            $activeDataDiv.data({ 'incart': 'Y' });
           }
         },
         error: function() {}
@@ -965,6 +968,14 @@
         } else if ( $div.data( 'subscribe' ) !== 'Y' && $div.data( 'available' ) !== 'Y' ) {
           $( '.b-catalog-detail__button-block' ).hide();
           $( '.b-catalog-detail__subscribe-block' ).addClass( 'hidden' );
+        }
+      } catch(e) {}
+      
+      //in cart button
+      try {
+        if ( $div.data( 'incart' ) === 'Y' && !$( '.b-catalog-detail__button-block .btn' ).hasClass( 'i-gray' )) {
+          var href = $( '.b-catalog-detail__button-block a' ).attr( 'href' );
+          $( '.b-catalog-detail__button-block' ).html( '<div class="col-sm-12"><a href="' + href + '" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-L btn-100 i-gray"><span class="i-show">В корзине</span></a></div>' );
         }
       } catch(e) {}
       
