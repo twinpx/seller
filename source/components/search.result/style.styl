@@ -1,0 +1,60 @@
+@import '../../styl/component-include.styl'
+
+.b-search-form
+
+  &-group
+    position relative
+  
+  &-control
+    border none
+    background-color #f2f2f2
+    border-radius 4px
+    height 40px
+    padding 5px 40px
+    background-image url( '/template/images/headers/header_1_6_0_3/search.svg' )
+    background-repeat no-repeat
+    background-position 12px center
+    background-size 17px
+    width 100%
+    
+    input&:focus
+      outline none
+  
+  &-clear
+    opacity 0
+    transition( opacity .3s ease )
+    width 18px
+    height 18px
+    position absolute
+    top 11px
+    right 11px
+    pointer-events none
+    cursor text
+    z-index 10
+    
+    &.i-show
+      opacity 1
+      cursor pointer
+      pointer-events auto
+    
+    &:before
+      display block
+      content ''
+      height 20px
+      border-right 1px solid #000
+      transform( rotate(45deg))
+      position absolute
+      top -1px
+      left 9px
+      z-index 1
+    
+    &:after
+      display block
+      content ''
+      height 20px
+      border-right 1px solid #000
+      transform( rotate(135deg))
+      position absolute
+      top -1px
+      left 9px
+      z-index 1
