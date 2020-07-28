@@ -4,6 +4,94 @@
   @media( max-width 767px )
     h1
       margin-bottom 0
+      
+#buyCatalogElementPopup
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  display none
+  z-index 1000
+  
+  &.i-show
+    display block
+  
+  &Opaco
+    background-color rgba( 255, 255, 255, .5 )
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    opacity 0
+    transition( opacity .3s ease )
+    z-index 1001
+    
+    #buyCatalogElementPopup.i-animate &
+      opacity 1
+    
+  &Window
+    position absolute
+    top calc( 50% - 25px )
+    left calc( 50% - 300px )
+    background-color blue
+    width 600px
+    padding 25px 25px
+    transition( all .3s ease )
+    transform( scale( .9 ))
+    opacity 0
+    z-index 1002
+    
+    #buyCatalogElementPopup.i-animate &
+      opacity 1
+      transform( scale(1))
+    
+    a
+      color #fff
+      text-decoration underline
+      white-space nowrap
+      
+    @media( max-width 767px )
+      width 300px
+      top calc( 50% - 40px )
+      left calc( 50% - 150px )
+      height auto
+    
+  .b-catalog-element-popup__close
+    position absolute
+    top 10px
+    right 10px
+    width 20px
+    height 20px
+    cursor pointer
+    z-index 1
+    
+    &:before
+      content ''
+      display block
+      border-right 1px solid #fff
+      position absolute
+      top 0
+      left 10px
+      transform( rotate( 45deg))
+      height 100%
+      z-index 1
+    
+    &:after
+      content ''
+      display block
+      border-right 1px solid #fff
+      position absolute
+      top 0
+      left 10px
+      transform( rotate( -45deg))
+      height 100%
+      z-index 1
+    
+  .b-catalog-element-popup__body
+    color #fff
+    line-height normal
 
 .b-catalog-collection
   text-align left
@@ -27,7 +115,7 @@
       
       .btn
         opacity 1
-            
+        
       span
         margin 0
       
@@ -160,6 +248,12 @@
     .btn
       opacity 0
       transition( all 0.5s ease )
+        
+      span
+        display none
+        
+        &.i-show
+          display inline-block
     
     @media( max-width 991px )
       display none !important
@@ -251,6 +345,13 @@
     &__fotorama-img
       padding-top 75%
       background-size contain
+      
+  &__propList-block
+    padding 0 20px
+  
+    h6
+      font-size 7pt
+      line-height 18px
       
 .b-catalog-collection .col-sm-2 .col-xs-5.b-catalog-element__button,
 .b-catalog-collection .col-sm-6 .col-sm-4 .col-xs-5.b-catalog-element__button,
@@ -589,3 +690,28 @@
     opacity 0
   to
     opacity 1
+    
+//presents block on the cart page
+.b-catalog-collection[ data-entity="sale-products-gift-container" ]
+
+  @media ( max-width: 767px )
+    
+    .b-catalog-element__bottom
+      display block !important
+      box-shadow none
+      position static
+      opacity 1
+      
+      hr,
+      .b-catalog-element__price
+        display none
+        
+    .b-catalog-element__button
+      display block !important
+        
+    .b-catalog-element__button .btn
+      opacity 1
+      
+    .b-catalog-element__propList-block,
+    .b-catalog-element__props
+      display none

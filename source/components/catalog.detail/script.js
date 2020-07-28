@@ -81,6 +81,7 @@
 		  
 		});
     
+    //store buttons - an icon and a link
     var favPreloader = new Preloader( '#catalogDetailFavLink, #catalogDetailFavIcon', 'color1', 'x-small' );
     
     $( '#catalogDetailFavLink, #catalogDetailFavIcon' ).click( function(e) {
@@ -128,6 +129,11 @@
       e.preventDefault();
       var $btn = $( this );
       
+      if ( $btn.hasClass( 'i-gray' )) {
+        window.location = $btn.attr( 'href' );
+        return;
+      }
+      
       $.ajax({
         url: $btn.data( 'ajax-url' ),
         type: 'GET',
@@ -141,6 +147,21 @@
             $( 'div[data-id=' + $( '.b-catalog-detail' ).attr( 'data-id' ) + ']' ).data({ num: data.num });
             //num of the products in a cart
             $( '#bx_cart_num' ).text( data.cart );
+            
+            //popup window
+            $( '#buyDetailPopup' ).addClass( 'i-show' );
+            setTimeout( function() {
+              $( '#buyDetailPopup' ).addClass( 'i-animate' );
+            }, 100);
+            
+            //button transformation
+            $btn.closest( '.b-catalog-detail__button-block' ).find( '.col-sm-6:eq(0)' ).css({ width: '100%' });
+            $btn.closest( '.b-catalog-detail__button-block' ).find( '.col-sm-6:eq(1)' ).hide();
+            
+            $btn.addClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
+            
+            //add incart attribute to the tp
+            $activeDataDiv.data({ 'incart': 'Y' });
           }
         },
         error: function() {}
@@ -148,10 +169,13 @@
       
     });
     
-    //buy modal window
-    $( '.row.b-catalog-detail__button-block .btn' ).click( function(e) {
-      e.preventDefault();
-      $( '#buyDetailPopup' ).addClass( 'i-show' );
+    //popup window
+    $( '#buyDetailPopupOpaco, .b-catalog-detail-popup__close' ).click(function(e) {
+        e.preventDefault();
+        $( '#buyDetailPopup' ).removeClass( 'i-animate' );
+        setTimeout( function() {
+          $( '#buyDetailPopup' ).removeClass( 'i-show' );
+        }, 500);
     });
     
     //one click link
@@ -343,62 +367,98 @@
     
     var $dataDivs = $( '#catalogDetailData div' ),
         $activeDataDiv = $dataDivs.eq(0),
-        sizeCookieFlag = false;// there is no cookie for size, that means that we have never chosen size on this site
-    
-    //click colors
-    $( '.b-catalog-detail__colors-block' ).delegate( '.b-catalog-detail__colors-item', 'click', function() {
-      sizeCookieFlag = true;//set id to the URL
+        //sizeCookieFlag = false,// there is no cookie for size, that means that we have never chosen size on this site
+        propList = $( '#catalogDetailData' ).data( 'prop-list' ),//[{ type:"", code:"", name: ""}]
+        propDB = {};
+        
+    //click prop
+    $( '#propListBlock' ).delegate( '.b-catalog-detail__colors-item, .b-catalog-detail__sizes-item', 'click', function() {
+      var $item = $( this );
+      if ( $item.hasClass( 'i-active' )) {
+        return;
+      }
+      var blockProp = $item.parent().data( 'prop' );
+      var itemProp = $item.text() || $item.css( 'backgroundImage' );
+      var $activeItem = $item.siblings( '.i-active' );
+      var currentid = $( '.b-catalog-detail' ).attr( 'data-id' );
+      var itemID;
+      var propString = '';
+      var propArray = [];
       
-      //highlite
-      $( '.b-catalog-detail__colors-item' ).removeClass( 'i-active' );
-      $( this ).addClass( 'i-active' );
-      
-      if ( $( '.b-catalog-detail__sizes-block' ).length ) {
-        setDisabledSizes( this );//set disabled sizes
-        setDisabledColors( $( '.b-catalog-detail__sizes-item.i-active' ));//set disabled colors
-      } else {
-        //show offer
-        $dataDivs.each( function() {
-          if ( $( '.b-catalog-detail__colors-item.i-active').length && $( '.b-catalog-detail__colors-item.i-active').css( 'backgroundImage' ).search( $( this).data( 'color-color_ref' )) !== -1 ) {
-            $activeDataDiv = $( this );
-            showOffer( $activeDataDiv );
-          }
-        });
+      for ( var k in propDB[ currentid ]) {
+        if ( blockProp === propDB[ currentid ][k][1]) {
+          propString = k;
+        }
       }
       
+      propArray = String( propString ).split( ',' );
+      
+      if ( $item.hasClass( 'i-disabled' )) {
+        var newPropIdArray = [];
+        var maxCounter = 0;
+        var obj = {};
+        for ( var a in propDB ) {//find all tp with the same value of this prop
+          for ( var s in propDB[a] ) {
+            if ( compareItemProp( $item.attr( 'class' ), itemProp, propDB[a][s][3]) && ( blockProp === propDB[a][s][1])) {
+              obj = {};
+              obj[a] = propDB[a];
+              newPropIdArray.push( obj );
+            }
+          }
+        }
+        for ( var i = 0; i < newPropIdArray.length; i++ ) {
+          for ( var id in newPropIdArray[i]) {
+            var counter = 0;
+            for ( var keyString in newPropIdArray[i][id]) {
+              if ( newPropIdArray[i][id][ keyString ][1] === blockProp ) {
+                var keyArray = String( keyString ).split( ',' );
+                for ( var j = 0; j < propArray.length; j++ ) {
+                  if ( keyArray.includes( propArray[j])) {
+                    counter++;//count the amount of props similar with the current tp
+                  }
+                }
+              }
+            }
+            if ( counter > maxCounter || maxCounter === 0 ) {
+              maxCounter = counter;
+              itemID = id;
+              /*if ( counter === ( propList.length - 2 )) {//it's better to find how to do the break of the loop 'for'
+                break;
+              }*/
+            }
+          }
+        }
+      } else {        
+        for ( var n in propDB ) {
+          for ( var m in propDB[n] ) {
+            if ( m === propString && compareItemProp( $item.attr( 'class' ), itemProp, propDB[n][m][3])) {
+              itemID = n;
+            }
+          }
+        }
+      }
+      
+      $activeDataDiv = $( '#catalogDetailData div[data-id=' + itemID + ']' );
+      showOffer( $activeDataDiv );
+      setDisabled();
     });
     
-    //click sizes
-    $( '.b-catalog-detail__sizes-block' ).delegate( '.b-catalog-detail__sizes-item', 'click', function() {
-      var $this = $( this );
-      sizeCookieFlag = true;//set id to the URL
-    
-      //highlite
-      $( '.b-catalog-detail__sizes-item' ).removeClass( 'i-active' );
-      $( this ).addClass( 'i-active' );
-      
-      //set cookie
-      if ( window.Cookies ) {
-        Cookies.set( 'size', $( this ).text(), { expires: 365, path: window.location.origin });
+    function compareItemProp( cls, itemProp, prop ) {// important - compare background via search
+      if ( cls.search( 'colors' ) !== -1 ) {
+        if ( itemProp.search( prop ) !== -1 ) {
+          return true;
+        }
+      } else if ( cls.search( 'sizes' ) !== -1 ) {
+        if ( itemProp+'' === prop+'' ) {
+          return true;
+        }
       }
-      
-      if ( $( '.b-catalog-detail__colors-block' ).length ) {
-        setDisabledColors( this );//set disabled colors
-        setDisabledSizes( $( '.b-catalog-detail__colors-item.i-active' ));//set disabled sizes
-      } else {
-        $dataDivs.each( function() {
-          if ( $( '.b-catalog-detail__sizes-item.i-active').length && ( $( this).data( 'list-sizes_shoes' )+'' ) === $( '.b-catalog-detail__sizes-item.i-active').text()) {
-            $activeDataDiv = $( this );
-            showOffer( $activeDataDiv );
-          }
-        });
-      }
-      
-    });
+      return false;
+    }
     
     if ( $dataDivs.length ) {
-      showAllProperties();
-      showFirstOffer();
+      showAllProperties( $dataDivs );
+      showFirstOffer( propDB );
     }
     
     $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav({
@@ -530,211 +590,223 @@
       }
     }
     
-    function showAllProperties() {
+    function showAllProperties( $dataDivs ) {
       //onLoad
-      //create colors
-      $( '.b-catalog-detail__colors-block' ).empty();
-      var colorsArray = [];
       
-      $dataDivs.each( function() {
-        var flag = true;
-        var $this = $( this );
+      var propBlocks = {};
+      
+      propList.forEach( function( elem ) {
         
-        colorsArray.forEach( function( cur, i, arr ) {
-          if ( !$this.data( 'color-color_ref' ) || cur === $this.data( 'color-color_ref' )) {
-            flag = false;
-            return;
-          }
-        });
+        //create prop
+        var $propBlock;
+        var itemArray = [];
         
-        if ( flag && !!$( this ).data( 'color-color_ref' )) {
-          colorsArray.push( $( this ).data( 'color-color_ref' ));
-        }
-      });
-      
-      if ( !colorsArray.length ) {
-        $( '.b-catalog-detail__colors-block' ).next( 'hr' ).remove();
-        $( '.b-catalog-detail__colors-block' ).remove();
-      } else {
-        colorsArray.forEach( function( cur, i, arr ) {
-      
-          var $item = $( '<span class="b-catalog-detail__colors-item" style="background-image: url( \'' + cur + '\' )"><span></span></span>' );
+        //form item array
+        $dataDivs.each( function() {
+          var flag = true;
+          var $this = $( this );
           
-          var img = document.createElement('img');
-          
-          img.setAttribute( 'src', cur );
-          img.addEventListener( 'load', function() {
-            var vibrant = new Vibrant(img);
-            if ( vibrant.isWhiteImage ) {
-              $item.addClass( 'i-white' );
+          itemArray.forEach( function( cur ) {
+            if ( !$this.data( elem.type + '-' + elem.code ) || cur === $this.data( elem.type + '-' + elem.code )) {
+              flag = false;
+              return;
             }
           });
           
-          $( '.b-catalog-detail__colors-block' ).append( $item );
-        });
-      }
-      
-      //create sizes
-      $( '.b-catalog-detail__sizes-block' ).empty();
-      var sizesArray = [];
-      
-      $dataDivs.each( function() {
-        var flag = true;
-        var $this = $( this );
-        
-        sizesArray.forEach( function( cur, i, arr ) {
-          if ( !$this.data( 'list-sizes_shoes' ) || cur === $this.data( 'list-sizes_shoes' )) {
-            flag = false;
-            return;
+          if ( flag && !!$this.data( elem.type + '-' + elem.code )) {
+            itemArray.push( $this.data( elem.type + '-' + elem.code ));
           }
         });
         
-        if ( flag && !!$( this ).data( 'list-sizes_shoes' )) {
-          sizesArray.push( $( this ).data( 'list-sizes_shoes' ));
+        if ( itemArray.length ) {
+          $propBlock = $( '<div class="b-catalog-detail__' + elem.code + '" data-prop="' + elem.code + '"></div>');
+          if ( elem.name ) {
+            $propBlock.append( '<h6>' + elem.name + '</h6>' );
+          }
+        } else {
+          return;
         }
+        
+        //create items
+        if ( elem.type === 'color' ) {
+          itemArray.forEach( function( cur ) {
+          
+            var $item;
+            
+            $item = $( '<span class="b-catalog-detail__colors-item" style="background-image: url( \'' + cur + '\' )"><span></span></span>' );
+          
+            //check white
+            var img = document.createElement('img');
+            
+            img.setAttribute( 'src', cur );
+            img.addEventListener( 'load', function() {
+              var vibrant = new Vibrant(img);
+              if ( vibrant.isWhiteImage ) {
+                $item.addClass( 'i-white' );
+              }
+            });
+              
+            $propBlock.append( $item );
+          });
+          
+        } else if ( elem.type === 'list' ) {
+          itemArray.forEach( function( cur ) {
+          
+            var $item;
+            $item = $( '<span class="b-catalog-detail__sizes-item"><span>' + cur + '</span></span>' );
+            
+            $propBlock.append( $item );
+          });
+        }
+        
+        propBlocks[ elem.code ] = $propBlock;
       });
       
-      if ( !sizesArray.length ) {
-        $( '.b-catalog-detail__sizes-block' ).prev( 'hr:not(.i-line)' ).remove();
-        $( '.b-catalog-detail__sizes-block' ).remove();
-      } else {
-        sizesArray.forEach( function( cur, i, arr ) {
-          $( '.b-catalog-detail__sizes-block' ).append( '<span class="b-catalog-detail__sizes-item"><span>' + cur + '</span></span>' );
-        });
+      for ( var n in propBlocks ) {
+        $( '#propListBlock' ).append( '<hr>' ).append( propBlocks[n] );
       }
-    
+      
     }
     
-    function showFirstOffer() {
-      if ( $dataDivs.length === 1 ) {
+    function showFirstOffer( propDB ) {
+      if ( $dataDivs.length === 1 ) {//if there is only one offer
         $activeDataDiv = $dataDivs;
         showOffer( $activeDataDiv );
         return;
       }
     
       //page load
+      
+      //form database propDB
+      $dataDivs.each( function() {
+        var $div = $( this );
+        var propsObj = {};
+        
+        propList.forEach( function( elem ) {
+          var propName = [];
+          
+          propList.forEach( function( j ) {
+            if ( j.code !== elem.code ) {
+              propName.push( $div.data( j.type + '-' + j.code ));
+            }
+          });
+          propsObj[ propName.join( ',' )] = [ elem.type, elem.code, elem.name, $div.data( elem.type + '-' + elem.code )];
+          
+        });
+          
+        propDB[ $div.data( 'id' )] = propsObj;
+      });
+      
+      //check URL query
       var query = {};
       
       if ( window.location.search ) {
         query = parseQuery( window.location.search );
       }
       
-      if ( query.product_id && $( '#catalogDetailData div[data-id=' + query.product_id + ']' ).length ) {
+      if ( query.product_id && $( '#catalogDetailData div[data-id=' + query.product_id + ']' ).length ) {//if there is id in URL
         $activeDataDiv = $( '#catalogDetailData div[data-id=' + query.product_id + ']' );
         showOffer( $activeDataDiv );
-      } else {
+      } else {//show first offer in list
+        $activeDataDiv = $( '#catalogDetailData div:eq(0)' );
+        showOffer( $activeDataDiv );
+      }
+      
+      setDisabled();
+        
+    }
     
-        //get size by default
-        var sizeCookie;
-        var sizeFlag = false;
+    function setDisabled() {
+      //set disabled
+      var activeProps = {};
+      var propName = [];
+      var currentPropName = '';
+      var propKey;
+      
+      //find active props array
+      propList.forEach( function( elem ) {//elem = { type:"", code:"", name: ""}
         
-        if ( $( '.b-catalog-detail__sizes-item:eq(0)').length ) {
-          if ( window.Cookies && Cookies.get( 'size' )) {
-            sizeCookie = Cookies.get( 'size' );
-            sizeCookieFlag = true;
-          } else {
-            sizeCookie = $( '.b-catalog-detail__sizes-item:eq(0)').text();
+        propName = [];
+        
+        propList.forEach( function( j ) {//j = { type:"", code:"", name: ""}
+          if ( j.code !== elem.code ) {
+            propName.push( $activeDataDiv.data( j.type + '-' + j.code ));//propName=['45','свежий','2.jpg','лен']
           }
+        });
         
-          //if there is the cookie, but there is no such offer with that size
-          $( '.b-catalog-detail__sizes-item' ).each( function() {
-            var $size = $( this );
-            if ( !sizeFlag ) {
-              if ( $size.text() === sizeCookie ) {
-                sizeFlag = true;
+        currentPropName = elem.code;//'tyu9'
+        activeProps[ currentPropName ] = [];//{'tyu9':[]}
+        propKey = propName.join( ',' );//'45,свежий,2.jpg,лен'
+        
+        for ( var k in propDB ) {
+          if ( propDB[k][ propKey ]) {//find all tp with the same set of props ('45,свежий,2.jpg,лен')
+            activeProps[ currentPropName ].push( propDB[k][ propKey ][3]);//{'tyu9':['1.jpg','3.jpg']}
+          }
+        }
+        
+        //highlight disabled
+        if ( elem.type === 'color' ) {
+          $( '.b-catalog-detail__' + currentPropName + ' .b-catalog-detail__colors-item' ).each( function() {
+            var disabledFlag = false;
+            for ( var o = 0; o < activeProps[ currentPropName ].length; o++ ) {
+              if ( $( this ).css( 'backgroundImage' ).search( activeProps[ currentPropName ][o] ) !== -1 ) {
+                disabledFlag = true;
               }
+              if ( disabledFlag ) {
+                break;
+              }
+            }
+            if ( !disabledFlag ) {
+              $( this ).addClass( 'i-disabled' );
+            } else {
+              $( this ).removeClass( 'i-disabled' );
             }
           });
-          
-          if ( !sizeFlag ) {
-            sizeCookie = $( '.b-catalog-detail__sizes-item:eq(0)').text();
-          }
-        }
-        
-        //show offer
-        var flag = false;
-        
-        if ( $( '.b-catalog-detail__colors-item' ).length ) {
-          if ( $( '.b-catalog-detail__sizes-item' ).length ) {//colors & sizes
-          
-            $dataDivs.each( function() {
-              var $div = $( this );
-              $( '.b-catalog-detail__colors-item' ).each( function() {
-                var $color = $( this );
-                if ( $color.css( 'backgroundImage' ).search( $div.data( 'color-color_ref' )) !== -1 && $div.data( 'list-sizes_shoes' )+''  === (sizeCookie+'') ) {
-                  if ( !flag ) {
-                    $activeDataDiv = $div;
-                    showOffer( $activeDataDiv );
-                    flag = true;
-                  }
-                }
-              });
-            });
-            
-          } else {//colors only
-          
-            $dataDivs.each( function() {
-              var $div = $( this );
-              $( '.b-catalog-detail__colors-item' ).each( function() {
-                var $color = $( this );
-                if ( $color.css( 'backgroundImage' ).search( $div.data( 'color-color_ref' )) !== -1 ) {
-                  if ( !flag ) {
-                    $activeDataDiv = $div;
-                    showOffer( $activeDataDiv );
-                    flag = true;
-                  }
-                }
-              });
-            });
-            
-          }
-        } else {
-          if ( $( '.b-catalog-detail__sizes-item' ).length ) {//sizes only
-          
-            $dataDivs.each( function() {
-              var $div = $( this );
-              if ( $div.data( 'list-sizes_shoes' )+''  === ( sizeCookie+'' )) {
-                if ( !flag ) {
-                  $activeDataDiv = $div;
-                  showOffer( $activeDataDiv );
-                  flag = true;
-                }
+        } else if ( elem.type === 'list' ) {
+          $( '.b-catalog-detail__' + currentPropName + ' .b-catalog-detail__sizes-item' ).each( function() {
+            var disabledFlag = false;
+            for ( var o = 0; o < activeProps[ currentPropName ].length; o++ ) {
+              if ( $( this ).text() === ''+activeProps[ currentPropName ][o] ) {
+                disabledFlag = true;
               }
-            });
-            
-          } else {//no colors, no sizes
-            if ( !flag ) {
-              $activeDataDiv = $dataDivs.eq(0);
-              showOffer( $activeDataDiv );
-              flag = true;
+              if ( disabledFlag ) {
+                break;
+              }
             }
-          }
+            if ( !disabledFlag ) {
+              $( this ).addClass( 'i-disabled' );
+            } else {
+              $( this ).removeClass( 'i-disabled' );
+            }
+          });
         }
         
-      }
-        
-      if ( $( '.b-catalog-detail__sizes-item.i-active' ).length && $( '.b-catalog-detail__colors-item.i-active' ).length) {
-        setDisabledColors( $( '.b-catalog-detail__sizes-item.i-active' ));//set disabled colors
-        setDisabledSizes( $( '.b-catalog-detail__colors-item.i-active' ));//set disabled sizes
-      }
-        
+      });
     }
     
     var product_id = '';// id for the statistics ajax request
     
     function showOffer( $div ) {
       //id
-      $( '.b-catalog-detail' ).attr({ 'data-id': $div.data( 'id' )});
-      //color
-      $( '.b-catalog-detail__colors-item' ).each( function() {
-        if ( $( this ).css( 'backgroundImage' ).search( $div.data( 'color-color_ref' )) !== -1) {
-          $( this ).addClass( 'i-active' );
-        }
-      });
-      //size
-      $( '.b-catalog-detail__sizes-item' ).each( function() {
-        if ( $( this ).text() === ($div.data( 'list-sizes_shoes' )+'')) {
-          $( this ).addClass( 'i-active' );
+      $( '.b-catalog-detail' ).attr({ 'data-id': $div.data( 'id' )+'' });
+      //props
+      propList.forEach( function( elem ) {        
+        if ( elem.type === 'color' ) {
+          $( '.b-catalog-detail__' + elem.code + ' .b-catalog-detail__colors-item' ).each( function() {
+            if ( $( this ).css( 'backgroundImage' ).search( $div.data( elem.type + '-' + elem.code )) !== -1 ) {
+              $( this ).addClass( 'i-active' ).removeClass( 'i-disabled' );
+            } else {
+              $( this ).removeClass( 'i-active' );
+            }
+          });
+        } else if ( elem.type === 'list' ) {
+          $( '.b-catalog-detail__' + elem.code + ' .b-catalog-detail__sizes-item' ).each( function() {
+            if ( $( this ).text() === ''+$div.data( elem.type + '-' + elem.code ) ) {
+              $( this ).addClass( 'i-active' ).removeClass( 'i-disabled' );
+            } else {
+              $( this ).removeClass( 'i-active' );
+            }
+          });
         }
       });
       //gallery
@@ -814,11 +886,8 @@
       });
       for ( var key in $div.data()) {
         if ( key.search( 'property' ) !== -1 ) {
-          if ( String($div.data( key )).search('&') !== -1 ) {
-            $( '.catalogDetailP' + key.substring(1)).html( $.parseHTML($div.data( key ))[0].nodeValue ).parent().removeClass( 'hidden' );
-          } else {
-            $( '.catalogDetailP' + key.substring(1)).html( $div.data( key )).parent().removeClass( 'hidden' );
-          }
+          //$( '.catalogDetailP' + key.substring(1)).text( $div.data( key )).parent().removeClass( 'hidden' );
+          $(".catalogDetailP" + key.substring(1)).html( $div.data(key)).parent().removeClass("hidden");
         }
       }
       //price
@@ -902,6 +971,20 @@
         }
       } catch(e) {}
       
+      //in cart button
+      try {
+        var href = $( '.b-catalog-detail__button-block a' ).attr( 'href' );
+        if ( $div.data( 'incart' ) === 'Y' && !$( '.b-catalog-detail__button-block .btn' ).hasClass( 'i-gray' )) {
+          $( '.b-catalog-detail__button-block .col-sm-6' ).css({ width: '100%' });
+          $( '.b-catalog-detail__button-block .col-sm-6:eq(1)' ).hide();
+          $( '.b-catalog-detail__button-block .btn' ).addClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
+        } else if ( ( !$div.data( 'incart' ) || $div.data( 'incart' ) !== 'Y' ) && $( '.b-catalog-detail__button-block .btn' ).hasClass( 'i-gray' )) {
+          $( '.b-catalog-detail__button-block .col-sm-6' ).removeAttr( 'style' );
+          $( '.b-catalog-detail__button-block .col-sm-6:eq(1)' ).show();
+          $( '.b-catalog-detail__button-block .btn' ).removeClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
+        }
+      } catch(e) {}
+      
       //send statistics request
       try {
         var $data = $( '.b-statistics-data' );
@@ -930,7 +1013,7 @@
         }
         
         //set URL
-        if ( sizeCookieFlag ) {
+        //if ( sizeCookieFlag ) {
           try {
             if ( window.location.search ) {
               query = parseQuery( window.location.search );
@@ -948,145 +1031,11 @@
               history.replaceState({}, '', locationSearch );
             }
           } catch(e) {}
-        }
+        //}
       } catch(e) {}
       
     }
-    
-    function setDisabledColors( item ) {
-      if ( !$( '.b-catalog-detail__colors-block' ).length) {
-        return;
-      }
-      var $item = $( item );
-      var size = $item.text();
-      var colorsArray = [];
-      
-      $dataDivs.each( function() {
-        var $this = $( this );
         
-        if ( ($this.data( 'list-sizes_shoes' ) + '') === size ) {
-          colorsArray.push({ color: $this.data( 'color-color_ref' ), available: $this.data( 'available' ), subscribe: $this.data( 'subscribe' ) });
-        }
-      });
-      
-      $( '.b-catalog-detail__colors-item' ).each( function() {
-        var flag = false;
-        var $item = $( this );
-        colorsArray.forEach( function( cur, i, arr ) {
-          if ( $item.css( 'backgroundImage' ).search( cur.color ) !== -1 && (cur.available === 'Y' || cur.subscribe === 'Y')) {
-            flag = true;
-          }
-        });
-        
-        if ( flag ) {
-          $item.removeClass( 'i-disabled' );
-        } else {
-          $item.addClass( 'i-disabled' );
-        }
-        
-      });
-      
-      //set active from enabled
-      if ( $( '.b-catalog-detail__colors-item.i-active' ).length && $( '.b-catalog-detail__colors-item.i-active' ).hasClass( 'i-disabled' )) {
-        $( '.b-catalog-detail__colors-item.i-active' ).removeClass( 'i-active' );
-        if ( $( '.b-catalog-detail__colors-item:not( .i-disabled ):eq(0)' ).length ) {
-          $( '.b-catalog-detail__colors-item:not( .i-disabled ):eq(0)' ).addClass( 'i-active' );
-        }
-      }
-      
-      //show offer
-      $dataDivs.each( function() {
-      
-        if ( $( '.b-catalog-detail__colors-item.i-active' ).length && $( '.b-catalog-detail__sizes-item.i-active').length ) {
-          if ( $( '.b-catalog-detail__colors-item.i-active' ).css( 'backgroundImage' ).search( $( this).data( 'color-color_ref' )) !== -1 && ( $( this).data( 'list-sizes_shoes' )+'' ) === $( '.b-catalog-detail__sizes-item.i-active').text()) {
-            $activeDataDiv = $( this );
-            showOffer( $activeDataDiv );
-          }
-        } else if ( $( '.b-catalog-detail__colors-item.i-active').length ) {
-          if ( $( '.b-catalog-detail__colors-item.i-active').css( 'backgroundImage' ).search( $( this).data( 'color-color_ref' )) !== -1 ) {
-            $activeDataDiv = $( this );
-            showOffer( $activeDataDiv );
-          }
-        } else if ( $( '.b-catalog-detail__sizes-item.i-active').length ) {
-          if ( ( $( this).data( 'list-sizes_shoes' )+'' ) === $( '.b-catalog-detail__sizes-item.i-active').text() ) {
-            $activeDataDiv = $( this );
-            showOffer( $activeDataDiv );
-          }
-        }
-         
-      });
-    }
-    
-    function setDisabledSizes( item ) {
-      if ( !$( '.b-catalog-detail__sizes-block' ).length) {
-        return;
-      }
-      var $item = $( item );
-      var color = $item.css( 'backgroundImage' );
-      var sizesArray = [];
-      
-      $dataDivs.each( function() {
-        var $this = $( this );
-        
-        if ( color.search( $this.data( 'color-color_ref' )) !== -1 ) {
-          sizesArray.push({ size: $this.data( 'list-sizes_shoes' ), available: $this.data( 'available' ), subscribe: $this.data( 'subscribe' ) });
-        }
-      });
-      
-      $( '.b-catalog-detail__sizes-item' ).each( function() {
-      
-        var flag = false;
-        var flagSubscribe = false;
-        var $item = $( this );
-        
-        sizesArray.forEach( function( cur ) {
-          if ( $item.text() === ( cur.size + '' )) {
-            if ( cur.available === 'Y' ) {
-              flag = true;
-            } else if ( cur.subscribe === 'Y' ) {
-              flagSubscribe = true;
-            }              
-          }
-        });
-        
-        if ( flag ) {
-          $item.removeClass( 'i-disabled' );
-        } else {
-          $item.addClass( 'i-disabled' );
-        }
-          
-        if ( flagSubscribe ) {
-          $item.addClass( 'i-subscribe' ).removeClass( 'i-disabled' );
-        } else {
-          $item.removeClass( 'i-subscribe' );
-        }
-        
-      });
-      
-      //set active from enabled
-      if ( $( '.b-catalog-detail__sizes-item.i-active' ) && $( '.b-catalog-detail__sizes-item.i-active' ).hasClass( 'i-disabled' )) {
-        $( '.b-catalog-detail__sizes-item.i-active' ).removeClass( 'i-active' );
-        if ( $( '.b-catalog-detail__sizes-item:not( .i-disabled ):eq(0)' ).length ) {
-          $( '.b-catalog-detail__sizes-item:not( .i-disabled ):eq(0)' ).addClass( 'i-active' );
-        }
-      }
-      
-      //show offer
-      $dataDivs.each( function() {
-        try {
-          var background = $( '.b-catalog-detail__colors-item.i-active').css( 'backgroundImage' );
-          var color = $( this).data( 'color-color_ref' );
-          var size = $( this).data( 'list-sizes_shoes' )+'';
-          var activeSize = $( '.b-catalog-detail__sizes-item.i-active').text();
-          
-          if ( background.search( color ) !== -1 && size === activeSize ) {
-            $activeDataDiv = $( this );
-            showOffer( $activeDataDiv );
-          }
-        } catch(e) {}
-      });
-    }
-    
 		function parseQuery( queryString ) {
 		  var query = {};
 		  var pairs = ( queryString[0] === '?' ? queryString.substr(1) : queryString ).split('&');

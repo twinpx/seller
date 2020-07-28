@@ -1,21 +1,9 @@
-﻿#buyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='buyModalLabel', style='display: none;', aria-hidden='true')
-  .modal-dialog(role='document')
-    .modal-content
-      .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-        h2#buyModalLabel.modal-title.text-center Товар добавлен в корзину
-      .modal-body.text-center
-        .row
-          .col-sm-6.b-buy-modal-img
-            img( src="" )
-          .col-sm-6.b-buy-modal-text
-            h2 Верблюжье пальто
-            p XL, Синий
-      .modal-footer.text-center
-      
-        a.btn.btn-default.btn-size-M( href="#" ) Перейти в корзину
-        a.btn.btn-default.btn-size-M.btn-reset( href="#" data-dismiss='modal' ) Продолжить выбор
-        
+﻿#buyCatalogElementPopup
+  #buyCatalogElementPopupOpaco
+  #buyCatalogElementPopupWindow
+    .b-catalog-element-popup__close
+    .b-catalog-element-popup__body Товар добавлен в корзину, <a href="">оформить заказ</a>.
+
 #subscribeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='subscribeLabel')
   .modal-dialog(role='document')
     .modal-content

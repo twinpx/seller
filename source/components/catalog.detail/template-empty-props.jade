@@ -1,11 +1,11 @@
-﻿// start /components/catalog.detail-props/
+﻿// start /components/catalog.detail/
 
-link( rel="stylesheet", href="/components/catalog.detail-props/style.css" )
-script( src="/components/catalog.detail-props/script.js" )
+link( rel="stylesheet", href="/components/catalog.detail/style.css" )
+script( src="/components/catalog.detail/script.js" )
 
 .b-catalog-detail
 
-  .b-statistics-data( data-url="/components/catalog.detail-props/statistics.html" data-method="GET" data-data="ID=4&SESSION_ID=5" )
+  .b-statistics-data( data-url="/components/catalog.detail/statistics.html" data-method="GET" data-data="ID=4&SESSION_ID=5" )
 
   .row
     .col-sm-8
@@ -69,7 +69,7 @@ script( src="/components/catalog.detail-props/script.js" )
         
       .col-sm-1.b-catalog-detail__icons
         .b-icon-zoom( title="Увеличить" )
-        .b-icon-fav#catalogDetailFavIcon( title="В избранное" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N" )
+        .b-icon-fav#catalogDetailFavIcon( title="В избранное" data-ajax-url="/components/catalog.detail/fav.json" data-stored="N" )
         #commentsIcon.b-icon-comments( title="Комментарии" )
         #shareIcon.b-icon-share( title="Поделиться" )
         #sizeIcon.b-icon-size( title="Размеры" data-activates="slide-size-table" )
@@ -108,7 +108,7 @@ script( src="/components/catalog.detail-props/script.js" )
         hr.i-size-M.i-line
         
         .row.b-catalog-detail__subscribe-block.hidden
-          form( action="/components/catalog.detail-props/subscribe.json" method="GET" )
+          form( action="/components/catalog.detail/subscribe.json" method="GET" )
             .form-group
               input#tpid( type="hidden" name="TPID" value="" )
               label Email
@@ -127,11 +127,11 @@ script( src="/components/catalog.detail-props/script.js" )
           hr.visible-xs
           
           .col-sm-6.text-center
-            a#catalogDetailFavLink( href="" data-ajax-url="/components/catalog.detail-props/fav.json" data-stored="N" )
+            a#catalogDetailFavLink( href="" data-ajax-url="/components/catalog.detail/fav.json" data-stored="N" )
               span Отложить
               span.i-stored.hidden Отложено
             br
-            a( href="#" data-ajax-url="/components/catalog.detail-props/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick" ) Купить в 1 клик
+            a( href="#" data-ajax-url="/components/catalog.detail/oneClick.html?somedata=value" data-toggle="modal" data-target="#oneClick" ) Купить в 1 клик
           
         hr.i-size-S
           
@@ -306,4 +306,4 @@ script( src="/components/catalog.detail-props/script.js" )
   
   div( data-id="tp41" data-price='3 800 руб.', data-discount-diff='400 руб.', data-discount-percent="10%" data-old-price='4 200 руб.', data-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-big-photo='/upload/catalog.detail/1.jpg;/upload/catalog.detail/2.jpg;/upload/catalog.detail/3.jpg' data-property1="AD006EWLXF41" data-property2="89919381241" data-num="41" data-dimensions="[{ \"width\": 570, \"height\": 570 }, { \"width\": 570, \"height\": 855 }]", data-color-tyu9="/upload/colors/4.jpg", data-list-jkf87="", data-list-n6="мягкий", data-color-ght34="" data-list-b="кожа" ) 
 
-// end /components/catalog.detail-props/
+// end /components/catalog.detail/
