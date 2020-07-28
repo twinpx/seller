@@ -4,7 +4,7 @@
   
   $( function() {
     
-    $( '.bx-filter-select-popup' ).nicescroll();
+    //$( '.bx-filter-select-popup' ).nicescroll();
   
     var top;
     

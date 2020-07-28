@@ -95,6 +95,9 @@
                             $("#buyCatalogElementPopup").addClass("i-animate");
                         }, 100);
                         $btn.addClass("i-gray").find("span").toggleClass("i-show");
+                        $activeDataDiv.data({
+                            incart: "Y"
+                        });
                     }
                 },
                 error: function() {}
@@ -466,6 +469,12 @@
                         $subscribe.addClass("hidden");
                     }
                 }
+                try {
+                    if ($div.data("incart") === "Y" && !$button.find(".btn").hasClass("i-gray")) {
+                        var href = $button.find(".btn").attr("href");
+                        $button.html('<a href="' + href + '" data-ajax-url="/components/catalog.detail/buy.json" class="btn btn-default btn-size-S i-gray"><span class="i-show">В корзине</span></a>');
+                    }
+                } catch (e) {}
             }
         });
         $(".b-catalog-element__img, .b-catalog-element__img-hover").lazyload();
