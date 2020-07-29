@@ -76,8 +76,10 @@
         });
         $(".b-catalog-element__button .btn").click(function(e) {
             e.preventDefault();
-            $(".b-catalog-element__button .btn").trigger("add.ecommerce");
             var $btn = $(this);
+            if (!$btn.is(".i-gray")) {
+                $btn.trigger("add.ecommerce");
+            }
             if ($btn.hasClass("i-gray")) {
                 window.location = $btn.attr("href");
                 return;

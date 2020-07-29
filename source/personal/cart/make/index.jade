@@ -1,0 +1,20 @@
+﻿extends ../../../layouts/main.jade
+
+block title
+  title Make order | Seller
+
+block content
+
+  .container-fluid
+    
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        span Моя корзина
+        
+    h1 Подтверждение покупки, на странице представлены данные Ecommerce
+    
+    hr.i-size-L
+    
+    include ../../../modules/ecommerce/order-make

@@ -1,7 +1,6 @@
 (function($) {
     "use strict";
     $(function() {
-        $(".b-catalog-detail").trigger("detail.ecommerce");
         $(".b-catalog-detail__props-slide").click(function(e) {
             $(".b-catalog-detail__props").slideToggle();
         });
@@ -178,7 +177,7 @@
                         $body.height($body.find("p").height());
                         $("#oneClick .modal-footer .btn").hide();
                         $("#oneClick .modal-footer .i-gray").show();
-                        $("#oneClick").trigger("onClickSuccess.ecommerce");
+                        $("#oneClick").trigger("oneClickSuccess.ecommerce");
                     }
                 },
                 error: function(a, b, c) {
@@ -808,6 +807,7 @@
                     }
                 } catch (e) {}
             } catch (e) {}
+            $(".b-catalog-detail").trigger("detail.ecommerce");
         }
         function parseQuery(queryString) {
             var query = {};
