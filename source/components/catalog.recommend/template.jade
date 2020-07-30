@@ -1,0 +1,32 @@
+// start /components/catalog.recommend/
+
+link( rel="stylesheet", href="/components/catalog.recommend/style.css" )
+script( src="/components/catalog.recommend/script.js" )
+
+.b-catalog-recommend
+
+  .b-catalog-recommend__title С этим товаром рекомендуем
+  
+  hr
+  
+  .b-catalog-recommend__gallery( data-slidesperview="6" )
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide
+          include ../../components/catalog.collection/element1.jade
+        .swiper-slide
+          include ../../components/catalog.collection/element1.jade
+        .swiper-slide
+          include ../../components/catalog.collection/element1.jade
+        .swiper-slide
+          include ../../components/catalog.collection/element1.jade
+        .swiper-slide
+          include ../../components/catalog.collection/element1.jade
+        .swiper-slide
+          include ../../components/catalog.collection/element1.jade
+        
+      .swiper-button-next
+      .swiper-button-prev
+    
+
+// end /components/catalog.recommend/
