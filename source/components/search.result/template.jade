@@ -18,6 +18,64 @@ hr.i-size-L
     h2 Заголовок
     p When using Bootstrap’s source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our predefined grid classes use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.
     
+hr
+
+.b-search-section-nav
+  span.b-search-section-nav__title Смотрите в разделах:
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  a( href="" ) Куртки
+  a( href="" ) Верхняя одежда
+  a( href="" ) осень-зима
+  a( href="" ) 2020
+  
+hr
+
+.row
+    
+  .col-sm-6
+    
+    .bj-sorting
+      .text-muted Сортировка:
+      .dropdown
+        a#dLabel(href='#', role='button', data-toggle='dropdown', data-target='#', aria-expanded='false')
+          | Недорогие вещи для зимы
+          span.caret
+        ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+          li
+            a(href='/catalog/shoes/?sort=cheap#sort') Недорогие
+          li
+            a(href='/catalog/shoes/?sort=new#sort') Новые
+          li
+            a(href='/catalog/shoes/?sort=popular#sort') Популярные
+      .clearfix
+  hr.visible-xs
+      
+  .col-sm-6.text-right.hidden-xs
+    include ../../modules/pagination/include
+    
 hr.i-size-L.i-line
     
 include ../../components/catalog.collection/meta
