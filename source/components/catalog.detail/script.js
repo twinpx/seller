@@ -1013,7 +1013,6 @@
         }
         
         //set URL
-        //if ( sizeCookieFlag ) {
           try {
             if ( window.location.search ) {
               query = parseQuery( window.location.search );
@@ -1031,7 +1030,6 @@
               history.replaceState({}, '', locationSearch );
             }
           } catch(e) {}
-        //}
       } catch(e) {}
       
     }
