@@ -816,6 +816,7 @@
                     }
                 } catch (e) {}
             } catch (e) {}
+            $("h1").text($div.data("title"));
         }
         function parseQuery(queryString) {
             var query = {};

@@ -1032,6 +1032,9 @@
           } catch(e) {}
       } catch(e) {}
       
+      //set title h1
+      $( 'h1' ).text( $div.data( 'title' ));
+      
     }
         
 		function parseQuery( queryString ) {
