@@ -1,7 +1,6 @@
 (function($) {
     "use strict";
     $(function() {
-        $(".bx-filter-select-popup").niceScroll();
         var top;
         if (String(window.location.href).search("filter") !== -1 && $(".b-catalog-filter").length) {
             if ($(".b-catalog-filter").closest(".col-md-3").length) {
@@ -41,5 +40,6 @@
         $("#priceSliderRangeText").text("От " + String($("#priceSliderRange").slider("values", 0)).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ") + " - до " + String($("#priceSliderRange").slider("values", 1)).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 "));
         $(".bx-filter input.min-price").val($("#priceSliderRange").slider("values", 0));
         $(".bx-filter input.max-price").val($("#priceSliderRange").slider("values", 1));
+        $(".bx-filter-select-popup").niceScroll();
     });
 })(jQuery);

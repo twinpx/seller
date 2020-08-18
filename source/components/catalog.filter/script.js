@@ -3,8 +3,6 @@
   'use strict';
   
   $( function() {
-    
-    $( '.bx-filter-select-popup' ).niceScroll();
   
     var top;
     
@@ -50,6 +48,8 @@
     $( "#priceSliderRangeText" ).text( "\u041E\u0442 " + String( $( "#priceSliderRange" ).slider( "values", 0 )).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + " - \u0434\u043E " + String( $( "#priceSliderRange" ).slider( "values", 1 )).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
     $( '.bx-filter input.min-price' ).val( $( "#priceSliderRange" ).slider( "values", 0 ));
     $( '.bx-filter input.max-price' ).val( $( "#priceSliderRange" ).slider( "values", 1 ));
+    
+    $( '.bx-filter-select-popup' ).niceScroll();
   
     /*if ( window.BX ) {
       BX.addCustomEvent( "onFrameDataReceived", function () {});
