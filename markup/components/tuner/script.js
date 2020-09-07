@@ -72,6 +72,7 @@
             var setColorpicker1Flag = true;
             var pickrColors1 = Pickr.create({
                 el: ".b-seller-tuner__colors-1 .b-colorpicker div",
+                defaultRepresentation: "HEX",
                 default: $(".b-seller-tuner__colors-1 .b-colorpicker").data("default"),
                 onSave: function(hsva) {
                     var color;
@@ -88,7 +89,7 @@
                         if (hsva) {
                             color = hsva.toRGBA();
                             $("#seller-tuner .b-seller-tuner__colors-1 .b-seller-tuner__block .b-item").removeClass("i-active");
-                            colorAjax(color.toString().split(" ").join(""), url, method, $("#global-color-1"));
+                            colorAjax(hsva.toHEX().toString().substr(1), url, method, $("#global-color-1"));
                             if ((color[0] * .8 + color[1] + color[2] * .2) / 510 * 100 < 50) {
                                 $(".b-seller-tuner__colors-1 .pcr-button").addClass("i-dark");
                             } else {
@@ -117,6 +118,7 @@
             var setColorpicker2Flag = true;
             var pickrColors2 = Pickr.create({
                 el: ".b-seller-tuner__colors-2 .b-colorpicker div",
+                defaultRepresentation: "HEX",
                 default: $(".b-seller-tuner__colors-2 .b-colorpicker").data("default"),
                 onSave: function(hsva) {
                     var color;
@@ -133,7 +135,7 @@
                         if (hsva) {
                             color = hsva.toRGBA();
                             $("#seller-tuner .b-seller-tuner__colors-2 .b-seller-tuner__block .b-item").removeClass("i-active");
-                            colorAjax(color.toString().split(" ").join(""), url, method, $("#global-color-2"));
+                            colorAjax(hsva.toHEX().toString().substr(1), url, method, $("#global-color-2"));
                             if ((color[0] * .8 + color[1] + color[2] * .2) / 510 * 100 < 50) {
                                 $(".b-seller-tuner__colors-2 .pcr-button").addClass("i-dark");
                             } else {
@@ -141,7 +143,7 @@
                             }
                         } else {
                             var defaultColor = $(".b-seller-tuner__colors-2 .b-colorpicker").data("default");
-                            colorAjax(defaultColor, url, method, $("#global-color-2"));
+                            colorAjax("#" + defaultColor, url, method, $("#global-color-2"));
                             $(".b-seller-tuner__colors-2 .pcr-button").css({
                                 background: "#" + defaultColor
                             });
@@ -167,6 +169,7 @@
                 setColorpickerTagFlag[index] = true;
                 var pickrDiscount = Pickr.create({
                     el: ".b-seller-tuner__tags .b-item.i-" + tagName + " .b-colorpicker div",
+                    defaultRepresentation: "HEX",
                     default: $item.find(".b-colorpicker").data("default"),
                     onSave: function(hsva) {
                         if (!setColorpickerTagFlag[index]) {
@@ -177,7 +180,7 @@
                             var method = $(".b-seller-tuner__tags").data("ajax-method");
                             if (hsva) {
                                 var color = hsva.toRGBA();
-                                tagAjax(color.toString().split(" ").join(""), tagName, url, method, $input);
+                                tagAjax(hsva.toHEX().toString().substr(1), tagName, url, method, $input);
                                 if ((color[0] * .8 + color[1] + color[2] * .2) / 510 * 100 < 50) {
                                     $(".b-seller-tuner__tags .i-" + tagName + " .pcr-button").addClass("i-dark");
                                 } else {
@@ -185,7 +188,7 @@
                                 }
                             } else {
                                 var defaultColor = $(".i-" + tagName + " .b-colorpicker").data("default");
-                                tagAjax(defaultColor, tagName, url, method, $input);
+                                tagAjax("#" + defaultColor, tagName, url, method, $input);
                                 $(".b-seller-tuner__tags .i-" + tagName + " .pcr-button").css({
                                     background: "#" + defaultColor
                                 });
@@ -225,7 +228,7 @@
             var $section = $color.closest("section");
             $(this).closest(".b-seller-tuner__block").find(".b-item").removeClass("i-active");
             $color.addClass("i-active");
-            colorAjax($color.css("backgroundColor").split(" ").join(""), $section.data("ajax-url"), $section.data("ajax-method"), $section.find('input[ name^="global-color" ]'));
+            colorAjax($color.data("color"), $section.data("ajax-url"), $section.data("ajax-method"), $section.find('input[ name^="global-color" ]'));
         });
         function colorAjax(color, url, method, $input) {
             $.ajax({
