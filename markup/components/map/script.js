@@ -38,7 +38,7 @@
                 shopsMap.events.add("click", function(e) {
                     shopsMap.balloon.close();
                 });
-                balloonLayout = ymaps.templateLayoutFactory.createClass('<a href="$[properties.href]" class="b-shop-balloon"><span class="b-shop-balloon__close"></span><span class="b-shop-balloon__img" style="background-image: url(\'$[properties.img]\');"></span><span class="b-shop-balloon__heading">$[properties.heading]</span></a>', {
+                balloonLayout = ymaps.templateLayoutFactory.createClass('<a href="$[properties.href]" class="b-shop-balloon"><span class="b-shop-balloon__close"></span><span class="b-shop-balloon__img" style="background-image: url(\'$[properties.img]\');"></span><span class="b-shop-balloon__heading"><span>$[properties.heading]</span></span></a>', {
                     build: function() {
                         this.constructor.superclass.build.call(this);
                         this._$element = $("a.b-shop-balloon", this.getParentElement());
