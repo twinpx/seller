@@ -1,19 +1,21 @@
 @import '../../styl/component-include.styl'
 
-#b-float-phone {
-    position: fixed;
-    bottom: -60px;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    padding: 15px 0;
-    color: #fff;
-    font-size: 16pt;
-    height: 60px;
-    transition( bottom .2s ease )
-    z-index: 997
-}
+#b-float-phone
+  position fixed
+  bottom -60px
+  left 0
+  width 100%
+  margin 0
+  text-align center
+  padding 15px 0
+  color #fff
+  font-size 16pt
+  height 60px
+  transition( bottom .2s ease )
+  z-index 997
+  
+  .i-blur &
+    filter blur( $blur )
 
 #b-float-phone.i-visible {
     bottom: 0

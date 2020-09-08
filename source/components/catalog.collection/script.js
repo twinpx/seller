@@ -118,6 +118,11 @@
     
     //subscribe modal
     $( '#subscribeModal' ).on( 'show.bs.modal', function (e) {
+      
+      //blur the page
+      $( this ).appendTo( 'body' );
+      document.querySelector( 'html' ).classList.add( 'i-blur' );
+  
       var $link = $( e.relatedTarget );
       
       $.ajax({
@@ -137,6 +142,8 @@
           console.log(c);
         }
       });
+    }).on( 'hide.bs.modal', function () {//focus the page
+      document.querySelector( 'html' ).classList.remove( 'i-blur' );
     });
     
     $( '#subscribeModal' ).delegate( 'form', 'submit', function(e) {
@@ -194,10 +201,13 @@
             $( '#bx_cart_num' ).text( data.cart );
             
             //buy modal window
-            $( '#buyCatalogElementPopup' ).addClass( 'i-show' );
+            $( '#buyCatalogElementPopup' ).appendTo( 'body' ).addClass( 'i-show' );
             setTimeout( function() {
               $( '#buyCatalogElementPopup' ).addClass( 'i-animate' );
             }, 100);
+            
+            //blur the page
+            document.querySelector( 'html' ).classList.add( 'i-blur' );
             
             //button transformation
             $btn.addClass( 'i-gray' ).find( 'span' ).toggleClass( 'i-show' );
@@ -215,6 +225,10 @@
     $( '#buyCatalogElementPopupOpaco, .b-catalog-element-popup__close' ).click(function(e) {
         e.preventDefault();
         $( '#buyCatalogElementPopup' ).removeClass( 'i-animate' );
+        
+        //focus the page
+        document.querySelector( 'html' ).classList.remove( 'i-blur' );
+        
         setTimeout( function() {
           $( '#buyCatalogElementPopup' ).removeClass( 'i-show' );
         }, 500);

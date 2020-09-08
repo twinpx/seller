@@ -5,7 +5,16 @@
   $( function() {
     
     //nav button
-    $("#nav-button-xs").sideNav();//mobile
+    $("#nav-button-xs").sideNav({
+      onOpen: function() {
+        //blur the page
+        document.querySelector( 'html' ).classList.add( 'i-blur' );
+      },
+      onClose: function() {
+        //focus the page
+        document.querySelector( 'html' ).classList.remove( 'i-blur' );
+      }
+    });//mobile
     
     $( '#nav-button' ).click( function(e) {//desktop
       e.preventDefault();

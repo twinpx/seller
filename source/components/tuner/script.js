@@ -16,6 +16,10 @@
     //open close tuner
     $( "#seller-tuner-icon" ).sideNav({
       onOpen: function( elem ) {
+        
+        //blur the page
+        document.querySelector( 'html' ).classList.add( 'i-blur' );
+        
         $( '.b-seller-tuner' ).addClass( 'i-open' );
         setTimeout( function() {
           $( '.b-seller-tuner__content .i-active' ).addClass( 'i-anim' );
@@ -35,6 +39,10 @@
         }
       },
       onClose: function() {
+        
+        //focus the page
+        document.querySelector( 'html' ).classList.remove( 'i-blur' );
+        
         $( '.b-seller-tuner' ).removeClass( 'i-open' );
         $( '.b-seller-tuner__content .i-anim' ).removeClass( 'i-anim' );
         //set the cookie

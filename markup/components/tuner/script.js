@@ -9,6 +9,7 @@
         });
         $("#seller-tuner-icon").sideNav({
             onOpen: function(elem) {
+                document.querySelector("html").classList.add("i-blur");
                 $(".b-seller-tuner").addClass("i-open");
                 setTimeout(function() {
                     $(".b-seller-tuner__content .i-active").addClass("i-anim");
@@ -22,6 +23,7 @@
                 }
             },
             onClose: function() {
+                document.querySelector("html").classList.remove("i-blur");
                 $(".b-seller-tuner").removeClass("i-open");
                 $(".b-seller-tuner__content .i-anim").removeClass("i-anim");
                 Cookies.set("tunerOpen", "N");

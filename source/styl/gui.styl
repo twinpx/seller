@@ -143,11 +143,13 @@ ol
   100%
     transform:rotate(360deg)
 
-.container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
-  transition( width .2s ease );
-}
+.container-fluid
+  padding-right 15px
+  padding-left 15px
+  transition( width .2s ease )
+  
+  .i-blur &
+    filter blur( $blur )
 
 .bj-hr-heading,
 .b-hr-heading

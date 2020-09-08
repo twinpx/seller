@@ -149,10 +149,13 @@
             $( '#bx_cart_num' ).text( data.cart );
             
             //popup window
-            $( '#buyDetailPopup' ).addClass( 'i-show' );
+            $( '#buyDetailPopup' ).appendTo( 'body' ).addClass( 'i-show' );
             setTimeout( function() {
               $( '#buyDetailPopup' ).addClass( 'i-animate' );
             }, 100);
+            
+            //blur the page
+            document.querySelector( 'html' ).classList.add( 'i-blur' );
             
             //button transformation
             $btn.closest( '.b-catalog-detail__button-block' ).find( '.col-sm-6:eq(0)' ).css({ width: '100%' });
@@ -173,6 +176,10 @@
     $( '#buyDetailPopupOpaco, .b-catalog-detail-popup__close' ).click(function(e) {
         e.preventDefault();
         $( '#buyDetailPopup' ).removeClass( 'i-animate' );
+        
+        //focus the page
+        document.querySelector( 'html' ).classList.remove( 'i-blur' );
+        
         setTimeout( function() {
           $( '#buyDetailPopup' ).removeClass( 'i-show' );
         }, 500);
@@ -180,6 +187,11 @@
     
     //one click link
     $( '#oneClick' ).on( 'show.bs.modal', function (e) {
+      
+      //blur the page
+      $( this ).appendTo( 'body' );
+      document.querySelector( 'html' ).classList.add( 'i-blur' );
+      
       var $link = $( e.relatedTarget );
       
       $.ajax({
@@ -199,6 +211,8 @@
           console.log(c);
         }
       });
+    }).on( 'hide.bs.modal', function () {//focus the page
+      document.querySelector( 'html' ).classList.remove( 'i-blur' );
     });
     
     $( '#oneClick' ).delegate( 'form', 'submit', function(e) {
@@ -462,7 +476,16 @@
     }
     
     $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav({
-      menuWidth: '60%'
+      menuWidth: '60%',
+      onOpen: function() {
+        //blur the page
+        $( '#slide-size-table' ).appendTo( 'body' );
+        document.querySelector( 'html' ).classList.add( 'i-blur' );
+      },
+      onClose: function() {
+        //focus the page
+        document.querySelector( 'html' ).classList.remove( 'i-blur' );
+      }
     });
     
     $( '#commentsIcon' ).click( function() {
@@ -565,19 +588,46 @@
         $( '#slide-size-table' ).addClass( 'i-60' ).removeClass( 'i-80' ).removeClass( 'i-95' );
         $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav( 'destroy' );
         $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav({
-          menuWidth: '80%'
+          menuWidth: '80%',
+          onOpen: function() {
+            //blur the page
+            $( '#slide-size-table' ).appendTo( 'body' );
+            document.querySelector( 'html' ).classList.add( 'i-blur' );
+          },
+          onClose: function() {
+            //focus the page
+            document.querySelector( 'html' ).classList.remove( 'i-blur' );
+          }
         });
       } else if ( window.matchMedia( '( min-width: 768px )' ).matches && window.matchMedia( '( max-width: 991px )' ).matches && !$( '#slide-size-table' ).hasClass( 'i-80' )) {
         $( '#slide-size-table' ).addClass( 'i-80' ).removeClass( 'i-60' ).removeClass( 'i-95' );
         $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav( 'destroy' );
         $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav({
-          menuWidth: '80%'
+          menuWidth: '80%',
+          onOpen: function() {
+            //blur the page
+            $( '#slide-size-table' ).appendTo( 'body' );
+            document.querySelector( 'html' ).classList.add( 'i-blur' );
+          },
+          onClose: function() {
+            //focus the page
+            document.querySelector( 'html' ).classList.remove( 'i-blur' );
+          }
         });
       } else if ( window.matchMedia( '(max-width: 767px)' ).matches && !$( '#slide-size-table' ).hasClass( 'i-95' )) {
         $( '#slide-size-table' ).addClass( 'i-95' ).removeClass( 'i-60' ).removeClass( 'i-80' );
         $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav( 'destroy' );
         $( '.b-catalog-detail__size-table-link a, #sizeIcon' ).sideNav({
-          menuWidth: '95%'
+          menuWidth: '95%',
+          onOpen: function() {
+            //blur the page
+            $( '#slide-size-table' ).appendTo( 'body' );
+            document.querySelector( 'html' ).classList.add( 'i-blur' );
+          },
+          onClose: function() {
+            //focus the page
+            document.querySelector( 'html' ).classList.remove( 'i-blur' );
+          }
         });
       }
     }

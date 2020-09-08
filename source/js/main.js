@@ -1,3 +1,12 @@
+//blur the page
+//phone modal window
+$( '#myModal' ).on( 'show.bs.modal', function () {
+  $( this ).appendTo( 'body' );
+  document.querySelector( 'html' ).classList.add( 'i-blur' );
+}).on( 'hide.bs.modal', function () {//focus the page
+  document.querySelector( 'html' ).classList.remove( 'i-blur' );
+});
+
 //placeholder
 setTimeout( function() {
   $( '.b-ph-block' ).addClass( 'i-ph-animated' );

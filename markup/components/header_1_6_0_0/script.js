@@ -1,7 +1,14 @@
 (function($) {
     "use strict";
     $(function() {
-        $("#nav-button").sideNav();
+        $("#nav-button").sideNav({
+            onOpen: function() {
+                document.querySelector("html").classList.add("i-blur");
+            },
+            onClose: function() {
+                document.querySelector("html").classList.remove("i-blur");
+            }
+        });
         $(".bj-page-header .bj-logo-space__icon.bj-header-user-icon").popover({
             html: !0,
             trigger: "click",

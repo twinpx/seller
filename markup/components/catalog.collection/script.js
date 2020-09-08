@@ -30,6 +30,8 @@
             }
         }
         $("#subscribeModal").on("show.bs.modal", function(e) {
+            $(this).appendTo("body");
+            document.querySelector("html").classList.add("i-blur");
             var $link = $(e.relatedTarget);
             $.ajax({
                 url: $link.data("ajax-url"),
@@ -48,6 +50,8 @@
                     console.log(c);
                 }
             });
+        }).on("hide.bs.modal", function() {
+            document.querySelector("html").classList.remove("i-blur");
         });
         $("#subscribeModal").delegate("form", "submit", function(e) {
             e.preventDefault();
@@ -91,10 +95,11 @@
                 success: function(data) {
                     if (data && data.STATUS === "Y") {
                         $("#bx_cart_num").text(data.cart);
-                        $("#buyCatalogElementPopup").addClass("i-show");
+                        $("#buyCatalogElementPopup").appendTo("body").addClass("i-show");
                         setTimeout(function() {
                             $("#buyCatalogElementPopup").addClass("i-animate");
                         }, 100);
+                        document.querySelector("html").classList.add("i-blur");
                         $btn.addClass("i-gray").find("span").toggleClass("i-show");
                         $element.find(".b-catalog-element__data div[ data-id=" + $element.attr("data-id") + " ]").data({
                             incart: "Y"
@@ -107,6 +112,7 @@
         $("#buyCatalogElementPopupOpaco, .b-catalog-element-popup__close").click(function(e) {
             e.preventDefault();
             $("#buyCatalogElementPopup").removeClass("i-animate");
+            document.querySelector("html").classList.remove("i-blur");
             setTimeout(function() {
                 $("#buyCatalogElementPopup").removeClass("i-show");
             }, 500);

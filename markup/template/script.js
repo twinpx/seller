@@ -1,6 +1,12 @@
 (function($) {
     "use strict";
     $(function() {
+        $("#myModal").on("show.bs.modal", function() {
+            $(this).appendTo("body");
+            document.querySelector("html").classList.add("i-blur");
+        }).on("hide.bs.modal", function() {
+            document.querySelector("html").classList.remove("i-blur");
+        });
         setTimeout(function() {
             $(".b-ph-block").addClass("i-ph-animated");
         }, 500);

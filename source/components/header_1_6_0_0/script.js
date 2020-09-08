@@ -5,7 +5,16 @@
   $( function() {
     
     //nav button
-    $("#nav-button").sideNav();//mobile
+    $("#nav-button").sideNav({
+      onOpen: function() {
+        //blur the page
+        document.querySelector( 'html' ).classList.add( 'i-blur' );
+      },
+      onClose: function() {
+        //focus the page
+        document.querySelector( 'html' ).classList.remove( 'i-blur' );
+      }
+    });//mobile
     
     $( '.bj-page-header .bj-logo-space__icon.bj-header-user-icon' ).popover({
       html: !0,
