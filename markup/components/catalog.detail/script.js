@@ -42,6 +42,8 @@
         }
         var sessid = $("#sessid").val();
         $("#consentModal").on("show.bs.modal", function(e) {
+            $(this).appendTo("body");
+            document.querySelector("html").classList.add("i-blur");
             $.ajax({
                 url: json.actionUrl,
                 type: "GET",
@@ -57,6 +59,8 @@
                 },
                 error: function() {}
             });
+        }).on("hide.bs.modal", function() {
+            document.querySelector("html").classList.remove("i-blur");
         });
         var favPreloader = new Preloader("#catalogDetailFavLink, #catalogDetailFavIcon", "color1", "x-small");
         $("#catalogDetailFavLink, #catalogDetailFavIcon").click(function(e) {

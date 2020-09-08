@@ -62,6 +62,10 @@
 		var sessid = $( '#sessid' ).val();
 		
 		$('#consentModal').on( 'show.bs.modal', function (e) {
+      
+      //blur the page
+      $( this ).appendTo( 'body' );
+      document.querySelector( 'html' ).classList.add( 'i-blur' );
 														  
 		  $.ajax({
         url: json.actionUrl,
@@ -79,7 +83,9 @@
         error: function() {}
 		  });
 		  
-		});
+		}).on( 'hide.bs.modal', function () {//focus the page
+      document.querySelector( 'html' ).classList.remove( 'i-blur' );
+    });
     
     //store buttons - an icon and a link
     var favPreloader = new Preloader( '#catalogDetailFavLink, #catalogDetailFavIcon', 'color1', 'x-small' );
