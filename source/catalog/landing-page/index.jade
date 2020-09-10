@@ -1,0 +1,98 @@
+﻿extends ../../layouts/main.jade
+
+block title
+  title Catalog landing page | Seller
+
+block content
+
+  .container-fluid
+    
+    hr.visible-xs-block.i-size-L
+    
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        a(href='/catalog/', title='Каталог') Каталог
+      li
+        a(href='/catalog/muzhchinam/', title='Мужчинам') Мужчинам
+      li
+        a(href='/catalog/shoes/', title='Обувь') Обувь
+      li
+        a(href='/catalog/muzhskie_botinki/', title='Мужские ботинки') Мужские ботинки
+      li
+        span Кожанные ботинки
+        
+  .container-fluid
+  
+    .b-catalog-section( data-landingpage="true" )
+  
+      .row
+        .col-sm-8
+          h1 Купить Кросовки 46 размера
+        .col-sm-4
+          include ../../modules/catalog-tags/include
+      
+      include ../../modules/theme-photo/include
+      
+      hr
+      
+      .row
+      
+        .col-sm-3
+        
+          include ../../components/catalog.collection/menu
+          
+          hr
+        
+          include ../../components/catalog.filter/template
+            
+        hr.visible-xs-block.i-size-L
+        
+        .col-sm-9
+          
+          h2 Кросовки 46 размер
+          p Спортивные кросовки от модельеров и известных спортивных брендов.  Спортивные кросовки от модельеров и известных спортивных брендов. Спортивные кросовки от модельеров и известных спортивных брендов.
+        
+          .row
+    
+            .col-sm-6
+              
+              .bj-sorting
+                .text-muted Сортировка:
+                .dropdown
+                  a#dLabel(href='#', role='button', data-toggle='dropdown', data-target='#', aria-expanded='false')
+                    | Недорогие вещи для зимы
+                    span.caret
+                  ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+                    li
+                      a(href='/catalog/shoes/?sort=cheap#sort') Недорогие
+                    li
+                      a(href='/catalog/shoes/?sort=new#sort') Новые
+                    li
+                      a(href='/catalog/shoes/?sort=popular#sort') Популярные
+                .clearfix
+            hr.visible-xs
+                
+            .col-sm-6.text-right.hidden-xs
+              include ../../modules/pagination/include
+          
+          hr.i-line.i-size-L
+          
+          .b-catalog-section
+              
+            include ../../components/catalog.collection/meta
+            include ../../components/catalog.collection/modals
+            include ../../modules/gallery/fotorama
+              
+            include ../../components/catalog.collection/template-2
+                
+      hr.visible-xs
+    
+      .row
+            
+        .col-sm-6.col-sm-offset-6.text-right
+          
+          include ../../modules/pagination/include
+          
+      hr

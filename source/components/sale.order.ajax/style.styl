@@ -20,10 +20,7 @@
 .bx-soa-section {
     border-radius: 2px;
     margin-bottom: 25px;
-    -webkit-transition: border-color .3s ease;
-    -moz-transition: border-color .3s ease;
-    -o-transition: border-color .3s ease;
-    transition: border-color .3s ease;
+    transition( border-color .3s ease )
     border: 1px solid #e8e9eb;
 }
 .bx-soa-section.bx-step-completed {border: 1px solid #f2f2f2;}
@@ -70,10 +67,7 @@
 	line-height:15px;
 	counter-increment: heading;
 	content: counter(heading);
-	-webkit-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	-o-transition: all .3s ease;
-	transition: all .3s ease;
+	transition( all .3s ease )
  }
 .bx-soa-section-title-count:before{
 	content:"";
@@ -108,7 +102,7 @@
 
 .bx-soa-section.bx-selected {
 	border: 1px solid #f8f8f8;
-	box-shadow: 1px 0px 20px 0 rgba(0, 0, 0, 0.05);
+	box-shadow( 1px 0px 20px 0 rgba(0, 0, 0, 0.05))
 }
 
 .bx-soa-section-title-container {
@@ -119,8 +113,6 @@
     border-bottom: 1px solid #f2f2f2;
 }
 .bx-soa-section.bx-selected .bx-soa-section-title-container {
-	/*padding: 20px 0 20px 36px;
-	background-color: #f8f8f8;*/
 	border-color: #f8f8f8;
 }
 .bx-soa-section-title {
@@ -131,11 +123,7 @@
     min-height: 20px;
     vertical-align: middle;
     font-size: 13.5pt;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-	/*padding-left:0;*/
+    transition( all .3s ease )
 }
 .bx-soa-section.bx-selected .bx-soa-section-title {font-size: 13.5pt;}
 
@@ -144,18 +132,14 @@
     font-size: 9pt;
     vertical-align: middle;
     line-height: 22px;
-	text-transform: capitalize;
-    /*border-bottom: 1px dotted;*/
+    text-transform: capitalize;
 }
 .bx-soa-section.bx-selected .bx-soa-editstep {display: none;}
 .bx-soa-section.bx-selected .bx-soa-editstep:hover {border-bottom: none;}
 
 .bx-soa-section-content {
     padding: 10px 0 10px 35px;
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    -o-transition: all .2s ease;
-    transition: all .2s ease;
+    transition( all .2s ease )
 }
 .bx-soa-section.bx-step-completed .bx-soa-section-content,
 .bx-soa-section.bx-selected .bx-soa-section-content {line-height: 18px;}
@@ -191,7 +175,6 @@
 .bx-soa-table-fade-left:before,
 .bx-soa-table-fade-right:after{width: 15px;}
 .bx-soa-item-table{
-    /*margin-bottom:10px;*/
     min-width:100%;
     display:table;
 }
@@ -218,8 +201,6 @@
 }
 .bx-soa-item-table .bx-soa-item-tr:first-child .bx-soa-item-td{border-top: none}
 
-/*.bx-soa-item-block{padding-bottom:10px;}*/
-
 .bx-soa-item-img-block{
     float:left;
     padding-right:15px;
@@ -231,7 +212,6 @@
 }
 .bx-soa-item-imgcontainer {
     border-radius: 4px;
-    /*border: 1px solid #c0cfd9;*/
     padding-top: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -265,10 +245,6 @@
 .bx-soa-item-td-text .bx-price {
   white-space: nowrap;
   font-weight: normal;
-}
-.bx-soa-section:not( .bx-selected ) .bx-soa-item-td-text .bx-price,
-.bx-soa-section:not( .bx-selected ) .bx-soa-item-td-text .bx-price-old {
-	/*padding-right: 16px;*/
 }
 .bx-price-old {
     white-space: nowrap;
@@ -473,7 +449,7 @@
 .bx-soa-coupon-input input[type=text].form-control:focus {
     border-color: rgb(99, 116, 126);
     outline: none;
-    box-shadow: none;
+    box-shadow( none )
 }*/
 .bx-step-completed .bx-soa-coupon-list {
     padding-top: 0;
@@ -509,7 +485,7 @@
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 3px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    box-shadow( 0 2px 5px 0 rgba(0, 0, 0, .1))
     text-transform: none;
     color: #333;
     letter-spacing: normal;
@@ -799,10 +775,7 @@
     padding-top: 100%;
     cursor: pointer;
     outline: 1px solid #c0cfda;
-    -webkit-transition: outline .2s ease;
-    -moz-transition: outline .2s ease;
-    -o-transition: outline .2s ease;
-    transition: outline .2s ease;
+    transition( outline .2s ease )
 }
 .bx-scu-itemColorBlock:hover {outline: 1px solid #006cc0;}
 .bx-scu-itemColorBlock.selected {outline: 2px solid #006cc0;}
@@ -820,10 +793,7 @@
     position: relative;
     cursor: pointer;
     outline: 1px solid #c0cfda;
-    -webkit-transition: outline .2s ease;
-    -moz-transition: outline .2s ease;
-    -o-transition: outline .2s ease;
-    transition: outline .2s ease;
+    transition( outline .2s ease )
 }
 .bx-scu-itemTextBlock:hover {outline: 1px solid #006cc0;}
 .bx-scu-itemTextBlock.selected {outline: 2px solid #006cc0;}
@@ -997,10 +967,7 @@
 .bx-soa-pp .bx-soa-pp-company {
     padding: 7px;
     border: 1px solid transparent;
-    -webkit-transition: all 100ms ease;
-    -moz-transition: all 100ms ease;
-    -o-transition: all 100ms ease;
-    transition: all 100ms ease;
+    transition( all 100ms ease )
 }
 .bx-soa-pp-desc-container {padding-top: 7px;}
 #bx-soa-paysystem .bx-soa-pp-desc-container .bx-soa-pp-company-block {
@@ -1348,7 +1315,7 @@ ul.bx-soa-pp-list li {
 .bx-slst .form-control.dropdown-block{
     /*background-color: #f8fafc;*/
     border: 1px solid #d5dadc;
-    box-shadow: none;
+    box-shadow( none )
 }
 .form-group .dropdown-block.bx-ui-sls-input-block.form-control {
 	padding-top: 0;
@@ -1357,7 +1324,7 @@ ul.bx-soa-pp-list li {
 .has-error .bx-sls .form-control.dropdown-block,
 .has-error .bx-slst .form-control.dropdown-block{
     border-color: #cc3333;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
+    box-shadow( inset 0 1px 1px rgba(0, 0, 0, .075))
 }
 .bx-slst .form-control .bx-ui-combobox-container .bx-combobox-fake-as-input{padding-top: 7px;}
 .bx-bd-error {border-color: #db4a29;}
@@ -1441,7 +1408,7 @@ ymaps h3 {
     padding: 10px 20px;
     font-size: 14px;
     z-index: 110;
-    box-shadow: 0 6px 9px 0 rgba(0,0,0,.1)
+    box-shadow( 0 6px 9px 0 rgba(0,0,0,.1))
 }
 .bx-authform-psw-protected:hover .bx-authform-psw-protected-desc{display: block;}
 .bx-authform-psw-protected-desc>span{
@@ -1823,8 +1790,7 @@ hr.bxe-light{
 	color: #333;
 }
 #bx-soa-orderSave .btn-reset:focus {
-	box-shadow: none;
-	-webkit-box-shadow: none;
+	box-shadow( none )
 }
 @media( max-width: 767px ) {
 	#bx-soa-orderSave .btn,
@@ -1853,18 +1819,15 @@ hr.bxe-light{
 }
 .bx-sls .bx-ui-sls-clear:hover {
 	background-position: center;
-	-webkit-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-    opacity: .5;
+  transition( all .3s ease-out )
+  opacity: .5;
 }
 .bx-sls .bx-ui-sls-clear:focus {
 	border: none;
 	outline: none;
 }
 .form-control:focus {
-	-webkit-box-shadow: none;
-	box-shadow: none;
+	box-shadow( none )
 }
 #bx-soa-total-mobile {
 	display: none !important;

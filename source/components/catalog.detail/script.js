@@ -485,7 +485,6 @@
       menuWidth: '60%',
       onOpen: function() {
         //blur the page
-        $( '#slide-size-table' ).appendTo( 'body' );
         document.querySelector( 'html' ).classList.add( 'i-blur' );
       },
       onClose: function() {
@@ -589,6 +588,7 @@
     });
     
     function resizeSideNav() {
+      $( '#slide-size-table' ).appendTo( 'body' );
     
       if ( window.matchMedia( '( min-width: 992px )' ).matches && !$( '#slide-size-table' ).hasClass( 'i-60' )) {
         $( '#slide-size-table' ).addClass( 'i-60' ).removeClass( 'i-80' ).removeClass( 'i-95' );
@@ -597,7 +597,6 @@
           menuWidth: '80%',
           onOpen: function() {
             //blur the page
-            $( '#slide-size-table' ).appendTo( 'body' );
             document.querySelector( 'html' ).classList.add( 'i-blur' );
           },
           onClose: function() {
@@ -612,7 +611,6 @@
           menuWidth: '80%',
           onOpen: function() {
             //blur the page
-            $( '#slide-size-table' ).appendTo( 'body' );
             document.querySelector( 'html' ).classList.add( 'i-blur' );
           },
           onClose: function() {
@@ -627,7 +625,6 @@
           menuWidth: '95%',
           onOpen: function() {
             //blur the page
-            $( '#slide-size-table' ).appendTo( 'body' );
             document.querySelector( 'html' ).classList.add( 'i-blur' );
           },
           onClose: function() {

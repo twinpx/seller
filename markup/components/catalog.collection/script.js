@@ -1,15 +1,17 @@
 (function($) {
     "use strict";
     $(function() {
-        if (String(window.location.search).search("sort=") !== -1) {
-            setTimeout(function() {
-                $.scrollTo($(".bj-sorting:eq(0)").offset().top - 30, 500);
-            }, 1500);
-        }
-        if (String(window.location.search).search("PAGEN_2=") !== -1) {
-            setTimeout(function() {
-                $.scrollTo($(".b-catalog-collection:eq(0)").offset().top - 30, 500);
-            }, 1500);
+        if (!$(".b-catalog-section").data("landingpage")) {
+            if (String(window.location.search).search("sort=") !== -1) {
+                setTimeout(function() {
+                    $.scrollTo($(".bj-sorting:eq(0)").offset().top - 30, 500);
+                }, 1500);
+            }
+            if (String(window.location.search).search("PAGEN_2=") !== -1) {
+                setTimeout(function() {
+                    $.scrollTo($(".b-catalog-collection:eq(0)").offset().top - 30, 500);
+                }, 1500);
+            }
         }
         setTitle();
         function setTitle() {

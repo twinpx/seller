@@ -18,7 +18,7 @@
       onOpen: function( elem ) {
         
         //blur the page
-        document.querySelector( 'html' ).classList.add( 'i-blur' );
+        //document.querySelector( 'html' ).classList.add( 'i-blur' );
         
         $( '.b-seller-tuner' ).addClass( 'i-open' );
         setTimeout( function() {
