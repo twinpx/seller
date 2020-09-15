@@ -4,7 +4,7 @@
   
   $( function() {
     
-    Cookies.remove( 'sellerTuner' );
+    //Cookies.remove( 'sellerTuner' );
   
     //set niceScroll
     $( '.b-seller-tuner__menu, .b-seller-tuner__content' ).niceScroll({
@@ -18,7 +18,7 @@
       onOpen: function( elem ) {
         
         //blur the page
-        //document.querySelector( 'html' ).classList.add( 'i-blur' );
+        document.querySelector( 'html' ).classList.add( 'i-blur' );
         
         $( '.b-seller-tuner' ).addClass( 'i-open' );
         setTimeout( function() {
@@ -28,7 +28,7 @@
           $( '#seller-tuner' ).removeClass( 'i-no-transition' );
         }, 500);
         //set the cookie
-        Cookies.set( 'tunerOpen', 'Y' );
+        //Cookies.set( 'tunerOpen', 'Y' );
         //open tab
         /*if ( Cookies.get( 'tunerTab' )) {
           $( '.b-seller-tuner__menu a[href=' + Cookies.get( 'tunerTab' ) + ']' ).click();
@@ -46,7 +46,7 @@
         $( '.b-seller-tuner' ).removeClass( 'i-open' );
         $( '.b-seller-tuner__content .i-anim' ).removeClass( 'i-anim' );
         //set the cookie
-        Cookies.set( 'tunerOpen', 'N' );
+        //Cookies.set( 'tunerOpen', 'N' );
         
         //reset colors and fonts
         /*$( 'style[ class^=tuner ]' ).remove();

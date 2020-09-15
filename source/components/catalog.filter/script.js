@@ -49,7 +49,9 @@
     $( '.bx-filter input.min-price' ).val( $( "#priceSliderRange" ).slider( "values", 0 ));
     $( '.bx-filter input.max-price' ).val( $( "#priceSliderRange" ).slider( "values", 1 ));
     
-    $( '.bx-filter-select-popup' ).niceScroll();
+    if ( !( "ontouchstart" in document.documentElement )) {
+      $( '.bx-filter-select-popup' ).niceScroll();
+    }
   
     /*if ( window.BX ) {
       BX.addCustomEvent( "onFrameDataReceived", function () {});
