@@ -1,7 +1,7 @@
 extends ../../layouts/main.jade
 
 block title
-  title Video | Seller
+  title Видео-баннер | Seller
 
 block content
 
@@ -13,20 +13,28 @@ block content
       li
         a(href='/', title='Главная страница') Главная страница
       li
-        span Video
+        span Видео-баннер
         
   .container-fluid
   
-    h1 Video
-    
-    h2 Локальное видео
+    h1 Видео-баннер
         
-    include ../../components/video.plyr/local
+    include ../../components/video/template
     
     hr.i-size-L
     
-    h2 Видео с YouTube
+    h2 В составе галереи
     
-    include ../../components/video.plyr/youtube
+    ul
+      li Видео-баннер может быть слайдом в галерее
+      li Автозапуск
+      li Превью до загрузки видео
+      li Звука нет
+      li Видео только локальное
+      li Надписи поверх видео
+      li Маска для затемнения
+      li Подумать над плавным переходом от конца видео до начала
+      li Loop
+      
           
           

@@ -1,0 +1,32 @@
+extends ../../../layouts/main.jade
+
+block title
+  title Video | Seller
+
+block content
+
+  .container-fluid
+  
+    hr.visible-xs-block.i-size-L
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a(href='/', title='Главная страница') Главная страница
+      li
+        span Video
+        
+  .container-fluid
+  
+    h1 Video
+    
+    h2 Локальное видео
+        
+    include ../../../components/video.plyr/local
+    
+    hr.i-size-L
+    
+    h2 Видео с YouTube
+    
+    include ../../../components/video.plyr/youtube
+          
+          
