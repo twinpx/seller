@@ -5,43 +5,57 @@ script( src="/components/lookbook.detail/script.js" )
 
 h1 Джинсы с туфлями
 
-.bj-look
-  .row
-    .col-sm-7
-      
-      include ../../modules/gallery/fotorama
-      include ../../modules/gallery/catalog.detail.jade
+.bj-look.b-ph-block
+
+  .b-ph
+    
+    .b-ph__image
+    
+    .b-ph__text
+      div
+      div
+      div
+      div
+      div
+     
+  .b-ph-content
+  
+    .row
+      .col-sm-7
         
+        include ../../modules/gallery/fotorama
+        include ../../modules/gallery/catalog.detail.jade
+          
+          
+      hr.visible-xs.i-size-M
+      .col-sm-5
+        h3 Описание
+        p
+        p
+          | Деним — актуальнейшая ткань для городского стиля. В сочетании с туфлями на каблуках джинсы приобретают необходимую элегантность и очень украшают общий образ. Такой ансамбль изысканно смотрится и отлично подходит для неформальных рабочих будней, создавая роскошный облик без лишней официальности.
+        p
+        hr
+        table.bj-look__table
+          tr
+            td
+              a( href="/catalog/dzhinsy/calvin_klein_jeans_dzhinsovye_bryuki/" target="_blank" ) Calvin Klein jeans джинсовые брюки
+            td 5 000 руб.
+          tr
+            td
+              a( href="/catalog/dzhinsy/diesel_dzhinsovye_bryuki/" target="_blank" ) Diesel джинсовые брюки
+            td 14 660 руб.
+          tr
+            td
+              a( href="/catalog/dzhinsy/dzhinsy_j_brand/" target="_blank" ) Джинсы J Brand
+            td 4 800 руб.
+          tr
+            td
+              a( href="/catalog/dzhinsy/dzhinsy_siwy/" target="_blank" ) Джинсы Siwy
+            td 3 940 руб.
+        hr
+        a.btn.btn-default.btn-100.btn-size-L(href="/personal/cart/add2backet.php?order[]=142&order[]=152&order[]=155&order[]=158&") Купить
         
-    hr.visible-xs.i-size-M
-    .col-sm-5
-      h3 Описание
-      p
-      p
-        | Деним — актуальнейшая ткань для городского стиля. В сочетании с туфлями на каблуках джинсы приобретают необходимую элегантность и очень украшают общий образ. Такой ансамбль изысканно смотрится и отлично подходит для неформальных рабочих будней, создавая роскошный облик без лишней официальности.
-      p
-      hr
-      table.bj-look__table
-        tr
-          td
-            a( href="/catalog/dzhinsy/calvin_klein_jeans_dzhinsovye_bryuki/" target="_blank" ) Calvin Klein jeans джинсовые брюки
-          td 5 000 руб.
-        tr
-          td
-            a( href="/catalog/dzhinsy/diesel_dzhinsovye_bryuki/" target="_blank" ) Diesel джинсовые брюки
-          td 14 660 руб.
-        tr
-          td
-            a( href="/catalog/dzhinsy/dzhinsy_j_brand/" target="_blank" ) Джинсы J Brand
-          td 4 800 руб.
-        tr
-          td
-            a( href="/catalog/dzhinsy/dzhinsy_siwy/" target="_blank" ) Джинсы Siwy
-          td 3 940 руб.
-      hr
-      a.btn.btn-default.btn-100.btn-size-L(href="/personal/cart/add2backet.php?order[]=142&order[]=152&order[]=155&order[]=158&") Купить
-      
-  #lookbookDetailData( data-photo='/upload/lookbook/1.jpg;/upload/lookbook/2.jpg;/upload/lookbook/4.jpg' data-big-photo='/upload/lookbook/1.jpg;/upload/lookbook/2.jpg;/upload/lookbook/4.jpg', data-dimensions="[{ \"width\": 255, \"height\": 255 }, { \"width\": 676, \"height\": 1200 }, { \"width\": 730, \"height\": 472 }]" ) 
+    #lookbookDetailData( data-photo='/upload/lookbook/1.jpg;/upload/lookbook/2.jpg;/upload/lookbook/4.jpg' data-big-photo='/upload/lookbook/1.jpg;/upload/lookbook/2.jpg;/upload/lookbook/4.jpg', data-dimensions="[{ \"width\": 255, \"height\": 255 }, { \"width\": 676, \"height\": 1200 }, { \"width\": 730, \"height\": 472 }]" ) 
       
 hr.hidden-xs.i-size-L
 hr.visible-xs-block.i-size-XL

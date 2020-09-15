@@ -1,3 +1,6 @@
+block vars
+  - var page = 'main'
+
 doctype html
 html( lang="ru" class="bx-no-touch" )
   head
@@ -5,6 +8,8 @@ html( lang="ru" class="bx-no-touch" )
       title seller
       
     include includes/meta.jade
+    link( href="/template/placeholders/#{page}.css" rel="stylesheet" )
+    
     include includes/styles.jade
     include includes/fonts.jade
     include includes/scripts.jade

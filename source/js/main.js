@@ -1,3 +1,8 @@
+//placeholders
+setTimeout( function() {
+  $( '.b-ph-block' ).addClass( 'i-ph-animated' );
+}, 500 );
+
 //blur the page
 //phone modal window
 $( '#myModal' ).on( 'show.bs.modal', function () {

@@ -1,6 +1,9 @@
 (function($) {
     "use strict";
     $(function() {
+        setTimeout(function() {
+            $(".b-ph-block").addClass("i-ph-animated");
+        }, 500);
         $("#myModal").on("show.bs.modal", function() {
             $(this).appendTo("body");
             document.querySelector("html").classList.add("i-blur");

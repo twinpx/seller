@@ -58,13 +58,23 @@ module.exports = function( grunt ) {
         }
       },
       template: {
-        files: {
+        files: [
+          {
           '<%= dest%>template/template_styles.css':
             [
               '<%= source%>styl/template_styles.styl',
               '<%= source%>modules/**/*.styl'
             ]
-        }
+          },
+          {
+            expand: true,
+            cwd: '<%= source%>styl/placeholders/',
+            src: [ '*.styl' ],
+            dest: '<%= dest%>template/placeholders/',
+            extDot: 'first',
+            ext: '.css'
+          }
+        ]
       },
       components: {
         files: [
@@ -88,6 +98,14 @@ module.exports = function( grunt ) {
             cwd: '<%= source%>components/',
             src: [ '**/*.styl' ],
             dest: '<%= temp %>components/',
+            extDot: 'first',
+            ext: '.css'
+          },
+          {
+            expand: true,
+            cwd: '<%= source%>styl/placeholders/',
+            src: [ '*.styl' ],
+            dest: '<%= temp %>template/placeholders/',
             extDot: 'first',
             ext: '.css'
           },
