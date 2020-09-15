@@ -1,8 +1,31 @@
 @import '../../styl/component-include.styl'
 
 .b-shops
+  
+  &.i-bg
+    padding 10px 0 30px
+  
+    .bj-hr-heading,
+    .b-hr-heading
+      margin-right 70px
+      margin-left 70px
+  
+  &-bg
+    background-color #f2f2f2
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    opacity .07
+    z-index 1
+
+
+.b-shops
   position relative
-  padding 10px 0 30px
   
   .container-fluid
     position relative
@@ -10,8 +33,6 @@
   
   .bj-hr-heading,
   .b-hr-heading
-    margin-right 70px
-    margin-left 70px
     z-index 5
   
   .swiper-container
@@ -57,19 +78,6 @@
     height 60px
     margin-top -30px
     margin-left -30px
-  
-  &-bg
-    background-color #f2f2f2
-    background-repeat no-repeat
-    background-position center
-    background-size cover
-    position absolute
-    top 0
-    left 0
-    width 100%
-    height 100%
-    opacity .07
-    z-index 1
     
   &-card
     background-color #fff
