@@ -1,6 +1,6 @@
 @import '../../styl/component-include.styl'
 
-.b-video-banner
+.b-video-element
   height 700px
   position relative
   overflow hidden
@@ -11,8 +11,14 @@
     left 0
     min-width 100%
     min-height 100%
+    opacity 1
+    transition( opacity 2s ease )
+    z-index 1
+    
+    &.i-hide
+      opacity 0
 
-  .b-impression-block__container
+  &__shutter
     position absolute
     top 0
     left 0
@@ -22,8 +28,14 @@
     display flex
     align-items center
     background rgba(0, 0, 0, 0.2)
+    z-index 3
 
-    .container
-      opacity 1
-      -webkit-opacity 1
-      -moz-opacity 1
+  &__container
+      opacity 0
+      transition( opacity .5s ease )
+      color #fff
+      font-size 22pt
+      padding 5%
+      
+      &.i-show
+        opacity 1
