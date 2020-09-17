@@ -1,0 +1,28 @@
+extends ../../../layouts/main.jade
+
+block title
+  title Простое видео | Видео-баннер | Seller
+
+block content
+
+  .container-fluid
+  
+    hr.visible-xs-block.i-size-L
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a( href='/' ) Главная страница
+      li
+        a( href='/blocks/video/' ) Видео-баннер
+      li
+        span Простое видео        
+        
+  .container-fluid
+  
+    h1 Простое видео
+    p Простой видео-баннер, видео без звука, повторяется, прежде загрузки видео показывается poster-изображение.
+    
+    hr.i-size-L
+        
+    include ../../../components/video/template
+    

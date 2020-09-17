@@ -14,22 +14,20 @@ block content
         a(href='/', title='Главная страница') Главная страница
       li
         span Видео-баннер
-        
+
   .container-fluid
-  
+    
     h1 Видео-баннер
-        
-    include ../../components/video/template
     
-    hr.i-size-L
-    
-    h2 В составе галереи
-    
-    //-include ../../components/video/gallery
-    
-    hr.i-size-L
-    
-    //-include ../../components/video/gallery
+    ul
+      li
+        a( href="/blocks/video/loop/" ) Простое видео
+      li
+        a( href="/blocks/video/fade-loop/" ) Fade эффект
+      li
+        a( href="/blocks/video/gallery/" ) Галерея
+      li
+        a( href="/blocks/video/gallery-fade-loop/" ) Галерея с fade эффектом
     
     hr.i-size-L
     

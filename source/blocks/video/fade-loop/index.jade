@@ -1,0 +1,28 @@
+extends ../../../layouts/main.jade
+
+block title
+  title Fade эффект | Видео-баннер | Seller
+
+block content
+
+  .container-fluid
+  
+    hr.visible-xs-block.i-size-L
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a( href='/' ) Главная страница
+      li
+        a( href='/blocks/video/' ) Видео-баннер
+      li
+        span Fade эффект      
+        
+  .container-fluid
+  
+    h1 Fade эффект
+    p Видео обрабатывается скриптом - создаётся копия, каждое видео запускается поочерёдно. У тэга не должно быть атрибутов loop, autoplay. Блоку добавляется класс i-fade-loop.
+    
+    hr.i-size-L
+        
+    include ../../../components/video/fade-loop
+    

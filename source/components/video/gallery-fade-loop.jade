@@ -1,0 +1,56 @@
+// start /components/video/
+
+link( rel="stylesheet", href="/components/video/style.css" )
+script( src="/components/video/script.js" )
+
+link( rel="stylesheet", href="/template/libs/swiper.min.css" )
+script( src="/template/libs/swiper.min.js" )
+
+.swiper-container
+
+  .swiper-wrapper
+  
+    .swiper-slide
+    
+      .b-video-element.i-fade-loop
+      
+        video( autobuffer="" playsinline="" webkit-playsinline="" poster="/upload/video-banner.png" preload="metadata" muted="" )
+        
+          source(src="/upload/video-banner.mp4" type="video/mp4")
+          p To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+          
+        .b-video-element__shutter
+          .b-video-element__container
+            b Мексика — море, пальмы и песчаные пляжи
+    
+    
+    .swiper-slide
+    
+      .b-video-element.i-fade-loop
+      
+        video( autoplay="" autobuffer="" playsinline="" webkit-playsinline="" poster="/upload/video-banner.png" preload="metadata" muted="" loop="" )
+        
+          source(src="/upload/video-banner2.mp4" type="video/mp4")
+          p To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+          
+        .b-video-element__shutter
+          .b-video-element__container
+            b Мусоровоз
+            
+    .swiper-slide
+    
+      .b-video-element.i-fade-loop
+      
+        video( autoplay="" autobuffer="" playsinline="" webkit-playsinline="" poster="/upload/video-banner.png" preload="metadata" muted="" loop="" )
+        
+          source(src="/upload/video-banner3.mp4" type="video/mp4")
+          p To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+          
+        .b-video-element__shutter
+          .b-video-element__container
+            b Праздник на лужайке в честь юбилея главной ассоциации по корпортативному снижению потенциальной опасности в зонах административной ответственности
+  
+  .swiper-button-prev
+  .swiper-button-next
+
+// end /components/video/

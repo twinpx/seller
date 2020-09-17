@@ -1,0 +1,28 @@
+extends ../../../layouts/main.jade
+
+block title
+  title Галерея | Видео-баннер | Seller
+
+block content
+
+  .container-fluid
+  
+    hr.visible-xs-block.i-size-L
+  
+    ol.breadcrumb.hidden-xs
+      li
+        a( href='/' ) Главная страница
+      li
+        a( href='/blocks/video/' ) Видео-баннер
+      li
+        span Галерея       
+        
+  .container-fluid
+  
+    h1 Галерея
+    p Пример галереи, в один из слайдов которой встроено видео. Видео запускается в момент перелистывания слайда и останавливается когда слайд неактивен.
+    
+    hr.i-size-L
+        
+    include ../../../components/video/gallery
+    
