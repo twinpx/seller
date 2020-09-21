@@ -6,6 +6,9 @@
   .b-ph
     display flex
     justify-content space-between
+    
+    @media( max-width 767px )
+      display block
   
     &-content
       position absolute
@@ -21,9 +24,16 @@
       padding-top 50%
       margin-bottom 20px
       width calc( 100% / 12 * 7 - 15px )
+      
+      @media( max-width 767px )
+        width 100%
+        padding-top 100%
     
     &__text
       width calc( 100% / 12 * 5 - 15px )
+      
+      @media( max-width 767px )
+        width 100%
     
       div
         height 7px
