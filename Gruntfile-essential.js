@@ -8,25 +8,6 @@ module.exports = function( grunt ) {
     prod: 'markup/',
     
     jade: {
-      
-      issue: {
-        options: {
-          pretty: true
-        },
-        files: [
-          {
-            expand: true, 
-            cwd: './<%= source%>',
-            src: [
-              'blocks/video/**/*.jade',
-              'components/video/*.jade'
-            ],
-            dest: '<%= dest%>',
-            ext: '.html',
-            extDot: 'first'
-          }
-        ]
-      },
       dev: {
         options: {
           pretty: true
@@ -38,8 +19,7 @@ module.exports = function( grunt ) {
             src: [
               '**/*.jade',
               '!layouts/**/*.jade',
-              '!modules/**/*.jade',
-              '!components/**/*.jade'
+              '!modules/**/*.jade'
             ],
             dest: '<%= dest%>',
             ext: '.html',
@@ -59,8 +39,7 @@ module.exports = function( grunt ) {
             src: [
               '**/*.jade',
               '!layouts/**/*.jade',
-              '!modules/**/*.jade',
-              '!components/**/*.jade'
+              '!modules/**/*.jade'
             ],
             dest: '<%= temp%>',
             ext: '.html',
@@ -78,23 +57,24 @@ module.exports = function( grunt ) {
           limit: 30000
         }
       },
-      
-      issue: {
+      template: {
         files: [
           {
-            '<%= dest%>components/video/style.css': '<%= source%>components/video/style.styl'
-          }
-        ]
-      },
-      
-      template: {
-        files: {
           '<%= dest%>template/template_styles.css':
             [
               '<%= source%>styl/template_styles.styl',
               '<%= source%>modules/**/*.styl'
             ]
-        }
+          },
+          {
+            expand: true,
+            cwd: '<%= source%>styl/placeholders/',
+            src: [ '*.styl' ],
+            dest: '<%= dest%>template/placeholders/',
+            extDot: 'first',
+            ext: '.css'
+          }
+        ]
       },
       components: {
         files: [
@@ -122,12 +102,19 @@ module.exports = function( grunt ) {
             ext: '.css'
           },
           {
+            expand: true,
+            cwd: '<%= source%>styl/placeholders/',
+            src: [ '*.styl' ],
+            dest: '<%= temp %>template/placeholders/',
+            extDot: 'first',
+            ext: '.css'
+          },
+          {
             '<%= temp %>template/template_styles.css':
               [
                 '<%= source%>styl/template_styles.styl',
                 '<%= source%>modules/**/*.styl'
-              ],
-            '<%= temp%>template/colors.css': '<%= source%>styl/colors.styl'
+              ]
           }
         ]
       }
@@ -258,24 +245,6 @@ module.exports = function( grunt ) {
           ]
         }
       },
-      iss15918: {
-        options: {
-          curly: true,
-          eqeqeq: true,
-          eqnull: true,
-          browser: true,
-          newcap: true,
-          globals: {
-            jQuery: true,
-            console: true
-          }
-        },
-        files: {
-          src: [
-            '<%= source %>components/catalog.collection-props/*.js'
-          ]
-        }
-      },
       prod: {
         options: {
           curly: true,
@@ -328,20 +297,6 @@ module.exports = function( grunt ) {
           }
         ]
       },
-      
-      issue: {
-        options: {
-          mangle: false,
-          compress: false,
-          beautify: true
-        },
-        files: [
-          {
-            '<%= dest %>components/video/script.js': '<%= source %>components/video/script.js'
-          }
-        ]
-      },
-      
       prodTemplate: {
         options: {
           mangle: false,
@@ -416,16 +371,6 @@ module.exports = function( grunt ) {
     },
     
     copy: {
-      iss15918: {
-        files: [
-          {
-            expand: true,
-            cwd: '<%= source %>components/catalog.collection-props/',
-            src: [ '**/*.js' ],
-            dest: '<%= dest %>components/catalog.collection-props/'
-          }
-        ]
-      },
       images: {
         files: [
           {
@@ -499,65 +444,39 @@ module.exports = function( grunt ) {
     },
     
     watch: {
-      livereload: {
-        options: {
-          livereload: true
-        },
-        files: [ '**/*' ]
-      },
       
-      htmlGeneral: {
-        files: [
-          '<%= source %>**/*.jade',
-          //change component name
-          '!<%= source %>components/video/**/*.jade',
-          '!<%= source %>blocks/video/**/*.jade'
-        ],
+      html: {
+        files: '**/*.jade',
         tasks: 'jade:dev'
       },
       
-      htmlIssue: {
-        files: [
-          //change component name
-          '<%= source %>components/video/**/*.jade',
-          '<%= source %>blocks/video/**/*.jade'
-        ],
-        tasks: 'htmlIssue'
-      },
-      
-      cssGeneral: {
+      cssTemplate: {
         files: [
           '<%= source %>**/*.styl',
-          //change component name
-          '!<%= source %>components/video/**/*.styl',
-          '!<%= source %>blocks/video/**/*.styl'
+          '!<%= source %>components/**/*.styl'
         ],
-        tasks: 'css'
+        tasks: 'stylus:template'
       },
       
-      cssIssue: {
-        files: [
-          '<%= source %>components/video/**/*.styl'
-        ],
-        tasks: 'cssIssue'
+      cssComponents: {
+        files: '<%= source %>components/**/*.styl',
+        tasks: 'stylus:components'
       },
       
-      jsGeneral: {
+      jsTemplate: {
         files: [
           '<%= source %>**/*.js',
-          '!<%= source %>js/jscript.js',
-          //change component name
-          '!<%= source %>components/video/**/*.js'
+          '!<%= source %>js/script.js',
+          '!<%= source %>components/**/script.js'
         ],
-        tasks: [ 'js' ]
+        tasks: [ 'jstemplate' ]
       },
       
-      jsIssue: {
+      jsComponents: {
         files: [
-          //change component name
-          '<%= source %>components/video/**/*.js'
+          '<%= source %>components/**/script.js'
         ],
-        tasks: [ 'jsIssue' ]
+        tasks: [ 'jscomponents' ]
       },
       
       img: {
@@ -590,18 +509,14 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   
   grunt.registerTask( 'css', [ 'stylus:template', 'stylus:components', /*'less:prod',*/ 'concat:pluginsCSS' ]);
+  
   grunt.registerTask( 'js', [ 'concat:js', 'jshint:devTemplate', 'jshint:devComponents', 'concat:pluginsJS', 'uglify:devTemplate', 'uglify:devComponents', 'clean:js' ] );
+  grunt.registerTask( 'jstemplate', [ 'concat:js', 'jshint:devTemplate', 'concat:pluginsJS', 'uglify:devTemplate', 'clean:js' ] );
+  grunt.registerTask( 'jscomponents', [ 'jshint:devComponents', 'uglify:devComponents' ] );
+  
   grunt.registerTask( 'html', [ 'copy:images', 'jade:dev' ] );
   grunt.registerTask( 'less', [ 'concat:LESS', 'concat:prodLESS', 'copy:prodLESS' ] );
   grunt.registerTask( 'default', [ 'connect', 'css', 'js', 'html', 'watch' ] );
-  
-  //issue tasks
-  grunt.registerTask( 'htmlIssue', [ 'jade:issue' ] );
-  grunt.registerTask( 'cssIssue', [ 'stylus:issue' ] );
-  grunt.registerTask( 'jsIssue', [ /*'jshint:issue', */'uglify:issue' ] );
-  
-  //issues
-  grunt.registerTask( 'iss15918', [ 'connect', 'stylus:iss15918', 'jshint:iss15918', 'uglify:iss15918', 'jade:iss15918', 'watch' ] );
   
   grunt.registerTask( 'prod', [
     'stylus:prod',
@@ -612,7 +527,7 @@ module.exports = function( grunt ) {
     //js
     'concat:prod',
     'copy:prodComponents',
-    //'jshint:prod',
+    'jshint:prod',
     'uglify:prodTemplate',
     'uglify:prodMinTemplate',
     'concat:prodPluginsJS',

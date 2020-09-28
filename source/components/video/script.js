@@ -4,16 +4,17 @@
   
   $( function() {
     
+    //text effect
     setTimeout( function() {
       document.querySelectorAll( '.b-video-element__container' )[0].classList.add( 'i-show' );
     }, 500 );
     
-    //fade loop effect
+    //single video, fade loop effect
     var checkLoadedIntervalId, fadeTimeoutId;
     
     document.querySelectorAll( '.b-video-element.i-fade-loop' ).forEach( function( videoElement ) {
       
-      if ( videoElement.parentNode.classList.contains( 'swiper-slide' ) || videoElement.closest( '.swiper-slide' ).length ) {
+      if ( videoElement.parentNode.classList.contains( 'swiper-slide' ) || videoElement.closest( '.swiper-slide' )) {
         return;
       }
       
@@ -37,7 +38,7 @@
           fadeTimeoutId = setTimeout( function() {
             topVideo.classList.toggle( 'i-hide' );
             fadeVideo( videoNodes.reverse(), topVideo );
-          }, ( videoNodes[1].duration - videoNodes[1].currentTime - 2) * 1000 );
+          }, ( videoNodes[1].duration - videoNodes[1].currentTime - 2 ) * 1000 );
         }
       }, 100 );
     }

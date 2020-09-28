@@ -23,11 +23,10 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      preloadImages: true,
-      lazy: true,
-      loadPrevNext: true,
-      loadOnTransitionStart: true,
-      loadPrevNextAmount: slidesPerView,
+      preloadImages: false,
+      lazy: {
+        loadPrevNext: true
+      },
       watchSlidesVisibility: true,
       on: {
         init: function () {
