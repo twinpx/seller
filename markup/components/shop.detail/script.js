@@ -10,7 +10,9 @@
                 prevEl: ".swiper-button-prev"
             },
             preloadImages: false,
-            lazy: true,
+            lazy: {
+                loadPrevNext: true
+            },
             watchSlidesVisibility: true,
             on: {
                 init: function() {

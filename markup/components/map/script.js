@@ -35,6 +35,9 @@
                     searchControlProvider: "yandex#search"
                 });
                 shopsMap.behaviors.disable("scrollZoom");
+                if (window.matchMedia("(max-width: 1024px)").matches) {
+                    shopsMap.behaviors.disable("drag");
+                }
                 shopsMap.events.add("click", function(e) {
                     shopsMap.balloon.close();
                 });
