@@ -71,6 +71,9 @@
                         $body.height($body.find("p").height());
                         $("#subscribeModal .modal-footer .btn").hide();
                         $("#subscribeModal .modal-footer .i-gray").show();
+                        if (ym && ymID) {
+                            ym(ymID, "reachGoal", "subscribe_siccess");
+                        }
                     }
                 },
                 error: function(a, b, c) {
@@ -82,7 +85,6 @@
         });
         $(".b-catalog-element__button .btn").click(function(e) {
             e.preventDefault();
-            $(".b-catalog-element__button .btn").trigger("add.ecommerce");
             var $btn = $(this);
             var $element = $btn.closest(".b-catalog-element");
             if ($btn.hasClass("i-gray")) {
@@ -106,6 +108,10 @@
                         $element.find(".b-catalog-element__data div[ data-id=" + $element.attr("data-id") + " ]").data({
                             incart: "Y"
                         });
+                        $(".b-catalog-element__button .btn").trigger("add.ecommerce");
+                        if (ym && ymID) {
+                            ym(ymID, "reachGoal", "goal_basket_add");
+                        }
                     }
                 },
                 error: function() {}
@@ -397,7 +403,8 @@
                 if ($element.find(".b-catalog-element__button .btn").length) {
                     pageUrl = $element.find(".b-catalog-element__button .btn").attr("href");
                 }
-                if ($img.length && srcArray[0] && srcArray[1]) {
+                if ($img.length && srcArray[0]) {
+                    srcArray[1] = srcArray[1] || srcArray[0];
                     if ($bottom.css("opacity") > 0) {
                         $img.css({
                             backgroundImage: "url('" + srcArray[0] + "')"

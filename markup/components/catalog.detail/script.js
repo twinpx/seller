@@ -98,6 +98,9 @@
                         }
                         $elems.removeClass("i-preloader");
                         favPreloader.remove();
+                        if (ym && ymID) {
+                            ym(ymID, "reachGoal", "put_aside");
+                        }
                     }
                 },
                 error: function() {}
@@ -135,6 +138,9 @@
                         $activeDataDiv.data({
                             incart: "Y"
                         });
+                        if (ym && ymID) {
+                            ym(ymID, "reachGoal", "goal_basket_add");
+                        }
                     }
                 },
                 error: function() {}
@@ -161,6 +167,9 @@
                     if (data) {
                         $("#oneClick form").remove();
                         $("#oneClick .modal-header").after(data);
+                    }
+                    if (ym && ymID) {
+                        ym(ymID, "reachGoal", "goal_1click_begin");
                     }
                 },
                 error: function(a, b, c) {
@@ -189,6 +198,9 @@
                         $("#oneClick .modal-footer .btn").hide();
                         $("#oneClick .modal-footer .i-gray").show();
                         $("#oneClick").trigger("onClickSuccess.ecommerce");
+                        if (ym && ymID) {
+                            ym(ymID, "reachGoal", "goal_1click_success");
+                        }
                     }
                 },
                 error: function(a, b, c) {
@@ -224,6 +236,9 @@
                         $form.removeClass("hidden");
                         $form.siblings(".b-message").removeClass("i-warning").addClass("hidden");
                     }, 3e3);
+                    if (ym && ymID) {
+                        ym(ymID, "reachGoal", "subscribe_success");
+                    }
                 },
                 error: function(a, b, c) {
                     console.log(a);
@@ -838,7 +853,9 @@
                     if (window.location.search) {
                         query = parseQuery(window.location.search);
                     }
-                    query.product_id = $div.data("id");
+                    if ($dataDivs.length !== 1) {
+                        query.product_id = $div.data("id");
+                    }
                     for (var k in query) {
                         locationSearch += k + "=" + query[k] + "&";
                     }
