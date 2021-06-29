@@ -800,7 +800,8 @@
             .attr('href');
         }
 
-        if ($img.length && srcArray[0] && srcArray[1]) {
+        if ($img.length && srcArray[0]) {
+          srcArray[1] = srcArray[1] || srcArray[0];
           if ($bottom.css('opacity') > 0) {
             $img.css({ backgroundImage: "url('" + srcArray[0] + "')" });
             $imgHover.css({ backgroundImage: 'url(' + srcArray[1] + ')' });

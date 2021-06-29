@@ -1,0 +1,43 @@
+@import '../../styl/component-include.styl'
+.b-catalog-full-menu
+
+  &__head
+    display flex
+    justify-content space-between
+    margin-bottom 10px
+
+    @media( min-width 768px )
+      display none
+
+  &__title
+    margin-right 20px
+    font-size 1.2rem
+    line-height 1.2
+
+  &__icon
+    width 24px
+    height 24px
+    background-repeat no-repeat
+    background-position center center
+    background-size contain
+    flex-shrink 0
+
+  &__content
+    background-color #f2f2f2
+    padding 15px
+
+    @media( max-width 767px )
+      display none
+
+  a,
+  span
+    display block
+    font-size .9rem
+    color #333
+    margin-bottom 5px
+
+    &:last-child
+      margin-bottom 0
+  
+  span
+    opacity .7

@@ -336,7 +336,7 @@
 
           //Yandex Metrika
           if (ym && ymID) {
-            ym(ymID, 'reachGoal', 'subscribe_siccess');
+            ym(ymID, 'reachGoal', 'subscribe_success');
           }
         },
         error: function (a, b, c) {
@@ -1288,7 +1288,9 @@
             query = parseQuery(window.location.search);
           }
 
-          query.product_id = $div.data('id');
+          if ($dataDivs.length !== 1) {
+            query.product_id = $div.data('id');
+          }
 
           for (var k in query) {
             locationSearch += k + '=' + query[k] + '&';
