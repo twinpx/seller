@@ -2,6 +2,25 @@
   'use strict';
 
   $(function () {
+    //go back button
+    document
+      .querySelector('.b-catalog-detail__go-back')
+      .addEventListener('click', function () {
+        window.history.go(-1);
+      });
+
+    window.addEventListener('scroll', function () {
+      if (this.pageYOffset > 100) {
+        document
+          .querySelector('.b-catalog-detail__go-back')
+          .classList.add('show');
+      } else {
+        document
+          .querySelector('.b-catalog-detail__go-back')
+          .classList.remove('show');
+      }
+    });
+
     //ecommerce
     $('.b-catalog-detail').trigger('detail.ecommerce');
 
@@ -1313,9 +1332,8 @@
 
     function parseQuery(queryString) {
       var query = {};
-      var pairs = (queryString[0] === '?'
-        ? queryString.substr(1)
-        : queryString
+      var pairs = (
+        queryString[0] === '?' ? queryString.substr(1) : queryString
       ).split('&');
       for (var i = 0; i < pairs.length; i++) {
         var pair = pairs[i].split('=');
