@@ -1,6 +1,16 @@
 (function($) {
     "use strict";
     $(function() {
+        document.querySelector(".b-catalog-detail__go-back").addEventListener("click", function() {
+            window.history.go(-1);
+        });
+        window.addEventListener("scroll", function() {
+            if (this.pageYOffset > 100) {
+                document.querySelector(".b-catalog-detail__go-back").classList.add("show");
+            } else {
+                document.querySelector(".b-catalog-detail__go-back").classList.remove("show");
+            }
+        });
         $(".b-catalog-detail").trigger("detail.ecommerce");
         $(".b-catalog-detail__props-slide").click(function(e) {
             $(".b-catalog-detail__props").slideToggle();
