@@ -574,13 +574,13 @@ input.sale-paysystem-yandex-button-item:active {
   border-color: #ffba13 !important;
   background: #ffba13 !important;
 }
-#bx-soa-order [type="radio"]:checked + span:after,
-#bx-soa-order [type="radio"].with-gap:checked + span:before,
-#bx-soa-order [type="radio"].with-gap:checked + span:after {
+#bx-soa-order [type='radio']:checked + span:after,
+#bx-soa-order [type='radio'].with-gap:checked + span:before,
+#bx-soa-order [type='radio'].with-gap:checked + span:after {
   border-color: #ffba13 !important;
 }
-#bx-soa-order [type="radio"]:checked + span:after,
-#bx-soa-order [type="radio"].with-gap:checked + span:after {
+#bx-soa-order [type='radio']:checked + span:after,
+#bx-soa-order [type='radio'].with-gap:checked + span:after {
   background-color: #ffba13 !important;
 }
 .bx_ordercart_order_pay_center .checkout:hover,
@@ -678,4 +678,8 @@ input.sale-paysystem-yandex-button-item:active {
 }
 .b-shop-detail__apps a {
   background-color: #5da400;
+}
+:root {
+  --swiper-theme-color: #ffba13 !important;
+  --swiper-navigation-size: 32px !important;
 }
