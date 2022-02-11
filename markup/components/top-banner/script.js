@@ -1,7 +1,14 @@
 (function($) {
     "use strict";
     $(function() {
-        var swiper = new Swiper("#topSwiper", {
+        var swiper = new Swiper(".swiper", {
+            on: {
+                init: function(swiper) {
+                    setTimeout(function() {
+                        swiper.el.closest(".top-swiper-ph").classList.add("top-swiper--initialized");
+                    }, 500);
+                }
+            },
             pagination: {
                 el: ".swiper-pagination",
                 dynamicBullets: true

@@ -14,3 +14,43 @@
       @media(max-width 767px)
         padding-top 100%
         height auto
+
+.top-swiper
+
+  &-ph
+    height 400px
+    background-color $placeholder-color
+    transition(background-color .5s ease-in)
+    overflow hidden
+
+    @media(max-width 767px) {
+      height auto
+      padding-top 100%
+      position relative
+    }
+
+    &.top-swiper--initialized
+      height auto
+      padding-top 0
+      background-color transparent
+      overflow visible
+
+  &-opacity
+    opacity 0
+    transition(opacity .5s ease-in)
+
+    @media(max-width 767px) {
+      position absolute
+      top 0
+      left 0
+      width 100%
+      z-index 1
+    }
+
+    .top-swiper--initialized &
+      position static
+      top 0
+      left 0
+      width auto
+      opacity 1
+      z-index 1
