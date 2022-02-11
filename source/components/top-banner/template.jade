@@ -8,28 +8,63 @@ script(src="https://unpkg.com/swiper/swiper-bundle.min.js")
 
 #topSwiper.top-swiper-ph
   .top-swiper-opacity
-    .swiper
+  
+    .swiper.swiper--desktop
       .swiper-wrapper
         .swiper-slide
-          a.hidden-xs(style="background-image:url(/upload/top-banner/1.jpg)" href="/catalog/" target="_blank")
-          a.visible-xs-block(style="background-image:url(/upload/top-banner/3.jpg)" href="/catalog/" target="_blank")
+          a.swiper-lazy(data-background="/upload/top-banner/1.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
         .swiper-slide
-          a.hidden-xs(style="background-image:url(/upload/top-banner/2.jpg)" href="/catalog/" target="_blank")
-          a.visible-xs-block(style="background-image:url(/upload/top-banner/4.jpg)" href="/catalog/" target="_blank")
+          a.swiper-lazy(data-background="/upload/top-banner/2.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
         .swiper-slide
-          a.hidden-xs(style="background-image:url(/upload/top-banner/1.jpg)" href="/catalog/" target="_blank")
-          a.visible-xs-block(style="background-image:url(/upload/top-banner/3.jpg)" href="/catalog/" target="_blank")
+          a.swiper-lazy(data-background="/upload/top-banner/1.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
         .swiper-slide
-          a.hidden-xs(style="background-image:url(/upload/top-banner/2.jpg)" href="/catalog/" target="_blank")
-          a.visible-xs-block(style="background-image:url(/upload/top-banner/4.jpg)" href="/catalog/" target="_blank")
+          a.swiper-lazy(data-background="/upload/top-banner/2.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
         .swiper-slide
-          a.hidden-xs(style="background-image:url(/upload/top-banner/1.jpg)" href="/catalog/" target="_blank")
-          a.visible-xs-block(style="background-image:url(/upload/top-banner/3.jpg)" href="/catalog/" target="_blank")
+          a.swiper-lazy(data-background="/upload/top-banner/1.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
         .swiper-slide
-          a.hidden-xs(style="background-image:url(/upload/top-banner/2.jpg)" href="/catalog/" target="_blank")
-          a.visible-xs-block(style="background-image:url(/upload/top-banner/4.jpg)" href="/catalog/" target="_blank")
+          a.swiper-lazy(data-background="/upload/top-banner/2.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/1.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/2.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
       .swiper-pagination
       .swiper-button-next
       .swiper-button-prev
+  
+    .swiper.swiper--mobile
+      .swiper-wrapper
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/3.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/4.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/3.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/4.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/3.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/4.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/3.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+        .swiper-slide
+          a.swiper-lazy(data-background="/upload/top-banner/4.jpg" href="/catalog/" target="_blank")
+          .swiper-lazy-preloader
+      .swiper-pagination
 
 // end /components/top-banner/

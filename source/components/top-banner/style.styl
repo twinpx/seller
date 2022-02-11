@@ -1,19 +1,48 @@
 @import '../../styl/component-include.styl'
 
 #topSwiper
+
+  .swiper
+    display none
+
+    &-button-next
+      display flex
+      opacity 0
+      transform( translateX(50px))
+      transition( all .3s linear )
+
+    &-button-prev
+      display flex
+      opacity 0
+      transform( translateX(-50px))
+      transition( all .3s linear )
+
+    &:hover
+      
+      .swiper-button-next,
+      .swiper-button-prev
+        opacity 1
+        transform( translateX(0))
   
-  .swiper-slide
+    &-slide
 
-    a
-      display block
-      height 400px
-      background-repeat no-repeat
-      background-position center
-      background-size cover
+      a
+        display block
+        height 400px
+        background-repeat no-repeat
+        background-position center
+        background-size cover
 
-      @media(max-width 767px)
-        padding-top 100%
-        height auto
+        @media(max-width 767px)
+          padding-top 100%
+          height auto
+
+    &-wrapper
+      position static
+      top auto
+      left auto
+      opacity 1
+      transform none
 
 .top-swiper
 
