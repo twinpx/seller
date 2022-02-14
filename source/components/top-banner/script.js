@@ -13,12 +13,10 @@
 
     var swiper = new Swiper('.swiper--' + device, {
       on: {
-        init: function () {
-          setTimeout(function () {
-            swiper.el
-              .closest('.top-swiper-ph')
-              .classList.add('top-swiper--initialized');
-          }, 500);
+        init: function (s) {
+          s.el
+            .closest('.top-swiper-ph')
+            .classList.add('top-swiper--initialized');
         },
       },
       pagination: {
