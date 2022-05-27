@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marquee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      body {
+        font-size: 16px;
+      }
+      .marquee3k {
+        overflow: hidden;
+      }
+      .diagonal-marquee {
+        transform: rotate(45deg);
+      }
+
+      .marquee3k__copy {
+        padding-right: 60px;
+        box-sizing: border-box;
+      }
+      .slr-marquee {
+        background-color: #f8f8f8;
+        color: #000000;
+        font-size: 1.5rem;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        padding: 5px 0;
+        height: 80px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        color: ;
+      }
+    </style>
+
+    <style id="marqueeStyles"></style>
+
+    <div class="marquee3k slr-marquee" data-speed="0.7">
+      <span>Новая коллекция</span>
+    </div>
+
+    <script src="marquee3k.js"></script>
+    <script>
+      Marquee3k.init();
+    </script>
+  </body>
+</html>
