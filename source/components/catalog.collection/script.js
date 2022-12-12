@@ -168,6 +168,7 @@
 
             //ecommerce
             $('.b-catalog-element__button .btn').trigger('add.ecommerce');
+
             //Yandex Metrika
             if (ym && ymID) {
               ym(ymID, 'reachGoal', 'goal_basket_add');

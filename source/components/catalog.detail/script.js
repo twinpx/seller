@@ -294,7 +294,7 @@
             $('#oneClick .modal-footer .btn').hide();
             $('#oneClick .modal-footer .i-gray').show();
             //ecommerce event trigger
-            $('#oneClick').trigger('onClickSuccess.ecommerce');
+            $('#oneClick').trigger('oneClickSuccess.ecommerce');
             //Yandex Metrika
             if (ym && ymID) {
               ym(ymID, 'reachGoal', 'goal_1click_success'); //Покупка в 1 клик успешно завершена
