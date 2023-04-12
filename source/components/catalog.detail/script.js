@@ -22,7 +22,9 @@
     });
 
     //ecommerce
-    $('.b-catalog-detail').trigger('detail.ecommerce');
+    setTimeout(() => {
+      $('.b-catalog-detail').trigger('detail.ecommerce');
+    }, 0);
 
     //mobile props
     $('.b-catalog-detail__props-slide').click(function (e) {

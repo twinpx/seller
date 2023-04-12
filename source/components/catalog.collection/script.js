@@ -167,7 +167,7 @@
               .data({ incart: 'Y' });
 
             //ecommerce
-            $('.b-catalog-element__button .btn').trigger('add.ecommerce');
+            $btn.trigger('add.ecommerce');
 
             //Yandex Metrika
             if (ym && ymID) {

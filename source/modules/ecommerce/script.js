@@ -11,7 +11,7 @@ $('.b-catalog-detail').bind('detail.ecommerce', function () {
 
   var productObj = {
     id: $('.b-catalog-detail').data('id'),
-    name: $('.b-catalog-detail h1').text(),
+    name: document.querySelector('.b-catalog-detail h1').textContent.trim(),
     price: parseInt(
       $('.b-catalog-detail__price').text().split(' ').join(''),
       10
@@ -46,9 +46,9 @@ $('.b-catalog-detail__button-block .btn-100:not( .i-gray )').click(function () {
 
   var productObj = {
     id: $('.b-catalog-detail').data('id'),
-    name: $('.b-catalog-detail h1').text(),
+    name: document.querySelector('.b-catalog-detail h1').textContent.trim(),
     price: parseInt(
-      $('.b-catalog-detail__price').text().split(' ').join(''),
+      $('.b-catalog-detail__price').text().split(/\s/).join(''),
       10
     ),
     category: $('#catalogDetailData').data('category'),
@@ -89,7 +89,7 @@ $('.b-catalog-element__button .btn').bind('add.ecommerce', function () {
       $element
         .find('.b-catalog-element__price span')
         .text()
-        .split(' ')
+        .split(/\s/)
         .join(''),
       10
     ),
@@ -160,42 +160,102 @@ $('#basket-root .basket-item-actions-remove').bind('click', function () {
 });
 
 //purchase
-//create order
-$('.bx-soa-button-block a').click(function () {
-  if (
-    window.BX &&
-    window.BX.Sale.OrderAjaxComponent &&
-    window.BX.Sale.OrderAjaxComponent.result.GRID.ROWS
-  ) {
-    let rows = window.BX.Sale.OrderAjaxComponent.result.GRID.ROWS,
-      products = [],
-      entryObject = {
-        sku: 'PROPERTY_CML2_ARTICLE_VALUE',
-        name: 'NAME',
-        category: 'PROPERTY_GRUPPA_DLYA_SAYTA_UROVEN_1_VALUE',
-        price: 'SUM_NUM',
-        quantity: 'QUANTITY',
-      };
+//one click success
+$('#oneClick').bind('oneClickSuccess.ecommerce', function () {
+  var variant = '';
+  $('#propListBlock [data-prop]').each(function (index, elem) {
+    variant += $(elem).find('.i-active').text() + ' ';
+  });
 
-    Object.entries(rows).forEach((entry) => {
-      let product = {};
-      Object.keys(entryObject).forEach((key) => {
-        if (entry[1].data[entryObject[key]]) {
-          product[key] = entry[1].data[entryObject[key]];
-        }
-      });
+  var productObj = {
+    id: $('.b-catalog-detail').data('id'),
+    name: document.querySelector('.b-catalog-detail h1').textContent.trim(),
+    price: parseInt(
+      $('.b-catalog-detail__price').text().split(/\s/).join(''),
+      10
+    ),
+    category: $('#catalogDetailData').data('category'),
+    brand: $('#catalogDetailData').data('brand'),
+    quantity: 1,
+    variant: $.trim(variant),
+  };
 
-      products.push(product);
-    });
+  var currencyCode = $(
+    '#catalogDetailData div[ data-id=' + $('.b-catalog-detail').data('id') + ']'
+  ).data('cur');
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'purchase',
-      transactionId: '1234',
-      transactionTotal: window.BX.Sale.OrderAjaxComponent
-        ? window.BX.Sale.OrderAjaxComponent.result.TOTAL.ORDER_TOTAL_PRICE
-        : 0,
-      transactionProducts: products,
-    });
-  }
+  window.dataLayer.push({
+    ecommerce: {
+      currencyCode: currencyCode,
+      purchase: {
+        actionField: {
+          id: window.oneClickOrderId,
+          goal_id: window.oneClickYandexId,
+        },
+        products: [productObj],
+      },
+    },
+  });
 });
+
+//create order
+const makeOrderButton = document('.bx-soa-button-block a');
+if (
+  makeOrderButton &&
+  window.BX &&
+  window.BX.Sale.OrderAjaxComponent &&
+  window.BX.Sale.OrderAjaxComponent.result.GRID.ROWS
+) {
+  let rows = window.BX.Sale.OrderAjaxComponent.result.GRID.ROWS,
+    products = [],
+    entryObject = {
+      sku: 'PROPERTY_CML2_ARTICLE_VALUE',
+      name: 'NAME',
+      category: 'PROPERTY_GRUPPA_DLYA_SAYTA_UROVEN_1_VALUE',
+      price: 'BASE_PRICE',
+      quantity: 'QUANTITY',
+    };
+
+  Object.entries(rows).forEach((entry) => {
+    let product = {};
+    Object.keys(entryObject).forEach((key) => {
+      if (entry[1].data[entryObject[key]]) {
+        product[key] = entry[1].data[entryObject[key]];
+      }
+    });
+
+    products.push(product);
+  });
+
+  if (window.sessionStorage) {
+    sessionStorage.setItem(
+      'sellerOrderTotal',
+      JSON.stringify(BX.Sale.OrderAjaxComponent.result.TOTAL.ORDER_TOTAL_PRICE)
+    );
+    sessionStorage.setItem('sellerOrderProducts', JSON.stringify(products));
+  }
+}
+
+const queryObject = parseQuery(window.location.search);
+
+if (window.location.search && queryObject && queryObject['ORDER_ID']) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'purchase',
+    transactionId: queryObject['ORDER_ID'],
+    transactionTotal: sessionStorage.getItem('sellerOrderTotal'),
+    transactionProducts: sessionStorage.getItem('sellerOrderProducts'),
+  });
+}
+
+function parseQuery(queryString) {
+  var query = {};
+  var pairs = (
+    queryString[0] === '?' ? queryString.substr(1) : queryString
+  ).split('&');
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split('=');
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+  }
+  return query;
+}
